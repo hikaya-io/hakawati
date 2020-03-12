@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "storybook": "start-storybook"
+    "storybook": "start-storybook",
+    "build": "build-storybook"
   },
   "dependencies": {
     "core-js": "^3.6.4",
