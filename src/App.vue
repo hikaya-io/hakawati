@@ -19,6 +19,7 @@ export default {
 <style>
 #app {
   font-family: 'Lato', sans-serif;
+  font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

@@ -15,6 +15,9 @@ export default {
 }
 </script>
 
-<style scoped>
-
-</style>
+<style>
+    .el-button {
+        font-family: 'Lato', sans-serif;
+        font-weight: 300;
+    }
+</style>>
