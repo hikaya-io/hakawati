@@ -18,7 +18,10 @@ export default {
   props: {
     type: {
       type: String,
-      icon: String,
+      default: ''
+    },
+    icon: {
+      type: String,
       default: ''
     }
   }

@@ -27,34 +27,25 @@
         </el-form-item>
         </el-col>
         </el-row>
-        <el-form-item label="Activity time">
-            <el-col :span="11">
-            <el-date-picker type="date" placeholder="Pick a date" v-model="form.date1" style="width: 100%;"></el-date-picker>
-            </el-col>
-            <el-col class="line" :span="2">-</el-col>
-            <el-col :span="11">
-            <el-time-picker placeholder="Pick a time" v-model="form.date2" style="width: 100%;"></el-time-picker>
-            </el-col>
+        <el-form-item label="Eligible">
+            <el-switch v-model="form.eligible"></el-switch>
         </el-form-item>
-        <el-form-item label="Instant delivery">
-            <el-switch v-model="form.delivery"></el-switch>
-        </el-form-item>
-        <el-form-item label="Activity type">
-            <el-checkbox-group v-model="form.type">
-            <el-checkbox label="Online activities" name="type"></el-checkbox>
-            <el-checkbox label="Promotion activities" name="type"></el-checkbox>
-            <el-checkbox label="Offline activities" name="type"></el-checkbox>
-            <el-checkbox label="Simple brand exposure" name="type"></el-checkbox>
+        <el-form-item label="Services">
+            <el-checkbox-group v-model="form.services">
+            <el-checkbox label="Construction" name="type"></el-checkbox>
+            <el-checkbox label="Distribution" name="type"></el-checkbox>
+            <el-checkbox label="Event" name="type"></el-checkbox>
+            <el-checkbox label="Training" name="type"></el-checkbox>
             </el-checkbox-group>
         </el-form-item>
-        <el-form-item label="Resources">
-            <el-radio-group v-model="form.resource">
-            <el-radio label="Sponsor"></el-radio>
-            <el-radio label="Venue"></el-radio>
+        <el-form-item label="Implementer">
+            <el-radio-group v-model="form.implementer">
+            <el-radio label="Consortium"></el-radio>
+            <el-radio label="Partner"></el-radio>
             </el-radio-group>
         </el-form-item>
-        <el-form-item label="Activity form">
-            <el-input type="textarea" v-model="form.desc"></el-input>
+        <el-form-item label="Notes">
+            <el-input type="textarea" v-model="form.notes"></el-input>
         </el-form-item>
         <el-form-item>
             <el-button size="medium" type="primary" @click="onSubmit">Create</el-button>
@@ -66,25 +57,23 @@
 <script>
     export default {
         data() {
-        return {
-            form: {
-            firstName: '',
-            lastName: '',
-            sex: '',
-            dateOfBirth: '',
-            date1: '',
-            date2: '',
-            delivery: false,
-            type: [],
-            resource: '',
-            desc: ''
+            return {
+                form: {
+                    firstName: '',
+                    lastName: '',
+                    sex: '',
+                    dateOfBirth: '',
+                    eligible: false,
+                    services: [],
+                    implementer: '',
+                    notes: ''
+                }
             }
-        }
         },
         methods: {
-        onSubmit() {
-            console.log('submit!');
-        }
+            onSubmit() {
+                console.log('submit!');
+            }
         }
     }
 </script>
@@ -95,4 +84,13 @@
         font-weight: 300;
     }
 
+    .el-select-dropdown__item {
+        font-family: 'Lato', sans-serif;
+        font-weight: 300;
+    }
+
+    .el-date-picker {
+        font-family: 'Lato', sans-serif;
+        font-weight: 300;
+    }
 </style>

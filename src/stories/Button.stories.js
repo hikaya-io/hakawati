@@ -83,8 +83,8 @@ export const textButton = () => ({
   components: { TextButton },
   template: `
   <div>
-    <text-button type="text"></text-button>
-    <text-button type="text" disabled></text-button>
+    <text-button type="text">Text button</text-button>
+    <text-button type="text" disabled>Text button</text-button>
   </div>
 `
 })
