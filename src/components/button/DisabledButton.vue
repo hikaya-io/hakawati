@@ -1,12 +1,12 @@
 <template>
-  <el-button size="medium" :type="type" plain>
+  <el-button size="medium" :type="type" disabled>
     <slot></slot>
   </el-button>
 </template>
 
 <script>
 export default {
-  name: 'PlainButton',
+  name: 'DisabledButton',
   props: {
     type: {
       type: String,
@@ -18,4 +18,4 @@ export default {
 
 <style scoped>
 
-</style>
+</style>>
