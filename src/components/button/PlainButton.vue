@@ -1,17 +1,18 @@
 <template>
-    <el-row>
-        <el-button size="medium" plain>Plain</el-button>
-        <el-button size="medium" type="primary" plain>Primary</el-button>
-        <el-button size="medium" type="success" plain>Success</el-button>
-        <el-button size="medium" type="info" plain>Info</el-button>
-        <el-button size="medium" type="warning" plain>Warning</el-button>
-        <el-button size="medium" type="danger" plain>Danger</el-button>
-    </el-row>
+  <el-button size="medium" :type="type" plain>
+    <slot></slot>
+  </el-button>
 </template>
 
 <script>
 export default {
-  name: 'PlainButton'
+  name: 'PlainButton',
+  props: {
+    type: {
+      type: String,
+      default: ''
+    }
+  }
 }
 </script>
 
