@@ -11,7 +11,7 @@
 
 <script>
 export default {
-    name: 'RoundButton'
+  name: 'RoundButton'
 }
 </script>
 

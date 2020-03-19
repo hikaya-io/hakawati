@@ -22,8 +22,8 @@ export default {
 </script>
 
 <style>
-.el-button {
-      font-family: 'Lato', sans-serif;
-      font-weight: 300;
-}
+    .el-button {
+        font-family: 'Lato', sans-serif;
+        font-weight: 300;
+    }
 </style>>
