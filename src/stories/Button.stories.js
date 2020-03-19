@@ -2,6 +2,7 @@ import BasicButton from '../components/button/BasicButton.vue'
 import PlainButton from '../components/button/PlainButton.vue'
 import RoundButton from '../components/button/RoundButton.vue'
 import CircleButton from '../components/button/CircleButton.vue'
+import { action } from '@storybook/addon-actions'
 
 // This is required for each story
 export default { title: 'Button' }
@@ -9,7 +10,8 @@ export default { title: 'Button' }
 // Customize components here. For instance, here's my-button component with a text of "with text"
 export const basicButton = () => ({
   components: { BasicButton },
-  template: '<basic-button />'
+  template: '<basic-button @onClick="action"> Default </basic-button>',
+  methods: { action: action('onClick') }
 })
 
 export const plainButton = () => ({
