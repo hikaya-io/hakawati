@@ -1,0 +1,45 @@
+// Global
+$--color-primary:#25CED1;
+$--color-success: #2AC27F;
+$--color-warning: #F9C80E;
+$--color-danger: #F61067;
+$--color-text-regular: #737581;
+$--color-text-primary: #737581;
+$--border-color-light: #FAFAFA;
+$--border-color-base: #E1E1E1;
+$--font-size-extra-large: 28px;
+$--font-size-large: 20px;
+$--font-size-medium: 18px;
+$--font-weight-primary: 400;
+$--font-weight-secondary: 300;
+$--border-radius-circle: 100%;
+
+// Local
+//$--button-border-radius: $--border-radius-small;
+//$--button-medium-border-radius: $--border-radius-small;
+$--calendar-selected-background-color: #FAFAFA;
+$--dialog-title-font-size: 22px;
+//$--dialog-font-line-height: $--font-line-height-primary;
+$--input-placeholder-color: #A5A7AE;
+$--notification-title-font-size: 16px;
+$--pagination-font-size: 13px;
+$--popup-modal-opacity: 0.5;
+$--popup-modal-background-color: #000000;
+$--radio-checked-input-border-color: $--color-primary;
+$--radio-checked-icon-color: $--color-primary;
+$--radio-checked-input-background-color: #FFFFFF;
+$--radio-icon-color: $--color-primary;
+$--radio-input-background-color: #FFFFFF;
+$--switch-on-color: $--color-primary;
+$--table-row-hover-background-color: #FAFAFA;
+$--tag-font-size: 13px;
+$--tooltip-color: #FFFFFF;
+//$--tooltip-fill: $--color-info;
+//$--tooltip-border-color: $--color-info;
+$--transfer-panel-width: 300px;
+//$--tree-expand-icon-color: $--color-text-placeholder;
+
+/* icon font path, required */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+@import "~element-ui/packages/theme-chalk/src/index";
