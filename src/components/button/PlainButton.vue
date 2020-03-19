@@ -11,7 +11,7 @@
 
 <script>
 export default {
-    name: 'PlainButton'
+  name: 'PlainButton'
 }
 </script>
 

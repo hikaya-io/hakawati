@@ -11,7 +11,7 @@
 
 <script>
 export default {
-    name: 'CircleButton'
+  name: 'CircleButton'
 }
 </script>
 
