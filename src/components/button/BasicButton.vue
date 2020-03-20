@@ -1,24 +1,22 @@
 <template>
-  <el-row>
-    <el-button @click="$emit('click')"> <slot></slot> </el-button>
-    <el-button type="primary">Primary</el-button>
-    <el-button type="success">Success</el-button>
-    <el-button type="info">Info</el-button>
-    <el-button type="warning">Warning</el-button>
-    <el-button type="danger">Danger</el-button>
-  </el-row>
+  <el-button @click="$emit('click')" size="medium" :type="type">
+    <slot></slot>
+  </el-button>
 </template>
 
 <script>
 // import { action } from '@storybook/addon-actions'
 export default {
-  name: 'BasicButton'
+  name: 'BasicButton',
+  props: {
+    type: {
+      type: String,
+      default: ''
+    }
+  }
 }
 </script>
 
-<style>
-    .el-button {
-        font-family: 'Lato', sans-serif;
-        font-weight: 300;
-    }
+<style scoped>
+
 </style>>

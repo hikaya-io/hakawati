@@ -1,18 +1,14 @@
 <template>
-  <el-button @click="$emit('click')" size="medium" :type="type" :icon="icon" circle>
+  <el-button @click="$emit('click')" :type="type" v-bind="$attrs" v-on="$listeners">
     <slot></slot>
   </el-button>
 </template>
 
 <script>
 export default {
-  name: 'CircleButton',
+  name: 'TextButton',
   props: {
     type: {
-      type: String,
-      default: ''
-    },
-    icon: {
       type: String,
       default: ''
     }

@@ -1,18 +1,14 @@
 <template>
-  <el-button @click="$emit('click')" size="medium" :type="type" :icon="icon" circle>
+  <el-button @click="$emit('click')" size="medium" :type="type" disabled>
     <slot></slot>
   </el-button>
 </template>
 
 <script>
 export default {
-  name: 'CircleButton',
+  name: 'DisabledButton',
   props: {
     type: {
-      type: String,
-      default: ''
-    },
-    icon: {
       type: String,
       default: ''
     }
@@ -22,4 +18,4 @@ export default {
 
 <style scoped>
 
-</style>
+</style>>
