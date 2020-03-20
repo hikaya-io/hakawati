@@ -10,8 +10,8 @@ export default { title: 'Button' }
 // Customize components here. For instance, here's my-button component with a text of "with text"
 export const basicButton = () => ({
   components: { BasicButton },
-  template: '<basic-button @onClick="action"> Default </basic-button>',
-  methods: { action: action('onClick') }
+  template: '<basic-button @click="action"> Default </basic-button>',
+  methods: { action: action('click') }
 })
 
 export const plainButton = () => ({

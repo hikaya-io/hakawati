@@ -1,6 +1,6 @@
 <template>
   <el-row>
-    <el-button @click="onClick"> <slot></slot> </el-button>
+    <el-button @click="$emit('click')"> <slot></slot> </el-button>
     <el-button type="primary">Primary</el-button>
     <el-button type="success">Success</el-button>
     <el-button type="info">Info</el-button>
@@ -12,12 +12,7 @@
 <script>
 // import { action } from '@storybook/addon-actions'
 export default {
-  name: 'BasicButton',
-  methods: {
-    onClick: function () {
-      this.$emit('onClick')
-    }
-  }
+  name: 'BasicButton'
 }
 </script>
 
