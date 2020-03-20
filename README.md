@@ -1,30 +1,38 @@
 # vue-ui-components
+This is a collection of reusable UI components built in [Vue](https://vuejs.org/) based on our [design system](https://team.hikaya.io/design/color.html). Our UI components are based on [ElementUI](https://element.eleme.io/#/en-US), a desktop-focused UI library.
+<br/>
+<p align="center">
+  <img src="src/assets/vue-storybook.png" height="150" />
+</p>
 
-## Project setup
+Our current UI library can be found [here](https://vue-ui-components.now.sh/).
+
+## Setup
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+#### Compiles and hot-reloads for development
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
+#### Compiles and minifies for production
 ```
 yarn build
 ```
 
-### Run your unit tests
+#### Run your unit tests
 ```
 yarn test:unit
 ```
 
-### Lints and fixes files
+#### Lints and fixes files
 ```
 yarn lint
 ```
-### Run storybook
+
+#### Run storybook
 ```
 yarn storybook
 ```
