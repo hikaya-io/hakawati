@@ -1,5 +1,5 @@
 <template>
-  <el-button :type="type" v-bind="$attrs" v-on="$listeners">
+  <el-button @click="$emit('click')" :type="type" v-bind="$attrs" v-on="$listeners">
     <slot></slot>
   </el-button>
 </template>

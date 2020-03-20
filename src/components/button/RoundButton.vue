@@ -1,5 +1,5 @@
 <template>
-  <el-button size="medium" :type="type" round>
+  <el-button @click="$emit('click')" size="medium" :type="type" round>
     <slot></slot>
   </el-button>
 </template>

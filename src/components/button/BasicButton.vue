@@ -1,10 +1,11 @@
 <template>
-  <el-button size="medium" :type="type">
+  <el-button @click="$emit('click')" size="medium" :type="type">
     <slot></slot>
   </el-button>
 </template>
 
 <script>
+// import { action } from '@storybook/addon-actions'
 export default {
   name: 'BasicButton',
   props: {
