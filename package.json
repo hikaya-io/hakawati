@@ -6,7 +6,9 @@
     "build": "build-storybook",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "storybook": "start-storybook"
+    "storybook": "start-storybook",
+    "build-lib": "vue-cli-service build --target lib --name hikaya-ui-components src/index.js",
+    "main": "./dist/hikaya-ui-components.common.js"
   },
   "dependencies": {
     "@storybook/addon-actions": "^5.3.17",
