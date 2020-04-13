@@ -31,6 +31,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
+  .el-tabs {
+    font-family: 'Lato';
+  }
 
 </style>>

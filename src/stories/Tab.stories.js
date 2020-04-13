@@ -11,10 +11,12 @@ export const basicTab = () => ({
   components: { BasicTab },
   template: `
   <div>
+  <basic-tab>
   <el-tab-pane label="Maps" name="first">Maps</el-tab-pane>
   <el-tab-pane label="Dashboards" name="second">Dashboards</el-tab-pane>
   <el-tab-pane label="Reports" name="third">Reports</el-tab-pane>
   <el-tab-pane label="Tables" name="fourth">Tables</el-tab-pane>
+  </basic-tab>
   </div>  
   `,
   methods: { action: action('click') }
@@ -24,10 +26,12 @@ export const cardTab = () => ({
   components: { CardTab },
   template: `
     <div>
+    <card-tab>
     <el-tab-pane label="Maps" name="first">Maps</el-tab-pane>
     <el-tab-pane label="Dashboards" name="second">Dashboards</el-tab-pane>
     <el-tab-pane label="Reports" name="third">Reports</el-tab-pane>
     <el-tab-pane label="Tables" name="fourth">Tables</el-tab-pane>
+    </card-tab>
     </div>  
     `,
   methods: { action: action('click') }
@@ -37,10 +41,12 @@ export const verticalTab = () => ({
   components: { VerticalTab },
   template: `
     <div>
+    <vertical-tab>
     <el-tab-pane label="Maps" name="first">Maps</el-tab-pane>
     <el-tab-pane label="Dashboards" name="second">Dashboards</el-tab-pane>
     <el-tab-pane label="Reports" name="third">Reports</el-tab-pane>
     <el-tab-pane label="Tables" name="fourth">Tables</el-tab-pane>
+    </vertical-tab>
     </div>  
     `,
   methods: { action: action('click') }

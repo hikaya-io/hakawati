@@ -1,6 +1,6 @@
 
 <template>
-  <el-tabs v-model="tabPosition" :tab-position="tabPosition" style="height: 200px;" @tab-click="$emit('click')">
+  <el-tabs v-model="activeName" :tab-position="tabPosition" style="height: 200px;" @tab-click="$emit('click')">
     <slot></slot>
   </el-tabs>
 </template>
@@ -29,6 +29,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
+  .el-tabs {
+    font-family: 'Lato';
+  }
 
 </style>>
