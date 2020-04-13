@@ -1,3 +1,6 @@
+
+import './styles/element-variables.scss'
+
 // Button
 import BasicButton from '../components/button/BasicButton.vue'
 import DisabledButton from '../components/button/DisabledButton.vue'
@@ -29,27 +32,58 @@ import UploadExcel from '../components/upload/UploadExcel.vue'
 
 // Import other components
 
-export default () => {
-  return {
-    BasicButton,
-    DisabledButton,
-    PlainButton,
-    RoundButton,
-    CircleButton,
-    TextButton,
-    BasicCheckbox,
-    DisabledCheckbox,
-    CheckboxGroup,
-    ButtonCheckbox,
-    BasicInput,
-    DisabledInput,
-    ClearInput,
-    PasswordBox,
-    TextArea,
-    InputLength,
-    BasicTable,
-    TableWithStatus,
-    UploadExcel
-    // Add other components here
-  }
+const components = [
+  BasicButton,
+  DisabledButton,
+  PlainButton,
+  RoundButton,
+  CircleButton,
+  TextButton,
+  BasicCheckbox,
+  DisabledCheckbox,
+  CheckboxGroup,
+  ButtonCheckbox,
+  BasicInput,
+  DisabledInput,
+  ClearInput,
+  PasswordBox,
+  TextArea,
+  InputLength,
+  BasicTable,
+  TableWithStatus,
+  UploadExcel
+]
+
+const install = function (Vue) {
+  components.forEach(component => {
+    Vue.component(component.name, component)
+  })
+}
+
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue)
+}
+
+export default {
+  install,
+  BasicButton,
+  DisabledButton,
+  PlainButton,
+  RoundButton,
+  CircleButton,
+  TextButton,
+  BasicCheckbox,
+  DisabledCheckbox,
+  CheckboxGroup,
+  ButtonCheckbox,
+  BasicInput,
+  DisabledInput,
+  ClearInput,
+  PasswordBox,
+  TextArea,
+  InputLength,
+  BasicTable,
+  TableWithStatus,
+  UploadExcel
+  // Other components
 }
