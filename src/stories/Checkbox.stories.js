@@ -2,6 +2,7 @@ import BasicCheckbox from '../components/checkbox/BasicCheckbox.vue'
 import DisabledCheckbox from '../components/checkbox/DisabledCheckbox.vue'
 import CheckboxGroup from '../components/checkbox/CheckboxGroup.vue'
 import ButtonCheckbox from '../components/checkbox/ButtonCheckbox.vue'
+
 import { action } from '@storybook/addon-actions'
 
 // This is required for each story
@@ -48,8 +49,11 @@ export const buttonCheckbox = () => ({
   components: { ButtonCheckbox },
   template: `
       <div>
-      <checkbox-group @click="action">
-        <el-checkbox-button v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox-button>
+      <checkbox-group @click="action" size="medium">
+        <el-checkbox-button>Option A</el-checkbox-button>
+        <el-checkbox-button>Option B</el-checkbox-button>
+        <el-checkbox-button>Option C</el-checkbox-button>
+        <el-checkbox-button>Option D</el-checkbox-button>
       </checkbox-group>
       </div>
       `,
