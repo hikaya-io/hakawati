@@ -1,9 +1,23 @@
+import './styles/element-variables.scss'
 import BasicButton from './components/button/BasicButton.vue'
 // Import other components
 
-export default () => {
-  return {
-    BasicButton
-    // Add other components here
-  }
+const components = [
+  BasicButton
+]
+
+const install = function (Vue) {
+  components.forEach(component => {
+    Vue.component(component.name, component)
+  })
+}
+
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue)
+}
+
+export default {
+  install,
+  BasicButton
+  // Other components
 }
