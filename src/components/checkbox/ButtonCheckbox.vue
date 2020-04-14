@@ -1,24 +1,19 @@
 <template>
-    <el-checkbox-group @click="$emit('click')" :type="type" v-model="checked" size="medium">
+    <el-checkbox-group @click="$emit('click')" :size="size">
+      <el-checkbox-button>
         <slot></slot>
+      </el-checkbox-button>
     </el-checkbox-group>
 </template>
 
 <script>
-const cityOptions = ['Shanghai', 'Beijing', 'Guangzhou', 'Shenzhen']
 
 export default {
   name: 'ButtonCheckbox',
   props: {
-    type: {
+    size: {
       type: String,
       default: ''
-    }
-  },
-  data () {
-    return {
-      checked: ['Shanghai'],
-      cities: cityOptions
     }
   }
 }

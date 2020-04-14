@@ -3,8 +3,9 @@ import DisabledButton from '../components/button/DisabledButton.vue'
 import PlainButton from '../components/button/PlainButton.vue'
 import RoundButton from '../components/button/RoundButton.vue'
 import CircleButton from '../components/button/CircleButton.vue'
-import { action } from '@storybook/addon-actions'
 import TextButton from '../components/button/TextButton.vue'
+
+import { action } from '@storybook/addon-actions'
 
 // This is required for each story
 export default { title: 'Button' }

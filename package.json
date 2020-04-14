@@ -20,7 +20,8 @@
   "dependencies": {
     "core-js": "^3.6.4",
     "element-ui": "^2.13.0",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "xlsx": "^0.15.6"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
