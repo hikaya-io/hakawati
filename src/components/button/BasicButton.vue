@@ -1,5 +1,5 @@
 <template>
-  <el-button @click="$emit('click')" size="medium" :type="type">
+  <el-button @click="$emit('click')" :size="size" :type="type">
     <slot></slot>
   </el-button>
 </template>
@@ -10,6 +10,10 @@ export default {
   name: 'BasicButton',
   props: {
     type: {
+      type: String,
+      default: ''
+    },
+    size: {
       type: String,
       default: ''
     }

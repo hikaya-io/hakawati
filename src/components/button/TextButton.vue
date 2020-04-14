@@ -1,5 +1,5 @@
 <template>
-  <el-button @click="$emit('click')" :type="type" v-bind="$attrs" v-on="$listeners">
+  <el-button @click="$emit('click')" :size="size" :type="type" v-bind="$attrs" v-on="$listeners">
     <slot></slot>
   </el-button>
 </template>
@@ -9,6 +9,10 @@ export default {
   name: 'TextButton',
   props: {
     type: {
+      type: String,
+      default: ''
+    },
+    size: {
       type: String,
       default: ''
     }
