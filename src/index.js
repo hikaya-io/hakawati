@@ -30,6 +30,16 @@ import TableWithStatus from '../components/table/TableWithStatus.vue'
 // Upload
 import UploadExcel from '../components/upload/UploadExcel.vue'
 
+// Alert
+import BasicAlert from '../components/alert/BasicAlert.vue'
+import IconAlert from '../components/alert/IconAlert.vue'
+import DescriptionAlert from '../components/alert/DescriptionAlert.vue'
+
+// Switch
+import BasicSwitch from '../components/switch/BasicSwitch.vue'
+import TextSwitch from '../components/switch/TextSwitch.vue'
+import DisabledSwitch from '../components/switch/DisabledSwitch.vue'
+
 // Import other components
 
 const components = [
@@ -51,7 +61,13 @@ const components = [
   InputLength,
   BasicTable,
   TableWithStatus,
-  UploadExcel
+  UploadExcel,
+  BasicAlert,
+  IconAlert,
+  DescriptionAlert,
+  BasicSwitch,
+  TextSwitch,
+  DisabledSwitch
 ]
 
 const install = function (Vue) {
@@ -84,6 +100,12 @@ export default {
   InputLength,
   BasicTable,
   TableWithStatus,
-  UploadExcel
+  UploadExcel,
+  BasicAlert,
+  IconAlert,
+  DescriptionAlert,
+  BasicSwitch,
+  TextSwitch,
+  DisabledSwitch
   // Other components
 }
