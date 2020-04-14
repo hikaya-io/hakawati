@@ -1,10 +1,14 @@
 <template>
-  <el-alert :title="title" :type="type"> </el-alert>
+    <el-alert
+    :title="title"
+    :type="type"
+    show-icon>
+  </el-alert>
 </template>
 
 <script>
 export default {
-  name: 'BasicAlert',
+  name: 'IconAlert',
   props: {
     title: {
       type: String,
