@@ -1,29 +1,18 @@
 <template>
     <el-dropdown>
-        <el-button @click="$emit('click')" :size="size" :type="type">
+        <el-button @click="$emit('click')" size="small" type="primary">
+          More options
         </el-button>
     <el-dropdown-menu slot="dropdown">
-        <el-dropdown-menu slot="dropdown">
-            <slot></slot>
+        <slot name="items"></slot>
     </el-dropdown-menu>
-  </el-dropdown-menu>
 </el-dropdown>
 </template>
 
 <script>
 
 export default {
-  name: 'TriggerDropdown',
-  props: {
-    type: {
-      type: String,
-      default: ''
-    },
-    size: {
-      type: String,
-      default: ''
-    }
-  }
+  name: 'TriggerDropdown'
 }
 </script>
 

@@ -1,11 +1,12 @@
 <template>
-    <el-dropdown>
+  <el-dropdown>
+    <span class="el-dropdown-link">
+        More options<i class="el-icon-arrow-down el-icon--right"></i>
+    </span>
     <el-dropdown-menu slot="dropdown">
-        <el-dropdown-menu slot="dropdown">
-            <slot></slot>
+      <slot name="items"></slot>
     </el-dropdown-menu>
-  </el-dropdown-menu>
-</el-dropdown>
+  </el-dropdown>
 </template>
 
 <script>
