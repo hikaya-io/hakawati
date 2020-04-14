@@ -30,6 +30,10 @@ import TableWithStatus from '../components/table/TableWithStatus.vue'
 // Upload
 import UploadExcel from '../components/upload/UploadExcel.vue'
 
+// Dropdown
+import BasicDropdown from '../components/dropdown/BasicDropdown.vue'
+import TriggerDropdown from '../components/dropdown/TriggerDropdown.vue'
+
 // Import other components
 
 const components = [
@@ -51,7 +55,9 @@ const components = [
   InputLength,
   BasicTable,
   TableWithStatus,
-  UploadExcel
+  UploadExcel,
+  BasicDropdown,
+  TriggerDropdown
 ]
 
 const install = function (Vue) {
@@ -84,6 +90,8 @@ export default {
   InputLength,
   BasicTable,
   TableWithStatus,
-  UploadExcel
+  UploadExcel,
+  BasicDropdown,
+  TriggerDropdown
   // Other components
 }
