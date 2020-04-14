@@ -1,4 +1,7 @@
 import BasicSwitch from '../components/switch/BasicSwitch.vue'
+import TextSwitch from '../components/switch/TextSwitch.vue'
+import DisabledSwitch from '../components/switch/DisabledSwitch.vue'
+
 import { action } from '@storybook/addon-actions'
 
 // This is required for each story
@@ -16,5 +19,35 @@ export const basicSwitch = () => ({
       </basic-switch>
     </div>
     `,
+  methods: { action: action('click') }
+})
+
+export const textSwitch = () => ({
+  components: { TextSwitch },
+  template: `
+      <div>
+        <text-switch
+            activeColor="#25CED1"
+            inactiveColor="#E1E1E1"
+            activeText="Activate user"
+            inactiveText="Deactivate user"
+            @click="action">
+        </text-switch>
+      </div>
+      `,
+  methods: { action: action('click') }
+})
+
+export const disabledSwitch = () => ({
+  components: { DisabledSwitch },
+  template: `
+      <div>
+        <disabled-switch
+            activeColor="#25CED1"
+            inactiveColor="#E1E1E1"
+            @click="action">
+        </disabled-switch>
+      </div>
+      `,
   methods: { action: action('click') }
 })
