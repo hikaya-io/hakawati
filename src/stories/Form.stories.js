@@ -5,6 +5,6 @@ export default { title: 'Form' }
 
 // Customize components here
 export const basicForm = () => ({
-    components: { BasicForm },
-    template: '<basic-form />'
-  })
+  components: { BasicForm },
+  template: '<basic-form />'
+})
