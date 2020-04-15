@@ -40,6 +40,10 @@ import BasicSwitch from '../components/switch/BasicSwitch.vue'
 import TextSwitch from '../components/switch/TextSwitch.vue'
 import DisabledSwitch from '../components/switch/DisabledSwitch.vue'
 
+// Card
+import BasicCard from '../components/card/BasicCard.vue'
+import ShadowCard from '../components/card/ShadowCard.vue'
+
 // Import other components
 
 const components = [
@@ -67,7 +71,9 @@ const components = [
   DescriptionAlert,
   BasicSwitch,
   TextSwitch,
-  DisabledSwitch
+  DisabledSwitch,
+  BasicCard,
+  ShadowCard
 ]
 
 const install = function (Vue) {
@@ -106,6 +112,8 @@ export default {
   DescriptionAlert,
   BasicSwitch,
   TextSwitch,
-  DisabledSwitch
+  DisabledSwitch,
+  BasicCard,
+  ShadowCard
   // Other components
 }
