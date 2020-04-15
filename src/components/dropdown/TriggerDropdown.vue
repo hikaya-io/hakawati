@@ -1,11 +1,9 @@
 <template>
     <el-dropdown>
-        <el-button @click="$emit('click')" size="small" type="primary">
-          More options
-        </el-button>
-    <el-dropdown-menu slot="dropdown">
+      <slot name="title"></slot>
+      <el-dropdown-menu slot="dropdown">
         <slot name="items"></slot>
-    </el-dropdown-menu>
+      </el-dropdown-menu>
 </el-dropdown>
 </template>
 

@@ -1,8 +1,6 @@
 <template>
   <el-dropdown>
-    <span class="el-dropdown-link">
-        More options<i class="el-icon-arrow-down el-icon--right"></i>
-    </span>
+    <slot name="title"></slot>
     <el-dropdown-menu slot="dropdown">
       <slot name="items"></slot>
     </el-dropdown-menu>
