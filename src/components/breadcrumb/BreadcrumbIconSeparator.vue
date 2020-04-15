@@ -29,6 +29,6 @@ export default {
 <style scoped lang="scss">
 .el-breadcrumb {
 font-family: 'Lato', sans-serif;
-// font-size: 40px;
+font-size: 16px;
 }
 </style>
