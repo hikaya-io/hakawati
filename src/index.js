@@ -30,6 +30,10 @@ import TableWithStatus from '../components/table/TableWithStatus.vue'
 // Upload
 import UploadExcel from '../components/upload/UploadExcel.vue'
 
+// Dropdown
+import BasicDropdown from '../components/dropdown/BasicDropdown.vue'
+import TriggerDropdown from '../components/dropdown/TriggerDropdown.vue'
+
 // Alert
 import BasicAlert from '../components/alert/BasicAlert.vue'
 import IconAlert from '../components/alert/IconAlert.vue'
@@ -40,7 +44,7 @@ import BasicSwitch from '../components/switch/BasicSwitch.vue'
 import TextSwitch from '../components/switch/TextSwitch.vue'
 import DisabledSwitch from '../components/switch/DisabledSwitch.vue'
 
-// Import other components
+// Import other components from here
 
 const components = [
   BasicButton,
@@ -62,6 +66,8 @@ const components = [
   BasicTable,
   TableWithStatus,
   UploadExcel,
+  BasicDropdown,
+  TriggerDropdown,
   BasicAlert,
   IconAlert,
   DescriptionAlert,
@@ -101,6 +107,8 @@ export default {
   BasicTable,
   TableWithStatus,
   UploadExcel,
+  BasicDropdown,
+  TriggerDropdown,
   BasicAlert,
   IconAlert,
   DescriptionAlert,
