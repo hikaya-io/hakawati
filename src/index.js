@@ -48,6 +48,10 @@ import DisabledSwitch from '../components/switch/DisabledSwitch.vue'
 import BasicCard from '../components/card/BasicCard.vue'
 import ShadowCard from '../components/card/ShadowCard.vue'
 
+// Tag
+import BasicTag from './components/tag/BasicTag.vue'
+import RemovableTag from './components/tag/RemovableTag.vue'
+
 // Import other components from here
 
 const components = [
@@ -79,7 +83,9 @@ const components = [
   TextSwitch,
   DisabledSwitch,
   BasicCard,
-  ShadowCard
+  ShadowCard,
+  BasicTag,
+  RemovableTag
 ]
 
 const install = function (Vue) {
@@ -122,6 +128,8 @@ export default {
   TextSwitch,
   DisabledSwitch,
   BasicCard,
-  ShadowCard
+  ShadowCard,
+  BasicTag,
+  RemovableTag
   // Other components
 }
