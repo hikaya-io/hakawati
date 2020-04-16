@@ -8,16 +8,16 @@
       :collapse="isCollapse"
     >
       <slot></slot>
+      <transition name="button-move">
+        <el-button
+          v-bind:icon="isCollapse ? 'el-icon-arrow-right button-arrow' : 'el-icon-arrow-left button-arrow'"
+          v-on:click="isCollapse = !isCollapse"
+          size="mini"
+          :class="!isCollapse ? 'btn-not-collapse' : ''"
+          circle
+        ></el-button>
+      </transition>
     </el-menu>
-     <transition name="button-move">
-     <el-button
-      v-bind:icon="isCollapse ? 'el-icon-arrow-right button-arrow' : 'el-icon-arrow-right button-arrow button-arrow-rotate'"
-      v-on:click="isCollapse = !isCollapse"
-      size="mini"
-      :class="!isCollapse ? 'btn-not-collapse' : ''"
-      circle
-    ></el-button>
-     </transition>
   </div>
 </template>
 
@@ -47,33 +47,28 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 200px;
-  min-height: 400px;
-}
+  .el-menu {
+    font-family: "Lato";
 
-.el-button{
-    position:relative;
-    top:-210px;
-    left:50px;
-    transition: left 0.4s;
-}
+    .el-button {
+      position: absolute;
+      transition: left 0.4s;
+      top: 15px;
+      right: -15px;
+      z-index: 10;
 
-.el-button.btn-not-collapse{
-    top:-385px;
-    left:187px;
-}
+      .button-arrow {
+        transition-duration: 0.5s;
+        display: inline-block;
+      }
 
-.button-arrow-rotate {
-  transform: rotate(180deg);
-}
-
-.button-arrow {
-  transition-duration:0.5s;
-  display: inline-block;
-}
-
-.el-menu {
-  font-family: "Lato";
-}
+      .button-arrow-rotate {
+        transform: rotate(180deg) !important;
+      }
+    }
+  }
+  .el-menu:not(.el-menu--collapse) {
+    width: 200px;
+  }
 </style>
+
