@@ -1,18 +1,16 @@
 <template>
-  <el-button @click="$emit('click')" :size="size" :type="type" round>
-    <slot></slot>
-  </el-button>
+  <el-alert :title="title" :type="type"> </el-alert>
 </template>
 
 <script>
 export default {
-  name: 'RoundButton',
+  name: 'BasicAlert',
   props: {
-    type: {
+    title: {
       type: String,
       default: ''
     },
-    size: {
+    type: {
       type: String,
       default: ''
     }
@@ -20,6 +18,8 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+  .el-alert {
+    font-family: 'Lato';
+  }
 </style>
