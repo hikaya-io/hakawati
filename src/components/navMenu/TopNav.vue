@@ -35,4 +35,7 @@ export default {
 .el-menu {
   font-family: "Lato";
 }
+.el-menu-item a{
+  text-decoration: none;
+}
 </style>

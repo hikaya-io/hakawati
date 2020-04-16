@@ -1,4 +1,5 @@
 import TopNav from '../components/navMenu/TopNav.vue'
+import CollapseNav from '../components/navMenu/CollapseNav.vue'
 
 // This is required for each story
 export default { title: 'Nav Menu' }
@@ -26,4 +27,41 @@ export const topNav = () => ({
       </el-submenu>
     </top-nav>
 `
+})
+
+export const collapseNav = () => ({
+  components: { CollapseNav },
+  template: `
+  <collapse-nav default-active="1">
+  <el-menu-item index="2">
+  <i class="el-icon-location"></i>
+  <span slot="title">Admin boundary</span>
+</el-menu-item>
+      <el-submenu index="1">
+        <template slot="title">
+          <i class="el-icon-set-up"></i>
+          <span slot="title">Indicators</span>
+        </template>
+        <el-menu-item-group>
+          <span slot="title">Group One</span>
+          <el-menu-item index="1-2">item one</el-menu-item>
+        </el-menu-item-group>
+        <el-menu-item-group title="Group Two">
+          <el-menu-item index="1-3">item three</el-menu-item>
+        </el-menu-item-group>
+        <el-submenu index="1-4">
+          <span slot="title">item four</span>
+          <el-menu-item index="1-4-1">item one</el-menu-item>
+        </el-submenu>
+      </el-submenu>
+      <el-menu-item index="3" disabled>
+        <i class="el-icon-document"></i>
+        <span slot="title">Navigator Three</span>
+      </el-menu-item>
+      <el-menu-item index="4">
+        <i class="el-icon-setting"></i>
+        <span slot="title">Navigator Four</span>
+      </el-menu-item>
+  </collapse-nav>
+  `
 })
