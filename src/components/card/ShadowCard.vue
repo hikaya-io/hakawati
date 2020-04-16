@@ -18,7 +18,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
     .el-card__header {
         font-family: 'Lato';
         font-weight: 300;
