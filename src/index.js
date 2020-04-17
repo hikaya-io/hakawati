@@ -23,6 +23,10 @@ import PasswordBox from '../components/input/PasswordBox.vue'
 import TextArea from '../components/input/TextArea.vue'
 import InputLength from '../components/input/InputLength.vue'
 
+// Nav menu
+import TopNav from './components/navMenu/TopNav.vue'
+import CollapseNav from './components/navMenu/CollapseNav.vue'
+
 // Table
 import BasicTable from '../components/table/BasicTable.vue'
 import TableWithStatus from '../components/table/TableWithStatus.vue'
@@ -76,6 +80,8 @@ const components = [
   PasswordBox,
   TextArea,
   InputLength,
+  TopNav,
+  CollapseNav,
   BasicTable,
   TableWithStatus,
   UploadExcel,
@@ -124,6 +130,8 @@ export default {
   PasswordBox,
   TextArea,
   InputLength,
+  TopNav,
+  CollapseNav,
   BasicTable,
   TableWithStatus,
   UploadExcel,
