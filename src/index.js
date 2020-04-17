@@ -61,6 +61,9 @@ import BasicSelect from '../components/select/BasicSelect.vue'
 import MultiSelect from '../components/select/MultiSelect.vue'
 import GroupedSelect from '../components/select/GroupedSelect.vue'
 
+// Cascader
+import BasicCascader from './components/cascader/BasicCascader.vue'
+
 // Import other components from here
 
 const components = [
@@ -99,7 +102,8 @@ const components = [
   BreadcrumbIconSeparator,
   BasicSelect,
   MultiSelect,
-  GroupedSelect
+  GroupedSelect,
+  BasicCascader
 ]
 
 const install = function (Vue) {
@@ -149,6 +153,7 @@ export default {
   BreadcrumbIconSeparator,
   BasicSelect,
   MultiSelect,
-  GroupedSelect
+  GroupedSelect,
+  BasicCascader
   // Other components
 }
