@@ -52,6 +52,15 @@ import DisabledSwitch from '../components/switch/DisabledSwitch.vue'
 import BasicCard from '../components/card/BasicCard.vue'
 import ShadowCard from '../components/card/ShadowCard.vue'
 
+// Breadcrumb
+import BreadcrumbBasic from '../components/breadcrumb/BreadcrumbBasic.vue'
+import BreadcrumbIconSeparator from '../components/breadcrumb/BreadcrumbIconSeparator.vue'
+
+// Select
+import BasicSelect from '../components/select/BasicSelect.vue'
+import MultiSelect from '../components/select/MultiSelect.vue'
+import GroupedSelect from '../components/select/GroupedSelect.vue'
+
 // Import other components from here
 
 const components = [
@@ -85,7 +94,12 @@ const components = [
   TextSwitch,
   DisabledSwitch,
   BasicCard,
-  ShadowCard
+  ShadowCard,
+  BreadcrumbBasic,
+  BreadcrumbIconSeparator,
+  BasicSelect,
+  MultiSelect,
+  GroupedSelect
 ]
 
 const install = function (Vue) {
@@ -130,6 +144,11 @@ export default {
   TextSwitch,
   DisabledSwitch,
   BasicCard,
-  ShadowCard
+  ShadowCard,
+  BreadcrumbBasic,
+  BreadcrumbIconSeparator,
+  BasicSelect,
+  MultiSelect,
+  GroupedSelect
   // Other components
 }
