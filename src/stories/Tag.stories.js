@@ -1,5 +1,6 @@
 import BasicTag from '../components/tag/BasicTag.vue'
 import RemovableTag from '../components/tag/RemovableTag.vue'
+import DynamicTag from '../components/tag/DynamicTag.vue'
 
 // This is required for each story
 export default { title: 'Tag' }
@@ -29,4 +30,18 @@ export const removableTag = () => ({
     <removable-tag type="danger">Tag 5</removable-tag>
     </div>
     `
+})
+
+const dynamicTags = ['Tag 1', 'Tag 2', 'Tag 3']
+
+export const dynamicTag = () => ({
+  components: { DynamicTag },
+  data () {
+    return {
+      dynamicTags
+    }
+  },
+  template: `
+      <dynamic-tag :dynamicTags="dynamicTags"></dynamic-tag>
+      `
 })

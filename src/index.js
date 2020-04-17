@@ -51,6 +51,7 @@ import ShadowCard from '../components/card/ShadowCard.vue'
 // Tag
 import BasicTag from './components/tag/BasicTag.vue'
 import RemovableTag from './components/tag/RemovableTag.vue'
+import DynamicTag from './components/tag/DynamicTag.vue'
 
 // Import other components from here
 
@@ -85,7 +86,8 @@ const components = [
   BasicCard,
   ShadowCard,
   BasicTag,
-  RemovableTag
+  RemovableTag,
+  DynamicTag
 ]
 
 const install = function (Vue) {
@@ -130,6 +132,7 @@ export default {
   BasicCard,
   ShadowCard,
   BasicTag,
-  RemovableTag
+  RemovableTag,
+  DynamicTag
   // Other components
 }
