@@ -1,31 +1,29 @@
 import BreadcrumbBasic from '../components/breadcrumb/BreadcrumbBasic.vue'
 import BreadcrumbIconSeparator from '../components/breadcrumb/BreadcrumbIconSeparator.vue'
 
-import { action } from '@storybook/addon-actions'
-
 // This is required for each story
 export default { title: 'Breadcrumb' }
 
 const items = [
-    {
-        to: {path: '/'},
-        label: 'Home'
-    },
-    {
-        to: {path: '/projects'},
-        label: 'projects'
-    },
-    {
-        label: 'Project 1'
-    }
+  {
+    to: { path: '/' },
+    label: 'Home'
+  },
+  {
+    to: { path: '/projects' },
+    label: 'Projects'
+  },
+  {
+    label: 'Agriculture Project'
+  }
 ]
 
 // Customize components here. For instance, here's my-button component with a text of "with text"
 export const basicBreadCrumb = () => ({
   components: { BreadcrumbBasic },
-  data() {
+  data () {
     return {
-        items
+      items
     }
   },
   template: `
@@ -36,15 +34,15 @@ export const basicBreadCrumb = () => ({
 })
 
 export const iconSeparatorBreadcrumb = () => ({
-    components: { BreadcrumbIconSeparator },
-    data() {
-      return {
-          items
-      }
-    },
-    template: `
+  components: { BreadcrumbIconSeparator },
+  data () {
+    return {
+      items
+    }
+  },
+  template: `
       <div>
-      <breadcrumb-icon-separator :items="items">Default</breadcrumb-icon-separator>
+      <breadcrumb-icon-separator @click="action" :items="items">Default</breadcrumb-icon-separator>
       </div>  
     `
-  })
+})

@@ -23,6 +23,10 @@ import PasswordBox from '../components/input/PasswordBox.vue'
 import TextArea from '../components/input/TextArea.vue'
 import InputLength from '../components/input/InputLength.vue'
 
+// Nav menu
+import TopNav from './components/navMenu/TopNav.vue'
+import CollapseNav from './components/navMenu/CollapseNav.vue'
+
 // Table
 import BasicTable from '../components/table/BasicTable.vue'
 import TableWithStatus from '../components/table/TableWithStatus.vue'
@@ -48,6 +52,15 @@ import DisabledSwitch from '../components/switch/DisabledSwitch.vue'
 import BasicCard from '../components/card/BasicCard.vue'
 import ShadowCard from '../components/card/ShadowCard.vue'
 
+// Breadcrumb
+import BreadcrumbBasic from '../components/breadcrumb/BreadcrumbBasic.vue'
+import BreadcrumbIconSeparator from '../components/breadcrumb/BreadcrumbIconSeparator.vue'
+
+// Select
+import BasicSelect from '../components/select/BasicSelect.vue'
+import MultiSelect from '../components/select/MultiSelect.vue'
+import GroupedSelect from '../components/select/GroupedSelect.vue'
+
 // Tag
 import BasicTag from './components/tag/BasicTag.vue'
 import RemovableTag from './components/tag/RemovableTag.vue'
@@ -72,6 +85,8 @@ const components = [
   PasswordBox,
   TextArea,
   InputLength,
+  TopNav,
+  CollapseNav,
   BasicTable,
   TableWithStatus,
   UploadExcel,
@@ -85,6 +100,11 @@ const components = [
   DisabledSwitch,
   BasicCard,
   ShadowCard,
+  BreadcrumbBasic,
+  BreadcrumbIconSeparator,
+  BasicSelect,
+  MultiSelect,
+  GroupedSelect,
   BasicTag,
   RemovableTag,
   DynamicTag
@@ -118,6 +138,8 @@ export default {
   PasswordBox,
   TextArea,
   InputLength,
+  TopNav,
+  CollapseNav,
   BasicTable,
   TableWithStatus,
   UploadExcel,
@@ -131,6 +153,11 @@ export default {
   DisabledSwitch,
   BasicCard,
   ShadowCard,
+  BreadcrumbBasic,
+  BreadcrumbIconSeparator,
+  BasicSelect,
+  MultiSelect,
+  GroupedSelect,
   BasicTag,
   RemovableTag,
   DynamicTag
