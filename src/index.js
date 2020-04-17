@@ -61,6 +61,11 @@ import BasicSelect from '../components/select/BasicSelect.vue'
 import MultiSelect from '../components/select/MultiSelect.vue'
 import GroupedSelect from '../components/select/GroupedSelect.vue'
 
+// Tag
+import BasicTag from './components/tag/BasicTag.vue'
+import RemovableTag from './components/tag/RemovableTag.vue'
+import DynamicTag from './components/tag/DynamicTag.vue'
+
 // Import other components from here
 
 const components = [
@@ -99,7 +104,10 @@ const components = [
   BreadcrumbIconSeparator,
   BasicSelect,
   MultiSelect,
-  GroupedSelect
+  GroupedSelect,
+  BasicTag,
+  RemovableTag,
+  DynamicTag
 ]
 
 const install = function (Vue) {
@@ -149,6 +157,9 @@ export default {
   BreadcrumbIconSeparator,
   BasicSelect,
   MultiSelect,
-  GroupedSelect
+  GroupedSelect,
+  BasicTag,
+  RemovableTag,
+  DynamicTag
   // Other components
 }
