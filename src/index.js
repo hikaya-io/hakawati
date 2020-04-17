@@ -61,6 +61,11 @@ import BasicSelect from '../components/select/BasicSelect.vue'
 import MultiSelect from '../components/select/MultiSelect.vue'
 import GroupedSelect from '../components/select/GroupedSelect.vue'
 
+// Tag
+import BasicTag from './components/tag/BasicTag.vue'
+import RemovableTag from './components/tag/RemovableTag.vue'
+import DynamicTag from './components/tag/DynamicTag.vue'
+
 // Cascader
 import BasicCascader from './components/cascader/BasicCascader.vue'
 
@@ -103,6 +108,9 @@ const components = [
   BasicSelect,
   MultiSelect,
   GroupedSelect,
+  BasicTag,
+  RemovableTag,
+  DynamicTag,
   BasicCascader
 ]
 
@@ -154,6 +162,9 @@ export default {
   BasicSelect,
   MultiSelect,
   GroupedSelect,
+  BasicTag,
+  RemovableTag,
+  DynamicTag,
   BasicCascader
   // Other components
 }
