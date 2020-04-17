@@ -66,6 +66,9 @@ import BasicTag from './components/tag/BasicTag.vue'
 import RemovableTag from './components/tag/RemovableTag.vue'
 import DynamicTag from './components/tag/DynamicTag.vue'
 
+// Cascader
+import BasicCascader from './components/cascader/BasicCascader.vue'
+
 // Import other components from here
 
 const components = [
@@ -107,7 +110,8 @@ const components = [
   GroupedSelect,
   BasicTag,
   RemovableTag,
-  DynamicTag
+  DynamicTag,
+  BasicCascader
 ]
 
 const install = function (Vue) {
@@ -160,6 +164,7 @@ export default {
   GroupedSelect,
   BasicTag,
   RemovableTag,
-  DynamicTag
+  DynamicTag,
+  BasicCascader
   // Other components
 }
