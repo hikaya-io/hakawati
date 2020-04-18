@@ -17,11 +17,11 @@
 
 <script>
 export default {
-  name: "BasicSelect",
-  data() {
+  name: 'BasicSelect',
+  data () {
     return {
       value: ''
-    };
+    }
   },
   props: {
     options: {
@@ -30,19 +30,23 @@ export default {
     },
     placeholder: {
       type: String,
-      default: "Select an option"
+      default: 'Select an option'
     },
     disabled: {
       type: Boolean,
       default: false
     }
   }
-};
+}
 </script>
 
 <style scoped lang="scss">
 .el-select {
   font-family: "Lato", sans-serif;
   font-size: 16px;
+}
+
+.el-select-dropdown__item.selected {
+    font-weight: 300;
 }
 </style>

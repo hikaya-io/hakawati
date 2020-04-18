@@ -19,10 +19,10 @@
 
 <script>
 export default {
-  name: "GroupedSelect",
+  name: 'GroupedSelect',
   data() {
     return {
-      value: ""
+      value: ''
     };
   },
   props: {
@@ -32,7 +32,7 @@ export default {
     },
     placeholder: {
       type: String,
-      default: "Select an option"
+      default: 'Select an option'
     },
     disabled: {
       type: Boolean,
@@ -44,17 +44,21 @@ export default {
 
 <style scoped lang="scss">
 .el-select {
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 16px;
 }
 
 li.el-select-group__title {
-    font-family: "Lato", sans-serif;
+    font-family: 'Lato', sans-serif;
     font-size: 14px;
     color: #848c9c;
     margin: 0px 12px;
     padding-left: 8px;
     font-weight: 600;
     /* border-bottom: 1px solid #5a5f6955; */
+}
+
+.el-select-group .el-select-dropdown__item {
+    font-weight: 300;
 }
 </style>
