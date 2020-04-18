@@ -12,6 +12,27 @@
       :before-close="handleClose"
     >
       <span>{{message}}</span>
+      <el-form
+        :model="numberValidateForm"
+        ref="numberValidateForm"
+        label-width="100px"
+        class="demo-ruleForm"
+      >
+        <el-form-item
+          label="Age"
+          prop="age"
+          :rules="[
+      { required: true, message: 'Age is required!'},
+      { type: 'number', message: 'Age must be a number!'}
+    ]"
+        >
+          <el-input
+            type="age"
+            v-model.number="numberValidateForm.age"
+            autocomplete="off"
+          ></el-input>
+        </el-form-item>
+      </el-form>
       <span
         slot="footer"
         class="dialog-footer"
@@ -19,8 +40,9 @@
         <el-button @click="dialogVisible = false">Cancel</el-button>
         <el-button
           :type="type"
-          @click="handleConfirm"
-        >Confirm</el-button>
+          @click="submitForm('numberValidateForm')"
+        >Submit</el-button>
+
       </span>
     </el-dialog>
   </div>
@@ -35,8 +57,8 @@ export default {
       default: ""
     },
     message: {
-        type: String,
-        default: ""
+      type: String,
+      default: ""
     },
     type: {
       type: String,
@@ -47,23 +69,34 @@ export default {
       default: ""
     }
   },
-  
+
   data() {
     return {
-      dialogVisible: false
+      dialogVisible: false,
+      numberValidateForm: {
+        age: ""
+      }
     };
   },
   methods: {
-    handleConfirm(){
-      this.dialogVisible = false;
-      this.$emit('dialogConfirmed');
-    },
     handleClose(done) {
       this.$confirm("Are you sure to close this dialog?")
         .then(_ => {
           done();
         })
         .catch(_ => {});
+    },
+    submitForm(formName) {
+      this.$refs[formName].validate(valid => {
+        if (valid) {
+          this.dialogVisible = false;
+          alert(`Age submitted: ${this.numberValidateForm.age}`);
+          this.$emit(`dialogFormSubmitted`);
+        } else {
+          alert("Error submitting!");
+          return false;
+        }
+      });
     }
   }
 };
