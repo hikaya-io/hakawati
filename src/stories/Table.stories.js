@@ -1,4 +1,5 @@
 import BasicTable from '../components/table/BasicTable.vue'
+import TableWithBorder from '../components/table/TableWithBorder.vue'
 import TableWithStatus from '../components/table/TableWithStatus.vue'
 
 // This is required for each story
@@ -12,4 +13,9 @@ export const basicTable = () => ({
 export const tableWithStatus = () => ({
   components: { TableWithStatus },
   template: '<table-with-status />'
+})
+
+export const tableWithBorder = () => ({
+  components: { TableWithBorder },
+  template: '<table-with-border />'
 })
