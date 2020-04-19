@@ -2,6 +2,7 @@ import BasicTable from '../components/table/BasicTable.vue'
 import TableGroupingHead from '../components/table/TableGroupingHead.vue'
 import TableMultipleSelect from '../components/table/TableMultipleSelect.vue'
 import TableWithBorder from '../components/table/TableWithBorder.vue'
+import TableWithExpandableRow from '../components/table/TableWithExpandableRow.vue'
 import TableWithFilter from '../components/table/TableWithFilter.vue'
 import TableWithFixedHeader from '../components/table/TableWithFixedHeader.vue'
 import TableWithRowSpan from '../components/table/TableWithRowSpan.vue'
@@ -17,11 +18,16 @@ export const basicTable = () => ({
   template: '<basic-table />'
 })
 
-
 export const tableWithBorder = () => ({
   components: { TableWithBorder },
   template: '<table-with-border />'
 })
+
+export const tableWithExpandableRow = () => ({
+  components: { TableWithExpandableRow },
+  template: '<table-with-expandable-row />'
+})
+
 export const tableWithFilter = () => ({
   components: { TableWithFilter },
   template: '<table-with-filter />'
