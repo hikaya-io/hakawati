@@ -1,5 +1,6 @@
 import BasicTable from '../components/table/BasicTable.vue'
 import TableGroupingHead from '../components/table/TableGroupingHead.vue'
+import TableMultipleSelect from '../components/table/TableMultipleSelect.vue'
 import TableWithBorder from '../components/table/TableWithBorder.vue'
 import TableWithFixedHeader from '../components/table/TableWithFixedHeader.vue'
 import TableWithStatus from '../components/table/TableWithStatus.vue'
@@ -31,4 +32,9 @@ export const tableWithFixedHeader = () => ({
 export const tableGroupingHead = () => ({
   components: { TableGroupingHead },
   template: '<table-grouping-head />'
+})
+
+export const tableMultipleSelect = () => ({
+  components: { TableMultipleSelect },
+  template: '<table-multiple-select />'
 })
