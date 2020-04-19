@@ -4,6 +4,7 @@ import TableMultipleSelect from '../components/table/TableMultipleSelect.vue'
 import TableWithBorder from '../components/table/TableWithBorder.vue'
 import TableWithFilter from '../components/table/TableWithFilter.vue'
 import TableWithFixedHeader from '../components/table/TableWithFixedHeader.vue'
+import TableWithRowSpan from '../components/table/TableWithRowSpan.vue'
 import TableWithSorting from '../components/table/TableWithSorting.vue'
 import TableWithStatus from '../components/table/TableWithStatus.vue'
 import TableWithSummaryRow from '../components/table/TableWithSummaryRow.vue'
@@ -29,6 +30,11 @@ export const tableWithFilter = () => ({
 export const tableWithFixedHeader = () => ({
   components: { TableWithFixedHeader },
   template: '<table-with-fixed-header />'
+})
+
+export const tableWithRowSpan = () => ({
+  components: { TableWithRowSpan },
+  template: '<table-with-row-span />'
 })
 
 export const tableWithSorting = () => ({
