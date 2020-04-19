@@ -6,6 +6,7 @@ import TableWithFilter from '../components/table/TableWithFilter.vue'
 import TableWithFixedHeader from '../components/table/TableWithFixedHeader.vue'
 import TableWithSorting from '../components/table/TableWithSorting.vue'
 import TableWithStatus from '../components/table/TableWithStatus.vue'
+import TableWithSummaryRow from '../components/table/TableWithSummaryRow.vue'
 
 // This is required for each story
 export default { title: 'Table' }
@@ -38,6 +39,11 @@ export const tableWithSorting = () => ({
 export const tableWithStatus = () => ({
   components: { TableWithStatus },
   template: '<table-with-status />'
+})
+
+export const tableWithSummaryRow = () => ({
+  components: { TableWithSummaryRow },
+  template: '<table-with-summary-row />'
 })
 
 export const tableGroupingHead = () => ({
