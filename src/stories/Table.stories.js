@@ -14,94 +14,174 @@ import TableWithSummaryRow from '../components/table/TableWithSummaryRow.vue'
 export default {
   title: 'Table'
 }
- 
+
 export const tableBasic = () => ({
   components: {
     TableBasic
   },
   data() {
     return {
-      dataTable: [{
-        date: '2016-05-03',
-        name: 'Tom',
-        address: 'No. 189, Grove St, Los Angeles'
-      }, {
-        date: '2016-05-02',
-        name: 'Tom',
-        address: 'No. 189, Grove St, Los Angeles'
-      }]
+      tableData: tableData
     }
   },
-  template: '<table-basic :dataTable="dataTable" />',
-
+  template: '<table-basic :tableData="tableData" />',
 })
 
 export const tableWithBorder = () => ({
   components: {
     TableWithBorder
-  }, 
-  template: '<table-with-border   />'
+  },
+  data() {
+    return {
+      tableData: tableData
+    }
+  },
+  template: '<table-with-border  :tableData="tableData" />'
 })
 
 export const tableWithExpandableRow = () => ({
   components: {
     TableWithExpandableRow
   },
-  template: '<table-with-expandable-row />'
+  data() {
+    return {
+      tableData: tableData
+    }
+  },
+  template: '<table-with-expandable-row :tableData="tableData" />'
 })
 
 export const tableWithFilter = () => ({
   components: {
     TableWithFilter
   },
-  template: '<table-with-filter />'
+  data() {
+    return {
+      tableData: tableData
+    }
+  },
+  template: '<table-with-filter :tableData="tableData" />'
 })
 // Scroll through rows to see the effect
 export const tableWithFixedHeader = () => ({
   components: {
     TableWithFixedHeader
   },
-  template: '<table-with-fixed-header />'
-})
-
-export const tableWithRowSpan = () => ({
-  components: {
-    TableWithRowSpan
+  data() {
+    return {
+      tableData: tableData
+    }
   },
-  template: '<table-with-row-span />'
-})
-
-export const tableWithSorting = () => ({
-  components: {
-    TableWithSorting
-  },
-  template: '<table-with-sorting />'
-})
-
-export const tableWithStatus = () => ({
-  components: {
-    TableWithStatus
-  },
-  template: '<table-with-status />'
-})
-
-export const tableWithSummaryRow = () => ({
-  components: {
-    TableWithSummaryRow
-  },
-  template: '<table-with-summary-row />'
+  template: '<table-with-fixed-header :tableData="tableData" />'
 })
 
 export const tableWithGroupingHead = () => ({
   components: {
     TableWithGroupingHead
   },
-  template: '<table-with-grouping-head />'
+  data() {
+    return {
+      tableData: tableData
+    }
+  },
+  template: '<table-with-grouping-head :tableData="tableData" />'
 })
 
 export const tableWithMultipleSelect = () => ({
   components: {
     TableWithMultipleSelect
   },
-  template: '<table-with-multiple-select />'
+  data() {
+    return {
+      tableData: tableData
+    }
+  },
+  template: '<table-with-multiple-select :tableData="tableData" />'
 })
+
+export const tableWithRowSpan = () => ({
+  components: {
+    TableWithRowSpan
+  },
+  data() {
+    return {
+      tableData: tableAccountantData
+    }
+  },
+  template: '<table-with-row-span :tableData="tableData" />'
+})
+
+export const tableWithSorting = () => ({
+  components: {
+    TableWithSorting
+  },
+  data() {
+    return {
+      tableData: tableData
+    }
+  },
+  template: '<table-with-sorting :tableData="tableData" />'
+})
+
+export const tableWithStatus = () => ({
+  components: {
+    TableWithStatus
+  },
+  data() {
+    return {
+      tableData: tableData
+    }
+  },
+  template: '<table-with-status :tableData="tableData" />'
+})
+
+// TODO: From unknown reasons the total cost row is red on hoover.
+export const tableWithSummaryRow = () => ({
+  components: {
+    TableWithSummaryRow
+  },
+  data() {
+    return {
+      tableData: tableAccountantData
+    }
+  },
+  template: '<table-with-summary-row :tableData="tableData" />'
+})
+
+// Some of simpler tables use this data partially.
+const tableAccountantData = [
+  {
+    id: "12987122",
+    name: "Tom",
+    amount1: "234",
+    amount2: "3.2",
+    amount3: 10
+  },
+  {
+    id: "12987123",
+    name: "Tom",
+    amount1: "165",
+    amount2: "4.43",
+    amount3: 12
+  }
+]
+
+const tableData = [{
+    date: "2020-05-03",
+    name: "Tom",
+    state: "California",
+    city: "Los Angeles",
+    address: "No. 189, Grove St, Los Angeles",
+    zip: "CA 90036",
+    tag: "Home"
+  },
+  {
+    date: "2020-07-02",
+    name: "John",
+    state: "Andalucia",
+    city: "Malaga",
+    address: "No. 11, Avenida, Malaga",
+    zip: "CA 29011",
+    tag: "Office"
+  }
+]
