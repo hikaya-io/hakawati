@@ -1,8 +1,17 @@
-import DateRange from '../components/datepicker/DateRange.vue'
+import BasicDatePicker from '../components/datepicker/BasicDatePicker.vue';
+import DateRangePicker from '../components/datepicker/DateRangePicker.vue';
 
 export default { title: 'Datepicker' }
 
-export const dateRange = () => ({
-    components: { DateRange },
-    template: '<date-range />'
-  })
+export const basicDatePicker = () => ({
+  components: { BasicDatePicker },
+  template: '<basic-date-picker />'
+});
+
+export const dateRangePicker = () => ({
+  components: { DateRangePicker },
+  template: '<date-range-picker />'
+});
+
+
+
