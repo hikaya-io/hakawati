@@ -1,5 +1,5 @@
 <template>
-    <el-switch v-model="value1"
+    <el-switch v-model="value"
     :active-color="activeColor"
     :inactive-color="inactiveColor"
     :active-text="activeText"
@@ -27,11 +27,10 @@ export default {
     inactiveText: {
       type: String,
       default: ''
-    }
-  },
-  data () {
-    return {
-      value1: true
+    },
+    value: {
+      type: Boolean,
+      default: true
     }
   }
 }
