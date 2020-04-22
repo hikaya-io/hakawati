@@ -1,7 +1,7 @@
 <template>
   <div>
-    <el-steps :active="active" finish-status="success">
-      <el-step v-for="(step, i) in steps" :key="i" :title="step"></el-step>
+    <el-steps :active="active" finish-status="finish" :direction="direction">
+      <el-step v-for="(step, i) in steps" :key="i" :title="step.title" :description="step.description" :space="200" simple></el-step>
     </el-steps>
     <el-button style="margin-top: 12px;" @click="next">Next step</el-button>
   </div>
@@ -12,17 +12,30 @@ export default {
   props: {
     steps: {
       type: Array,
-      default: ["Step 1", "Step 2", "Step 3"]
-    }
+      default: [
+          {
+          title: "Step 1",
+          description: "" 
+          },
+            {
+          title: "Step 2",
+          description: "" 
+          },
+            {
+          title: "Step 3",
+          description: "" 
+          },
+          ]
+    },
   },
   data() {
     return {
-      active: 0
+      active: 1
     };
   },
   methods: {
     next() {
-      if (this.active++ > this.steps.length) this.active = 0;
+      if (this.active++ >= this.steps.length) this.active = 1;
     }
   }
 };
