@@ -21,10 +21,13 @@ export const basicSteps = () => ({
     <basic-steps />
     <br>
     Passing array of steps
-    <basic-steps :steps="steps" />
+    <basic-steps :steps="steps"  />
+    <br>
+    Change direction to horizontal
+    <basic-steps :steps="steps" direction="vertical" />
     <br>
     Simple Step bar
-    <basic-steps :steps="steps" isSimple="true" />
+    <basic-steps :steps="steps" isSimple="true" orientation="vertical" />
 
     </div>`
 })
@@ -70,13 +73,11 @@ export const withDescription = () => ({
     },
     template: `
     <div>
-
     Default
     <basic-steps-with-description />
-    
+    <br>
     Passing array of steps
     <basic-steps-with-description :steps="stepsWithDesc" />
-
     </div>
     `
 })

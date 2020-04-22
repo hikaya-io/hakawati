@@ -1,5 +1,5 @@
 <template>
-    <el-steps :active="active" finish-status="finish" :simple="isSimple">
+    <el-steps :active="active" finish-status="finish" :simple="isSimple" :direction="direction">
       <el-step v-for="(step, i) in steps" :key="i" :title="step"></el-step>
     </el-steps>
 
@@ -15,6 +15,10 @@ export default {
     isSimple: {
       type: Boolean,
       default: false
+    },
+    direction: {
+      type: String,
+      default: 'horizontal'
     }
   },
   data() {
