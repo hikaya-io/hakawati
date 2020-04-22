@@ -72,7 +72,7 @@ export const withDescription = () => ({
         }
     },
     template: `
-    <div>
+    <div>Vertical step bar
     Default
     <basic-steps-with-description />
     <br>
