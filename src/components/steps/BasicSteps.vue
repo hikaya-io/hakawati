@@ -1,5 +1,5 @@
 <template>
-    <el-steps :active="active" finish-status="finish" :simple="isSimple" :direction="direction">
+    <el-steps :active="active" finish-status="finish" :simple=isSimple :direction="direction">
       <el-step v-for="(step, i) in steps" :key="i" :title="step"></el-step>
     </el-steps>
 
@@ -10,7 +10,11 @@ export default {
   props: {
     steps: {
       type: Array,
-      default: ["Step 1", "Step 2", "Step 3"]
+      default: () =>["Step 1", "Step 2", "Step 3"]
+    },
+    active: {
+      type: Number,
+      default: 0
     },
     isSimple: {
       type: Boolean,
@@ -23,7 +27,6 @@ export default {
   },
   data() {
     return {
-      active: 1
     };
   }
 };

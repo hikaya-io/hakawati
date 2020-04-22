@@ -7,6 +7,7 @@ export const basicSteps = () => ({
     components: { BasicSteps },
     data() {
         return {
+            active: 0,
             steps: [
                 'Wake up',
                 'Drink cofee',
@@ -15,27 +16,39 @@ export const basicSteps = () => ({
             ]
         }
     },
+    methods: {
+        next() {
+            if (this.active++ >= this.steps.length) this.active = 0;
+        }
+    },
     template: `
     <div>
     Default
-    <basic-steps />
+    <basic-steps :active="active"/>
     <br>
     Passing array of steps
-    <basic-steps :steps="steps"  />
+    <basic-steps :steps="steps" :active="active" />
     <br>
     Change direction to horizontal
-    <basic-steps :steps="steps" direction="vertical" />
+    <basic-steps :steps="steps" direction="vertical" :active="active" />
     <br>
     Simple Step bar
-    <basic-steps :steps="steps" isSimple="true" orientation="vertical" />
-
+    <basic-steps :steps="steps" :isSimple="true" orientation="vertical" :active="active" />
+    <br>
+    <el-button style="margin-top: 12px;" @click="next">Next step</el-button>
     </div>`
 })
 
 export const withDescription = () => ({
     components: { BasicStepsWithDescription },
+    methods: {
+        next() {
+            if (this.active++ >= this.steps.length) this.active = 0;
+        }
+    },
     data() {
         return {
+            active: 0,
             steps: [
                 {
                     title: 'Wakeup'
@@ -45,7 +58,7 @@ export const withDescription = () => ({
                 },
                 {
                     title: 'Be awesome',
-                  
+
                 },
                 {
                     title: 'Sleep',
@@ -74,10 +87,11 @@ export const withDescription = () => ({
     template: `
     <div>Vertical step bar
     Default
-    <basic-steps-with-description />
+    <basic-steps-with-description :active="active"/>
     <br>
     Passing array of steps
-    <basic-steps-with-description :steps="stepsWithDesc" />
+    <basic-steps-with-description :steps="stepsWithDesc"  :active="active"/>
+    <el-button style="margin-top: 12px;" @click="next">Next step</el-button>
     </div>
     `
 })

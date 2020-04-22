@@ -13,9 +13,13 @@
 export default {
   name: "BasicSteps",
   props: {
+    active: {
+      type: Number,
+      default: 0
+    },
     steps: {
       type: Array,
-      default: [
+      default: () => [
         {
           title: "Step 1",
           description: "Description 1"
@@ -37,7 +41,6 @@ export default {
   },
   data() {
     return {
-      active: 1
     };
   }
 };
