@@ -33,12 +33,12 @@ export const checkboxGroup = () => ({
   components: { CheckboxGroup },
   data () {
     return {
-      checkList: ['selected and disabled', 'Option A']
+      checkList: ['Selected and disabled', 'Option A']
     }
   },
   template: `
     <div>
-    <checkbox-group @click="action" v-model="checkList">
+    <checkbox-group v-model="checkList">
     <el-checkbox label="Option A"></el-checkbox>
     <el-checkbox label="Option B"></el-checkbox>
     <el-checkbox label="Option C"></el-checkbox>
@@ -46,8 +46,7 @@ export const checkboxGroup = () => ({
     <el-checkbox label="Selected and disabled" disabled></el-checkbox>
     </checkbox-group>
     </div>  
-    `,
-  methods: { action: action('click') }
+    `
 })
 
 export const buttonCheckbox = () => ({
