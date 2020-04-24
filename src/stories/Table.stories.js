@@ -57,12 +57,30 @@ export const tableWithFilter = () => ({
   },
   data() {
     return {
-      tableData: tableData
+      tableData: tableData,
+      // Object where keys are corresponding to tableData column.
+      filterData: {
+        date: [{
+          text: '2020-05-03',
+          value: '2020-05-03'
+        }, {
+          text: '2020-07-02',
+          value: '2020-07-02'
+        }, ],
+        state: [{
+          text: 'California',
+          value: 'California'
+        }, {
+          text: 'Andalucia',
+          value: 'Andalucia'
+        }, ]
+      },
+      tags: []
     }
   },
-  template: '<table-with-filter :tableData="tableData" />'
+  template: '<table-with-filter :tableData="tableData" :filterData="filterData" />'
 })
-// Scroll through rows to see the effect
+// Scroll through rows to see the effect 
 export const tableWithFixedHeader = () => ({
   components: {
     TableWithFixedHeader
@@ -149,8 +167,7 @@ export const tableWithSummaryRow = () => ({
 })
 
 // Some of simpler tables use this data partially.
-const tableAccountantData = [
-  {
+const tableAccountantData = [{
     id: "12987122",
     name: "Tom",
     amount1: "234",
@@ -183,5 +200,14 @@ const tableData = [{
     address: "No. 11, Avenida, Malaga",
     zip: "CA 29011",
     tag: "Office"
+  },
+  {
+    date: "2020-07-02",
+    name: "John",
+    state: "Andalucia",
+    city: "Malaga",
+    address: "No. 11, Avenida, Malaga",
+    zip: "CA 29011",
+    tag: "School"
   }
 ]

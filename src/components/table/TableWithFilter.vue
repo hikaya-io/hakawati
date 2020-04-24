@@ -7,39 +7,27 @@
       :data="tableData"
       style="width: 100%"
     >
-      <el-table-column
-        prop="date"
-        label="Date"
+      <el-table-column v-for="(value, key) in noTagColumn" :key="key"
+        :prop="key"
+        :label="key.charAt(0).toUpperCase() + key.slice(1)"
         sortable
-        width="180"
-        column-key="date"
-        :filters="[{text: '2016-05-01', value: '2016-05-01'}, {text: '2016-05-02', value: '2016-05-02'}, {text: '2016-05-03', value: '2016-05-03'}, {text: '2016-05-04', value: '2016-05-04'}]"
+        :width="(key.length * 1.2) * 30"
+        :column-key="key"
+        :filters="filterData[key] !== undefined ? filterData[key] : []"
         :filter-method="filterHandler"
       >
       </el-table-column>
       <el-table-column
-        prop="name"
-        label="Name"
-        width="180"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="Address"
-        :formatter="formatter"
-      >
-      </el-table-column>
-      <el-table-column
+        v-if="tagColumn !== undefined && tagColumn.length !== 0"
         prop="tag"
         label="Tag"
         width="100"
-        :filters="[{ text: 'Home', value: 'Home' }, { text: 'Office', value: 'Office' }]"
         :filter-method="filterTag"
         filter-placement="bottom-end"
       >
         <template slot-scope="scope">
           <el-tag
-            :type="scope.row.tag === 'Home' ? 'primary' : 'success'"
+            :type="scope.row.tag === tagColumn ? 'primary' : 'success'"
             disable-transitions
           >{{scope.row.tag}}</el-tag>
         </template>
@@ -50,11 +38,16 @@
 
 <script>
 export default {
-  props: ["tableData"],
+  props: ["tableData", "filterData"],
   data() {
     return {
       name: "TableWithFilter"
     };
+  },
+  created(){
+      this.tagColumn = this.tableData[0].tag
+      this.noTagColumn = {...this.tableData[0]}
+      delete this.noTagColumn.tag
   },
   methods: {
     resetDateFilter() {
