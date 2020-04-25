@@ -5,20 +5,11 @@
     style="width: 100%"
   >
     <el-table-column
-      prop="date"
-      label="Date"
+    v-for="(value, key) in tableData[0]"
+      :prop="key"
+      :label="key.charAt(0).toUpperCase() + key.slice(1)"
       width="180"
-    >
-    </el-table-column>
-    <el-table-column
-      prop="name"
-      label="Name"
-      width="180"
-    >
-    </el-table-column>
-    <el-table-column
-      prop="address"
-      label="Address"
+      :key="key"
     >
     </el-table-column>
   </el-table>
