@@ -1,5 +1,5 @@
 <template>
-    <el-switch v-model="value1"
+    <el-switch v-model="value"
     :active-color="activeColor"
     :inactive-color="inactiveColor"
     @click="$emit('click')"
@@ -18,11 +18,10 @@ export default {
     inactiveColor: {
       type: String,
       default: ''
-    }
-  },
-  data () {
-    return {
-      value1: true
+    },
+    value: {
+      type: Boolean,
+      default: true
     }
   }
 }

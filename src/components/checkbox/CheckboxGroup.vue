@@ -1,5 +1,5 @@
 <template>
-    <el-checkbox-group @click="$emit('click')" :type="type" v-model="checkList">
+  <el-checkbox-group v-model="checkList">
     <slot></slot>
   </el-checkbox-group>
 </template>
@@ -8,19 +8,12 @@
 export default {
   name: 'CheckboxGroup',
   props: {
-    type: {
-      type: String,
-      default: ''
-    }
-  },
-  data () {
-    return {
-      checkList: ['Option A', 'Selected and disabled']
+    checkList: {
+      type: Array,
+      default: []
     }
   }
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

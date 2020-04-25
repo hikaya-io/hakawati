@@ -1,5 +1,5 @@
 <template>
-  <el-checkbox @click="$emit('click')" :type="type" v-model="checked" disabled>
+  <el-checkbox @click="$emit('click')" :type="type" disabled>
     <slot></slot>
   </el-checkbox>
 </template>
@@ -11,11 +11,6 @@ export default {
     type: {
       type: String,
       default: ''
-    }
-  },
-  data () {
-    return {
-      checked: true
     }
   }
 }

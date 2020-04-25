@@ -70,6 +70,9 @@ import DynamicTag from './components/tag/DynamicTag.vue'
 import BasicCascader from './components/cascader/BasicCascader.vue'
 
 // Import other components from here
+// Datepicker
+import BasicDatePicker from './components/datepicker/BasicDatePicker.vue'
+import DateRangePicker from './components/datepicker/DateRangePicker.vue'
 
 const components = [
   BasicButton,
@@ -111,7 +114,9 @@ const components = [
   BasicTag,
   RemovableTag,
   DynamicTag,
-  BasicCascader
+  BasicCascader,
+  BasicDatePicker,
+  DateRangePicker
 ]
 
 const install = function (Vue) {
@@ -165,6 +170,8 @@ export default {
   BasicTag,
   RemovableTag,
   DynamicTag,
-  BasicCascader
+  BasicCascader,
   // Other components
+  BasicDatePicker,
+  DateRangePicker
 }
