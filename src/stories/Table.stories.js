@@ -39,6 +39,7 @@ export const tableWithBorder = () => ({
   template: '<table-with-border  :tableData="tableData" />'
 })
 
+// TODO: Adding list of column names as props?
 export const tableWithExpandableRow = () => ({
   components: {
     TableWithExpandableRow

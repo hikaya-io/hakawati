@@ -5,20 +5,17 @@
   >
     <el-table-column type="expand">
       <template slot-scope="props">
-        <p>State: {{ props.row.state }}</p>
-        <p>City: {{ props.row.city }}</p>
-        <p>Address: {{ props.row.address }}</p>
-        <p>Zip: {{ props.row.zip }}</p>
+        <p
+          v-for="(key, value) in props.row"
+          :key="key"
+        >{{ value.charAt(0).toUpperCase() + key.slice(1) }} : {{ key }}</p>
       </template>
     </el-table-column>
     <el-table-column
-      label="Date"
-      prop="date"
-    >
-    </el-table-column>
-    <el-table-column
-      label="Name"
-      prop="name"
+      v-for="(value, key) in columnNames"
+      :key="key"
+      :label="key.charAt(0).toUpperCase() + key.slice(1)"
+      :prop="key"
     >
     </el-table-column>
   </el-table>
@@ -31,6 +28,9 @@ export default {
     return {
       name: "TableWithExpandableRow"
     };
+  },
+  created() {
+    this.columnNames = this.tableData[0];
   }
 };
-</script>
+</script> 
