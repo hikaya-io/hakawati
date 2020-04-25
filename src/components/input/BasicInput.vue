@@ -3,7 +3,7 @@
         <el-row :gutter="20">
             <el-col class="grid-content" :span="12">
                 <el-input
-                    placeholder="Input here"
+                    :placeholder="placeholder"
                     v-model="form.input">
                         <slot></slot>
                 </el-input>
@@ -19,9 +19,13 @@ export default {
     type: {
       type: String,
       default: ''
+    },
+    placeholder: {
+      type: String,
+      default: ''
     }
   },
-  data() {
+  data () {
     return {
       form: {
         input: ''

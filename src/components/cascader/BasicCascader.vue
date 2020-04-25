@@ -1,8 +1,6 @@
 <template>
   <el-cascader
-    v-model="value"
     :options="options"
-    @change="handleChange"
   >
   </el-cascader>
 </template>
@@ -14,16 +12,6 @@ export default {
     options: {
       type: Array,
       default: []
-    }
-  },
-  methods: {
-    handleChange (value) {
-      console.log(value)
-    }
-  },
-  data () {
-    return {
-      value: []
     }
   }
 }

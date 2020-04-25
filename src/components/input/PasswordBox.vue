@@ -3,7 +3,7 @@
         <el-row :gutter="20">
             <el-col class="grid-content" :span="12">
                 <el-input
-                    placeholder="Enter password"
+                    :placeholder="placeholder"
                     v-model="form.input"
                     v-bind="$attrs"
                     v-on="$listeners">
@@ -19,6 +19,10 @@ export default {
   name: 'PasswordBox',
   props: {
     type: {
+      type: String,
+      default: ''
+    },
+    placeholder: {
       type: String,
       default: ''
     }
