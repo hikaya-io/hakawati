@@ -12,21 +12,10 @@
       >
       </el-table-column>
       <el-table-column
-        label="Date"
-        width="120"
-      >
-        <template slot-scope="scope">{{ scope.row.date }}</template>
-      </el-table-column>
-      <el-table-column
-        property="name"
-        label="Name"
-        width="120"
-      >
-      </el-table-column>
-      <el-table-column
-        property="address"
-        label="Address"
-        show-overflow-tooltip
+        v-for="(value, key) in tableData[0]"
+        :property="key"
+        :label="key.charAt(0).toUpperCase() + key.slice(1)"
+        :key="key"
       >
       </el-table-column>
     </el-table>
