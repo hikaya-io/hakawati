@@ -7,32 +7,11 @@
       style="width: 100%"
     >
       <el-table-column
-        prop="id"
-        label="ID"
+        v-for="(value, key) in tableData[0]"
+        :prop="key"
+        :label="key.charAt(0).toUpperCase() + key.slice(1)"
         width="180"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="name"
-        label="Name"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="amount1"
-        sortable
-        label="Amount 1"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="amount2"
-        sortable
-        label="Amount 2"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="amount3"
-        sortable
-        label="Amount 3"
+        :key="key"
       >
       </el-table-column>
     </el-table>
@@ -46,29 +25,11 @@
       style="width: 100%; margin-top: 20px"
     >
       <el-table-column
-        prop="id"
-        label="ID"
+        v-for="(value, key) in tableData[0]"
+        :prop="key"
+        :label="key.charAt(0).toUpperCase() + key.slice(1)"
         width="180"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="name"
-        label="Name"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="amount1"
-        label="Cost 1 ($)"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="amount2"
-        label="Cost 2 ($)"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="amount3"
-        label="Cost 3 ($)"
+        :key="key"
       >
       </el-table-column>
     </el-table>
