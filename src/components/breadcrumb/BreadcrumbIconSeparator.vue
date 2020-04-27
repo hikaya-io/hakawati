@@ -16,7 +16,7 @@ export default {
   props: {
     items: {
       type: Array,
-      default: []
+      default: () => []
     },
     separatorClass: {
       type: String,

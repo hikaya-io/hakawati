@@ -28,47 +28,46 @@
 
 <script>
 export default {
-  name: "BasicDialog",
+  name: 'BasicDialog',
   props: {
     title: {
       type: String,
-      default: ""
+      default: ''
     },
     message: {
-        type: String,
-        default: ""
+      type: String,
+      default: ''
     },
     type: {
       type: String,
-      default: ""
+      default: ''
     },
     openDialogText: {
       type: String,
-      default: ""
+      default: ''
     }
   },
-  
-  data() {
+
+  data () {
     return {
       dialogVisible: false
-    };
+    }
   },
   methods: {
-    handleConfirm(){
-      this.dialogVisible = false;
-      this.$emit('dialogConfirmed');
+    handleConfirm () {
+      this.dialogVisible = false
+      this.$emit('dialogConfirmed')
     },
-    handleClose(done) {
-      this.$confirm("Are you sure to close this dialog?")
+    handleClose (done) {
+      this.$confirm('Are you sure to close this dialog?')
         .then(_ => {
-          done();
+          done()
         })
-        .catch(_ => {});
+        .catch(_ => {})
     }
   }
-};
+}
 </script>
-
 
 <style>
 .el-checkbox__label {

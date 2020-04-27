@@ -20,15 +20,15 @@
 <script>
 export default {
   name: 'GroupedSelect',
-  data() {
+  data () {
     return {
       value: ''
-    };
+    }
   },
   props: {
     options: {
       type: Array,
-      default: []
+      default: () => []
     },
     placeholder: {
       type: String,
@@ -39,7 +39,7 @@ export default {
       default: false
     }
   }
-};
+}
 </script>
 
 <style scoped lang="scss">
