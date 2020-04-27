@@ -5,7 +5,7 @@
                 <el-input
                     type="textarea"
                     :rows="4"
-                    placeholder="Text area input here"
+                    :placeholder="placeholder"
                     v-model="form.textarea">
                         <slot></slot>
                 </el-input>
@@ -19,6 +19,10 @@ export default {
   name: 'TextArea',
   props: {
     type: {
+      type: String,
+      default: ''
+    },
+    placeholder: {
       type: String,
       default: ''
     }

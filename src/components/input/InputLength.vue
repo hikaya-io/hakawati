@@ -6,7 +6,7 @@
                 <el-input
                     type="textarea"
                     :rows="4"
-                    placeholder="Text area input with limit"
+                    :placeholder="placeholder"
                     v-model="form.textarea"
                     v-bind="$attrs"
                     v-on="$listeners">
@@ -22,6 +22,10 @@ export default {
   name: 'TextArea',
   props: {
     type: {
+      type: String,
+      default: ''
+    },
+    placeholder: {
       type: String,
       default: ''
     }

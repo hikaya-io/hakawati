@@ -3,7 +3,6 @@
     :default-active="activeIndex"
     class="el-menu-demo"
     mode="horizontal"
-    @select="handleSelect"
     :index="index"
   >
   <slot></slot>
@@ -21,11 +20,6 @@ export default {
     activeIndex: {
       type: String,
       default: ''
-    }
-  },
-  methods: {
-    handleSelect (key, keyPath) {
-      console.log(key, keyPath)
     }
   }
 }

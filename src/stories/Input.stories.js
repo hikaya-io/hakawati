@@ -13,7 +13,7 @@ export const basicInput = () => ({
   components: { BasicInput },
   template: `
     <div>
-      <basic-input type="text"></basic-input>
+      <basic-input placeholder="Input here"></basic-input>
     </div>
   `
 })
@@ -22,7 +22,7 @@ export const disabledInput = () => ({
   components: { DisabledInput },
   template: `
     <div>
-      <disabled-input type="text" disabled></disabled-input>
+      <disabled-input placeholder="Input here" disabled></disabled-input>
     </div>
   `
 })
@@ -31,7 +31,7 @@ export const clearInput = () => ({
   components: { ClearInput },
   template: `
     <div>
-      <clear-input type="text" clearable></clear-input>
+      <clear-input clearable></clear-input>
     </div>
   `
 })
@@ -40,7 +40,7 @@ export const passwordBox = () => ({
   components: { PasswordBox },
   template: `
     <div>
-      <password-box type="text" show-password></password-box>
+      <password-box placeholder="Enter password" show-password></password-box>
     </div>
   `
 })
@@ -49,7 +49,7 @@ export const textArea = () => ({
   components: { TextArea },
   template: `
     <div>
-      <text-area type="textarea"></text-area>
+      <text-area placeholder="Text area input here"></text-area>
     </div>
   `
 })
@@ -58,7 +58,7 @@ export const inputLength = () => ({
   components: { InputLength },
   template: `
     <div>
-    <input-length type="textarea" maxlength="100" show-word-limit></input-length>
+    <input-length maxlength="100" placeholder="Text area input with limit" show-word-limit></input-length>
     </div>
   `
 })

@@ -3,8 +3,6 @@
     <el-menu
       :default-active="defaultActive"
       class="el-menu-vertical-demo"
-      @open="handleOpen"
-      @close="handleClose"
       :collapse="isCollapse"
     >
       <slot></slot>
@@ -33,14 +31,6 @@ export default {
   data () {
     return {
       isCollapse: true
-    }
-  },
-  methods: {
-    handleOpen (key, keyPath) {
-      console.log(key, keyPath)
-    },
-    handleClose (key, keyPath) {
-      console.log(key, keyPath)
     }
   }
 }
