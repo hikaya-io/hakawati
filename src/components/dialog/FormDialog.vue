@@ -50,58 +50,57 @@
 
 <script>
 export default {
-  name: "BasicDialog",
+  name: 'BasicDialog',
   props: {
     title: {
       type: String,
-      default: ""
+      default: ''
     },
     message: {
       type: String,
-      default: ""
+      default: ''
     },
     type: {
       type: String,
-      default: ""
+      default: ''
     },
     openDialogText: {
       type: String,
-      default: ""
+      default: ''
     }
   },
 
-  data() {
+  data () {
     return {
       dialogVisible: false,
       numberValidateForm: {
-        age: ""
+        age: ''
       }
-    };
+    }
   },
   methods: {
-    handleClose(done) {
-      this.$confirm("Are you sure to close this dialog?")
+    handleClose (done) {
+      this.$confirm('Are you sure to close this dialog?')
         .then(_ => {
-          done();
+          done()
         })
-        .catch(_ => {});
+        .catch(_ => {})
     },
-    submitForm(formName) {
+    submitForm (formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          this.dialogVisible = false;
-          alert(`Age submitted: ${this.numberValidateForm.age}`);
-          this.$emit(`dialogFormSubmitted`);
+          this.dialogVisible = false
+          alert(`Age submitted: ${this.numberValidateForm.age}`)
+          this.$emit('dialogFormSubmitted')
         } else {
-          alert("Error submitting!");
-          return false;
+          alert('Error submitting!')
+          return false
         }
-      });
+      })
     }
   }
-};
+}
 </script>
-
 
 <style>
 .el-checkbox__label {

@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: "PaginationBasic",
-  props: ["totalPageNumber", "background"]
-};
-</script>  
+  name: 'PaginationBasic',
+  props: ['totalPageNumber', 'background']
+}
+</script>

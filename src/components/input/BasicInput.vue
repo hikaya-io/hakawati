@@ -21,7 +21,7 @@ export default {
       default: ''
     }
   },
-  data() {
+  data () {
     return {
       form: {
         input: ''

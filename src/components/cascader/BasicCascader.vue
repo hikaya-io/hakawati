@@ -13,7 +13,7 @@ export default {
   props: {
     options: {
       type: Array,
-      default: []
+      default: () => []
     }
   },
   methods: {

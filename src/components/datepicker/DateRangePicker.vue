@@ -11,27 +11,27 @@
 
 <script>
 export default {
-  name: "DateRange",
+  name: 'DateRange',
   props: {
     type: {
       type: String,
-      default: "daterange"
+      default: 'daterange'
     },
     format: {
       type: String,
-      default: "yyyy-MM-dd"
+      default: 'yyyy-MM-dd'
     },
     size: {
       type: String,
-      default: ""
+      default: ''
     }
   },
-  data() {
+  data () {
     return {
-      daterange: ""
-    };
+      daterange: ''
+    }
   }
-};
+}
 </script>
 
 <style scoped>

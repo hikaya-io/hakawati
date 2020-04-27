@@ -10,55 +10,55 @@ export default { title: 'Input' }
 
 // Customize components here
 export const basicInput = () => ({
-    components: { BasicInput },
-    template: `
+  components: { BasicInput },
+  template: `
     <div>
       <basic-input type="text"></basic-input>
     </div>
   `
-  })
+})
 
 export const disabledInput = () => ({
-    components: { DisabledInput },
-    template: `
+  components: { DisabledInput },
+  template: `
     <div>
       <disabled-input type="text" disabled></disabled-input>
     </div>
   `
-  })
+})
 
-  export const clearInput = () => ({
-    components: { ClearInput },
-    template: `
+export const clearInput = () => ({
+  components: { ClearInput },
+  template: `
     <div>
       <clear-input type="text" clearable></clear-input>
     </div>
   `
-  })
+})
 
-  export const passwordBox = () => ({
-    components: { PasswordBox },
-    template: `
+export const passwordBox = () => ({
+  components: { PasswordBox },
+  template: `
     <div>
       <password-box type="text" show-password></password-box>
     </div>
   `
-  })
+})
 
-  export const textArea = () => ({
-    components: { TextArea },
-    template: `
+export const textArea = () => ({
+  components: { TextArea },
+  template: `
     <div>
       <text-area type="textarea"></text-area>
     </div>
   `
-  })
+})
 
-  export const inputLength = () => ({
-    components: { InputLength },
-    template: `
+export const inputLength = () => ({
+  components: { InputLength },
+  template: `
     <div>
     <input-length type="textarea" maxlength="100" show-word-limit></input-length>
     </div>
   `
-  })
+})

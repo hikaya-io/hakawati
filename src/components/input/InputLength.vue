@@ -26,7 +26,7 @@ export default {
       default: ''
     }
   },
-  data() {
+  data () {
     return {
       form: {
         textarea: ''
