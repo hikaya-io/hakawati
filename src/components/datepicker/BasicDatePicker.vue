@@ -10,25 +10,25 @@
 
 <script>
 export default {
-  name: "BasicDatePicker",
+  name: 'BasicDatePicker',
   props: {
     type: {
       type: String,
-      default: "date"
+      default: 'date'
     },
     format: {
       type: String,
-      default: "yyyy-MM-dd"
+      default: 'yyyy-MM-dd'
     },
     size: {
       type: String,
-      default: ""
+      default: ''
     }
   },
-  data() {
+  data () {
     return {
-      selectedDate: ""
-    };
+      selectedDate: ''
+    }
   }
-};
+}
 </script>

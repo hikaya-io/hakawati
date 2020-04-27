@@ -6,9 +6,9 @@ module.exports = ({config}) => {
     test: /\.scss$/,
     use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader',
       {
-        loader: 'style-resources-loader',
+        loader: 'fast-sass-loader',
         options: {
-          patterns: [path.resolve(__dirname, '@/styles/*.scss')]
+          includePaths: [path.resolve(__dirname, '@/styles/')]
         }
       }
     ],
