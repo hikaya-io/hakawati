@@ -6,7 +6,7 @@
             <el-input v-model="form.firstName"></el-input>
          </el-form-item>
         </el-col>
-        <el-col class="grid-content":span="12">
+        <el-col class="grid-content" :span="12">
         <el-form-item label="Last name">
             <el-input v-model="form.lastName"></el-input>
         </el-form-item>
@@ -55,27 +55,27 @@
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                form: {
-                    firstName: '',
-                    lastName: '',
-                    sex: '',
-                    dateOfBirth: '',
-                    eligible: false,
-                    services: [],
-                    implementer: '',
-                    notes: ''
-                }
-            }
-        },
-        methods: {
-            onSubmit() {
-                console.log('submit!');
-            }
-        }
+export default {
+  data () {
+    return {
+      form: {
+        firstName: '',
+        lastName: '',
+        sex: '',
+        dateOfBirth: '',
+        eligible: false,
+        services: [],
+        implementer: '',
+        notes: ''
+      }
     }
+  },
+  methods: {
+    onSubmit () {
+      console.log('submit!')
+    }
+  }
+}
 </script>
 
 <style>

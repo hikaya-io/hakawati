@@ -21,7 +21,7 @@ export const paginationBasic = () => ({
     </pagination-basic>
   </div>
 </div> 
-    `,
+    `
 
 })
 
@@ -42,5 +42,5 @@ export const paginationBackgroundColor = () => ({
     <pagination-basic totalPageNumber="71" background="true"> 
     </pagination-basic>
   </div> 
-      `,
+      `
 })

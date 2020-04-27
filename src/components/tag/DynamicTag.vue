@@ -31,7 +31,7 @@ export default {
   props: {
     dynamicTags: {
       type: Array,
-      default: []
+      default: () => []
     }
   },
   data () {
