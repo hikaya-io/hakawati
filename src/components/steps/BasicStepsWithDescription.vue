@@ -1,5 +1,5 @@
 <template>
-  <el-steps :active="active" finish-status="finish" :direction="direction">
+  <el-steps :active="active" finish-status="success" :direction="direction">
     <el-step
       v-for="(step, i) in steps"
       :key="i"
@@ -11,7 +11,7 @@
 </template>
 <script>
 export default {
-  name: "BasicSteps",
+  name: 'BasicSteps',
   props: {
     active: {
       type: Number,
@@ -21,16 +21,16 @@ export default {
       type: Array,
       default: () => [
         {
-          title: "Step 1",
-          description: "Description 1"
+          title: 'Step 1',
+          description: 'Description 1'
         },
         {
-          title: "Step 2",
-          description: "Description 2"
+          title: 'Step 2',
+          description: 'Description 2'
         },
         {
-          title: "Step 3",
-          description: "Description 1"
+          title: 'Step 3',
+          description: 'Description 1'
         }
       ]
     },
@@ -39,11 +39,21 @@ export default {
       default: 'horizontal'
     }
   },
-  data() {
-    return {
-    };
+  data () {
+    return {}
   }
-};
+}
 </script>
-<style scoped>
+
+<style scoped lang="scss">
+.el-step__head.is-success {
+  color: #25ced1;
+  border-color: #25ced1;
+}
+.el-step__title.is-success {
+  color: #25ced1;
+}
+.el-step__description.is-success {
+  color: #25ced1;
+}
 </style>
