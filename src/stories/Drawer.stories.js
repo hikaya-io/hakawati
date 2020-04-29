@@ -16,7 +16,7 @@ export const basicDrawer = () => ({
   watch: {
     drawer (newValue, oldValue) {
       if (!newValue) {
-        this.drawer = true
+        this.drawer = false
       }
     }
   },
@@ -27,7 +27,7 @@ export const basicDrawer = () => ({
     </el-button>
     <basic-drawer
       :title="title"
-      :drawerVisible="drawer"
+      :drawerVisible="$data._drawer"
       :direction="direction"
       size="50%"
       :showClose="false"
