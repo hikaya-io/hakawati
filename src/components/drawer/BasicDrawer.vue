@@ -7,6 +7,7 @@
     :before-close="handleClose"
     :size="size"
     :show-close="showClose"
+    :wrapperClosable="wrapperClosable"
   >
     <slot></slot>
   </el-drawer>
@@ -41,6 +42,10 @@ export default {
       default: ''
     },
     showClose: {
+      type: Boolean,
+      default: true
+    },
+    wrapperClosable: {
       type: Boolean,
       default: true
     }
