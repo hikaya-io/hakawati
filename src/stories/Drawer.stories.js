@@ -13,6 +13,13 @@ export const basicDrawer = () => ({
       title: 'I am the title'
     }
   },
+  watch: {
+    drawer (newValue, oldValue) {
+      if (!newValue) {
+        this.drawer = true
+      }
+    }
+  },
   template: `
   <div>
     <el-button @click="drawer = true" type="primary" style="margin-left: 16px;">
@@ -70,15 +77,17 @@ export const drawerNotClosableOnClick = () => ({
   },
   template: `
       <div>
-        <el-button @click="drawer = true" type="primary" style="margin-left: 16px;">
+        <el-button @click="drawer=true" type="primary" style="margin-left: 16px;">
           Open drawer
         </el-button>
+
         <basic-drawer
           :title="title"
           :drawerVisible="drawer"
           :direction="direction"
           size="30%"
           :wrapperClosable="false"
+
         >
           <span>Hi, there!</span>
         </basic-drawer>

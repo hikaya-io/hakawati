@@ -26,8 +26,7 @@ export default {
       default: 'rtl'
     },
     handleClose: {
-      type: String,
-      default: 'rtl'
+      type: Function
     },
     withHeader: {
       type: Boolean,
