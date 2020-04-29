@@ -9,7 +9,8 @@ export const basicDrawer = () => ({
   data () {
     return {
       drawer: false,
-      direction: 'rtl'
+      direction: 'rtl',
+      title: 'I am the title'
     }
   },
   template: `
@@ -18,10 +19,11 @@ export const basicDrawer = () => ({
       Open drawer
     </el-button>
     <basic-drawer
-      title="I am the title"
-      :drawer="drawer"
+      :title="title"
+      :drawerVisible="drawer"
       :direction="direction"
       size="50%"
+      :showClose="false"
     >
       <span>Hi, there!</span>
     </basic-drawer>
@@ -34,7 +36,8 @@ export const drawerWithoutTitle = () => ({
   data () {
     return {
       drawer: false,
-      direction: 'ltr'
+      direction: 'ltr',
+      title: 'I am the title'
     }
   },
   template: `
@@ -43,7 +46,7 @@ export const drawerWithoutTitle = () => ({
         Open drawer
       </el-button>
       <basic-drawer
-        title="I am the title"
+        :title="title"
         :drawer="drawer"
         :direction="direction"
         :withHeader="false"

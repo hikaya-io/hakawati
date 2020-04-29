@@ -2,10 +2,11 @@
   <el-drawer
     :title="title"
     :with-header="withHeader"
-    :visible.sync="drawer"
+    :visible.sync="drawerVisible"
     :direction="direction"
     :before-close="handleClose"
     :size="size"
+    :show-close="showClose"
   >
     <slot></slot>
   </el-drawer>
@@ -31,16 +32,31 @@ export default {
       type: Boolean,
       default: true
     },
-    drawer: {
+    drawerVisible: {
       type: Boolean,
       default: false
     },
     size: {
       type: String,
       default: ''
+    },
+    showClose: {
+      type: Boolean,
+      default: true
     }
   }
 }
 </script>
 
-<style></style>
+<style scoped lang="scss">
+.el-drawer__header{
+    font-family: 'Lato';
+    font-size: 35px;
+    font-weight: bold;
+    color:#333333;
+}
+
+.el-drawer__body{
+    padding: 20px;
+}
+</style>
