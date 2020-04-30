@@ -20,11 +20,11 @@ export const basicDrawer = () => ({
     </el-button>
     <basic-drawer
       :title="title"
-      :drawerVisible="drawer"
+      :visible.sync="drawer"
       :direction="direction"
       size="50%"
-      :showClose="false"
-      :wrapperClosable="true"
+      :show-close="false"
+      :wrapper-closable="true"
     >
       <span>Hi, there!</span>
     </basic-drawer>
@@ -48,9 +48,9 @@ export const drawerWithoutTitle = () => ({
       </el-button>
       <basic-drawer
         :title="title"
-        :drawerVisible="drawer"
+        :visible.sync="drawer"
         :direction="direction"
-        :withHeader="false"
+        :with-header="false"
         size="30%"
       >
         <span>Hi, there!</span>
@@ -76,10 +76,10 @@ export const drawerNotClosableOnClick = () => ({
 
         <basic-drawer
           :title="title"
-          :drawerVisible="drawer"
+          :visible.sync="drawer"
           :direction="direction"
           size="30%"
-          :wrapperClosable="false"
+          :wrapper-closable="false"
 
         >
           <span>Hi, there!</span>

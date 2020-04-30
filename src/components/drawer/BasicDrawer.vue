@@ -1,13 +1,6 @@
 <template>
   <el-drawer
-    :title="title"
-    :with-header="withHeader"
-    :visible.sync="drawerVariable"
-    :direction="direction"
-    :before-close="handleClose"
-    :size="size"
-    :show-close="showClose"
-    :wrapperClosable="wrapperClosable"
+v-bind="$attrs" v-on="$listeners"
   >
     <slot></slot>
   </el-drawer>
@@ -15,50 +8,7 @@
 
 <script>
 export default {
-  name: 'BasicDrawer',
-  props: {
-    title: {
-      type: String,
-      default: ''
-    },
-    direction: {
-      type: String,
-      default: 'rtl'
-    },
-    handleClose: {
-      type: Function
-    },
-    withHeader: {
-      type: Boolean,
-      default: true
-    },
-    drawerVisible: {
-      type: Boolean,
-      default: false
-    },
-    size: {
-      type: String,
-      default: ''
-    },
-    showClose: {
-      type: Boolean,
-      default: true
-    },
-    wrapperClosable: {
-      type: Boolean,
-      default: true
-    }
-  },
-  data () {
-    return {
-      drawerVariable: false
-    }
-  },
-  watch: {
-    drawerVisible (newValue, oldValue) {
-      this.drawerVariable = newValue
-    }
-  }
+  name: 'BasicDrawer'
 }
 </script>
 
