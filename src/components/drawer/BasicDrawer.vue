@@ -2,7 +2,7 @@
   <el-drawer
     :title="title"
     :with-header="withHeader"
-    :visible.sync="drawerVisible"
+    :visible.sync="_drawer"
     :direction="direction"
     :before-close="handleClose"
     :size="size"
@@ -47,6 +47,16 @@ export default {
     wrapperClosable: {
       type: Boolean,
       default: true
+    }
+  },
+  data: function () {
+    return {
+      _drawer: false
+    }
+  },
+  watch: {
+    drawerVisible (newValue, oldValue) {
+      this._drawer = newValue
     }
   }
 }
