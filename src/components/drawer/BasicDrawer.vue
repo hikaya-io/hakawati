@@ -2,7 +2,7 @@
   <el-drawer
     :title="title"
     :with-header="withHeader"
-    :visible.sync="_drawer"
+    :visible.sync="drawerVariable"
     :direction="direction"
     :before-close="handleClose"
     :size="size"
@@ -49,14 +49,14 @@ export default {
       default: true
     }
   },
-  data: function () {
+  data () {
     return {
-      _drawer: false
+      drawerVariable: false
     }
   },
   watch: {
     drawerVisible (newValue, oldValue) {
-      this._drawer = newValue
+      this.drawerVariable = newValue
     }
   }
 }
