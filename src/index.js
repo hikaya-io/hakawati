@@ -74,8 +74,11 @@ import BasicDatePicker from './components/datepicker/BasicDatePicker.vue'
 import DateRangePicker from './components/datepicker/DateRangePicker.vue'
 
 // Steps
-import BasicSteps from './components/steps/BasicSteps.vue';
-import BasicStepsWithDescription from './components/steps/BasicStepsWithDescription.vue';
+import BasicSteps from './components/steps/BasicSteps.vue'
+import BasicStepsWithDescription from './components/steps/BasicStepsWithDescription.vue'
+
+// Drawer
+import BasicDrawer from './components/drawer/BasicDrawer.vue'
 
 // Import other components from here
 
@@ -123,7 +126,8 @@ const components = [
   BasicDatePicker,
   DateRangePicker,
   BasicSteps,
-  BasicStepsWithDescription
+  BasicStepsWithDescription,
+  BasicDrawer
 ]
 
 const install = function (Vue) {
@@ -178,9 +182,9 @@ export default {
   RemovableTag,
   DynamicTag,
   BasicCascader,
-  // Other components
   BasicDatePicker,
   DateRangePicker,
   BasicSteps,
-  BasicStepsWithDescription
+  BasicStepsWithDescription,
+  BasicDrawer
 }
