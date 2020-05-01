@@ -15,11 +15,11 @@ export default {
     },
     dataArray: {
       type: Array,
-      default: []
+      default: () => []
     },
     checkboxGroup: {
       type: Array,
-      default: []
+      default: () => []
     }
   }
 }

@@ -10,7 +10,7 @@ export default {
   props: {
     checkList: {
       type: Array,
-      default: []
+      default: () => []
     }
   }
 }
