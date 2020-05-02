@@ -4,6 +4,7 @@ import ClearInput from '../components/input/ClearInput.vue'
 import PasswordBox from '../components/input/PasswordBox.vue'
 import TextArea from '../components/input/TextArea.vue'
 import InputLength from '../components/input/InputLength.vue'
+import InputLabel from '../components/input/InputLabel.vue'
 
 // This is required for each story
 export default { title: 'Input' }
@@ -59,6 +60,17 @@ export const inputLength = () => ({
   template: `
     <div>
     <input-length maxlength="100" placeholder="Text area input with limit" show-word-limit></input-length>
+    </div>
+  `
+})
+
+export const inputLabel = () => ({
+  components: { InputLabel },
+  template: `
+    <div>
+      <input-label placeholder="Input here" label="Label Input" labelPosition="top"></input-label>
+      <input-label placeholder="Input here" label="Required Input" labelPosition="left" required></input-label>
+      <input-label placeholder="Input here" label="Disabled Input" labelPosition="left" disabled></input-label>
     </div>
   `
 })
