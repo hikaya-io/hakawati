@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: 'InputLabel',
+  name: 'LabelInput',
   props: {
     type: {
       type: String,
