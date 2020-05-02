@@ -25,6 +25,7 @@ export const basicDrawer = () => ({
       size="50%"
       :show-close="false"
       :wrapper-closable="true"
+      :modal="true"
     >
       <span>Hi, there!</span>
     </basic-drawer>
@@ -86,4 +87,48 @@ export const drawerNotClosableOnClick = () => ({
         </basic-drawer>
       </div>
       `
+})
+
+export const doubleDrawer = () => ({
+  components: { BasicDrawer },
+  data () {
+    return {
+      drawerRight: false,
+      drawerLeft: false,
+      title: 'I am the title'
+    }
+  },
+  template: `
+  <div>
+    <el-button @click="drawerRight = true" type="primary" style="margin-left: 16px;">
+      Open right drawer
+    </el-button>
+    <basic-drawer
+      :title="title"
+      :visible.sync="drawerRight"
+      direction="rtl"
+      size="48%"
+      :show-close="false"
+      :wrapper-closable="true"
+      :modal="false"
+      :modal-append-to-body="false"
+    >
+      <span>Hi, there!</span>
+      <el-button @click="drawerLeft = true" type="primary" style="margin-left: 16px;">
+      Open left drawer
+      </el-button>
+    </basic-drawer>
+    <basic-drawer
+      :title="title"
+      :visible.sync="drawerLeft"
+      direction="ltr"
+      size="48%"
+      :show-close="false"
+      :wrapper-closable="true"
+      :modal="true"
+    >
+      <span>Hi, there!</span>
+    </basic-drawer>
+  </div>
+  `
 })
