@@ -39,4 +39,24 @@ export default {
     top: 12%;
     bottom: 0;
 }
+
+.el-drawer__open .el-drawer.rtl {
+    -webkit-animation: rtl-drawer-in 0.5s 1ms;
+    animation: rtl-drawer-in 0.5s 1ms;
+}
+
+.el-drawer.rtl {
+    -webkit-animation: rtl-drawer-out 0.5s;
+    animation: rtl-drawer-out 0.5s;
+}
+
+.el-drawer__open .el-drawer.ltr {
+    -webkit-animation: ltr-drawer-in 0.5s 1ms;
+    animation: ltr-drawer-in 0.5s 1ms;
+}
+
+.el-drawer.ltr {
+    -webkit-animation: ltr-drawer-out 0.5s;
+    animation: ltr-drawer-out 0.5s;
+}
 </style>
