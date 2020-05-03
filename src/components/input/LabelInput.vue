@@ -5,15 +5,19 @@
     :label-position="labelPosition"
     label-width="120px"
   >
-    <el-form-item>
-      <span v-if="label" slot="label" class="label"
-        >{{ label }} <span class="required" v-if="required">*</span></span
+    <el-form-item id="label-input">
+      <div
+        v-if="label"
+        slot="label"
+        :class="['label', { vertical: labelPosition === 'top' }]"
       >
-      <el-row :gutter="20">
-        <el-col class="grid-content" :span="12">
-          <el-input :placeholder="placeholder" v-model="form.input" :disabled="disabled"> </el-input>
-        </el-col>
-      </el-row>
+        {{ label }} <span class="required" v-if="required">*</span>
+      </div>
+      <el-input
+        v-model="form.input"
+        :placeholder="placeholder"
+        :disabled="disabled"
+      />
     </el-form-item>
   </el-form>
 </template>
@@ -57,12 +61,21 @@ export default {
 }
 </script>
 
-<style scoped>
-.label {
-  word-wrap: break-word;
-}
-.required {
-  color: red;
-  margin-right: 2px;
+<style lang="scss">
+#label-input {
+  .el-form-item__label {
+    padding-bottom: 0;
+  }
+  .label {
+    color: #333333;
+    word-wrap: break-word;
+    &.vertical {
+      padding: 0 0 0 15px;
+    }
+  }
+  .required {
+    color: #ff6633;
+    margin-right: 2px;
+  }
 }
 </style>
