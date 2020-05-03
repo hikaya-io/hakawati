@@ -80,6 +80,10 @@ import BasicStepsWithDescription from './components/steps/BasicStepsWithDescript
 // Drawer
 import BasicDrawer from './components/drawer/BasicDrawer.vue'
 
+// Pagination
+import PaginationBasic from './components/pagination/PaginationBasic.vue'
+import PaginationPageSize from './components/pagination/PaginationPageSize.vue'
+
 // Import other components from here
 
 const components = [
@@ -127,7 +131,9 @@ const components = [
   DateRangePicker,
   BasicSteps,
   BasicStepsWithDescription,
-  BasicDrawer
+  BasicDrawer,
+  PaginationBasic,
+  PaginationPageSize
 ]
 
 const install = function (Vue) {
@@ -186,5 +192,7 @@ export default {
   DateRangePicker,
   BasicSteps,
   BasicStepsWithDescription,
-  BasicDrawer
+  BasicDrawer,
+  PaginationBasic,
+  PaginationPageSize
 }
