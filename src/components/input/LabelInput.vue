@@ -1,7 +1,7 @@
 <template>
   <el-form
     ref="form"
-    model="form"
+    :model="form"
     :label-position="labelPosition"
     label-width="120px"
   >
