@@ -3,7 +3,7 @@ import HkForm from '../components/form/Form.vue'
 // This is required for each story
 export default { title: 'Form' }
 
-export const hkForm = () => ({
+export const BasicForm = () => ({
   components: { HkForm },
   data () {
     return {
@@ -37,7 +37,7 @@ export const hkForm = () => ({
         :model="form"
         :disabled="true"
       >
-        <el-form-item label="Sample Input with label">
+        <el-form-item label="Sample Input with label disabled">
           <el-input v-model="form.input" />
         </el-form-item>
       </hk-form>
