@@ -22,6 +22,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "../../styles/theme";
 
 .el-button {
   border-radius: 6px;

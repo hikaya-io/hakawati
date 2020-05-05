@@ -16,12 +16,12 @@ export const basicButton = () => ({
   components: { BasicButton },
   template: `
   <div>
-  <basic-button @click="action" size="medium">Default</basic-button>
-  <basic-button @click="action" size="medium" type="primary">Primary</basic-button>
-  <basic-button @click="action" size="medium" type="success">Success</basic-button>
-  <basic-button @click="action" size="medium" type="info">Info</basic-button>
-  <basic-button @click="action" size="medium" type="warning">Warning</basic-button>
-  <basic-button @click="action" size="medium" type="danger">Danger</basic-button>
+  <basic-button @click="action" size="medium" class="body-2-reg cancel-button">Cancel</basic-button>
+  <basic-button @click="action" size="medium" class="body-2-reg" type="primary">Save</basic-button>
+  <basic-button @click="action" size="medium" class="body-2-reg" type="success">Success</basic-button>
+  <basic-button @click="action" size="medium" class="body-2-reg" type="info">Info</basic-button>
+  <basic-button @click="action" size="medium" class="body-2-reg" type="warning">Warning</basic-button>
+  <basic-button @click="action" size="medium" class="body-2-reg" type="danger">Danger</basic-button>
   </div>  
   `,
   methods: { action: action('click') }
@@ -31,12 +31,12 @@ export const disabledButton = () => ({
   components: { DisabledButton },
   template: `
   <div>
-  <disabled-button @click="action" size="medium">Default</disabled-button>
-  <disabled-button @click="action" size="medium" type="primary">Primary</disabled-button>
-  <disabled-button @click="action" size="medium" type="success">Success</disabled-button>
-  <disabled-button @click="action" size="medium" type="info">Info</disabled-button>
-  <disabled-button @click="action" size="medium" type="warning">Warning</disabled-button>
-  <disabled-button @click="action" size="medium" type="danger">Danger</disabled-button>
+  <disabled-button @click="action" size="medium" class="body-2-reg cancel-button">Cancel</disabled-button>
+  <disabled-button @click="action" size="medium" class="body-2-reg" type="primary">Save</disabled-button>
+  <disabled-button @click="action" size="medium" class="body-2-reg" type="success">Success</disabled-button>
+  <disabled-button @click="action" size="medium" class="body-2-reg" type="info">Info</disabled-button>
+  <disabled-button @click="action" size="medium" class="body-2-reg" type="warning">Warning</disabled-button>
+  <disabled-button @click="action" size="medium" class="body-2-reg" type="danger">Danger</disabled-button>
   </div>  
   `,
   methods: { action: action('click') }
@@ -46,12 +46,12 @@ export const plainButton = () => ({
   components: { PlainButton },
   template: `
   <div>
-  <plain-button @click="action" size="medium">Default</plain-button>
-  <plain-button @click="action" size="medium" type="primary">Primary</plain-button>
-  <plain-button @click="action" size="medium" type="success">Success</plain-button>
-  <plain-button @click="action" size="medium" type="info">Info</plain-button>
-  <plain-button @click="action" size="medium" type="warning">Warning</plain-button>
-  <plain-button @click="action" size="medium" type="danger">Danger</plain-button>
+  <plain-button @click="action" size="medium" class="plain-button cancel-button">Cancel</plain-button>
+  <plain-button @click="action" size="medium" class="plain-button" type="primary">Save</plain-button>
+  <plain-button @click="action" size="medium" class="plain-button" type="success">Success</plain-button>
+  <plain-button @click="action" size="medium" class="plain-button" type="info">Info</plain-button>
+  <plain-button @click="action" size="medium" class="plain-button" type="warning">Warning</plain-button>
+  <plain-button @click="action" size="medium" class="plain-button" type="danger">Danger</plain-button>
   </div>  
   `,
   methods: { action: action('click') }
@@ -62,11 +62,11 @@ export const roundButton = () => ({
   template: `
   <div>
   <round-button @click="action" size="medium" class="body-2-reg cancel-button">Cancel</round-button>
-  <round-button @click="action" size="medium" type="primary" class="body-2-reg">Save</round-button>
-  <round-button @click="action" size="medium" type="success" class="body-2-reg">Success</round-button>
-  <round-button @click="action" size="medium" type="info" class="body-2-reg">Info</round-button>
-  <round-button @click="action" size="medium" type="warning"class="body-2-reg">Warning</round-button>
-  <round-button @click="action" size="medium" type="danger"class="body-2-reg">Danger</round-button>
+  <round-button @click="action" size="medium" class="body-2-reg" type="primary">Save</round-button>
+  <round-button @click="action" size="medium" class="body-2-reg" type="success">Success</round-button>
+  <round-button @click="action" size="medium" class="body-2-reg" type="info">Info</round-button>
+  <round-button @click="action" size="medium" class="body-2-reg" type="warning">Warning</round-button>
+  <round-button @click="action" size="medium" class="body-2-reg" type="danger">Danger</round-button>
   </div>  
   `,
   methods: { action: action('click') }
@@ -91,8 +91,8 @@ export const textButton = () => ({
   components: { TextButton },
   template: `
   <div>
-  <text-button @click="action" size="medium" type="text">Text button</text-button>
-  <text-button @click="action" size="medium" type="text" disabled>Text button</text-button>
+  <text-button @click="action" size="medium" class="plain-button" type="text">Text button</text-button>
+  <text-button @click="action" size="medium" class="plain-button" type="text" disabled>Text button</text-button>
   </div>
   `,
   methods: { action: action('click') }

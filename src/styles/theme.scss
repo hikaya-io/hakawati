@@ -145,3 +145,11 @@ $dark-color: $dark-body-grey;
 .cancel-button {
   color: $heading-grey;
 }
+
+.plain-button {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 26px;
+}
