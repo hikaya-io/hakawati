@@ -1,5 +1,6 @@
 
 import './styles/element-variables.scss'
+import 'src/styles/tailwind.scss'
 
 // Button
 import BasicButton from './components/button/BasicButton.vue'
