@@ -1,5 +1,5 @@
 <template>
-  <el-alert class="bg-primary" :title="title" :type="type"> </el-alert>
+  <el-alert :title="title" :type="type"> </el-alert>
 </template>
 
 <script>
