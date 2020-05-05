@@ -14,26 +14,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    .el-card__header {
-        font-family: 'Lato';
-        font-weight: 300;
-    }
 
-    .el-card__body {
-    font-family: 'Lato';
-    font-weight: 300;
-    }
-
-  .text {
-    font-size: 14px;
-    font-family: 'Lato';
-    font-weight: 300;
-  }
-
-  .item {
-    margin-bottom: 18px;
-    font-family: 'Lato';
-    font-weight: 300;
+  .el-card {
+    box-shadow: #C2C2C7;
+    border-radius: 20px;
   }
 
   .clearfix:before,

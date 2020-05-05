@@ -50,7 +50,6 @@ import DisabledSwitch from './components/switch/DisabledSwitch.vue'
 
 // Card
 import BasicCard from './components/card/BasicCard.vue'
-import ShadowCard from './components/card/ShadowCard.vue'
 
 // Breadcrumb
 import BreadcrumbBasic from './components/breadcrumb/BreadcrumbBasic.vue'
@@ -117,7 +116,6 @@ const components = [
   TextSwitch,
   DisabledSwitch,
   BasicCard,
-  ShadowCard,
   BreadcrumbBasic,
   BreadcrumbIconSeparator,
   BasicSelect,
@@ -178,7 +176,6 @@ export default {
   TextSwitch,
   DisabledSwitch,
   BasicCard,
-  ShadowCard,
   BreadcrumbBasic,
   BreadcrumbIconSeparator,
   BasicSelect,
