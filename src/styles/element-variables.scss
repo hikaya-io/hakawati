@@ -1,10 +1,10 @@
 @import "theme";
 
 // Global
-$--color-primary:#25CED1;
-$--color-success: #2AC27F;
-$--color-warning: #F9C80E;
-$--color-danger: #F61067;
+$--color-primary: $primary-color;
+$--color-success: $green;
+$--color-warning: $yellow;
+$--color-danger: $red;
 $--color-text-regular: #737581;
 $--color-text-primary: #737581;
 $--border-color-light: #FAFAFA;

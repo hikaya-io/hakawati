@@ -22,4 +22,8 @@ export default {
 
 <style scoped>
 
+.el-buttton.is-round {
+    border-radius: 25px;
+}
+
 </style>
