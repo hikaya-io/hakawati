@@ -23,36 +23,36 @@ export default {
 <style scoped lang="scss">
 @import "../../styles/theme";
 
-.el-button--small {
+.el-button {
   border-color: $background-color;
   border-radius: 25px;
 }
 
-.el-button--primary.is-plain {
+.el-button--primary {
   background: $primary-fill;
   border-color: $primary-fill;
   border-radius: 25px;
 }
 
-.el-button--success.is-plain {
+.el-button--success {
   background: $green-fill;
   border-color: $green-fill;
   border-radius: 25px;
 }
 
-.el-button--info.is-plain {
+.el-button--info {
   background: $background-color;
   border-color: $background-color;
   border-radius: 25px;
 }
 
-.el-button--warning.is-plain {
+.el-button--warning {
   background: $warning-fill;
   border-color: $warning-fill;
   border-radius: 25px;
 }
 
-.el-button--danger.is-plain {
+.el-button--danger {
   background: $danger-fill;
   border-color: $danger-fill;
   border-radius: 25px;

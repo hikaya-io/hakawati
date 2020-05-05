@@ -17,7 +17,7 @@ export default {
 
   .el-card {
     box-shadow: #C2C2C7;
-    border-radius: 20px;
+    border-radius: 5px;
   }
 
   .clearfix:before,

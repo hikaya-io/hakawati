@@ -8,6 +8,7 @@ import PlainButton from './components/button/PlainButton.vue'
 import RoundButton from './components/button/RoundButton.vue'
 import CircleButton from './components/button/CircleButton.vue'
 import TextButton from './components/button/TextButton.vue'
+import WorkspaceButton from './components/button/WorkspaceButton.vue'
 
 // Checkbox
 import BasicCheckbox from './components/checkbox/BasicCheckbox.vue'
@@ -92,6 +93,7 @@ const components = [
   RoundButton,
   CircleButton,
   TextButton,
+  WorkspaceButton,
   BasicCheckbox,
   DisabledCheckbox,
   CheckboxGroup,
@@ -152,6 +154,7 @@ export default {
   RoundButton,
   CircleButton,
   TextButton,
+  WorkspaceButton,
   BasicCheckbox,
   DisabledCheckbox,
   CheckboxGroup,

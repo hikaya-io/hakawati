@@ -39,7 +39,7 @@ $purple-fill: #F5EBFA;
 // Default Variables
 $primary-color: $blue;
 $primary-fill: $blue-fill;
-$primary-color-sub: $purple;
+$primary-color-sub: $blue-sub;
 $secondary-color: $cyan;
 $secondary-fill: $cyan-fill;
 $success-color: $green;
@@ -119,7 +119,7 @@ $dark-color: $dark-body-grey;
   font-weight: normal;
   font-size: 22px;
   line-height: 26px;
-  color: $light-body-grey;
+  color: $white;
 }
 
 /* Footer - Lato R15 */
@@ -140,4 +140,8 @@ $dark-color: $dark-body-grey;
   font-size: 11px;
   line-height: 13px;
   color: $info-color;
+}
+
+.cancel-button {
+  color: $heading-grey;
 }
