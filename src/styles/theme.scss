@@ -1,0 +1,124 @@
+// Color Palette
+$white: #fff;
+$black: #000;
+$cyan: #25CED1;
+$orange: #FF8360;
+$green: #2AC27F;
+$red: #E52C2C;
+$yellow: #FFBE0B;
+$gray: #737581;
+
+$gray-darker:  #434551;
+$gray-dark: #60626E;
+$gray-medium: #888A94;
+$gray-light: #9D9EA7;
+$gray-lighter: #B9BAC0;
+$gray-very-light: #D5D6D9;
+$gray-lightest: #EEEEF0;
+
+// Default Variables
+$primary-color: $cyan;
+$secondary-color: $orange;
+$site-content-text-color: $gray;
+$standard-label-color: $gray-light;
+$placeholder-color: $gray-lighter;
+$input-value-color: $gray-medium;
+$help-text-color: $gray-light;
+$disables-opacity: 0.25;
+$success-color: $green;
+$info-color: $orange;
+$warning-color: $yellow;
+$danger-color: $red ;
+$main-font-family: 'Lato', sans-serif;
+$primary-background-color: #F5F8FA;
+$light-color: $gray-very-light;
+$dark-color: $gray;
+
+
+/* Title - Lato B48 */
+
+.title {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 58px;
+  color: #C4C4C4;
+}
+
+/* Heading - Lato B35 */
+
+.heading {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 35px;
+  line-height: 42px;
+  color: #C4C4C4;
+}
+
+/* Body 2 Bold - Lato B22 */
+
+.heading {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 26px;
+  color: #C4C4C4;
+}
+
+/* Body 2 Reg - Lato R22 */
+
+.button {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 26px;
+  color: #C4C4C4;
+}
+
+/* Body Bold - Lato B18 */
+
+.bold-body {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  color: #C4C4C4;
+}
+
+/* Body Reg - Lato R18 */
+
+.body-reg {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #C4C4C4;
+}
+
+/* Footer - Lato R15 */
+
+.footer {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 18px;
+  color: #C4C4C4;
+}
+
+/* Info - Lato R11 */
+
+.info {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  color: #C4C4C4;
+}
