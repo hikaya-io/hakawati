@@ -94,6 +94,9 @@ import DynamicTag from './components/tag/DynamicTag.vue'
 // Upload
 import UploadExcel from './components/upload/UploadExcel.vue'
 
+// Form
+import HkForm from './components/form/Form.vue'
+
 // Import other components from here
 
 const components = [
@@ -149,7 +152,8 @@ const components = [
   BasicTab,
   CardTab,
   VerticalTab,
-  WorkspaceTab
+  WorkspaceTab,
+  HkForm
 ]
 
 const install = function (Vue) {
@@ -216,5 +220,6 @@ export default {
   BasicTab,
   CardTab,
   VerticalTab,
-  WorkspaceTab
+  WorkspaceTab,
+  HkForm
 }
