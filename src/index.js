@@ -84,6 +84,9 @@ import BasicDrawer from './components/drawer/BasicDrawer.vue'
 import PaginationBasic from './components/pagination/PaginationBasic.vue'
 import PaginationPageSize from './components/pagination/PaginationPageSize.vue'
 
+// Form
+import HkForm from './components/form/Form.vue'
+
 // Import other components from here
 
 const components = [
@@ -133,7 +136,8 @@ const components = [
   BasicStepsWithDescription,
   BasicDrawer,
   PaginationBasic,
-  PaginationPageSize
+  PaginationPageSize,
+  HkForm
 ]
 
 const install = function (Vue) {
@@ -194,5 +198,6 @@ export default {
   BasicStepsWithDescription,
   BasicDrawer,
   PaginationBasic,
-  PaginationPageSize
+  PaginationPageSize,
+  HkForm
 }
