@@ -33,8 +33,4 @@ export default {
 
 <style scoped lang="scss">
 
-  .el-tabs {
-    font-family: 'Lato';
-  }
-
 </style>>

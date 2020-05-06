@@ -29,7 +29,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import "../../styles/theme";
 
 .el-tabs__item.is-active {
