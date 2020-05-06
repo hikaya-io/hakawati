@@ -29,4 +29,9 @@ export default {
   padding: 11px 33px;
 }
 
+.danger {
+  background: #ff3333;
+  border-radius: 25px;
+  padding: 11px 33px;
+}
 </style>
