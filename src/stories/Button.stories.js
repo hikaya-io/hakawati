@@ -21,7 +21,7 @@ export const basicButton = () => ({
   <basic-button @click="action" size="small" type="info">Info</basic-button>
   <basic-button @click="action" size="small" type="warning">Warning</basic-button>
   <basic-button @click="action" size="small" type="danger">Danger</basic-button>
-  </div>  
+  </div>
   `,
   methods: { action: action('click') }
 })
@@ -36,7 +36,7 @@ export const disabledButton = () => ({
   <disabled-button @click="action" size="small" type="info">Info</disabled-button>
   <disabled-button @click="action" size="small" type="warning">Warning</disabled-button>
   <disabled-button @click="action" size="small" type="danger">Danger</disabled-button>
-  </div>  
+  </div>
   `,
   methods: { action: action('click') }
 })
@@ -51,7 +51,7 @@ export const plainButton = () => ({
   <plain-button @click="action" size="small" type="info">Info</plain-button>
   <plain-button @click="action" size="small" type="warning">Warning</plain-button>
   <plain-button @click="action" size="small" type="danger">Danger</plain-button>
-  </div>  
+  </div>
   `,
   methods: { action: action('click') }
 })
@@ -66,7 +66,8 @@ export const roundButton = () => ({
   <round-button @click="action" size="small" type="info">Info</round-button>
   <round-button @click="action" size="small" type="warning">Warning</round-button>
   <round-button @click="action" size="small" type="danger">Danger</round-button>
-  </div>  
+  <round-button @click="action" size="small" type="ghost">Ghost</round-button>
+  </div>
   `,
   methods: { action: action('click') }
 })
@@ -81,7 +82,7 @@ export const circleButton = () => ({
   <circle-button @click="action" size="small" icon="el-icon-message" type="info"></circle-button>
   <circle-button @click="action" size="small" icon="el-icon-star-off" type="warning"></circle-button>
   <circle-button @click="action" size="small" icon="el-icon-delete" type="danger"></circle-button>
-  </div>  
+  </div>
   `,
   methods: { action: action('click') }
 })

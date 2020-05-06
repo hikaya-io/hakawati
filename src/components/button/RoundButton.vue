@@ -1,25 +1,32 @@
 <template>
-  <el-button @click="$emit('click')" :size="size" :type="type" round>
+  <el-button @click="$emit('click')" :size="size" :type="type" :class="type" round>
     <slot></slot>
   </el-button>
 </template>
 
 <script>
 export default {
-  name: 'RoundButton',
+  name: "RoundButton",
   props: {
     type: {
       type: String,
-      default: ''
+      default: ""
     },
     size: {
       type: String,
-      default: ''
+      default: ""
     }
   }
-}
+};
 </script>
 
 <style scoped>
+.primary {
+  background: #33cccc;
+  border: 3px solid #33cccc;
+  box-sizing: border-box;
+  border-radius: 25px;
+  padding: 11px 33px;
+}
 
 </style>
