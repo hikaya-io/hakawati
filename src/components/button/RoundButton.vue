@@ -34,4 +34,11 @@ export default {
   border-radius: 25px;
   padding: 11px 33px;
 }
+
+.ghost {
+  border: 1px solid #333333;
+  box-sizing: border-box;
+  border-radius: 25px;
+  padding: 11px 33px;
+}
 </style>
