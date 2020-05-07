@@ -18,8 +18,6 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-  .el-alert {
-    font-family: 'Lato';
-  }
+<style lang="scss">
+
 </style>

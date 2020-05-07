@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'RoundButton',
+  name: 'WorkspaceButton',
   props: {
     type: {
       type: String,
@@ -28,10 +28,25 @@ export default {
 @import "../../styles/theme";
 
 .el-button {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 25px;
-  border-color: transparent;
-  padding: 11px 33px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: none;
 }
 
+.el-button.is-round {
+    padding: 13px 33px;
+    border-radius: 30px;
+}
+
+.ws-settings {
+    color: $primary-color;
+    font-family: $main-font-family;
+}
+
+.el-icon-s-tools:before {
+    color: $dark-body-grey;
+}
+
+.el-icon-circle-plus-outline:before {
+    color: $dark-body-grey;
+}
 </style>
