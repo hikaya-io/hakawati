@@ -10,10 +10,11 @@ export default {
 }
 </script>
 
-<style>
-  .el-checkbox__label {
-    font-family: 'Lato',sans-serif;
-    font-weight: 300;
-  }
+<style lang="scss">
+@import "../../styles/theme";
+
+.el-checkbox__inner {
+  color: $dark-body-grey;
+}
 
 </style>

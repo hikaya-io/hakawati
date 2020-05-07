@@ -3,9 +3,9 @@
     v-model="daterange"
     :type="type"
     :format="format"
-    range-separator="To"
-    start-placeholder="Start date"
-    end-placeholder="End date"
+    :range-separator="rangeSeparator"
+    :start-placeholder="startDate"
+    :end-placeholder="endDate"
   ></el-date-picker>
 </template>
 
@@ -24,6 +24,18 @@ export default {
     size: {
       type: String,
       default: ''
+    },
+    startDate: {
+      type: String,
+      default: ''
+    },
+    endDate: {
+      type: String,
+      default: ''
+    },
+    rangeSeparator: {
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -34,5 +46,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
+@import "../../styles/theme";
+
+.el-picker-panel {
+  background-color: $background-color;
+}
+
 </style>

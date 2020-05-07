@@ -4,7 +4,7 @@
     :type="type"
     :size="size"
     :format="format"
-    placeholder="Pick a day"
+    :placeholder="placeholder"
   ></el-date-picker>
 </template>
 
@@ -16,11 +16,15 @@ export default {
       type: String,
       default: 'date'
     },
+    size: {
+      type: String,
+      default: ''
+    },
     format: {
       type: String,
       default: 'yyyy-MM-dd'
     },
-    size: {
+    placeholder: {
       type: String,
       default: ''
     }
@@ -32,3 +36,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@import "../../styles/theme";
+
+.el-picker-panel {
+  background-color: $background-color;
+}
+
+</style>

@@ -13,7 +13,11 @@ export const basicCheckbox = () => ({
   components: { BasicCheckbox },
   template: `
   <div>
-  <basic-checkbox @click="action">Default</basic-checkbox>
+    <basic-checkbox 
+    @click="action" 
+    class="body-reg">
+      Checkbox A
+    </basic-checkbox>
   </div>  
   `,
   methods: { action: action('click') }
@@ -23,7 +27,10 @@ export const disabledCheckbox = () => ({
   components: { DisabledCheckbox },
   template: `
     <div>
-    <disabled-checkbox @click="action">Default</disabled-checkbox>
+      <disabled-checkbox 
+      @click="action">
+        Checkbox A
+      </disabled-checkbox>
     </div>  
     `,
   methods: { action: action('click') }
@@ -38,13 +45,13 @@ export const checkboxGroup = () => ({
   },
   template: `
     <div>
-    <checkbox-group v-model="checkList">
-    <el-checkbox label="Option A"></el-checkbox>
-    <el-checkbox label="Option B"></el-checkbox>
-    <el-checkbox label="Option C"></el-checkbox>
-    <el-checkbox label="Disabled" disabled></el-checkbox>
-    <el-checkbox label="Selected and disabled" disabled></el-checkbox>
-    </checkbox-group>
+      <checkbox-group v-model="checkList">
+      <el-checkbox label="Option A"></el-checkbox>
+      <el-checkbox label="Option B"></el-checkbox>
+      <el-checkbox label="Option C"></el-checkbox>
+      <el-checkbox label="Disabled" disabled></el-checkbox>
+      <el-checkbox label="Selected and disabled" disabled></el-checkbox>
+      </checkbox-group>
     </div>  
     `
 })
@@ -58,8 +65,11 @@ export const buttonCheckbox = () => ({
   },
   template: `
       <div>
-      <button-checkbox @click="action" size="medium" :dataArray='dataArray'>
-      </button-checkbox>
+        <button-checkbox 
+        @click="action" 
+        size="medium" 
+        :dataArray='dataArray'>
+        </button-checkbox>
       </div>
       `,
   methods: { action: action('click') }

@@ -1,6 +1,6 @@
 <template>
   <el-cascader
-    :options="options">
+  :options="options">
   </el-cascader>
 </template>
 
@@ -26,6 +26,7 @@ export default {
 .el-cascader-menu {
   color: $dark-body-grey;
 }
+
 .el-cascader-menu__list {
   background: $background-color;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
