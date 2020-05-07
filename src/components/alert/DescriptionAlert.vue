@@ -1,8 +1,8 @@
 <template>
-    <el-alert
-    :title="title"
-    :type="type"
-    :description="description">
+  <el-alert
+  :title="title"
+  :type="type"
+  :description="description">
   </el-alert>
 </template>
 
@@ -26,8 +26,6 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-  .el-alert {
-    font-family: 'Lato';
-  }
+<style lang="scss">
+
 </style>

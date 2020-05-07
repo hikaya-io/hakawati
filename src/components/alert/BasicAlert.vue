@@ -1,5 +1,8 @@
 <template>
-  <el-alert :title="title" :type="type"> </el-alert>
+  <el-alert
+  :title="title"
+  :type="type">
+  </el-alert>
 </template>
 
 <script>
