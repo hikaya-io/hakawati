@@ -1,48 +1,48 @@
 <template>
   <div>
     <el-button
-      type="text"
-      @click="dialogVisible = true"
-    >{{openDialogText}}</el-button>
+    type="text"
+    @click="dialogVisible = true">
+    {{openDialogText}}
+    </el-button>
     <slot></slot>
     <el-dialog
-      :title="title"
-      :visible.sync="dialogVisible"
-      width="30%"
-      :before-close="handleClose"
-    >
+    :title="title"
+    :visible.sync="dialogVisible"
+    width="30%"
+    :before-close="handleClose">
       <span>{{message}}</span>
       <el-form
-        :model="numberValidateForm"
-        ref="numberValidateForm"
-        label-width="100px"
-        class="demo-ruleForm"
-      >
+      :model="numberValidateForm"
+      ref="numberValidateForm"
+      label-width="100px"
+      class="demo-ruleForm">
         <el-form-item
-          label="Age"
-          prop="age"
-          :rules="[
-      { required: true, message: 'Age is required!'},
-      { type: 'number', message: 'Age must be a number!'}
-    ]"
-        >
+        label="Age"
+        prop="age"
+        :rules="[
+          { required: true, message: 'Age is required!'},
+          { type: 'number', message: 'Age must be a number!'}
+        ]">
           <el-input
-            type="age"
-            v-model.number="numberValidateForm.age"
-            autocomplete="off"
-          ></el-input>
+          type="age"
+          v-model.number="numberValidateForm.age"
+          autocomplete="off">
+          </el-input>
         </el-form-item>
       </el-form>
       <span
-        slot="footer"
-        class="dialog-footer"
-      >
-        <el-button @click="dialogVisible = false">Cancel</el-button>
+      slot="footer"
+      class="dialog-footer">
         <el-button
-          :type="type"
-          @click="submitForm('numberValidateForm')"
-        >Submit</el-button>
-
+        @click="dialogVisible = false" round>
+          Cancel
+        </el-button>
+        <el-button
+        :type="type"
+        @click="submitForm('numberValidateForm')" round>
+        Submit
+        </el-button>
       </span>
     </el-dialog>
   </div>
@@ -102,9 +102,21 @@ export default {
 }
 </script>
 
-<style>
-.el-checkbox__label {
-  font-family: "Lato", sans-serif;
-  font-weight: 300;
+<style lang="scss">
+@import "../../styles/theme";
+
+.el-dialog__title {
+    padding: 20px;
+    padding-bottom: 10px;
+    color: $dark-body-grey;
+}
+
+.el-dialog__body {
+    padding: 30px 20px 20px 20px;
+    color: $dark-body-grey;
+}
+
+.el-form-item__label {
+    color: $dark-body-grey;
 }
 </style>
