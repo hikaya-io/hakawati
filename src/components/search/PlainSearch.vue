@@ -1,39 +1,33 @@
 <template>
   <el-autocomplete
-    v-model="form.input"
+    class="en-round"
+    v-model="state"
+    :clearable="isClearable"
+    prefix-icon="el-icon-search"
     :fetch-suggestions="querySearchAsync"
     :placeholder="placeholder"
-    :clearable="clearable"
+    :trigger-on-focus="false"
     @select="handleSelect"
   ></el-autocomplete>
 </template>
-
 <script>
 export default {
   name: 'PlainSearch',
   props: {
-    type: {
-      type: String,
-      default: ''
-    },
     placeholder: {
       type: String,
       default: ''
     },
-    clearable: {
+    isClearable: {
       type: Boolean,
       default: false
-    },
-    asyncCallback: {
-      type: Function
     }
   },
   data () {
     return {
       links: [],
-      form: {
-        input: ''
-      }
+      state: '',
+      timeout: null
     }
   },
   methods: {
@@ -75,6 +69,8 @@ export default {
   }
 }
 </script>
-
-<style scoped>
+<style>
+.en-round input {
+  border-radius: 3rem;
+}
 </style>
