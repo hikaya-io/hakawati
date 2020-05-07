@@ -1,14 +1,12 @@
 
 <template>
 <el-card class="box-card">
-        <div slot="header" class="clearfix">
+        <div slot="header">
             <slot name="title">Workspace</slot>
         </div>
-        <slot name="items">
-            <el-tabs v-model="activeName" :title="title" :tab-position="tabPosition" @tab-click="$emit('click')">
+        <el-tabs v-model="activeName" :title="title" :tab-position="tabPosition" @tab-click="$emit('click')">
             <slot></slot>
-            </el-tabs>
-        </slot>
+        </el-tabs>
     </el-card>
 </template>
 
@@ -50,7 +48,10 @@ export default {
     font-size: 18px;
     line-height: 22px;
     color: $dark-body-grey;
-    text-align: left;
+}
+
+.el-tabs--left .el-tabs__item.is-left{
+  text-align: left;
 }
 
 .el-tabs__item.is-active {
@@ -64,15 +65,15 @@ export default {
   background-color: transparent;
 }
 
-.el-tabs {
-  text-align: left;
+.el-tabs__nav-wrap::after{
+  background-color: transparent;
 }
 
 // card styling
-  .el-card {
+  .el-card.is-always-shadow {
     border: 2px solid #F4F5FC;
     box-sizing: border-box;
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0px 3px 3px rgba(50, 50, 50, 0.25);
     border-radius: 0px 20px 20px 0px;
   }
 
