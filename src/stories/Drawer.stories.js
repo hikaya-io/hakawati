@@ -26,9 +26,10 @@ export const basicDrawer = () => ({
       :title="title"
       :visible.sync="drawer"
       :direction="direction"
-      size="50%"
+      size="48%"
       :show-close="false"
       :wrapper-closable="true"
+      :modal="false"
       class="body-bold"
     >
       <span
@@ -64,8 +65,9 @@ export const drawerWithoutTitle = () => ({
         :visible.sync="drawer"
         :direction="direction"
         :with-header="false"
-        size="30%"
+        size="48%"
         class="body-bold"
+        :modal="false"
       >
         <span
           class="body-reg"
@@ -100,8 +102,9 @@ export const drawerNotClosableOnClick = () => ({
           :title="title"
           :visible.sync="drawer"
           :direction="direction"
-          size="30%"
+          size="48%"
           :wrapper-closable="false"
+          :modal="false"
           class="body-bold"
         >
           <span
@@ -112,4 +115,57 @@ export const drawerNotClosableOnClick = () => ({
         </basic-drawer>
       </div>
       `
+})
+
+export const doubleDrawer = () => ({
+  components: { BasicDrawer },
+  data () {
+    return {
+      drawerRight: false,
+      drawerLeft: false,
+      title: 'I am the title'
+    }
+  },
+  template: `
+  <div>
+    <el-button 
+      @click="drawerRight = true"
+      type="primary"
+    >
+      Open right drawer
+    </el-button>
+    <basic-drawer
+      :title="title"
+      :visible.sync="drawerRight"
+      direction="rtl"
+      size="48%"
+      :show-close="false"
+      :wrapper-closable="true"
+      :modal="false"
+      :modal-append-to-body="false"
+      class="body-reg"
+    >
+      <span>Hi, there!</span>
+      <el-button
+        @click="drawerLeft = true"
+        type="primary"
+      >
+      Open left drawer
+      </el-button>
+    </basic-drawer>
+    <basic-drawer
+      :title="title"
+      :visible.sync="drawerLeft"
+      direction="ltr"
+      size="48%"
+      :show-close="true"
+      :wrapper-closable="true"
+      :modal="true"
+      class="body-reg"
+      :modal="false"
+    >
+      <span>Hi, there!</span>
+    </basic-drawer>
+  </div>
+  `
 })
