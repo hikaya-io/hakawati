@@ -26,10 +26,10 @@ export const basicDrawer = () => ({
       :title="title"
       :visible.sync="drawer"
       :direction="direction"
-      size="50%"
+      size="48%"
       :show-close="false"
       :wrapper-closable="true"
-      :modal="true"
+      :modal="false"
       class="body-bold"
     >
       <span
@@ -65,8 +65,9 @@ export const drawerWithoutTitle = () => ({
         :visible.sync="drawer"
         :direction="direction"
         :with-header="false"
-        size="30%"
+        size="48%"
         class="body-bold"
+        :modal="false"
       >
         <span
           class="body-reg"
@@ -101,8 +102,9 @@ export const drawerNotClosableOnClick = () => ({
           :title="title"
           :visible.sync="drawer"
           :direction="direction"
-          size="30%"
+          size="48%"
           :wrapper-closable="false"
+          :modal="false"
           class="body-bold"
         >
           <span
@@ -126,7 +128,10 @@ export const doubleDrawer = () => ({
   },
   template: `
   <div>
-    <el-button @click="drawerRight = true" type="primary" style="margin-left: 16px;">
+    <el-button 
+      @click="drawerRight = true"
+      type="primary"
+    >
       Open right drawer
     </el-button>
     <basic-drawer
@@ -138,9 +143,13 @@ export const doubleDrawer = () => ({
       :wrapper-closable="true"
       :modal="false"
       :modal-append-to-body="false"
+      class="body-reg"
     >
       <span>Hi, there!</span>
-      <el-button @click="drawerLeft = true" type="primary" style="margin-left: 16px;">
+      <el-button
+        @click="drawerLeft = true"
+        type="primary"
+      >
       Open left drawer
       </el-button>
     </basic-drawer>
@@ -149,9 +158,11 @@ export const doubleDrawer = () => ({
       :visible.sync="drawerLeft"
       direction="ltr"
       size="48%"
-      :show-close="false"
+      :show-close="true"
       :wrapper-closable="true"
       :modal="true"
+      class="body-reg"
+      :modal="false"
     >
       <span>Hi, there!</span>
     </basic-drawer>

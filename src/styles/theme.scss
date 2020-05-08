@@ -159,7 +159,7 @@ $dark-color: $dark-body-grey;
   font-family: $main-font-family;
 }
 
-.h-shadow {
+.button-shadow {
   background: $white;
   box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25);
   border-color: transparent;
@@ -167,4 +167,10 @@ $dark-color: $dark-body-grey;
 
 .h-border {
   border-radius: 5px;
+}
+
+.card-shadow {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 17px rgba(115, 117, 129, 0.25);
+  // border-radius: 20px;
 }

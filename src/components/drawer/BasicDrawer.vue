@@ -13,27 +13,29 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+@import "../../styles/theme";
 
 .el-drawer.rtl{
     box-shadow: 0px 0px 17px rgba(115, 117, 129, 0.25);
-    border-radius: 5px 0 0 5px;
+    border-radius: 20px 0 0 20px;
 }
 
 .el-drawer.ltr{
     box-shadow: 0px 0px 17px rgba(115, 117, 129, 0.25);
-    border-radius: 0 5px 5px 0;
+    border-radius: 0 20px 20px 0;
 }
 
 .el-drawer__header{
-    font-family: 'Lato';
+    font-family: $main-font-family;
     font-size: 35px;
     font-weight: bold;
-    color:#333333;
+    color: $dark-body-grey;
+    padding: 38px 38px 58px 38px;
 }
 
 .el-drawer__body{
-    padding: 20px;
+    padding: 0px 38px 58px 38px;
 }
 
 .el-drawer.ltr, .el-drawer.rtl {
@@ -42,23 +44,26 @@ export default {
     bottom: 0;
 }
 
-.el-drawer__open .el-drawer.rtl {
-    -webkit-animation: rtl-drawer-in 0.5s 1ms;
-    animation: rtl-drawer-in 0.5s 1ms;
-}
-
 .el-drawer.rtl {
     -webkit-animation: rtl-drawer-out 0.5s;
     animation: rtl-drawer-out 0.5s;
-}
-
-.el-drawer__open .el-drawer.ltr {
-    -webkit-animation: ltr-drawer-in 0.5s 1ms;
-    animation: ltr-drawer-in 0.5s 1ms;
+   .el-drawer__open {
+    -webkit-animation: rtl-drawer-in 0.5s 1ms;
+    animation: rtl-drawer-in 0.5s 1ms;
+    }
 }
 
 .el-drawer.ltr {
     -webkit-animation: ltr-drawer-out 0.5s;
     animation: ltr-drawer-out 0.5s;
+    .el-drawer__open {
+        -webkit-animation: ltr-drawer-in 0.5s 1ms;
+        animation: ltr-drawer-in 0.5s 1ms;
+    }
 }
+
+.el-icon-close:before {
+    color: $light-body-grey;
+}
+
 </style>
