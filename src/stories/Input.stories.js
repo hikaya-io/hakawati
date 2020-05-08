@@ -4,6 +4,9 @@ import ClearInput from '../components/input/ClearInput.vue'
 import PasswordBox from '../components/input/PasswordBox.vue'
 import TextArea from '../components/input/TextArea.vue'
 import InputLength from '../components/input/InputLength.vue'
+import LabelInput from '../components/input/LabelInput.vue'
+
+import HkForm from '../components/form/Form.vue'
 
 // This is required for each story
 export default { title: 'Input' }
@@ -59,6 +62,47 @@ export const inputLength = () => ({
   template: `
     <div>
     <input-length maxlength="100" placeholder="Text area input with limit" show-word-limit></input-length>
+    </div>
+  `
+})
+
+export const labelInput = () => ({
+  components: { HkForm, LabelInput },
+  data () {
+    return {
+      form: {
+        input: ''
+      }
+    }
+  },
+  template: `
+    <div>
+      <hk-form
+        ref="form"
+        :model="form"
+        label-position="top"
+        labelWidth="120px"
+      >
+        <label-input placeholder="Input here" label="Label Input" v-model="form.input" />
+      </hk-form>
+
+      <hk-form
+        ref="form"
+        :model="form"
+        label-position="left"
+        labelWidth="120px"
+      >
+        <label-input placeholder="Input here" label="Required Input" v-model="form.input" required />
+      </hk-form>
+
+      <hk-form
+        ref="form"
+        :model="form"
+        label-position="left"
+        labelWidth="120px"
+      >
+        <label-input placeholder="Input here" label="Disabled Input" v-model="form.input" disabled />
+      </hk-form>
     </div>
   `
 })

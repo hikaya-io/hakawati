@@ -57,6 +57,7 @@ import ClearInput from './components/input/ClearInput.vue'
 import PasswordBox from './components/input/PasswordBox.vue'
 import TextArea from './components/input/TextArea.vue'
 import InputLength from './components/input/InputLength.vue'
+import LabelInput from './components/input/LabelInput.vue'
 
 // Nav menu
 import TopNav from './components/navMenu/TopNav.vue'
@@ -121,6 +122,7 @@ const components = [
   PasswordBox,
   TextArea,
   InputLength,
+  LabelInput,
   TopNav,
   CollapseNav,
   // BasicTable,
@@ -190,6 +192,7 @@ export default {
   PasswordBox,
   TextArea,
   InputLength,
+  LabelInput,
   TopNav,
   CollapseNav,
   // BasicTable,

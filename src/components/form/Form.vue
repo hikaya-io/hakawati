@@ -2,7 +2,7 @@
   <el-form
     :model="model"
     :label-width="labelWidth"
-    :labelPosition="labelPosition"
+    :label-position="labelPosition"
     :size="size"
     :disabled="disabled"
   >
@@ -37,3 +37,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  .el-form--label-top .label {
+    padding: 0 0 0 15px;
+  }
+</style>
