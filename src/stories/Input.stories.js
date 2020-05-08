@@ -6,6 +6,8 @@ import TextArea from '../components/input/TextArea.vue'
 import InputLength from '../components/input/InputLength.vue'
 import LabelInput from '../components/input/LabelInput.vue'
 
+import HkForm from '../components/form/Form.vue'
+
 // This is required for each story
 export default { title: 'Input' }
 
@@ -65,12 +67,42 @@ export const inputLength = () => ({
 })
 
 export const labelInput = () => ({
-  components: { LabelInput },
+  components: { HkForm, LabelInput },
+  data () {
+    return {
+      form: {
+        input: ''
+      }
+    }
+  },
   template: `
     <div>
-      <label-input placeholder="Input here" label="Label Input" labelPosition="top"></label-input>
-      <label-input placeholder="Input here" label="Required Input" labelPosition="left" required></label-input>
-      <label-input placeholder="Input here" label="Disabled Input" labelPosition="left" disabled></label-input>
+      <hk-form
+        ref="form"
+        :model="form"
+        label-position="top"
+        labelWidth="120px"
+      >
+        <label-input placeholder="Input here" label="Label Input" />
+      </hk-form>
+
+      <hk-form
+        ref="form"
+        :model="form"
+        label-position="left"
+        labelWidth="120px"
+      >
+        <label-input placeholder="Input here" label="Required Input" required />
+      </hk-form>
+
+      <hk-form
+        ref="form"
+        :model="form"
+        label-position="left"
+        labelWidth="120px"
+      >
+        <label-input placeholder="Input here" label="Disabled Input" disabled />
+      </hk-form>
     </div>
   `
 })
