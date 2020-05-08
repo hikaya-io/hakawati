@@ -13,12 +13,12 @@ export const basicCheckbox = () => ({
   components: { BasicCheckbox },
   template: `
   <div>
-    <basic-checkbox @click="action" 
+    <basic-checkbox @click="action"
       class="body-reg"
     >
       Checkbox A
     </basic-checkbox>
-  </div>  
+  </div>
   `,
   methods: { action: action('click') }
 })
@@ -32,7 +32,7 @@ export const disabledCheckbox = () => ({
       >
         Checkbox A
       </disabled-checkbox>
-    </div>  
+    </div>
     `,
   methods: { action: action('click') }
 })
@@ -46,7 +46,7 @@ export const checkboxGroup = () => ({
   },
   template: `
     <div>
-      <checkbox-group 
+      <checkbox-group
         v-model="checkList"
         class="body-reg"
       >
@@ -56,7 +56,7 @@ export const checkboxGroup = () => ({
       <el-checkbox label="Disabled" disabled></el-checkbox>
       <el-checkbox label="Selected and disabled" disabled></el-checkbox>
       </checkbox-group>
-    </div>  
+    </div>
     `
 })
 
@@ -64,10 +64,11 @@ export const checkboxButton = () => ({
   components: { CheckboxButton },
   template: `
       <div>
-        <checkbox-button 
-          size="size"
+        <checkbox-button
+          size="small"
           class="body-reg"
           round
+          text="Option 1"
         >
         </checkbox-button>
       </div>
