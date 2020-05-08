@@ -17,9 +17,9 @@
 
 <script>
 export default {
-  props: ["tableData"],
-  data() {
-    return { name: "TableWithFixedHeader" };
+  props: ['tableData'],
+  data () {
+    return { name: 'TableWithFixedHeader' }
   }
-};
+}
 </script>

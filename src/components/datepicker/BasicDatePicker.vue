@@ -5,8 +5,7 @@
     :size="size"
     :format="format"
     :placeholder="placeholder"
-  >
-  </el-date-picker>
+  />
 </template>
 
 <script>

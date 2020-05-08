@@ -3,8 +3,7 @@
     :title="title"
     :type="type"
     :description="description"
-  >
-  </el-alert>
+  />
 </template>
 
 <script>

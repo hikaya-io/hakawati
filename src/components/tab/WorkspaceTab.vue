@@ -4,7 +4,12 @@
         <div slot="header">
             <slot name="title">Workspace</slot>
         </div>
-        <el-tabs v-model="activeName" :title="title" :tab-position="tabPosition" @tab-click="$emit('click')">
+        <el-tabs
+          v-model="activeName"
+          :title="title"
+          :tab-position="tabPosition"
+          @tab-click="$emit('click')"
+        >
             <slot></slot>
         </el-tabs>
     </el-card>

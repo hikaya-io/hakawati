@@ -42,11 +42,6 @@ export default {
     border-radius: 30px;
 }
 
-.ws-button {
-    color: $primary-color;
-    font-family: $main-font-family;
-}
-
 .el-icon-s-tools:before {
     color: $dark-body-grey;
 }

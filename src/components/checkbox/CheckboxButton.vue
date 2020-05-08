@@ -1,8 +1,7 @@
 <template>
     <el-checkbox-button
       :size="size"
-    >
-    </el-checkbox-button>
+    />
 </template>
 
 <script>

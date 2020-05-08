@@ -5,8 +5,7 @@
     :background="background == 'true' ? true : false"
     :page-sizes="convertPageSizes"
     :page-size="parseInt(pageSize)"
-  >
-  </el-pagination>
+  />
 </template>
 
 <script>

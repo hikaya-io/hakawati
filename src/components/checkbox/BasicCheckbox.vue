@@ -1,5 +1,7 @@
 <template>
-  <el-checkbox @click="$emit('click')">
+  <el-checkbox
+    @click="$emit('click')"
+  >
     <slot></slot>
   </el-checkbox>
 </template>

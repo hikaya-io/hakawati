@@ -60,11 +60,11 @@
 
 <script>
 export default {
-  props: ["tableData"],
-  data() {
+  props: ['tableData'],
+  data () {
     return {
-      name: "TableWithGroupingHead"
-    };
+      name: 'TableWithGroupingHead'
+    }
   }
-};
+}
 </script>

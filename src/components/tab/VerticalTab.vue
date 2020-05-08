@@ -1,6 +1,11 @@
 
 <template>
-  <el-tabs v-model="activeName" :tab-position="tabPosition" style="height: 200px;" @tab-click="$emit('click')">
+  <el-tabs
+    v-model="activeName"
+    :tab-position="tabPosition"
+    style="height: 200px;"
+    @tab-click="$emit('click')"
+  >
     <slot></slot>
   </el-tabs>
 </template>

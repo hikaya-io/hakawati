@@ -4,7 +4,7 @@
       model="form"
       label-width="120px"
     >
-      <el-row 
+      <el-row
         :gutter="20"
       >
         <el-col

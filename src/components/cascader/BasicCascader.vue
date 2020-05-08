@@ -1,8 +1,7 @@
 <template>
   <el-cascader
     :options="options"
-  >
-  </el-cascader>
+  />
 </template>
 
 <script>

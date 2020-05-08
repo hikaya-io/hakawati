@@ -5,7 +5,7 @@
     style="width: 100%"
   >
     <el-table-column
-    v-for="(value, key) in tableData[0]"
+      v-for="(value, key) in tableData[0]"
       :prop="key"
       :label="key.charAt(0).toUpperCase() + key.slice(1)"
       width="180"
@@ -17,11 +17,11 @@
 
 <script>
 export default {
-  props: ["tableData"],
-  data() {
+  props: ['tableData'],
+  data () {
     return {
-      name: "TableWithBorder"
-    };
+      name: 'TableWithBorder'
+    }
   }
-};
+}
 </script>

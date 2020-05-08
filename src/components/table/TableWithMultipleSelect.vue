@@ -28,27 +28,27 @@
 
 <script>
 export default {
-  props: ["tableData"],
-  data() {
+  props: ['tableData'],
+  data () {
     return {
-      name: "TableWithMultipleSelect",
+      name: 'TableWithMultipleSelect',
       multipleSelection: []
-    };
+    }
   },
 
   methods: {
-    toggleSelection(rows) {
+    toggleSelection (rows) {
       if (rows) {
         rows.forEach(row => {
-          this.$refs.multipleTable.toggleRowSelection(row);
-        });
+          this.$refs.multipleTable.toggleRowSelection(row)
+        })
       } else {
-        this.$refs.multipleTable.clearSelection();
+        this.$refs.multipleTable.clearSelection()
       }
     },
-    handleSelectionChange(val) {
-      this.multipleSelection = val;
+    handleSelectionChange (val) {
+      this.multipleSelection = val
     }
   }
-};
+}
 </script>

@@ -2,8 +2,7 @@
   <el-alert
     :title="title"
     :type="type"
-  >
-  </el-alert>
+  />
 </template>
 
 <script>

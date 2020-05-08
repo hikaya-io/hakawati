@@ -6,8 +6,7 @@
     :range-separator="rangeSeparator"
     :start-placeholder="startDate"
     :end-placeholder="endDate"
-  >
-  </el-date-picker>
+  />
 </template>
 
 <script>

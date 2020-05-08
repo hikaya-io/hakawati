@@ -3,8 +3,8 @@
     :active-color="activeColor"
     :inactive-color="inactiveColor"
     @click="$emit('click')"
-    disabled>
-    </el-switch>
+    disabled
+    />
 </template>
 
 <script>

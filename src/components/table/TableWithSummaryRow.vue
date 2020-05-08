@@ -38,40 +38,40 @@
 
 <script>
 export default {
-  props: ["tableData"],
-  data() {
+  props: ['tableData'],
+  data () {
     return {
-      name: "TableWithSummaryRow"
-    };
+      name: 'TableWithSummaryRow'
+    }
   },
   methods: {
-    getSummaries(param) {
-      const { columns, data } = param;
-      const sums = [];
+    getSummaries (param) {
+      const { columns, data } = param
+      const sums = []
       columns.forEach((column, index) => {
         if (index === 0) {
-          sums[index] = "Total Cost";
-          return;
+          sums[index] = 'Total Cost'
+          return
         }
-        const values = data.map(item => Number(item[column.property]));
+        const values = data.map(item => Number(item[column.property]))
         if (!values.every(value => isNaN(value))) {
           sums[index] =
-            "$ " +
+            '$ ' +
             values.reduce((prev, curr) => {
-              const value = Number(curr);
+              const value = Number(curr)
               if (!isNaN(value)) {
-                return prev + curr;
+                return prev + curr
               } else {
-                return prev;
+                return prev
               }
-            }, 0);
+            }, 0)
         } else {
-          sums[index] = "N/A";
+          sums[index] = 'N/A'
         }
-      });
+      })
 
-      return sums;
+      return sums
     }
   }
-};
+}
 </script>

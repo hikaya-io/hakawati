@@ -4,8 +4,8 @@
     :inactive-color="inactiveColor"
     :active-text="activeText"
     :inactive-text="inactiveText"
-    @click="$emit('click')">
-    </el-switch>
+    @click="$emit('click')"
+    />
 </template>
 
 <script>

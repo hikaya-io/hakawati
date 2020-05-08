@@ -3,8 +3,8 @@
     v-model="value"
     :active-color="activeColor"
     :inactive-color="inactiveColor"
-    @click="$emit('click')">
-    </el-switch>
+    @click="$emit('click')"
+    />
 </template>
 
 <script>
