@@ -1,10 +1,14 @@
 
 import './styles/element-variables.scss'
+import './styles/theme.scss'
 
 // Alert
 import BasicAlert from './components/alert/BasicAlert.vue'
 import IconAlert from './components/alert/IconAlert.vue'
 import DescriptionAlert from './components/alert/DescriptionAlert.vue'
+
+// Avatar
+import BasicAvatar from '../components/avatar/BasicAvatar.vue'
 
 // Breadcrumb
 import BreadcrumbBasic from './components/breadcrumb/BreadcrumbBasic.vue'
@@ -153,7 +157,8 @@ const components = [
   CardTab,
   VerticalTab,
   WorkspaceTab,
-  HkForm
+  HkForm,
+  BasicAvatar
 ]
 
 const install = function (Vue) {
@@ -221,5 +226,6 @@ export default {
   CardTab,
   VerticalTab,
   WorkspaceTab,
-  HkForm
+  HkForm,
+  BasicAvatar
 }
