@@ -37,4 +37,8 @@ export default {
     border-color: $primary-fill;
     -webkit-box-shadow: -1px 0 0 0 #8585ff;
 }
+
+el-checkbox-button.is-checked:first-child .el-checkbox-button__inner {
+    border-left-color: $primary-fill;
+}
 </style>
