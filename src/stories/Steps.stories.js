@@ -1,27 +1,27 @@
-import BasicSteps from '../components/steps/BasicSteps.vue';
-import BasicStepsWithDescription from '../components/steps/BasicStepsWithDescription.vue';
+import BasicSteps from '../components/steps/BasicSteps.vue'
+import BasicStepsWithDescription from '../components/steps/BasicStepsWithDescription.vue'
 
 export default { title: 'Steps' }
 
 export const basicSteps = () => ({
-    components: { BasicSteps },
-    data() {
-        return {
-            active: 0,
-            steps: [
-                'Wake up',
-                'Drink cofee',
-                'Be awesome',
-                'Sleep'
-            ]
-        }
-    },
-    methods: {
-        next() {
-            if (this.active++ >= this.steps.length) this.active = 0;
-        }
-    },
-    template: `
+  components: { BasicSteps },
+  data () {
+    return {
+      active: 0,
+      steps: [
+        'Wake up',
+        'Drink cofee',
+        'Be awesome',
+        'Sleep'
+      ]
+    }
+  },
+  methods: {
+    next () {
+      if (this.active++ >= this.steps.length) this.active = 0
+    }
+  },
+  template: `
     <div>
     Default
     <basic-steps :active="active"/>
@@ -40,51 +40,51 @@ export const basicSteps = () => ({
 })
 
 export const withDescription = () => ({
-    components: { BasicStepsWithDescription },
-    methods: {
-        next() {
-            if (this.active++ >= this.steps.length) this.active = 0;
-        }
-    },
-    data() {
-        return {
-            active: 0,
-            steps: [
-                {
-                    title: 'Wakeup'
-                },
-                {
-                    title: 'Drink Coffee'
-                },
-                {
-                    title: 'Be awesome',
+  components: { BasicStepsWithDescription },
+  methods: {
+    next () {
+      if (this.active++ >= this.steps.length) this.active = 0
+    }
+  },
+  data () {
+    return {
+      active: 0,
+      steps: [
+        {
+          title: 'Wakeup'
+        },
+        {
+          title: 'Drink Coffee'
+        },
+        {
+          title: 'Be awesome'
 
-                },
-                {
-                    title: 'Sleep',
-                }
-            ],
-            stepsWithDesc: [
-                {
-                    title: 'Alarm rings',
-                    description: 'Time to wakeup'
-                },
-                {
-                    title: 'Coffee has boiled',
-                    description: 'Drink Coffee'
-                },
-                {
-                    title: 'Be awesome',
-                    description: 'Write some code'
-                },
-                {
-                    title: 'Sleep',
-                    description: 'Get some rest'
-                }
-            ]
+        },
+        {
+          title: 'Sleep'
         }
-    },
-    template: `
+      ],
+      stepsWithDesc: [
+        {
+          title: 'Alarm rings',
+          description: 'Time to wakeup'
+        },
+        {
+          title: 'Coffee has boiled',
+          description: 'Drink Coffee'
+        },
+        {
+          title: 'Be awesome',
+          description: 'Write some code'
+        },
+        {
+          title: 'Sleep',
+          description: 'Get some rest'
+        }
+      ]
+    }
+  },
+  template: `
     <div>Vertical step bar
     Default
     <basic-steps-with-description :active="active"/>
