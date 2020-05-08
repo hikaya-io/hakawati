@@ -121,4 +121,8 @@ width: 110px;
 background: #F0F0FF;
 border-radius: 25px !important;
 }
+
+.el-popover {
+  border-radius: 25px ;
+}
 </style>
