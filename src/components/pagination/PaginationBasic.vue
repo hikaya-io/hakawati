@@ -13,3 +13,8 @@ export default {
   props: ['totalPageNumber', 'background']
 }
 </script>
+
+<style lang="scss">
+@import "../../styles/theme";
+
+</style>
