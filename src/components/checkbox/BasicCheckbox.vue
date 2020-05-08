@@ -1,5 +1,7 @@
 <template>
-  <el-checkbox @click="$emit('click')">
+  <el-checkbox
+    @click="$emit('click')"
+  >
     <slot></slot>
   </el-checkbox>
 </template>
@@ -10,10 +12,7 @@ export default {
 }
 </script>
 
-<style>
-  .el-checkbox__label {
-    font-family: 'Lato',sans-serif;
-    font-weight: 300;
-  }
+<style lang="scss">
+@import "../../styles/theme";
 
 </style>

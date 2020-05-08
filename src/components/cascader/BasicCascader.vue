@@ -1,8 +1,7 @@
 <template>
   <el-cascader
     :options="options"
-  >
-  </el-cascader>
+  />
 </template>
 
 <script>
@@ -18,13 +17,19 @@ export default {
 </script>
 
 <style lang="scss">
-.el-cascader{
-    font-family: 'Lato';
+@import "../../styles/theme";
+
+.el-cascader .el-input .el-input__inner:focus {
+    border-color: $dark-body-grey;
 }
-.el-cascader-node.is-active{
-    font-weight: normal;
+
+.el-cascader-menu {
+  color: $dark-body-grey;
 }
-.el-cascader-node.in-active-path{
-    font-weight: normal;
+
+.el-cascader-menu__list {
+  background: $background-color;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
 }
 </style>

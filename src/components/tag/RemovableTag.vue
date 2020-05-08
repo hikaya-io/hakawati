@@ -1,5 +1,8 @@
 <template>
-  <el-tag :type="type" closable>
+  <el-tag
+    :type="type"
+    closable
+  >
     <slot></slot>
   </el-tag>
 </template>
@@ -16,8 +19,22 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-.el-tag {
-    font-family: "Lato";
+<style lang="scss">
+@import "../../styles/theme";
+
+.el-tag.el-tag--success {
+    border-color: transparent;
+}
+
+.el-tag.el-tag--info {
+    border-color: transparent;
+}
+
+.el-tag.el-tag--warning {
+    border-color: transparent;
+}
+
+.el-tag.el-tag--danger {
+    border-color: transparent;
 }
 </style>

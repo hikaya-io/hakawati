@@ -19,9 +19,14 @@
       @blur="handleInputConfirm"
     >
     </el-input>
-    <el-button v-else class="button-new-tag" size="small" @click="showInput"
-      >+ New</el-button
+    <el-button
+      v-else
+      class="button-new-tag"
+      size="small"
+      @click="showInput"
     >
+      + New
+    </el-button>
   </div>
 </template>
 
@@ -65,22 +70,32 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.el-tag + .el-tag {
+@import "../../styles/theme";
+
+.el-tag {
   margin-left: 10px;
-  font-family: "Lato";
+  font-family: $main-font-family;
+  border-radius: 20px;
+  border-color: transparent;
+  padding: 0px 15px 0px 15px;
 }
+
 .button-new-tag {
   margin-left: 10px;
   height: 32px;
-  line-height: 30px;
-  padding-top: 0;
-  padding-bottom: 0;
-  font-family: "Lato";
-
+  padding: 0px 15px 0px 15px;
+  font-family: $main-font-family;
 }
+
 .input-new-tag {
   width: 90px;
   margin-left: 10px;
   vertical-align: bottom;
+  border-radius: 20px;
 }
+
+.el-tag .el-tag__close:hover {
+  background-color: transparent;
+}
+
 </style>

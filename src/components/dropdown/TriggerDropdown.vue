@@ -14,15 +14,17 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import "../../styles/theme";
+
   .el-dropdown-link {
     cursor: pointer;
-    color: #25ced1;
-    font-family: 'Lato', sans-serif;
+    color: $primary-color;
+    font-family: $main-font-family;
   }
 
   .el-icon-arrow-down {
-    font-size: 12px;
+    font-size: 14px;
   }
 
 </style>

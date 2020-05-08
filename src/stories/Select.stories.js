@@ -93,7 +93,12 @@ export const basicSelect = () => ({
   },
   template: `
     <div>
-        <basic-select :options="options" :placeholder="placeholder" :disabled="disabled" @change="onChange"/>
+      <basic-select
+        :options="options"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        @change="onChange"
+      />
     </div>  
   `
 })
@@ -122,7 +127,13 @@ export const multiSelect = () => ({
   },
   template: `
       <div>
-          <multi-select :options="options" :collapse-tags="collapseTags" :placeholder="placeholder" :disabled="disabled" @change="onChange"/>
+        <multi-select
+          :options="options"
+          :collapse-tags="collapseTags"
+          :placeholder="placeholder"
+          :disabled="disabled"
+          @change="onChange"
+        />
       </div>  
     `
 })
@@ -148,7 +159,12 @@ export const groupedSelect = () => ({
   },
   template: `
       <div>
-          <grouped-select :options="options" :placeholder="placeholder" :disabled="disabled" @change="onChange"/>
+        <grouped-select 
+          :options="options" 
+          :placeholder="placeholder" 
+          :disabled="disabled" 
+          @change="onChange"
+        />
       </div>  
     `
 })

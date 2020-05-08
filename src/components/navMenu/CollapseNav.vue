@@ -13,7 +13,8 @@
           size="mini"
           :class="!isCollapse ? 'btn-not-collapse' : ''"
           circle
-        ></el-button>
+        >
+        </el-button>
       </transition>
     </el-menu>
   </div>
@@ -36,9 +37,11 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+@import "../../styles/theme";
+
   .el-menu {
-    font-family: "Lato";
+    font-family: $main-font-family;
 
     .el-button {
       position: absolute;

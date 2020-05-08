@@ -7,7 +7,9 @@
       :data="tableData"
       style="width: 100%"
     >
-      <el-table-column v-for="(value, key) in noTagColumn" :key="key"
+      <el-table-column
+        v-for="(value, key) in noTagColumn"
+        :key="key"
         :prop="key"
         :label="key.charAt(0).toUpperCase() + key.slice(1)"
         sortable
@@ -38,34 +40,34 @@
 
 <script>
 export default {
-  props: ["tableData", "filterData"],
-  data() {
+  props: ['tableData', 'filterData'],
+  data () {
     return {
-      name: "TableWithFilter"
-    };
+      name: 'TableWithFilter'
+    }
   },
-  created(){
-      this.tagColumn = this.tableData[0].tag
-      this.noTagColumn = {...this.tableData[0]}
-      delete this.noTagColumn.tag
+  created () {
+    this.tagColumn = this.tableData[0].tag
+    this.noTagColumn = { ...this.tableData[0] }
+    delete this.noTagColumn.tag
   },
   methods: {
-    resetDateFilter() {
-      this.$refs.filterTable.clearFilter("date");
+    resetDateFilter () {
+      this.$refs.filterTable.clearFilter('date')
     },
-    clearFilter() {
-      this.$refs.filterTable.clearFilter();
+    clearFilter () {
+      this.$refs.filterTable.clearFilter()
     },
-    formatter(row, column) {
-      return row.address;
+    formatter (row, column) {
+      return row.address
     },
-    filterTag(value, row) {
-      return row.tag === value;
+    filterTag (value, row) {
+      return row.tag === value
     },
-    filterHandler(value, row, column) {
-      const property = column["property"];
-      return row[property] === value;
+    filterHandler (value, row, column) {
+      const property = column.property
+      return row[property] === value
     }
   }
-};
+}
 </script>

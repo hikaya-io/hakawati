@@ -1,5 +1,8 @@
 <template>
-  <el-tabs v-model="activeName" @tab-click="$emit('click')">
+  <el-tabs
+    v-model="activeName"
+    @tab-click="$emit('click')"
+  >
     <slot></slot>
   </el-tabs>
 </template>

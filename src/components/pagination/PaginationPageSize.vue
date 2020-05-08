@@ -5,8 +5,7 @@
     :background="background == 'true' ? true : false"
     :page-sizes="convertPageSizes"
     :page-size="parseInt(pageSize)"
-  >
-  </el-pagination>
+  />
 </template>
 
 <script>
@@ -20,3 +19,8 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@import "../../styles/theme";
+
+</style>

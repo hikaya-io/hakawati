@@ -1,5 +1,10 @@
 <template>
-  <el-button @click="$emit('click')" :size="size" :type="type" :icon="icon" round>
+  <el-button @click="$emit('click')"
+    :size="size"
+    :type="type"
+    :icon="icon"
+    round
+  >
     <slot></slot>
   </el-button>
 </template>
@@ -24,7 +29,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "../../styles/theme";
 
 .el-button {
@@ -35,11 +40,6 @@ export default {
 .el-button.is-round {
     padding: 13px 33px;
     border-radius: 30px;
-}
-
-.ws-settings {
-    color: $primary-color;
-    font-family: $main-font-family;
 }
 
 .el-icon-s-tools:before {

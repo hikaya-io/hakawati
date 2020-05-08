@@ -1,6 +1,7 @@
 <template>
   <el-drawer
-v-bind="$attrs" v-on="$listeners"
+    v-bind="$attrs"
+    v-on="$listeners"
   >
     <slot></slot>
   </el-drawer>
@@ -13,6 +14,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 .el-drawer__header{
     font-family: 'Lato';
     font-size: 35px;

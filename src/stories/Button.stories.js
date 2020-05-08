@@ -102,8 +102,8 @@ export const workspaceButton = () => ({
   components: { WorkspaceButton },
   template: `
   <div>
-  <workspace-button @click="action" size="medium" icon="el-icon-circle-plus-outline" class="ws-settings bold-body">Add Workspace</workspace-button>
-  <workspace-button @click="action" size="medium" icon="el-icon-s-tools" class="ws-settings bold-body">Workspace Settings</workspace-button>
+  <workspace-button @click="action" size="medium" icon="el-icon-circle-plus-outline" class="ws-button bold-body">Add Workspace</workspace-button>
+  <workspace-button @click="action" size="medium" icon="el-icon-s-tools" class="ws-button bold-body">Workspace Settings</workspace-button>
 
   </div>  
   `,

@@ -1,8 +1,6 @@
 import BasicDialog from '../components/dialog/BasicDialog.vue'
 import FormDialog from '../components/dialog/FormDialog.vue'
-import {
-  action
-} from '@storybook/addon-actions'
+import { action } from '@storybook/addon-actions'
 
 // This is required for each story
 export default {
@@ -14,7 +12,14 @@ export const basicDialog = () => ({
     BasicDialog
   },
   template: `
-  <basic-dialog @dialogConfirmed="action" title="Hikaya" message="Do you like open source?" type='success' openDialogText='Click to see the question.'>
+  <basic-dialog 
+    @dialogConfirmed="action" 
+    title="Hikaya" 
+    message="Do you like open source?" 
+    type="primary"
+    openDialogText="Click to see the question."
+    class="body-reg"
+  >
   </basic-dialog>
     `,
   methods: {
@@ -27,7 +32,14 @@ export const formDialog = () => ({
     FormDialog
   },
   template: `
-  <form-dialog @dialogFormSubmitted="action" title="Question" message="How old are you?" type='success' openDialogText='Click to see the question.'>
+  <form-dialog 
+    @dialogFormSubmitted="action"
+    title="Question"
+    message="How old are you?"
+    type="primary"
+    openDialogText="Click to see the question."
+    class="body-reg"
+  >
   </form-dialog>
     `,
   methods: {
