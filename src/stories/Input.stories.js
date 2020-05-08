@@ -83,7 +83,7 @@ export const labelInput = () => ({
         label-position="top"
         labelWidth="120px"
       >
-        <label-input placeholder="Input here" label="Label Input" />
+        <label-input placeholder="Input here" label="Label Input" :model="form.input" />
       </hk-form>
 
       <hk-form

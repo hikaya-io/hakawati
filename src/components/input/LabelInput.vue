@@ -8,7 +8,7 @@
       {{ label }} <span class="required" v-if="required">*</span>
     </div>
     <el-input
-      v-model="form.input"
+      v-model="value"
       :placeholder="placeholder"
       :disabled="disabled"
     />
@@ -20,6 +20,10 @@ export default {
   name: 'LabelInput',
   props: {
     type: {
+      type: String,
+      default: ''
+    },
+    model: {
       type: String,
       default: ''
     },
@@ -42,9 +46,7 @@ export default {
   },
   data () {
     return {
-      form: {
-        input: ''
-      }
+      value: this.model
     }
   }
 }
