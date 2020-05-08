@@ -8,7 +8,7 @@ import IconAlert from './components/alert/IconAlert.vue'
 import DescriptionAlert from './components/alert/DescriptionAlert.vue'
 
 // Avatar
-import BasicAvatar from '../components/avatar/BasicAvatar.vue'
+import BasicAvatar from './components/avatar/BasicAvatar.vue'
 
 // Breadcrumb
 // import BreadcrumbBasic from './components/breadcrumb/BreadcrumbBasic.vue'
@@ -33,15 +33,15 @@ import BasicCascader from './components/cascader/BasicCascader.vue'
 import BasicCheckbox from './components/checkbox/BasicCheckbox.vue'
 import DisabledCheckbox from './components/checkbox/DisabledCheckbox.vue'
 import CheckboxGroup from './components/checkbox/CheckboxGroup.vue'
-import ButtonCheckbox from './components/checkbox/ButtonCheckbox.vue'
+import ButtonCheckbox from './components/checkbox/CheckboxButton.vue'
 
 // Datepicker
 import BasicDatePicker from './components/datepicker/BasicDatePicker.vue'
 import DateRangePicker from './components/datepicker/DateRangePicker.vue'
 
 // Dialog
-import BasicDialog from '../components/dialog/BasicDialog.vue'
-import FormDialog from '../components/dialog/FormDialog.vue'
+import BasicDialog from './components/dialog/BasicDialog.vue'
+import FormDialog from './components/dialog/FormDialog.vue'
 
 // Drawer
 import BasicDrawer from './components/drawer/BasicDrawer.vue'
@@ -82,10 +82,10 @@ import TextSwitch from './components/switch/TextSwitch.vue'
 import DisabledSwitch from './components/switch/DisabledSwitch.vue'
 
 // Tab
-import BasicTab from '../components/tab/BasicTab.vue'
-import CardTab from '../components/tab/CardTab.vue'
-import VerticalTab from '../components/tab/VerticalTab.vue'
-import WorkspaceTab from '../components/tab/WorkspaceTab.vue'
+import BasicTab from './components/tab/BasicTab.vue'
+import CardTab from './components/tab/CardTab.vue'
+import VerticalTab from './components/tab/VerticalTab.vue'
+import WorkspaceTab from './components/tab/WorkspaceTab.vue'
 
 // Table
 // import BasicTable from './components/table/BasicTable.vue'
