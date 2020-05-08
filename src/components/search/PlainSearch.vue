@@ -1,14 +1,7 @@
 <template>
-  <el-autocomplete
-    class="en-round"
-    v-model="state"
-    :clearable="isClearable"
-    prefix-icon="el-icon-search"
-    :fetch-suggestions="querySearchAsync"
-    :placeholder="placeholder"
-    :trigger-on-focus="false"
-    @select="handleSelect"
-  ></el-autocomplete>
+  <el-input   prefix-icon="el-icon-search" :placeholder="placeholder" v-model="input" v-bind="$attrs" v-on="$listeners" class="en-round">
+    <slot></slot>
+  </el-input>
 </template>
 <script>
 export default {
@@ -25,52 +18,31 @@ export default {
   },
   data () {
     return {
-      links: [],
-      state: '',
-      timeout: null
+      input: ''
     }
   },
   methods: {
-    loadAll () {
-      return [
-        { value: 'vue', link: 'https://github.com/vuejs/vue' },
-        { value: 'element', link: 'https://github.com/ElemeFE/element' },
-        { value: 'cooking', link: 'https://github.com/ElemeFE/cooking' },
-        { value: 'mint-ui', link: 'https://github.com/ElemeFE/mint-ui' },
-        { value: 'vuex', link: 'https://github.com/vuejs/vuex' },
-        { value: 'vue-router', link: 'https://github.com/vuejs/vue-router' },
-        { value: 'babel', link: 'https://github.com/babel/babel' }
-      ]
-    },
-    querySearchAsync (queryString, cb) {
-      var links = this.links
-      var results = queryString
-        ? links.filter(this.createFilter(queryString))
-        : links
-
-      clearTimeout(this.timeout)
-      this.timeout = setTimeout(() => {
-        cb(results)
-      }, 3000 * Math.random())
-    },
-    createFilter (queryString) {
-      return link => {
-        return (
-          link.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0
-        )
-      }
-    },
-    handleSelect (item) {
-      console.log(item)
-    }
-  },
-  mounted () {
-    this.links = this.loadAll()
   }
 }
 </script>
-<style>
+<style lang="scss">
 .en-round input {
-  border-radius: 3rem;
+  border-radius: 30px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 15%;
+    border-radius: 3rem;
+    border: 1px solid #d8dce5;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: 0.1s width;
+    /* Safari */
+    transition: 0.5s width;
+    &:focus {
+      width: 100%;
+    }
+
+    background: #FFFFFF;
 }
+
 </style>
+
