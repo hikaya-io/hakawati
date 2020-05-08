@@ -1,17 +1,15 @@
 <template>
-  <el-checkbox @click="$emit('click')"
-    :type="type"
-    disabled
-  >
-    <slot></slot>
-  </el-checkbox>
+    <el-checkbox-button
+      :size="size"
+    >
+    </el-checkbox-button>
 </template>
 
 <script>
 export default {
-  name: 'BasicCheckbox',
+  name: 'CheckboxButton',
   props: {
-    type: {
+    size: {
       type: String,
       default: ''
     }

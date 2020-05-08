@@ -7,8 +7,8 @@ import IconAlert from './components/alert/IconAlert.vue'
 import DescriptionAlert from './components/alert/DescriptionAlert.vue'
 
 // Breadcrumb
-import BreadcrumbBasic from './components/breadcrumb/BreadcrumbBasic.vue'
-import BreadcrumbIconSeparator from './components/breadcrumb/BreadcrumbIconSeparator.vue'
+// import BreadcrumbBasic from './components/breadcrumb/BreadcrumbBasic.vue'
+// import BreadcrumbIconSeparator from './components/breadcrumb/BreadcrumbIconSeparator.vue'
 
 // Button
 import BasicButton from './components/button/BasicButton.vue'
@@ -131,8 +131,8 @@ const components = [
   TextSwitch,
   DisabledSwitch,
   BasicCard,
-  BreadcrumbBasic,
-  BreadcrumbIconSeparator,
+  // BreadcrumbBasic,
+  // BreadcrumbIconSeparator,
   BasicSelect,
   MultiSelect,
   GroupedSelect,
@@ -199,8 +199,8 @@ export default {
   TextSwitch,
   DisabledSwitch,
   BasicCard,
-  BreadcrumbBasic,
-  BreadcrumbIconSeparator,
+  // BreadcrumbBasic,
+  // BreadcrumbIconSeparator,
   BasicSelect,
   MultiSelect,
   GroupedSelect,

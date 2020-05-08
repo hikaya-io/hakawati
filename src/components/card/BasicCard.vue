@@ -1,6 +1,6 @@
 <template>
     <el-card class="box-card">
-        <div slot="header" class="clearfix">
+        <div slot="header">
             <slot name="title"></slot>
         </div>
         <slot name="items"></slot>

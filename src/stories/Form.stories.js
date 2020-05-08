@@ -1,10 +1,10 @@
-import HkForm from '../components/form/Form.vue'
+import BasicForm from '../components/form/BasicForm.vue'
 
 // This is required for each story
 export default { title: 'Form' }
 
-export const BasicForm = () => ({
-  components: { HkForm },
+export const basicForm = () => ({
+  components: { BasicForm },
   data () {
     return {
       form: {
@@ -14,33 +14,39 @@ export const BasicForm = () => ({
   },
   template: `
     <div>
-      <hk-form :model="form">
+      <basic-form 
+        :model="form"
+      >
         <el-form-item>
           <el-input
             placeholder="Sample Input"
             v-model="form.input"
           />
         </el-form-item>
-      </hk-form>
-      <hk-form
+      </basic-form>
+      <basic-form
         label-position="top"
         label-width="100px"
         :model="form"
       >
-        <el-form-item label="Sample Input with label">
+        <el-form-item 
+          label="Sample Input with label"
+        >
           <el-input v-model="form.input" />
         </el-form-item>
-      </hk-form>
-      <hk-form
+      </basic-form>
+      <basic-form
         label-position="top"
         label-width="100px"
         :model="form"
         :disabled="true"
       >
-        <el-form-item label="Sample Input with label disabled">
+        <el-form-item 
+          label="Sample Input with label disabled"
+        >
           <el-input v-model="form.input" />
         </el-form-item>
-      </hk-form>
+      </basic-form>
     </div>
   `
 })

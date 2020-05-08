@@ -1,7 +1,7 @@
 import BasicCheckbox from '../components/checkbox/BasicCheckbox.vue'
 import DisabledCheckbox from '../components/checkbox/DisabledCheckbox.vue'
 import CheckboxGroup from '../components/checkbox/CheckboxGroup.vue'
-import ButtonCheckbox from '../components/checkbox/ButtonCheckbox.vue'
+import CheckboxButton from '../components/checkbox/CheckboxButton.vue'
 
 import { action } from '@storybook/addon-actions'
 
@@ -13,9 +13,9 @@ export const basicCheckbox = () => ({
   components: { BasicCheckbox },
   template: `
   <div>
-    <basic-checkbox 
-    @click="action" 
-    class="body-reg">
+    <basic-checkbox @click="action" 
+      class="body-reg"
+    >
       Checkbox A
     </basic-checkbox>
   </div>  
@@ -27,8 +27,9 @@ export const disabledCheckbox = () => ({
   components: { DisabledCheckbox },
   template: `
     <div>
-      <disabled-checkbox 
-      @click="action">
+      <disabled-checkbox @click="action"
+        class="body-reg"
+      >
         Checkbox A
       </disabled-checkbox>
     </div>  
@@ -45,7 +46,10 @@ export const checkboxGroup = () => ({
   },
   template: `
     <div>
-      <checkbox-group v-model="checkList">
+      <checkbox-group 
+        v-model="checkList"
+        class="body-reg"
+      >
       <el-checkbox label="Option A"></el-checkbox>
       <el-checkbox label="Option B"></el-checkbox>
       <el-checkbox label="Option C"></el-checkbox>
@@ -56,20 +60,15 @@ export const checkboxGroup = () => ({
     `
 })
 
-export const buttonCheckbox = () => ({
-  components: { ButtonCheckbox },
-  data () {
-    return {
-      dataArray: ['Option A', 'Option B', 'Option C', 'Option D']
-    }
-  },
+export const checkboxButton = () => ({
+  components: { CheckboxButton },
   template: `
       <div>
-        <button-checkbox 
-        @click="action" 
-        size="medium" 
-        :dataArray='dataArray'>
-        </button-checkbox>
+        <checkbox-button 
+          size="size"
+          class="body-reg"
+          round>
+        </checkbox-button>
       </div>
       `,
   methods: { action: action('click') }

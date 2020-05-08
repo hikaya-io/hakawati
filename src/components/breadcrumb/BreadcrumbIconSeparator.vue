@@ -1,11 +1,12 @@
 <template>
     <el-breadcrumb :separator-class="separatorClass">
         <el-breadcrumb-item
-            v-for="(item, index) in items"
-            :key="index"
-            :to="item.to"
-            :replace="item.replace">
-            {{item.label}}
+          v-for="(item, index) in items"
+          :key="index"
+          :to="item.to"
+          :replace="item.replace"
+        >
+          {{item.label}}
         </el-breadcrumb-item>
     </el-breadcrumb>
 </template>

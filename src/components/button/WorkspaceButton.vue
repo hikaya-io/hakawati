@@ -1,5 +1,10 @@
 <template>
-  <el-button @click="$emit('click')" :size="size" :type="type" :icon="icon" round>
+  <el-button @click="$emit('click')"
+    :size="size"
+    :type="type"
+    :icon="icon"
+    round
+  >
     <slot></slot>
   </el-button>
 </template>
@@ -37,7 +42,7 @@ export default {
     border-radius: 30px;
 }
 
-.ws-settings {
+.ws-button {
     color: $primary-color;
     font-family: $main-font-family;
 }

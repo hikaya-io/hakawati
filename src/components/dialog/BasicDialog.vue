@@ -1,28 +1,35 @@
 <template>
   <div>
     <el-button
-    type="text"
-    @click="dialogVisible = true">
-    {{openDialogText}}
+      type="text"
+      @click="dialogVisible = true"
+    >
+      {{openDialogText}}
     </el-button>
     <slot></slot>
     <el-dialog
       :title="title"
       :visible.sync="dialogVisible"
       width="30%"
-      :before-close="handleClose">
+      :before-close="handleClose"
+    >
       <span>{{message}}</span>
       <span
         slot="footer"
-        class="dialog-footer">
+        class="dialog-footer"
+      >
         <el-button
-        @click="dialogVisible = false" round>
+          @click="dialogVisible = false"
+          round
+        >
         Cancel
         </el-button>
         <el-button
-        :type="type"
-        @click="handleConfirm" round>
-        Confirm
+          :type="type"
+          @click="handleConfirm"
+          round
+        >
+          Confirm
         </el-button>
       </span>
     </el-dialog>

@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'HkForm',
+  name: 'BasicForm',
   props: {
     model: {
       type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
@@ -37,3 +37,15 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@import "../../styles/theme";
+
+.el-form--label-top .el-form-item__label {
+  float: none;
+  display: inline-block;
+  text-align: left;
+  padding: 0 0 0 0;
+}
+
+</style>

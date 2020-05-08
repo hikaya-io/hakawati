@@ -1,6 +1,7 @@
 <template>
   <el-cascader
-  :options="options">
+    :options="options"
+  >
   </el-cascader>
 </template>
 

@@ -1,10 +1,11 @@
 <template>
     <el-breadcrumb :separator="separator">
         <el-breadcrumb-item
-        v-for="(item, index) in items"
-        :key="index"
-        :to="item.to"
-        :replace="item.replace">
+          v-for="(item, index) in items"
+          :key="index"
+          :to="item.to"
+          :replace="item.replace"
+        >
         {{item.label}}
         </el-breadcrumb-item>
     </el-breadcrumb>
@@ -29,7 +30,7 @@ export default {
 <style lang="scss">
 @import "../../styles/theme";
 
-.el-breadcrumb__inner.is-link, .el-breadcrumb__inner a {
+.el-breadcrumb__inner.is-link .a {
     color: $primary-color;
     background-color: $primary-fill;
     padding: 7px 20px;
