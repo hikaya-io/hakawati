@@ -83,7 +83,7 @@ export const labelInput = () => ({
         label-position="top"
         labelWidth="120px"
       >
-        <label-input placeholder="Input here" label="Label Input" :model="form.input" />
+        <label-input placeholder="Input here" label="Label Input" v-model="form.input" />
       </hk-form>
 
       <hk-form
@@ -92,7 +92,7 @@ export const labelInput = () => ({
         label-position="left"
         labelWidth="120px"
       >
-        <label-input placeholder="Input here" label="Required Input" required />
+        <label-input placeholder="Input here" label="Required Input" v-model="form.input" required />
       </hk-form>
 
       <hk-form
@@ -101,7 +101,7 @@ export const labelInput = () => ({
         label-position="left"
         labelWidth="120px"
       >
-        <label-input placeholder="Input here" label="Disabled Input" disabled />
+        <label-input placeholder="Input here" label="Disabled Input" v-model="form.input" disabled />
       </hk-form>
     </div>
   `

@@ -8,7 +8,7 @@
       {{ label }} <span class="required" v-if="required">*</span>
     </div>
     <el-input
-      v-model="value"
+      v-model="labelInputValue"
       :placeholder="placeholder"
       :disabled="disabled"
     />
@@ -23,9 +23,9 @@ export default {
       type: String,
       default: ''
     },
-    model: {
-      type: String,
-      default: ''
+    value: {
+      type: [String, Number],
+      default: null
     },
     placeholder: {
       type: String,
@@ -44,9 +44,14 @@ export default {
       default: false
     }
   },
-  data () {
-    return {
-      value: this.model
+  computed: {
+    labelInputValue: {
+      get () {
+        return this.value
+      },
+      set (val) {
+        this.$emit('input', val)
+      }
     }
   }
 }
