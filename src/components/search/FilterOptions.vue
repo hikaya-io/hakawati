@@ -103,9 +103,17 @@ export default {
   }
 }
 </script>
-<style >
+
+<style lang="scss">
+@import "../../styles/theme";
+
 .spacer {
   padding: 15px 33px;
+}
+
+.el-popover {
+  border-radius: 25px;
+  color: $dark-body-grey;
 }
 
 .align-center {
@@ -113,16 +121,24 @@ export default {
 }
 
 .button-pill .el-checkbox-button__inner {
-
-padding: 11px 33px;
-
-/* Primary Blue Fill */
-width: 110px;
-background: #F0F0FF;
-border-radius: 25px !important;
+  padding: 11px 33px;
+  width: 110px;
+  border-radius: 25px !important;
+  border-color: transparent;
 }
 
-.el-popover {
-  border-radius: 25px ;
+// Removes checkbox button border
+.el-checkbox-button:first-child .el-checkbox-button__inner {
+    border-left: transparent;
+}
+
+.el-checkbox-button.is-checked .el-checkbox-button__inner {
+    color: $primary-color;
+    background-color: $primary-fill;
+    border-color: $primary-fill;
+}
+
+.el-checkbox-button.is-focus .el-checkbox-button__inner {
+    border-color: transparent;
 }
 </style>

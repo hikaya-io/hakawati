@@ -26,12 +26,18 @@ export default {
 }
 </script>
 <style lang="scss">
+@import "../../styles/theme";
+
+.el-input__inner {
+  border-color: transparent;
+}
+
 .en-round input {
   border-radius: 30px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    width: 15%;
+    width: 35%;
     border-radius: 3rem;
-    border: 1px solid #d8dce5;
+    border: transparent;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     -webkit-transition: 0.1s width;
@@ -40,8 +46,6 @@ export default {
     &:focus {
       width: 100%;
     }
-
-    background: #FFFFFF;
 }
 
 </style>
