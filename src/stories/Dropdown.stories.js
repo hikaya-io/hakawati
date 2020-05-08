@@ -32,10 +32,13 @@ export const triggerDropdown = () => ({
   template: `
     <trigger-dropdown>
       <div slot="title">
-        <el-button @click="$emit('click')" size="small" type="primary">
+        <el-button
+          @click="$emit('click')"
+          size="small"
+          type="primary"
+        >
         More options <i class="el-icon-arrow-down el-icon--right"></i>
         </el-button>
-        
       </div>
       <template slot="items">
           <el-dropdown-item>Workspace 1</el-dropdown-item>

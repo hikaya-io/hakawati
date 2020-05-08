@@ -133,7 +133,7 @@ export const multiSelect = () => ({
           :placeholder="placeholder"
           :disabled="disabled"
           @change="onChange"
-          />
+        />
       </div>  
     `
 })

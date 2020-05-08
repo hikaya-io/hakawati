@@ -282,7 +282,8 @@ export const basicCascader = () => ({
   },
   template: `
   <basic-cascader 
-  :options='options'>
+    :options='options'
+  >
   </basic-cascader>
     `
 })

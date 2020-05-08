@@ -28,7 +28,13 @@ export const basicBreadCrumb = () => ({
   },
   template: `
     <div>
-    <breadcrumb-basic :items="items" separator="|" class="body-reg">Default</breadcrumb-basic>
+    <breadcrumb-basic
+      :items="items"
+      separator="|"
+      class="body-reg"
+    >
+      Default
+    </breadcrumb-basic>
     </div>  
   `
 })
@@ -42,7 +48,13 @@ export const iconSeparatorBreadcrumb = () => ({
   },
   template: `
       <div>
-      <breadcrumb-icon-separator @click="action" :items="items" class="body-reg">Default</breadcrumb-icon-separator>
+      <breadcrumb-icon-separator
+        @click="action"
+        :items="items"
+        class="body-reg"
+      >
+        Default
+      </breadcrumb-icon-separator>
       </div>  
     `
 })

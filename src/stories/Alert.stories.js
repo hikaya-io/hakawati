@@ -12,26 +12,30 @@ export const basicAlert = () => ({
   <div>
     <div style='margin-bottom:15px'>
       <basic-alert 
-      title="success alert" 
-      type="success">
+        title="success alert" 
+        type="success"
+      >
       </basic-alert> 
     </div>
     <div style='margin-bottom:15px'>
       <basic-alert 
-      title="info alert" 
-      type="info">
+        title="info alert" 
+        type="info"
+      >
       </basic-alert> 
     </div>
     <div style='margin-bottom:15px'>
       <basic-alert 
-      title="warning alert" 
-      type="warning">
+        title="warning alert" 
+        type="warning"
+      >
       </basic-alert> 
     </div>
     <div style='margin-bottom:15px'>
       <basic-alert 
-      title="error alert" 
-      type="error">
+        title="error alert" 
+        type="error"
+      >
       </basic-alert> 
     </div>
   </div>
@@ -44,30 +48,34 @@ export const iconAlert = () => ({
   <div>
     <div style='margin-bottom:15px'>
       <icon-alert
-      title="success alert"
-      type="success"
-      show-icon>
+        title="success alert"
+        type="success"
+        show-icon
+      >
       </icon-alert>
     </div>
     <div style='margin-bottom:15px'>
       <icon-alert
-      title="info alert"
-      type="info"
-      show-icon>
+        title="info alert"
+        type="info"
+        show-icon
+      >
       </icon-alert>
     </div>
     <div style='margin-bottom:15px'>
       <icon-alert
-      title="warning alert"
-      type="warning"
-      show-icon>
+        title="warning alert"
+        type="warning"
+        show-icon
+      >
       </icon-alert>
     </div>
     <div style='margin-bottom:15px'>
       <icon-alert
-      title="error alert"
-      type="error"
-      show-icon>
+        title="error alert"
+        type="error"
+        show-icon
+      >
       </icon-alert>
     </div>
   </div>
@@ -79,9 +87,10 @@ export const descriptionAlert = () => ({
   template: `
   <div>
     <description-alert 
-    type="success" 
-    title="Alert title" 
-    description="Add description here">
+      type="success" 
+      title="Alert title" 
+      description="Add description here"
+    >
     </description-alert> 
   </div>
       `

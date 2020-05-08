@@ -18,10 +18,11 @@ export const basicSwitch = () => ({
   template: `
     <div>
       <basic-switch
-          v-model="value"
-          activeColor="#25CED1"
-          inactiveColor="#E1E1E1"
-          @click="action">
+        v-model="value"
+        activeColor="#3333FF"
+        inactiveColor="#E1E1E1"
+        @click="action"
+      >
       </basic-switch>
     </div>
     `,
@@ -38,12 +39,13 @@ export const textSwitch = () => ({
   template: `
       <div>
         <text-switch
-            v-model="value"
-            activeColor="#25CED1"
-            inactiveColor="#E1E1E1"
-            activeText="Activate user"
-            inactiveText="Deactivate user"
-            @click="action">
+          v-model="value"
+          activeColor="#3333FF"
+          inactiveColor="#E1E1E1"
+          activeText="Activate user"
+          inactiveText="Deactivate user"
+          @click="action"
+        >
         </text-switch>
       </div>
       `,
@@ -60,10 +62,11 @@ export const disabledSwitch = () => ({
   template: `
       <div>
         <disabled-switch
-            v-model="value"
-            activeColor="#25CED1"
-            inactiveColor="#E1E1E1"
-            @click="action">
+          v-model="value"
+          activeColor="#3333FF"
+          inactiveColor="#E1E1E1"
+          @click="action"
+        >
         </disabled-switch>
       </div>
       `,

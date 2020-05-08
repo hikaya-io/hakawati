@@ -1,5 +1,7 @@
 <template>
-  <el-tag :type="type">
+  <el-tag
+    :type="type"
+  >
     <slot></slot>
   </el-tag>
 </template>
@@ -16,8 +18,15 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+@import "../../styles/theme";
+
 .el-tag {
-    font-family: "Lato";
+  border-radius: 20px;
+  border-color: transparent;
+}
+
+.button-new-tag {
+  border-radius: 20px;
 }
 </style>

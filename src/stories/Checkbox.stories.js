@@ -67,7 +67,8 @@ export const checkboxButton = () => ({
         <checkbox-button 
           size="size"
           class="body-reg"
-          round>
+          round
+        >
         </checkbox-button>
       </div>
       `,

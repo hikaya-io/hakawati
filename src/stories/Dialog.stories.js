@@ -18,7 +18,8 @@ export const basicDialog = () => ({
     message="Do you like open source?" 
     type="primary"
     openDialogText="Click to see the question."
-    class="body-reg">
+    class="body-reg"
+  >
   </basic-dialog>
     `,
   methods: {
@@ -32,12 +33,13 @@ export const formDialog = () => ({
   },
   template: `
   <form-dialog 
-  @dialogFormSubmitted="action"
-  title="Question"
-  message="How old are you?"
-  type="primary"
-  openDialogText="Click to see the question."
-  class="body-reg">
+    @dialogFormSubmitted="action"
+    title="Question"
+    message="How old are you?"
+    type="primary"
+    openDialogText="Click to see the question."
+    class="body-reg"
+  >
   </form-dialog>
     `,
   methods: {

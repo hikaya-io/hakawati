@@ -35,7 +35,8 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+
 .el-step__head.is-success {
   color: #25ced1;
   border-color: #25ced1;
