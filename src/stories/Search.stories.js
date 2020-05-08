@@ -7,7 +7,7 @@ export const plainSearch = () => ({
   components: { PlainSearch },
   template: `
   <div>
-  <plain-search placeholder="Search user name or email" :isClearable="true"/>
+  <plain-search placeholder="Search user name or email" clearable/>
   </div>
   `,
   methods: {}
