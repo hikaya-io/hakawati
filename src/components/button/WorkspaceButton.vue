@@ -3,7 +3,7 @@
     :size="size"
     :type="type"
     :icon="icon"
-    circle
+    round
   >
     <slot></slot>
   </el-button>
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'CircleButton',
+  name: 'WorkspaceButton',
   props: {
     type: {
       type: String,
@@ -29,16 +29,24 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "../../styles/theme";
 
 .el-button {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 25px;
-  border-color: transparent;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: none;
 }
 
-.el-button--primary {
-  background-color: $primary-color-sub;
+.el-button.is-round {
+    padding: 13px 33px;
+    border-radius: 30px;
+}
+
+.el-icon-s-tools:before {
+    color: $dark-body-grey;
+}
+
+.el-icon-circle-plus-outline:before {
+    color: $dark-body-grey;
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
   <el-drawer
-v-bind="$attrs" v-on="$listeners"
+    v-bind="$attrs"
+    v-on="$listeners"
   >
     <slot></slot>
   </el-drawer>
@@ -13,6 +14,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 .el-drawer.rtl{
     box-shadow: 0px 0px 17px rgba(115, 117, 129, 0.25);
     border-radius: 5px 0 0 5px;

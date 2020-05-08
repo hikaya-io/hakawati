@@ -12,22 +12,22 @@
       :key="key"
       sortable
     >
-    </el-table-column> 
+    </el-table-column>
   </el-table>
 </template>
 
 <script>
 export default {
-  props: ["tableData"],
-  data() {
+  props: ['tableData'],
+  data () {
     return {
-      name: "TableWithSorting"
-    };
+      name: 'TableWithSorting'
+    }
   },
   methods: {
-    formatter(row, column) {
-      return row.address;
+    formatter (row, column) {
+      return row.address
     }
   }
-};
+}
 </script>

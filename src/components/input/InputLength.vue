@@ -4,12 +4,13 @@
             <el-col class="grid-content" :span="12">
                 <div style="margin: 20px 0;"></div>
                 <el-input
-                    type="textarea"
-                    :rows="4"
-                    :placeholder="placeholder"
-                    v-model="form.textarea"
-                    v-bind="$attrs"
-                    v-on="$listeners">
+                  type="textarea"
+                  :rows="4"
+                  :placeholder="placeholder"
+                  v-model="form.textarea"
+                  v-bind="$attrs"
+                  v-on="$listeners"
+                >
                         <slot></slot>
                 </el-input>
             </el-col>
@@ -40,6 +41,14 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
+@import "../../styles/theme";
+
+.el-form--label-top .el-form-item__label {
+  float: none;
+  display: inline-block;
+  text-align: left;
+  padding: 0 0 0 0;
+}
 
 </style>

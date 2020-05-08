@@ -46,13 +46,17 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-.el-select {
-  font-family: 'Lato', sans-serif;
-  font-size: 16px;
+<style lang="scss">
+@import "../../styles/theme";
+
+.el-select-dropdown__item.hover, .el-select-dropdown__item:hover {
+    color: $primary-color;
+    background-color: transparent;
 }
 
 .el-select-dropdown.is-multiple .el-select-dropdown__item.selected {
-    font-weight: 300;
+    color: $primary-color;
+    background-color: transparent;
 }
+
 </style>

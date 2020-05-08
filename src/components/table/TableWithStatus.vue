@@ -17,26 +17,28 @@
 
 <script>
 export default {
-  props: ["tableData"],
+  props: ['tableData'],
   methods: {
-    tableRowClassName({ row, rowIndex }) {
+    tableRowClassName ({ row, rowIndex }) {
       if (rowIndex === 1) {
-        return "warning-row";
+        return 'warning-row'
       } else if (rowIndex === 3) {
-        return "success-row";
+        return 'success-row'
       }
-      return "";
+      return ''
     }
   },
-  data() {
+  data () {
     return {
-      name: "TableWithStatus"
-    };
+      name: 'TableWithStatus'
+    }
   }
-};
+}
 </script>
 
-<style>
+<style lang="scss">
+@import "../../styles/theme";
+
 .el-table {
   font-family: "Lato", sans-serif;
   font-weight: 300;
@@ -46,12 +48,6 @@ export default {
 .el-table td:hover {
   /* background-color: #EFFBFB; */
   background-color: red;
-}
-
-.el-table th > .cell {
-  color: #737581;
-  font-size: 16px;
-  font-weight: 300;
 }
 
 .el-table .warning-row {

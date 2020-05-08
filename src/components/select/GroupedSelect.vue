@@ -42,23 +42,34 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+@import "../../styles/theme";
+
 .el-select {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
 }
 
 li.el-select-group__title {
-    font-family: 'Lato', sans-serif;
+    font-family: $main-font-family;
     font-size: 14px;
-    color: #848c9c;
+    font-weight: bold;
+    color: $light-body-grey;
     margin: 0px 12px;
     padding-left: 8px;
-    font-weight: 600;
-    /* border-bottom: 1px solid #5a5f6955; */
 }
 
-.el-select-group .el-select-dropdown__item {
-    font-weight: 300;
+.el-select-dropdown__item {
+  color: $dark-body-grey;
+}
+
+.el-select-dropdown__item.hover, .el-select-dropdown__item:hover {
+    color: $primary-color;
+    background-color: transparent;
+}
+
+// removes section separator between select groups
+.el-select-group__wrap:not(:last-of-type)::after {
+    background: transparent;
 }
 </style>

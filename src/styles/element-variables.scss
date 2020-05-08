@@ -1,8 +1,10 @@
+@import "theme";
+
 // Global
-$--color-primary:#25CED1;
-$--color-success: #2AC27F;
-$--color-warning: #F9C80E;
-$--color-danger: #F61067;
+$--color-primary: $primary-color;
+$--color-success: $green;
+$--color-warning: $yellow;
+$--color-danger: $red;
 $--color-text-regular: #737581;
 $--color-text-primary: #737581;
 $--border-color-light: #FAFAFA;
@@ -13,7 +15,6 @@ $--font-size-medium: 18px;
 $--font-weight-primary: 400;
 $--font-weight-secondary: 300;
 $--border-radius-circle: 100%;
-$--main-font-family: 'Lato', sans-serif;
 
 // Local
 //$--button-border-radius: $--border-radius-small;
@@ -44,3 +45,7 @@ $--transfer-panel-width: 300px;
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 
 @import "~element-ui/packages/theme-chalk/src/index";
+
+body {
+  font-family: $main-font-family;
+}

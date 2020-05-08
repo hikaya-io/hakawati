@@ -1,5 +1,10 @@
 <template>
-  <el-button @click="$emit('click')" :size="size" :type="type" v-bind="$attrs" v-on="$listeners">
+  <el-button @click="$emit('click')"
+    :size="size"
+    :type="type"
+    v-bind="$attrs"
+    v-on="$listeners"
+  >
     <slot></slot>
   </el-button>
 </template>
@@ -20,6 +25,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import "../../styles/theme";
 
 </style>

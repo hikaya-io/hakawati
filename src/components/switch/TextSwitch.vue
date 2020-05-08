@@ -4,8 +4,8 @@
     :inactive-color="inactiveColor"
     :active-text="activeText"
     :inactive-text="inactiveText"
-    @click="$emit('click')">
-    </el-switch>
+    @click="$emit('click')"
+    />
 </template>
 
 <script>
@@ -36,6 +36,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
+@import "../../styles/theme";
 
 </style>

@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+// Color Palette
+$white: #fff;
+$black: #000;
+$blue: #3333FF;
+$blue-sub: #6666FF;
+$cyan: #33CCCC;
+
+// $orange: #FF8360;
+$green: #00CC66;
+$red: #FF3333;
+$yellow: #F9C80E;
+$purple: #6633CC;
+
+$heading-grey: #666666;
+$dark-body-grey: #333333;
+$light-body-grey: #CCCCCC;
+$gray: #737581;
+$background-color: #F4F5FC;
+
+$blue-fill: #EBEBFF;
+$blue-sub-fill: #F0EBFA;
+$cyan-fill: #E9FAFA;
+$green-fill: #E5FAF0;
+$red-fill: #FFEBEB;
+$yellow-fill: #FEF9E7;
+$purple-fill: #F5EBFA;
+
+
+// $gray-darker:  #434551;
+// $gray-dark: #60626E;
+// $gray-medium: #888A94;
+// $gray-light: #9D9EA7;
+// $gray-lighter: #B9BAC0;
+// $gray-very-light: #D5D6D9;
+// $gray-lightest: #EEEEF0;
+
+// Default Variables
+$primary-color: $blue;
+$primary-fill: $blue-fill;
+$primary-color-sub: $blue-sub;
+$secondary-color: $cyan;
+$secondary-fill: $cyan-fill;
+$success-color: $green;
+$success-fill: $green-fill;
+$info-color: $heading-grey;
+$warning-color: $yellow;
+$warning-fill: $yellow-fill;
+$danger-color: $red;
+$danger-fill: $red-fill;
+
+$site-content-text-color: $dark-body-grey;
+$standard-label-color: $background-color;
+$placeholder-color: $background-color;
+$input-value-color: $background-color;
+$help-text-color: $background-color;
+$disables-opacity: 0.25;
+$main-font-family: 'Lato', sans-serif;
+$primary-background-color: $background-color;
+$light-color: $light-body-grey;
+$dark-color: $dark-body-grey;
+
+
+/* Title - Lato B48 */
+.title {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 58px;
+  color: $dark-body-grey;
+}
+
+/* Heading - Lato B35 */
+.heading {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 35px;
+  line-height: 42px;
+  color: $heading-grey;
+}
+
+/* Body Bold - Lato B18 */
+.body-bold {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  color: $dark-body-grey;
+}
+
+/* Body 2 Bold - Lato B22 */
+.body-2-bold {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 26px;
+  color: $dark-body-grey;
+}
+
+/* Body Reg - Lato R18 */
+.body-reg {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: $dark-body-grey;
+}
+
+/* Body 2 Reg - Lato R22 */
+.body-2-reg {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 26px;
+  color: $white;
+}
+
+/* Footer - Lato R15 */
+.footer {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 18px;
+  color: $dark-body-grey;
+}
+
+/* Info - Lato R11 */
+.info {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  color: $info-color;
+}
+
+.cancel-button {
+  color: $heading-grey;
+}
+
+.plain-button {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 26px;
+}
+
+.ws-button {
+  color: $primary-color;
+  font-family: $main-font-family;
+}
+
+.h-shadow {
+  background: $white;
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25);
+  border-color: transparent;
+}
+
+.h-border {
+  border-radius: 5px;
+}

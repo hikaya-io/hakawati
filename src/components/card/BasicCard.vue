@@ -1,6 +1,6 @@
 <template>
-    <el-card class="box-card">
-        <div slot="header" class="clearfix">
+    <el-card>
+        <div slot="header">
             <slot name="title"></slot>
         </div>
         <slot name="items"></slot>
@@ -13,39 +13,18 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-    .el-card__header {
-        font-family: 'Lato';
-        font-weight: 300;
-    }
+<style lang="scss">
+@import "../../styles/theme";
 
-    .el-card__body {
-    font-family: 'Lato';
-    font-weight: 300;
-    }
+.el-card.is-always-shadow {
+  background: $white;
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  border-color: transparent;
+}
 
-  .text {
-    font-size: 14px;
-    font-family: 'Lato';
-    font-weight: 300;
-  }
+.el-card__header {
+  border-bottom: transparent;
+}
 
-  .item {
-    margin-bottom: 18px;
-    font-family: 'Lato';
-    font-weight: 300;
-  }
-
-  .clearfix:before,
-  .clearfix:after {
-    display: table;
-    content: "";
-  }
-  .clearfix:after {
-    clear: both;
-  }
-
-  .box-card {
-    width: 480px;
-  }
 </style>>

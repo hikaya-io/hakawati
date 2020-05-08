@@ -5,7 +5,11 @@
     :simple="isSimple"
     :direction="direction"
   >
-    <el-step v-for="(step, i) in steps" :key="i" :title="step"></el-step>
+    <el-step
+      v-for="(step, i) in steps"
+      :key="i"
+      :title="step"
+    />
   </el-steps>
 </template>
 <script>
@@ -35,12 +39,14 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+@import "../../styles/theme";
+
 .el-step__head.is-success {
-  color: #25ced1;
-  border-color: #25ced1;
+  color: $primary-color;
+  border-color: $primary-color;
 }
 .el-step__title.is-success {
-  color: #25ced1;
+  color: $primary-color;
 }
 </style>

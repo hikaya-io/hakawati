@@ -25,10 +25,13 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+@import "../../styles/theme";
+
 .el-menu {
-  font-family: "Lato";
+  font-family: $main-font-family;
 }
+
 .el-menu-item a{
   text-decoration: none;
 }

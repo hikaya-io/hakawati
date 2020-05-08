@@ -8,7 +8,8 @@
         <p
           v-for="(key, value) in props.row"
           :key="key"
-        >{{ value.charAt(0).toUpperCase() + key.slice(1) }} : {{ key }}</p>
+        >
+        {{ value.charAt(0).toUpperCase() + key.slice(1) }} : {{ key }}</p>
       </template>
     </el-table-column>
     <el-table-column
@@ -23,14 +24,14 @@
 
 <script>
 export default {
-  props: ["tableData"],
-  data() {
+  props: ['tableData'],
+  data () {
     return {
-      name: "TableWithExpandableRow"
-    };
+      name: 'TableWithExpandableRow'
+    }
   },
-  created() {
-    this.columnNames = this.tableData[0];
+  created () {
+    this.columnNames = this.tableData[0]
   }
-};
-</script> 
+}
+</script>

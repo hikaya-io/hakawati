@@ -1,5 +1,4 @@
 import BasicCard from '../components/card/BasicCard.vue'
-import ShadowCard from '../components/card/ShadowCard.vue'
 
 // This is required for each story
 export default { title: 'Card' }
@@ -9,28 +8,12 @@ export const basicCard = () => ({
   components: { BasicCard },
   template: `
   <basic-card>
-    <div slot="title" class="clearfix">
-        <span>Card name</span>
-        <el-button style="float: right; padding: 3px 0" type="text">Operation button</el-button>
+    <div slot="title" class="body-2-bold">
+        <span>Title</span>
     </div>
-    <div slot="items" v-for="o in 4" :key="o" class="text item">
+    <div slot="items" v-for="o in 4" :key="o" class="text item" class="body-reg">
         {{'List item ' + o }}
     </div>
   </basic-card>
-    `
-})
-
-export const shadowCard = () => ({
-  components: { ShadowCard },
-  template: `
-  <shadow-card shadow="never">
-    <div slot="title" class="clearfix">
-        <span>Card has no shadow</span>
-        <el-button style="float: right; padding: 3px 0" type="text">Operation button</el-button>
-    </div>
-    <div slot="items" v-for="o in 4" :key="o" class="text item">
-        {{'List item ' + o }}
-    </div>
-  </shadow-card>
     `
 })

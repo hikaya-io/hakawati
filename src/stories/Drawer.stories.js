@@ -15,7 +15,11 @@ export const basicDrawer = () => ({
   },
   template: `
   <div>
-    <el-button @click="drawer = true" type="primary" style="margin-left: 16px;">
+    <el-button 
+      @click="drawer = true"
+      type="primary"
+      style="margin-left: 16px;"
+    >
       Open drawer
     </el-button>
     <basic-drawer
@@ -26,8 +30,13 @@ export const basicDrawer = () => ({
       :show-close="false"
       :wrapper-closable="true"
       :modal="true"
+      class="body-bold"
     >
-      <span>Hi, there!</span>
+      <span
+        class="body-reg"
+      >
+        Hi, there!
+      </span>
     </basic-drawer>
   </div>
   `
@@ -44,7 +53,11 @@ export const drawerWithoutTitle = () => ({
   },
   template: `
     <div>
-      <el-button @click="drawer = true" type="primary" style="margin-left: 16px;">
+      <el-button 
+        @click="drawer = true"
+        type="primary"
+        style="margin-left: 16px;"
+      >
         Open drawer
       </el-button>
       <basic-drawer
@@ -53,8 +66,13 @@ export const drawerWithoutTitle = () => ({
         :direction="direction"
         :with-header="false"
         size="30%"
+        class="body-bold"
       >
-        <span>Hi, there!</span>
+        <span
+          class="body-reg"
+        >
+          Hi, there!
+        </span>
       </basic-drawer>
     </div>
     `
@@ -71,7 +89,11 @@ export const drawerNotClosableOnClick = () => ({
   },
   template: `
       <div>
-        <el-button @click="drawer=true" type="primary" style="margin-left: 16px;">
+        <el-button 
+          @click="drawer=true"
+          type="primary"
+          style="margin-left: 16px;"
+        >
           Open drawer
         </el-button>
 
@@ -81,9 +103,13 @@ export const drawerNotClosableOnClick = () => ({
           :direction="direction"
           size="30%"
           :wrapper-closable="false"
-
+          class="body-bold"
         >
-          <span>Hi, there!</span>
+          <span
+            class="body-reg"
+          >
+            Hi, there!
+          </span>
         </basic-drawer>
       </div>
       `

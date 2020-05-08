@@ -7,8 +7,18 @@ export const basicDatePicker = () => ({
   components: { BasicDatePicker },
   template: `
   <div>
-  Default date format: <basic-date-picker />
-  dd-MM-yyyy format: <basic-date-picker format="dd-MM-yyyy"/>
+  Default date format: 
+  <basic-date-picker 
+    placeholder="Select a date" 
+  />
+  <br>
+  dd-MM-yyyy format:
+  <basic-date-picker
+    type="daterange"
+    size="medium"
+    format="dd-MM-yyyy"
+    placeholder="Select a date"
+  />
   </div>`
 
 })
@@ -17,7 +27,15 @@ export const dateRangePicker = () => ({
   components: { DateRangePicker },
   template: `  
   <div>
-  Default date format: <date-range-picker />
-  dd-MM-yyyy format: <date-range-picker format="dd-MM-yyyy"/>
+  Default date format:
+  <date-range-picker
+    rangeSeparator="To"
+    startDate="Start"
+    endDate="End"
+    />
+  dd-MM-yyyy format: 
+  <date-range-picker
+    format="dd-MM-yyyy"
+  />
   </div>`
 })

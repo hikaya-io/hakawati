@@ -75,38 +75,38 @@
 
 <script>
 export default {
-  props: ["tableData"],
-  data() {
+  props: ['tableData'],
+  data () {
     return {
-      name: "TableWithRowSpan"
-    };
+      name: 'TableWithRowSpan'
+    }
   },
   methods: {
-    arraySpanMethod({ row, column, rowIndex, columnIndex }) {
+    arraySpanMethod ({ row, column, rowIndex, columnIndex }) {
       if (rowIndex % 2 === 0) {
         if (columnIndex === 0) {
-          return [1, 2];
+          return [1, 2]
         } else if (columnIndex === 1) {
-          return [0, 0];
+          return [0, 0]
         }
       }
     },
 
-    objectSpanMethod({ row, column, rowIndex, columnIndex }) {
+    objectSpanMethod ({ row, column, rowIndex, columnIndex }) {
       if (columnIndex === 0) {
         if (rowIndex % 2 === 0) {
           return {
             rowspan: 2,
             colspan: 1
-          };
+          }
         } else {
           return {
             rowspan: 0,
             colspan: 0
-          };
+          }
         }
       }
     }
   }
-};
+}
 </script>

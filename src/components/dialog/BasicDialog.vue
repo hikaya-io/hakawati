@@ -3,7 +3,9 @@
     <el-button
       type="text"
       @click="dialogVisible = true"
-    >{{openDialogText}}</el-button>
+    >
+      {{openDialogText}}
+    </el-button>
     <slot></slot>
     <el-dialog
       :title="title"
@@ -16,11 +18,19 @@
         slot="footer"
         class="dialog-footer"
       >
-        <el-button @click="dialogVisible = false">Cancel</el-button>
+        <el-button
+          @click="dialogVisible = false"
+          round
+        >
+        Cancel
+        </el-button>
         <el-button
           :type="type"
           @click="handleConfirm"
-        >Confirm</el-button>
+          round
+        >
+          Confirm
+        </el-button>
       </span>
     </el-dialog>
   </div>
@@ -69,9 +79,18 @@ export default {
 }
 </script>
 
-<style>
-.el-checkbox__label {
-  font-family: "Lato", sans-serif;
-  font-weight: 300;
+<style lang="scss">
+@import "../../styles/theme";
+
+.el-dialog__title {
+    padding: 20px;
+    padding-bottom: 10px;
+    color: $dark-body-grey;
 }
+
+.el-dialog__body {
+    padding: 30px 20px 20px 20px;
+    color: $dark-body-grey;
+}
+
 </style>

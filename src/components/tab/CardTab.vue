@@ -1,5 +1,9 @@
 <template>
-  <el-tabs v-model="activeName" @tab-click="$emit('click')" type="card">
+  <el-tabs
+    v-model="activeName"
+    @tab-click="$emit('click')"
+    type="card"
+  >
     <slot></slot>
   </el-tabs>
 </template>
@@ -28,9 +32,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
-  .el-tabs {
-    font-family: 'Lato';
-  }
 
 </style>>

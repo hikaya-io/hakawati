@@ -3,10 +3,11 @@
         <el-row :gutter="20">
             <el-col class="grid-content" :span="12">
                 <el-input
-                    :placeholder="placeholder"
-                    v-model="form.input"
-                    v-bind="$attrs"
-                    v-on="$listeners">
+                  :placeholder="placeholder"
+                  v-model="form.input"
+                  v-bind="$attrs"
+                  v-on="$listeners"
+                >
                         <slot></slot>
                 </el-input>
             </el-col>
@@ -37,6 +38,14 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
+@import "../../styles/theme";
+
+.el-form--label-top .el-form-item__label {
+  float: none;
+  display: inline-block;
+  text-align: left;
+  padding: 0 0 0 0;
+}
 
 </style>

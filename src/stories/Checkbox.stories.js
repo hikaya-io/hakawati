@@ -1,7 +1,7 @@
 import BasicCheckbox from '../components/checkbox/BasicCheckbox.vue'
 import DisabledCheckbox from '../components/checkbox/DisabledCheckbox.vue'
 import CheckboxGroup from '../components/checkbox/CheckboxGroup.vue'
-import ButtonCheckbox from '../components/checkbox/ButtonCheckbox.vue'
+import CheckboxButton from '../components/checkbox/CheckboxButton.vue'
 
 import { action } from '@storybook/addon-actions'
 
@@ -13,8 +13,12 @@ export const basicCheckbox = () => ({
   components: { BasicCheckbox },
   template: `
   <div>
-  <basic-checkbox @click="action">Default</basic-checkbox>
-  </div>  
+    <basic-checkbox @click="action"
+      class="body-reg"
+    >
+      Checkbox A
+    </basic-checkbox>
+  </div>
   `,
   methods: { action: action('click') }
 })
@@ -23,8 +27,12 @@ export const disabledCheckbox = () => ({
   components: { DisabledCheckbox },
   template: `
     <div>
-    <disabled-checkbox @click="action">Default</disabled-checkbox>
-    </div>  
+      <disabled-checkbox @click="action"
+        class="body-reg"
+      >
+        Checkbox A
+      </disabled-checkbox>
+    </div>
     `,
   methods: { action: action('click') }
 })
@@ -38,28 +46,31 @@ export const checkboxGroup = () => ({
   },
   template: `
     <div>
-    <checkbox-group v-model="checkList">
-    <el-checkbox label="Option A"></el-checkbox>
-    <el-checkbox label="Option B"></el-checkbox>
-    <el-checkbox label="Option C"></el-checkbox>
-    <el-checkbox label="Disabled" disabled></el-checkbox>
-    <el-checkbox label="Selected and disabled" disabled></el-checkbox>
-    </checkbox-group>
-    </div>  
+      <checkbox-group
+        v-model="checkList"
+        class="body-reg"
+      >
+      <el-checkbox label="Option A"></el-checkbox>
+      <el-checkbox label="Option B"></el-checkbox>
+      <el-checkbox label="Option C"></el-checkbox>
+      <el-checkbox label="Disabled" disabled></el-checkbox>
+      <el-checkbox label="Selected and disabled" disabled></el-checkbox>
+      </checkbox-group>
+    </div>
     `
 })
 
-export const buttonCheckbox = () => ({
-  components: { ButtonCheckbox },
-  data () {
-    return {
-      dataArray: ['Option A', 'Option B', 'Option C', 'Option D']
-    }
-  },
+export const checkboxButton = () => ({
+  components: { CheckboxButton },
   template: `
       <div>
-      <button-checkbox @click="action" size="medium" :dataArray='dataArray'>
-      </button-checkbox>
+        <checkbox-button
+          size="small"
+          class="body-reg"
+          round
+          text="Option 1"
+        >
+        </checkbox-button>
       </div>
       `,
   methods: { action: action('click') }

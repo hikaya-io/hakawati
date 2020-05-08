@@ -1,5 +1,7 @@
 <template>
-  <el-checkbox-group v-model="checkList">
+  <el-checkbox-group
+    v-model="checkList"
+  >
     <slot></slot>
   </el-checkbox-group>
 </template>
@@ -16,4 +18,11 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss">
+@import "../../styles/theme";
+
+.el-checkbox__inner {
+  color: $dark-body-grey;
+}
+
+</style>
