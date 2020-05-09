@@ -88,7 +88,7 @@ import VerticalTab from './components/tab/VerticalTab.vue'
 import WorkspaceTab from './components/tab/WorkspaceTab.vue'
 
 // Table
-import HTable from '../components/table/HTable.vue'
+import HTable from './components/table/HTable.vue'
 // import BasicTable from './components/table/BasicTable.vue'
 // import TableWithStatus from './components/table/TableWithStatus.vue'
 
