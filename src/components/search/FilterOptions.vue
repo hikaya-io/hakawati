@@ -96,10 +96,9 @@
 
 <script>
 import CheckboxButton from '../checkbox/CheckboxButton.vue'
-import TextButton from "../button/TextButton"
 
 export default {
-  components: { CheckboxButton, TextButton },
+  components: { CheckboxButton },
 
   data () {
     return {
