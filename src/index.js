@@ -33,7 +33,7 @@ import BasicCascader from './components/cascader/BasicCascader.vue'
 import BasicCheckbox from './components/checkbox/BasicCheckbox.vue'
 import DisabledCheckbox from './components/checkbox/DisabledCheckbox.vue'
 import CheckboxGroup from './components/checkbox/CheckboxGroup.vue'
-import ButtonCheckbox from './components/checkbox/ButtonCheckbox.vue'
+import ButtonCheckbox from './components/checkbox/CheckboxButton.vue'
 
 // Datepicker
 import BasicDatePicker from './components/datepicker/BasicDatePicker.vue'
