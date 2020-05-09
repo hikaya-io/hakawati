@@ -1,6 +1,7 @@
 <template>
     <el-checkbox-button
       :size="size"
+      :border="false"
     >
     {{ text }}
     </el-checkbox-button>

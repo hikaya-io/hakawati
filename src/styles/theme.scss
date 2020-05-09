@@ -174,3 +174,10 @@ $dark-color: $dark-body-grey;
   box-shadow: 0px 0px 17px rgba(115, 117, 129, 0.25);
   // border-radius: 20px;
 }
+
+.btn-pill {
+  border-radius: 25px;
+  .el-checkbox-button__inner {
+    border-radius: 25px !important;
+  }
+}

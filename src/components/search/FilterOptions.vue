@@ -15,15 +15,15 @@
             </el-col>
 
             <el-col class="spacer">
-            <el-checkbox-button class="button-pill">None</el-checkbox-button>
+                  <checkbox-button text="None" class="btn-pill"/>
             </el-col>
 
             <el-col class="spacer">
-            <el-checkbox-button class="button-pill">Newest</el-checkbox-button>
+             <checkbox-button text="Newest" class="btn-pill"/>
             </el-col>
 
              <el-col class="spacer">
-            <el-checkbox-button class="button-pill">Oldest</el-checkbox-button>
+            <checkbox-button text="Oldest" class="btn-pill"/>
             </el-col>
           </el-row>
         </el-col>
@@ -35,19 +35,19 @@
             </el-col>
 
               <el-col class="spacer">
-            <el-checkbox-button class="button-pill">None</el-checkbox-button>
+            <checkbox-button text="None" class="btn-pill"/>
             </el-col>
 
             <el-col class="spacer">
-            <el-checkbox-button class="button-pill">Member</el-checkbox-button>
+             <checkbox-button text="Member" class="btn-pill"/>
             </el-col>
 
              <el-col class="spacer">
-            <el-checkbox-button class="button-pill">Admin</el-checkbox-button>
+             <checkbox-button text="Admin" class="btn-pill"/>
             </el-col>
 
             <el-col class="spacer">
-            <el-checkbox-button class="button-pill">View</el-checkbox-button>
+           <checkbox-button text="View" class="btn-pill"/>
             </el-col>
           </el-row>
         </el-col>
@@ -59,19 +59,19 @@
             </el-col>
 
                <el-col class="spacer">
-            <el-checkbox-button class="button-pill">None</el-checkbox-button>
+             <checkbox-button text="None" class="btn-pill"/>
             </el-col>
 
             <el-col class="spacer">
-            <el-checkbox-button class="button-pill">Invited</el-checkbox-button>
+            <checkbox-button text="Invited" class="btn-pill"/>
             </el-col>
 
              <el-col class="spacer">
-            <el-checkbox-button class="button-pill">Active</el-checkbox-button>
+            <checkbox-button text="Active" class="btn-pill"/>
             </el-col>
 
             <el-col class="spacer">
-            <el-checkbox-button class="button-pill">Inactive</el-checkbox-button>
+             <checkbox-button text="Inactive" class="btn-pill"/>
             </el-col>
           </el-row>
         </el-col>
@@ -95,7 +95,12 @@
 </template>
 
 <script>
+import CheckboxButton from '../checkbox/CheckboxButton.vue'
+import TextButton from "../button/TextButton"
+
 export default {
+  components: { CheckboxButton, TextButton },
+
   data () {
     return {
       visible: false
@@ -129,7 +134,7 @@ export default {
 
 // Removes checkbox button border
 .el-checkbox-button:first-child .el-checkbox-button__inner {
-    border-left: transparent;
+    border: transparent;
 }
 
 .el-checkbox-button.is-checked .el-checkbox-button__inner {
