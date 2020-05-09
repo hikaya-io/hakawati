@@ -32,4 +32,27 @@ export default {
   box-sizing: border-box;
   border-radius: 6px;
 }
+
+
+.el-table th td {
+  border: none;
+}
+.el-table tr td:first-child {
+  border-left: 2px solid #F4F5FC;
+   border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+.el-table tr td {
+    border-top: 2px solid #F4F5FC;
+  border-bottom: 2px solid #F4F5FC;
+}
+.el-table tr td:last-child {
+  border-right: 2px solid #F4F5FC;
+   border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+table {
+   -webkit-border-vertical-spacing: 2px;
+}
 </style>
