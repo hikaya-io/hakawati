@@ -67,6 +67,10 @@ import CollapseNav from './components/navMenu/CollapseNav.vue'
 import PaginationBasic from './components/pagination/PaginationBasic.vue'
 import PaginationPageSize from './components/pagination/PaginationPageSize.vue'
 
+// Search and filter
+import PlainSearch from './components/search/PlainSearch.vue'
+import FilterOptions from './components/search/FilterOptions.vue'
+
 // Select
 import BasicSelect from './components/select/BasicSelect.vue'
 import MultiSelect from './components/select/MultiSelect.vue'
@@ -162,7 +166,9 @@ const components = [
   VerticalTab,
   WorkspaceTab,
   BasicForm,
-  BasicAvatar
+  BasicAvatar,
+  PlainSearch,
+  FilterOptions
 ]
 
 const install = function (Vue) {
@@ -233,5 +239,7 @@ export default {
   VerticalTab,
   WorkspaceTab,
   BasicForm,
-  BasicAvatar
+  BasicAvatar,
+  PlainSearch,
+  FilterOptions
 }
