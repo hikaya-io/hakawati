@@ -1,3 +1,4 @@
+import HTable from '../components/table/HTable.vue'
 import TableBasic from '../components/table/TableBasic.vue'
 import TableWithBorder from '../components/table/TableWithBorder.vue'
 import TableWithExpandableRow from '../components/table/TableWithExpandableRow.vue'
@@ -14,6 +15,18 @@ import TableWithSummaryRow from '../components/table/TableWithSummaryRow.vue'
 export default {
   title: 'Table'
 }
+
+export const hTable = () => ({
+  components: {
+    HTable
+  },
+  data() {
+    return {
+      tableData: tableData
+    }
+  },
+  template: '<h-table :tableData="tableData" />',
+})
 
 export const tableBasic = () => ({
   components: {
