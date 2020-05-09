@@ -3,12 +3,12 @@ import './styles/element-variables.scss'
 import './styles/theme.scss'
 
 // Alert
-import BasicAlert from './components/alert/BasicAlert.vue'
+import HAlert from './components/alert/HAlert.vue'
 import IconAlert from './components/alert/IconAlert.vue'
 import DescriptionAlert from './components/alert/DescriptionAlert.vue'
 
 // Avatar
-import BasicAvatar from './components/avatar/BasicAvatar.vue'
+import HAvatar from './components/avatar/HAvatar.vue'
 
 // Breadcrumb
 // import BreadcrumbBasic from './components/breadcrumb/BreadcrumbBasic.vue'
@@ -18,22 +18,22 @@ import BasicAvatar from './components/avatar/BasicAvatar.vue'
 import BasicButton from './components/button/BasicButton.vue'
 import DisabledButton from './components/button/DisabledButton.vue'
 import PlainButton from './components/button/PlainButton.vue'
-import RoundButton from './components/button/RoundButton.vue'
+import HButton from './components/button/HButton.vue'
 import CircleButton from './components/button/CircleButton.vue'
 import TextButton from './components/button/TextButton.vue'
 import WorkspaceButton from './components/button/WorkspaceButton.vue'
 
 // Card
-import BasicCard from './components/card/BasicCard.vue'
+import HCard from './components/card/HCard.vue'
 
 // Cascader
-import BasicCascader from './components/cascader/BasicCascader.vue'
+import HCascader from './components/cascader/HCascader.vue'
 
 // Checkbox
 import BasicCheckbox from './components/checkbox/BasicCheckbox.vue'
 import DisabledCheckbox from './components/checkbox/DisabledCheckbox.vue'
 import CheckboxGroup from './components/checkbox/CheckboxGroup.vue'
-import ButtonCheckbox from './components/checkbox/CheckboxButton.vue'
+import HCheckbox from './components/checkbox/HCheckbox.vue'
 
 // Datepicker
 import BasicDatePicker from './components/datepicker/BasicDatePicker.vue'
@@ -44,20 +44,23 @@ import BasicDialog from './components/dialog/BasicDialog.vue'
 import FormDialog from './components/dialog/FormDialog.vue'
 
 // Drawer
-import BasicDrawer from './components/drawer/BasicDrawer.vue'
+import HDrawer from './components/drawer/HDrawer.vue'
 
 // Dropdown
-import BasicDropdown from './components/dropdown/BasicDropdown.vue'
+import HDropdown from './components/dropdown/HDropdown.vue'
 import TriggerDropdown from './components/dropdown/TriggerDropdown.vue'
 
+// Filter
+import HFilter from './components/filter/HFilter.vue'
+
 // Input
-import BasicInput from './components/input/BasicInput.vue'
+import HInput from './components/input/HInput.vue'
 import DisabledInput from './components/input/DisabledInput.vue'
 import ClearInput from './components/input/ClearInput.vue'
 import PasswordBox from './components/input/PasswordBox.vue'
 import TextArea from './components/input/TextArea.vue'
 import InputLength from './components/input/InputLength.vue'
-import LabelInput from './components/input/LabelInput.vue'
+import HLabelInput from './components/input/HLabelInput.vue'
 
 // Nav menu
 import TopNav from './components/navMenu/TopNav.vue'
@@ -67,12 +70,11 @@ import CollapseNav from './components/navMenu/CollapseNav.vue'
 import PaginationBasic from './components/pagination/PaginationBasic.vue'
 import PaginationPageSize from './components/pagination/PaginationPageSize.vue'
 
-// Search and filter
-import PlainSearch from './components/search/PlainSearch.vue'
-import FilterOptions from './components/search/FilterOptions.vue'
+// Search
+import HSearch from './components/search/FSearch.vue'
 
 // Select
-import BasicSelect from './components/select/BasicSelect.vue'
+import HSelect from './components/select/HSelect.vue'
 import MultiSelect from './components/select/MultiSelect.vue'
 import GroupedSelect from './components/select/GroupedSelect.vue'
 
@@ -89,7 +91,7 @@ import DisabledSwitch from './components/switch/DisabledSwitch.vue'
 import BasicTab from './components/tab/BasicTab.vue'
 import CardTab from './components/tab/CardTab.vue'
 import VerticalTab from './components/tab/VerticalTab.vue'
-import WorkspaceTab from './components/tab/WorkspaceTab.vue'
+import HTab from './components/tab/HTab.vue'
 
 // Table
 import HTable from './components/table/HTable.vue'
@@ -97,7 +99,7 @@ import HTable from './components/table/HTable.vue'
 // import TableWithStatus from './components/table/TableWithStatus.vue'
 
 // Tag
-import BasicTag from './components/tag/BasicTag.vue'
+import HTag from './components/tag/HTag.vue'
 import RemovableTag from './components/tag/RemovableTag.vue'
 import DynamicTag from './components/tag/DynamicTag.vue'
 
@@ -105,7 +107,7 @@ import DynamicTag from './components/tag/DynamicTag.vue'
 import UploadExcel from './components/upload/UploadExcel.vue'
 
 // Form
-import BasicForm from './components/form/BasicForm.vue'
+import HForm from './components/form/HForm.vue'
 
 // Import other components from here
 
@@ -113,50 +115,50 @@ const components = [
   BasicButton,
   DisabledButton,
   PlainButton,
-  RoundButton,
+  HButton,
   CircleButton,
   TextButton,
   WorkspaceButton,
   BasicCheckbox,
   DisabledCheckbox,
   CheckboxGroup,
-  ButtonCheckbox,
-  BasicInput,
+  HCheckbox,
+  HInput,
   DisabledInput,
   ClearInput,
   PasswordBox,
   TextArea,
   InputLength,
-  LabelInput,
+  HLabelInput,
   TopNav,
   CollapseNav,
   HTable,
   // BasicTable,
   // TableWithStatus,
   UploadExcel,
-  BasicDropdown,
+  HDropdown,
   TriggerDropdown,
-  BasicAlert,
+  HAlert,
   IconAlert,
   DescriptionAlert,
   BasicSwitch,
   TextSwitch,
   DisabledSwitch,
-  BasicCard,
+  HCard,
   // BreadcrumbBasic,
   // BreadcrumbIconSeparator,
-  BasicSelect,
+  HSelect,
   MultiSelect,
   GroupedSelect,
-  BasicTag,
+  HTag,
   RemovableTag,
   DynamicTag,
-  BasicCascader,
+  HCascader,
   BasicDatePicker,
   DateRangePicker,
   BasicSteps,
   BasicStepsWithDescription,
-  BasicDrawer,
+  HDrawer,
   PaginationBasic,
   PaginationPageSize,
   BasicDialog,
@@ -164,11 +166,11 @@ const components = [
   BasicTab,
   CardTab,
   VerticalTab,
-  WorkspaceTab,
-  BasicForm,
-  BasicAvatar,
-  PlainSearch,
-  FilterOptions
+  HTab,
+  HForm,
+  HAvatar,
+  HSearch,
+  HFilter
 ]
 
 const install = function (Vue) {
@@ -186,50 +188,50 @@ export default {
   BasicButton,
   DisabledButton,
   PlainButton,
-  RoundButton,
+  HButton,
   CircleButton,
   TextButton,
   WorkspaceButton,
   BasicCheckbox,
   DisabledCheckbox,
   CheckboxGroup,
-  ButtonCheckbox,
-  BasicInput,
+  HCheckbox,
+  HInput,
   DisabledInput,
   ClearInput,
   PasswordBox,
   TextArea,
   InputLength,
-  LabelInput,
+  HLabelInput,
   TopNav,
   CollapseNav,
   HTable,
   // BasicTable,
   // TableWithStatus,
   UploadExcel,
-  BasicDropdown,
+  HDropdown,
   TriggerDropdown,
-  BasicAlert,
+  HAlert,
   IconAlert,
   DescriptionAlert,
   BasicSwitch,
   TextSwitch,
   DisabledSwitch,
-  BasicCard,
+  HCard,
   // BreadcrumbBasic,
   // BreadcrumbIconSeparator,
-  BasicSelect,
+  HSelect,
   MultiSelect,
   GroupedSelect,
-  BasicTag,
+  HTag,
   RemovableTag,
   DynamicTag,
-  BasicCascader,
+  HCascader,
   BasicDatePicker,
   DateRangePicker,
   BasicSteps,
   BasicStepsWithDescription,
-  BasicDrawer,
+  HDrawer,
   PaginationBasic,
   PaginationPageSize,
   BasicDialog,
@@ -237,9 +239,9 @@ export default {
   BasicTab,
   CardTab,
   VerticalTab,
-  WorkspaceTab,
-  BasicForm,
-  BasicAvatar,
-  PlainSearch,
-  FilterOptions
+  HTab,
+  HForm,
+  HAvatar,
+  HSearch,
+  HFilter
 }

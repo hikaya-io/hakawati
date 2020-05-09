@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: 'BasicInput',
+  name: 'HInput',
   props: {
     type: {
       type: String,

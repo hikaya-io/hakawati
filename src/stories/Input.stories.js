@@ -1,25 +1,24 @@
-import BasicInput from '../components/input/BasicInput.vue'
+import HInput from '../components/input/HInput.vue'
 import DisabledInput from '../components/input/DisabledInput.vue'
 import ClearInput from '../components/input/ClearInput.vue'
 import PasswordBox from '../components/input/PasswordBox.vue'
 import TextArea from '../components/input/TextArea.vue'
 import InputLength from '../components/input/InputLength.vue'
-import LabelInput from '../components/input/LabelInput.vue'
+import HLabelInput from '../components/input/HLabelInput.vue'
 
-import BasicForm from '../components/form/BasicForm.vue'
+import HForm from '../components/form/HForm.vue'
 
 // This is required for each story
 export default { title: 'Input' }
 
 // Customize components here
-export const basicInput = () => ({
-  components: { BasicInput },
+export const hInput = () => ({
+  components: { HInput },
   template: `
     <div>
-      <basic-input 
+      <h-input 
         placeholder="Input here"
-      >
-      </basic-input>
+      />
     </div>
   `
 })
@@ -88,8 +87,8 @@ export const inputLength = () => ({
   `
 })
 
-export const labelInput = () => ({
-  components: { BasicForm, LabelInput },
+export const hLabelInput = () => ({
+  components: { HForm, HLabelInput },
   data () {
     return {
       form: {
@@ -99,32 +98,46 @@ export const labelInput = () => ({
   },
   template: `
     <div>
-      <basic-form
+      <h-form
         ref="form"
         :model="form"
         label-position="top"
         labelWidth="120px"
       >
-        <label-input placeholder="Input here" label="Label Input" v-model="form.input" />
-      </basic-form>
+        <h-label-input
+          placeholder="Input here"
+          label="Label Input"
+          v-model="form.input"
+        />
+      </h-form>
 
-      <basic-form
+      <h-form
         ref="form"
         :model="form"
         label-position="left"
         labelWidth="120px"
       >
-        <label-input placeholder="Input here" label="Required Input" v-model="form.input" required />
-      </basic-form>
+        <h-label-input
+          placeholder="Input here"
+          label="Required Input"
+          v-model="form.input"
+          required
+        />
+      </h-form>
 
-      <basic-form
+      <h-form
         ref="form"
         :model="form"
         label-position="left"
         labelWidth="120px"
       >
-        <label-input placeholder="Input here" label="Disabled Input" v-model="form.input" disabled />
-      </basic-form>
+        <h-label-input
+          placeholder="Input here"
+          label="Disabled Input"
+          v-model="form.input"
+          disabled
+        />
+      </h-form>
     </div>
   `
 })

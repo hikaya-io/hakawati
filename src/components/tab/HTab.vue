@@ -19,7 +19,7 @@
 // import { action } from '@storybook/addon-actions'
 
 export default {
-  name: 'WorkspaceTab',
+  name: 'HTab',
   props: {
     title: {
       type: String,
@@ -42,7 +42,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "../../styles/theme";
 
 // tab styling

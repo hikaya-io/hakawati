@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'CheckboxButton',
+  name: 'HCheckbox',
   props: {
     size: {
       type: String,

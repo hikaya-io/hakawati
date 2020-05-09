@@ -1,5 +1,6 @@
 <template>
-  <el-button @click="$emit('click')"
+  <el-button
+    @click="$emit('click')"
     :size="size"
     :type="type"
     :icon="icon"
@@ -11,7 +12,7 @@
 
 <script>
 export default {
-  name: 'RoundButton',
+  name: 'HButton',
   props: {
     type: {
       type: String,

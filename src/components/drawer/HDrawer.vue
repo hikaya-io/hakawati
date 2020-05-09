@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'BasicDrawer'
+  name: 'HDrawer'
 }
 </script>
 
