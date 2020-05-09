@@ -175,9 +175,12 @@ $dark-color: $dark-body-grey;
   // border-radius: 20px;
 }
 
-.btn-pill {
+.button-pill {
+  width: 110px;
   border-radius: 25px;
+
   .el-checkbox-button__inner {
     border-radius: 25px !important;
+    border-color: transparent;
   }
 }
