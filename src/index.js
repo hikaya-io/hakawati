@@ -71,7 +71,7 @@ import PaginationBasic from './components/pagination/PaginationBasic.vue'
 import PaginationPageSize from './components/pagination/PaginationPageSize.vue'
 
 // Search
-import HSearch from './components/search/FSearch.vue'
+import HSearch from './components/search/HSearch.vue'
 
 // Select
 import HSelect from './components/select/HSelect.vue'
