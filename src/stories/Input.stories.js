@@ -25,11 +25,10 @@ export const hInput = () => ({
     <h-form
       ref="form"
       :model="form"
-      labelWidth="120px"
     >
       <h-input
-        placeholder="Input here"
         v-model="form.input"
+        placeholder="Input here"
       />
     </h-form>
   `
@@ -48,27 +47,35 @@ export const disabledInput = () => ({
     <h-form
       ref="form"
       :model="form"
-      labelWidth="120px"
     >
       <disabled-input
-        placeholder="Input here"
         v-model="form.input"
+        placeholder="Input here"
         disabled
-      >
-      </disabled-input>
+      />
     </h-form>
   `
 })
 
 export const clearInput = () => ({
-  components: { ClearInput },
+  components: { HForm, ClearInput },
+  data () {
+    return {
+      form: {
+        input: ''
+      }
+    }
+  },
   template: `
-    <div>
+    <h-form
+      ref="form"
+      :model="form"
+    >
       <clear-input
+        v-model="form.input"
         clearable
-      >
-      </clear-input>
-    </div>
+      />
+    </h-form>
   `
 })
 
