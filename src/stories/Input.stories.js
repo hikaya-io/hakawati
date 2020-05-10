@@ -13,13 +13,26 @@ export default { title: 'Input' }
 
 // Customize components here
 export const hInput = () => ({
-  components: { HInput },
+  components: { HForm, HInput },
+  data () {
+    return {
+      form: {
+        input: ''
+      }
+    }
+  },
   template: `
-    <div>
-      <h-input 
+    <h-form
+      ref="form"
+      :model="form"
+      label-position="top"
+      labelWidth="120px"
+    >
+      <h-input
         placeholder="Input here"
+        v-model="form.input"
       />
-    </div>
+    </h-form>
   `
 })
 
@@ -40,7 +53,7 @@ export const clearInput = () => ({
   components: { ClearInput },
   template: `
     <div>
-      <clear-input 
+      <clear-input
         clearable
       >
       </clear-input>
