@@ -24,13 +24,6 @@ export default {
       default: ''
     }
   },
-  data () {
-    return {
-      form: {
-        input: ''
-      }
-    }
-  },
   computed: {
     inputValue: {
       get () {
