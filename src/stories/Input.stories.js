@@ -80,15 +80,26 @@ export const clearInput = () => ({
 })
 
 export const passwordBox = () => ({
-  components: { PasswordBox },
+  components: { HForm, PasswordBox },
+  data () {
+    return {
+      form: {
+        input: ''
+      }
+    }
+  },
   template: `
-    <div>
+    <h-form
+      ref="form"
+      :model="form"
+    >
       <password-box
+        v-model="form.input"
         placeholder="Enter password"
         show-password
       >
       </password-box>
-    </div>
+    </h-form>
   `
 })
 
