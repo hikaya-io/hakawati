@@ -1,10 +1,10 @@
-import BasicForm from '../components/form/BasicForm.vue'
+import HForm from '../components/form/HForm.vue'
 
 // This is required for each story
 export default { title: 'Form' }
 
-export const basicForm = () => ({
-  components: { BasicForm },
+export const hForm = () => ({
+  components: { HForm },
   data () {
     return {
       form: {
@@ -14,7 +14,7 @@ export const basicForm = () => ({
   },
   template: `
     <div>
-      <basic-form 
+      <h-form 
         :model="form"
       >
         <el-form-item>
@@ -23,8 +23,8 @@ export const basicForm = () => ({
             v-model="form.input"
           />
         </el-form-item>
-      </basic-form>
-      <basic-form
+      </h-form>
+      <h-form
         label-position="top"
         label-width="100px"
         :model="form"
@@ -34,8 +34,8 @@ export const basicForm = () => ({
         >
           <el-input v-model="form.input" />
         </el-form-item>
-      </basic-form>
-      <basic-form
+      </h-form>
+      <h-form
         label-position="top"
         label-width="100px"
         :model="form"
@@ -46,7 +46,7 @@ export const basicForm = () => ({
         >
           <el-input v-model="form.input" />
         </el-form-item>
-      </basic-form>
+      </h-form>
     </div>
   `
 })

@@ -1,4 +1,4 @@
-import BasicSelect from '../components/select/BasicSelect.vue'
+import HSelect from '../components/select/HSelect.vue'
 import MultiSelect from '../components/select/MultiSelect.vue'
 import GroupedSelect from '../components/select/GroupedSelect.vue'
 
@@ -72,8 +72,8 @@ const groupOptions = [
 ]
 
 // Customize components here. For instance, here's my-button component with a text of "with text"
-export const basicSelect = () => ({
-  components: { BasicSelect },
+export const hSelect = () => ({
+  components: { HSelect },
   props: {
 
     disabled: {
@@ -93,7 +93,7 @@ export const basicSelect = () => ({
   },
   template: `
     <div>
-      <basic-select
+      <h-select
         :options="options"
         :placeholder="placeholder"
         :disabled="disabled"

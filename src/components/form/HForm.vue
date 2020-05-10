@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'BasicForm',
+  name: 'HForm',
   props: {
     model: {
       type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],

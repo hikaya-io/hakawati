@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'BasicAlert',
+  name: 'HAlert',
   props: {
     title: {
       type: String,
@@ -22,5 +22,10 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../styles/theme";
+
+.el-alert__title {
+  font-family: $main-font-family;
+}
 
 </style>

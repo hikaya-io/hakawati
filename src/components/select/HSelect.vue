@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: 'BasicSelect',
+  name: 'HSelect',
   data () {
     return {
       value: ''

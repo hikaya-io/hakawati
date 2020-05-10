@@ -1,4 +1,4 @@
-import BasicTag from '../components/tag/BasicTag.vue'
+import HTag from '../components/tag/HTag.vue'
 import RemovableTag from '../components/tag/RemovableTag.vue'
 import DynamicTag from '../components/tag/DynamicTag.vue'
 
@@ -6,15 +6,15 @@ import DynamicTag from '../components/tag/DynamicTag.vue'
 export default { title: 'Tag' }
 
 // Customize components here
-export const basicTag = () => ({
-  components: { BasicTag },
+export const hTag = () => ({
+  components: { HTag },
   template: `
   <div>
-  <basic-tag>Tag 1</basic-tag>
-  <basic-tag type="success">Tag 2</basic-tag>
-  <basic-tag type="info">Tag 3</basic-tag>
-  <basic-tag type="warning">Tag 4</basic-tag>
-  <basic-tag type="danger">Tag 5</basic-tag>
+  <h-tag>Tag 1</h-tag>
+  <h-tag type="success">Tag 2</h-tag>
+  <h-tag type="info">Tag 3</h-tag>
+  <h-tag type="warning">Tag 4</h-tag>
+  <h-tag type="danger">Tag 5</h-tag>
   </div>
   `
 })

@@ -1,7 +1,7 @@
 import BasicTab from '../components/tab/BasicTab.vue'
 import CardTab from '../components/tab/CardTab.vue'
 import VerticalTab from '../components/tab/VerticalTab.vue'
-import WorkspaceTab from '../components/tab/WorkspaceTab.vue'
+import HTab from '../components/tab/HTab.vue'
 import { action } from '@storybook/addon-actions'
 
 // This is required for each story
@@ -53,10 +53,13 @@ export const verticalTab = () => ({
   methods: { action: action('click') }
 })
 
-export const workspaceTab = () => ({
-  components: { WorkspaceTab },
+export const hTab = () => ({
+  components: { HTab },
   template: `
-    <workspace-tab activeName="first" tabPosition="left">
+    <h-tab
+      activeName="first"
+      tabPosition="left"
+    >
     <div slot="title">
     <span class="body-2-bold">Workspace Settings</span>
     <p class="footer">Workspace 1</p>
@@ -65,7 +68,7 @@ export const workspaceTab = () => ({
     <el-tab-pane label="People" name="second">People</el-tab-pane>
     <el-tab-pane label="Configurations" name="third">Configurations</el-tab-pane>
     <el-tab-pane label="Settings" name="fourth">Settings</el-tab-pane>
-    </workspace-tab> 
+    </h-tab> 
     `,
   methods: { action: action('click') }
 })

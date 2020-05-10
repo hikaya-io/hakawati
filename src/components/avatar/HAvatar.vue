@@ -1,11 +1,15 @@
 <template>
-    <el-avatar @click="$emit('click')" :shape="shape" :size="size" :src="src">
-    </el-avatar>
+    <el-avatar
+    @click="$emit('click')"
+    :shape="shape"
+    :size="size"
+    :src="src"
+    />
 </template>
 
 <script>
 export default {
-  name: 'BasicAvatar',
+  name: 'HAvatar',
   props: {
     shape: {
       type: String,

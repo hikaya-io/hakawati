@@ -1,7 +1,7 @@
 import BasicButton from '../components/button/BasicButton.vue'
 import DisabledButton from '../components/button/DisabledButton.vue'
 import PlainButton from '../components/button/PlainButton.vue'
-import RoundButton from '../components/button/RoundButton.vue'
+import HButton from '../components/button/HButton.vue'
 import CircleButton from '../components/button/CircleButton.vue'
 import TextButton from '../components/button/TextButton.vue'
 import WorkspaceButton from '../components/button/WorkspaceButton.vue'
@@ -57,16 +57,16 @@ export const plainButton = () => ({
   methods: { action: action('click') }
 })
 
-export const roundButton = () => ({
-  components: { RoundButton },
+export const hButton = () => ({
+  components: { HButton },
   template: `
   <div>
-  <round-button @click="action" size="medium" class="body-2-reg cancel-button">Cancel</round-button>
-  <round-button @click="action" size="medium" class="body-2-reg" type="primary">Save</round-button>
-  <round-button @click="action" size="medium" class="body-2-reg" type="success">Success</round-button>
-  <round-button @click="action" size="medium" class="body-2-reg" type="info">Info</round-button>
-  <round-button @click="action" size="medium" class="body-2-reg" type="warning">Warning</round-button>
-  <round-button @click="action" size="medium" class="body-2-reg" type="danger">Danger</round-button>
+  <h-button @click="action" size="medium" class="body-2-reg cancel-button">Cancel</h-button>
+  <h-button @click="action" size="medium" class="body-2-reg" type="primary">Save</h-button>
+  <h-button @click="action" size="medium" class="body-2-reg" type="success">Success</h-button>
+  <h-button @click="action" size="medium" class="body-2-reg" type="info">Info</h-button>
+  <h-button @click="action" size="medium" class="body-2-reg" type="warning">Warning</h-button>
+  <h-button @click="action" size="medium" class="body-2-reg" type="danger">Danger</h-button>
   </div>  
   `,
   methods: { action: action('click') }
