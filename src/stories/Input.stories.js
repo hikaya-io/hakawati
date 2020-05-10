@@ -97,8 +97,7 @@ export const passwordBox = () => ({
         v-model="form.input"
         placeholder="Enter password"
         show-password
-      >
-      </password-box>
+      />
     </h-form>
   `
 })
@@ -120,23 +119,32 @@ export const textArea = () => ({
       <text-area
         v-model="form.textArea"
         placeholder="Text area input here"
-      >
-      </text-area>
+      />
     </h-form>
   `
 })
 
 export const inputLength = () => ({
-  components: { InputLength },
+  components: { HForm, InputLength },
+  data () {
+    return {
+      form: {
+        textArea: ''
+      }
+    }
+  },
   template: `
-    <div>
-    <input-length
-      maxlength="100"
-      placeholder="Text area input with limit"
-      show-word-limit
+    <h-form
+      ref="form"
+      :model="form"
     >
-    </input-length>
-    </div>
+      <input-length
+        v-model="form.textArea"
+        maxlength="100"
+        placeholder="Text area input with limit"
+        show-word-limit
+      />
+    </h-form>
   `
 })
 
