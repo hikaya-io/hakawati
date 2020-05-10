@@ -104,14 +104,25 @@ export const passwordBox = () => ({
 })
 
 export const textArea = () => ({
-  components: { TextArea },
+  components: { HForm, TextArea },
+  data () {
+    return {
+      form: {
+        textArea: ''
+      }
+    }
+  },
   template: `
-    <div>
+    <h-form
+      ref="form"
+      :model="form"
+    >
       <text-area
-      placeholder="Text area input here"
+        v-model="form.textArea"
+        placeholder="Text area input here"
       >
       </text-area>
-    </div>
+    </h-form>
   `
 })
 
