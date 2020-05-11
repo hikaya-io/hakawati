@@ -1,6 +1,13 @@
+
 <template>
   <div>
-    <el-popover placement="bottom" width="600" trigger="manual" v-model="visible" :visible-arrow=false >
+    <el-popover
+      placement="bottom"
+      width="600"
+      trigger="manual"
+      v-model="visible"
+      :visible-arrow=false
+    >
       <el-row :gutter="20"  class="align-center">
         <el-col :span="3" class="spacer">
           <div>
@@ -15,15 +22,15 @@
             </el-col>
 
             <el-col class="spacer">
-                  <checkbox-button text="None" class="button-pill"/>
+                  <h-checkbox text="None" class="button-pill"/>
             </el-col>
 
             <el-col class="spacer">
-             <checkbox-button text="Newest" class="button-pill"/>
+             <h-checkbox text="Newest" class="button-pill"/>
             </el-col>
 
              <el-col class="spacer">
-            <checkbox-button text="Oldest" class="button-pill"/>
+            <h-checkbox text="Oldest" class="button-pill"/>
             </el-col>
           </el-row>
         </el-col>
@@ -35,19 +42,19 @@
             </el-col>
 
               <el-col class="spacer">
-            <checkbox-button text="None" class="button-pill"/>
+            <h-checkbox text="None" class="button-pill"/>
             </el-col>
 
             <el-col class="spacer">
-             <checkbox-button text="Member" class="button-pill"/>
+             <h-checkbox text="Member" class="button-pill"/>
             </el-col>
 
              <el-col class="spacer">
-             <checkbox-button text="Admin" class="button-pill"/>
+             <h-checkbox text="Admin" class="button-pill"/>
             </el-col>
 
             <el-col class="spacer">
-           <checkbox-button text="View" class="button-pill"/>
+           <h-checkbox text="View" class="button-pill"/>
             </el-col>
           </el-row>
         </el-col>
@@ -59,19 +66,19 @@
             </el-col>
 
                <el-col class="spacer">
-             <checkbox-button text="None" class="button-pill"/>
+             <h-checkbox text="None" class="button-pill"/>
             </el-col>
 
             <el-col class="spacer">
-            <checkbox-button text="Invited" class="button-pill"/>
+            <h-checkbox text="Invited" class="button-pill"/>
             </el-col>
 
              <el-col class="spacer">
-            <checkbox-button text="Active" class="button-pill"/>
+            <h-checkbox text="Active" class="button-pill"/>
             </el-col>
 
             <el-col class="spacer">
-             <checkbox-button text="Inactive" class="button-pill"/>
+             <h-checkbox text="Inactive" class="button-pill"/>
             </el-col>
           </el-row>
         </el-col>
@@ -95,10 +102,10 @@
 </template>
 
 <script>
-import CheckboxButton from '../checkbox/CheckboxButton.vue'
+import HCheckbox from '../checkbox/HCheckbox.vue'
 
 export default {
-  components: { CheckboxButton },
+  components: { HCheckbox },
 
   data () {
     return {

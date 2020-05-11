@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: 'LabelInput',
+  name: 'HLabelInput',
   props: {
     type: {
       type: String,

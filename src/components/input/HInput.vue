@@ -1,44 +1,36 @@
 <template>
-    <el-form
-      ref="form"
-      model="form"
-      label-width="120px"
-    >
-      <el-row
-        :gutter="20"
-      >
-        <el-col
-          class="grid-content"
-          :span="12"
-        >
-          <el-input
-            :placeholder="placeholder"
-            v-model="form.input"
-          >
-          <slot></slot>
-          </el-input>
-        </el-col>
-      </el-row>
-    </el-form>
+  <el-input
+    :placeholder="placeholder"
+    v-model="inputValue"
+  >
+    <slot></slot>
+  </el-input>
 </template>
 
 <script>
 export default {
-  name: 'BasicInput',
+  name: 'HInput',
   props: {
     type: {
       type: String,
       default: ''
+    },
+    value: {
+      type: [String, Number],
+      default: null
     },
     placeholder: {
       type: String,
       default: ''
     }
   },
-  data () {
-    return {
-      form: {
-        input: ''
+  computed: {
+    inputValue: {
+      get () {
+        return this.value
+      },
+      set (val) {
+        this.$emit('input', val)
       }
     }
   }

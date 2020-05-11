@@ -1,11 +1,11 @@
-import BasicDrawer from '../components/drawer/BasicDrawer.vue'
+import HDrawer from '../components/drawer/HDrawer.vue'
 
 // This is required for each story
 export default { title: 'Drawer' }
 
 // Customize components here.
-export const basicDrawer = () => ({
-  components: { BasicDrawer },
+export const hDrawer = () => ({
+  components: { HDrawer },
   data () {
     return {
       drawer: false,
@@ -22,7 +22,7 @@ export const basicDrawer = () => ({
     >
       Open drawer
     </el-button>
-    <basic-drawer
+    <h-drawer
       :title="title"
       :visible.sync="drawer"
       :direction="direction"
@@ -37,13 +37,13 @@ export const basicDrawer = () => ({
       >
         Hi, there!
       </span>
-    </basic-drawer>
+    </h-drawer>
   </div>
   `
 })
 
 export const drawerWithoutTitle = () => ({
-  components: { BasicDrawer },
+  components: { HDrawer },
   data () {
     return {
       drawer: false,
@@ -60,7 +60,7 @@ export const drawerWithoutTitle = () => ({
       >
         Open drawer
       </el-button>
-      <basic-drawer
+      <h-drawer
         :title="title"
         :visible.sync="drawer"
         :direction="direction"
@@ -74,13 +74,13 @@ export const drawerWithoutTitle = () => ({
         >
           Hi, there!
         </span>
-      </basic-drawer>
+      </h-drawer>
     </div>
     `
 })
 
 export const drawerNotClosableOnClick = () => ({
-  components: { BasicDrawer },
+  components: { HDrawer },
   data () {
     return {
       drawer: false,
@@ -98,7 +98,7 @@ export const drawerNotClosableOnClick = () => ({
           Open drawer
         </el-button>
 
-        <basic-drawer
+        <h-drawer
           :title="title"
           :visible.sync="drawer"
           :direction="direction"
@@ -112,13 +112,13 @@ export const drawerNotClosableOnClick = () => ({
           >
             Hi, there!
           </span>
-        </basic-drawer>
+        </h-drawer>
       </div>
       `
 })
 
 export const doubleDrawer = () => ({
-  components: { BasicDrawer },
+  components: { HDrawer },
   data () {
     return {
       drawerRight: false,
@@ -134,7 +134,7 @@ export const doubleDrawer = () => ({
     >
       Open right drawer
     </el-button>
-    <basic-drawer
+    <h-drawer
       :title="title"
       :visible.sync="drawerRight"
       direction="rtl"
@@ -152,8 +152,8 @@ export const doubleDrawer = () => ({
       >
       Open left drawer
       </el-button>
-    </basic-drawer>
-    <basic-drawer
+    </h-drawer>
+    <h-drawer
       :title="title"
       :visible.sync="drawerLeft"
       direction="ltr"
@@ -165,7 +165,7 @@ export const doubleDrawer = () => ({
       :modal="false"
     >
       <span>Hi, there!</span>
-    </basic-drawer>
+    </h-drawer>
   </div>
   `
 })

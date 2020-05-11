@@ -1,4 +1,4 @@
-import BasicDropdown from '../components/dropdown/BasicDropdown.vue'
+import HDropdown from '../components/dropdown/HDropdown.vue'
 import TriggerDropdown from '../components/dropdown/TriggerDropdown.vue'
 
 import { action } from '@storybook/addon-actions'
@@ -7,10 +7,10 @@ import { action } from '@storybook/addon-actions'
 export default { title: 'Dropdown' }
 
 // Customize components here.
-export const basicDropdown = () => ({
-  components: { BasicDropdown },
+export const hDropdown = () => ({
+  components: { HDropdown },
   template: `
-  <basic-dropdown>
+  <h-dropdown>
     <div slot="title">
       <span class="el-dropdown-link">
       More options<i class="el-icon-arrow-down el-icon--right"></i>
@@ -22,7 +22,7 @@ export const basicDropdown = () => ({
         <el-dropdown-item disabled>For admins only</el-dropdown-item>
         <el-dropdown-item divided>Delete</el-dropdown-item>
     </template>
-    </basic-dropdown>
+    </h-dropdown>
     `,
   methods: { action: action('click') }
 })

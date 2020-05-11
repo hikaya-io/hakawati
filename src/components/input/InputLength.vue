@@ -1,21 +1,14 @@
 <template>
-    <el-form ref="form" model="form" label-width="120px">
-        <el-row :gutter="20">
-            <el-col class="grid-content" :span="12">
-                <div style="margin: 20px 0;"></div>
-                <el-input
-                  type="textarea"
-                  :rows="4"
-                  :placeholder="placeholder"
-                  v-model="form.textarea"
-                  v-bind="$attrs"
-                  v-on="$listeners"
-                >
-                        <slot></slot>
-                </el-input>
-            </el-col>
-        </el-row>
-    </el-form>
+  <el-input
+    type="textarea"
+    :rows="4"
+    :placeholder="placeholder"
+    v-model="inputValue"
+    v-bind="$attrs"
+    v-on="$listeners"
+  >
+    <slot></slot>
+  </el-input>
 </template>
 
 <script>
@@ -29,12 +22,19 @@ export default {
     placeholder: {
       type: String,
       default: ''
+    },
+    value: {
+      type: [String, Number],
+      default: null
     }
   },
-  data () {
-    return {
-      form: {
-        textarea: ''
+  computed: {
+    inputValue: {
+      get () {
+        return this.value
+      },
+      set (val) {
+        this.$emit('input', val)
       }
     }
   }

@@ -1,4 +1,4 @@
-import BasicCascader from '../components/cascader/BasicCascader.vue'
+import HCascader from '../components/cascader/HCascader.vue'
 
 // This is required for each story
 export default { title: 'Cascader' }
@@ -273,17 +273,17 @@ const options = [
   }
 ]
 
-export const basicCascader = () => ({
-  components: { BasicCascader },
+export const hCascader = () => ({
+  components: { HCascader },
   data () {
     return {
       options
     }
   },
   template: `
-  <basic-cascader 
+  <h-cascader 
     :options='options'
   >
-  </basic-cascader>
+  </h-cascader>
     `
 })

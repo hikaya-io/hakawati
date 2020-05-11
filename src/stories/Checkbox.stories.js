@@ -1,7 +1,7 @@
 import BasicCheckbox from '../components/checkbox/BasicCheckbox.vue'
 import DisabledCheckbox from '../components/checkbox/DisabledCheckbox.vue'
 import CheckboxGroup from '../components/checkbox/CheckboxGroup.vue'
-import CheckboxButton from '../components/checkbox/CheckboxButton.vue'
+import HCheckbox from '../components/checkbox/HCheckbox.vue'
 
 import { action } from '@storybook/addon-actions'
 
@@ -60,17 +60,16 @@ export const checkboxGroup = () => ({
     `
 })
 
-export const checkboxButton = () => ({
-  components: { CheckboxButton },
+export const hCheckbox = () => ({
+  components: { HCheckbox },
   template: `
       <div>
-        <checkbox-button
+        <h-checkbox
           size="small"
           class="body-reg"
-          round
+          class="button-pill"
           text="Option 1"
-        >
-        </checkbox-button>
+        />
       </div>
       `,
   methods: { action: action('click') }
