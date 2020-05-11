@@ -13,77 +13,138 @@ export default { title: 'Input' }
 
 // Customize components here
 export const hInput = () => ({
-  components: { HInput },
+  components: { HForm, HInput },
+  data () {
+    return {
+      form: {
+        input: ''
+      }
+    }
+  },
   template: `
-    <div>
-      <h-input 
+    <h-form
+      ref="form"
+      :model="form"
+    >
+      <h-input
+        v-model="form.input"
         placeholder="Input here"
       />
-    </div>
+    </h-form>
   `
 })
 
 export const disabledInput = () => ({
-  components: { DisabledInput },
+  components: { HForm, DisabledInput },
+  data () {
+    return {
+      form: {
+        input: ''
+      }
+    }
+  },
   template: `
-    <div>
+    <h-form
+      ref="form"
+      :model="form"
+    >
       <disabled-input
+        v-model="form.input"
         placeholder="Input here"
         disabled
-      >
-      </disabled-input>
-    </div>
+      />
+    </h-form>
   `
 })
 
 export const clearInput = () => ({
-  components: { ClearInput },
+  components: { HForm, ClearInput },
+  data () {
+    return {
+      form: {
+        input: ''
+      }
+    }
+  },
   template: `
-    <div>
-      <clear-input 
+    <h-form
+      ref="form"
+      :model="form"
+    >
+      <clear-input
+        v-model="form.input"
         clearable
-      >
-      </clear-input>
-    </div>
+      />
+    </h-form>
   `
 })
 
 export const passwordBox = () => ({
-  components: { PasswordBox },
+  components: { HForm, PasswordBox },
+  data () {
+    return {
+      form: {
+        input: ''
+      }
+    }
+  },
   template: `
-    <div>
+    <h-form
+      ref="form"
+      :model="form"
+    >
       <password-box
+        v-model="form.input"
         placeholder="Enter password"
         show-password
-      >
-      </password-box>
-    </div>
+      />
+    </h-form>
   `
 })
 
 export const textArea = () => ({
-  components: { TextArea },
+  components: { HForm, TextArea },
+  data () {
+    return {
+      form: {
+        textArea: ''
+      }
+    }
+  },
   template: `
-    <div>
+    <h-form
+      ref="form"
+      :model="form"
+    >
       <text-area
-      placeholder="Text area input here"
-      >
-      </text-area>
-    </div>
+        v-model="form.textArea"
+        placeholder="Text area input here"
+      />
+    </h-form>
   `
 })
 
 export const inputLength = () => ({
-  components: { InputLength },
+  components: { HForm, InputLength },
+  data () {
+    return {
+      form: {
+        textArea: ''
+      }
+    }
+  },
   template: `
-    <div>
-    <input-length
-      maxlength="100"
-      placeholder="Text area input with limit"
-      show-word-limit
+    <h-form
+      ref="form"
+      :model="form"
     >
-    </input-length>
-    </div>
+      <input-length
+        v-model="form.textArea"
+        maxlength="100"
+        placeholder="Text area input with limit"
+        show-word-limit
+      />
+    </h-form>
   `
 })
 

@@ -1,18 +1,12 @@
 <template>
-    <el-form ref="form" model="form" label-width="120px">
-        <el-row :gutter="20">
-            <el-col class="grid-content" :span="12">
-                <el-input
-                  placeholder="Clear input here"
-                  v-model="form.input"
-                  v-bind="$attrs"
-                  v-on="$listeners"
-                >
-                        <slot></slot>
-                </el-input>
-            </el-col>
-        </el-row>
-    </el-form>
+  <el-input
+    placeholder="Clear input here"
+    v-model="inputValue"
+    v-bind="$attrs"
+    v-on="$listeners"
+  >
+    <slot></slot>
+  </el-input>
 </template>
 
 <script>
@@ -22,12 +16,19 @@ export default {
     type: {
       type: String,
       default: ''
+    },
+    value: {
+      type: [String, Number],
+      default: null
     }
   },
-  data () {
-    return {
-      form: {
-        input: ''
+  computed: {
+    inputValue: {
+      get () {
+        return this.value
+      },
+      set (val) {
+        this.$emit('input', val)
       }
     }
   }
