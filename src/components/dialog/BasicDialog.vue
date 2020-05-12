@@ -45,10 +45,6 @@ export default {
       type: String,
       default: ''
     },
-    openDialogText: {
-      type: String,
-      default: ''
-    },
     dialogVisible: {
       type: Boolean,
       default: false
@@ -56,6 +52,10 @@ export default {
     width: {
       type: String,
       default: '30%'
+    },
+    confirmLabel: {
+      type: String,
+      default: 'Confirm'
     }
   },
   computed: {

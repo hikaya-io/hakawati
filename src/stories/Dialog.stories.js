@@ -35,6 +35,8 @@ export const basicDialog = () => ({
       @dialogConfirmed="confirm"
       @dialogClosed="toggleVisibility"
       :dialogVisible="visibility"
+      :confirmLabel="Confirm"
+      width="40%"
       title="Hikaya"
       message="Do you like open source?"
       type="primary"
