@@ -42,11 +42,4 @@ export default {
     border-radius: 30px;
 }
 
-.el-icon-s-tools:before {
-    color: $dark-body-grey;
-}
-
-.el-icon-circle-plus-outline:before {
-    color: $dark-body-grey;
-}
 </style>

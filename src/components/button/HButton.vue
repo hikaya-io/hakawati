@@ -38,6 +38,11 @@ export default {
   border-radius: 25px;
   border-color: transparent;
   padding: 11px 33px;
+  color: $white;
+}
+
+.cancel-button {
+  color: $heading-grey;
 }
 
 </style>
