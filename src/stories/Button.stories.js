@@ -1,7 +1,6 @@
-import BasicButton from '../components/button/BasicButton.vue'
+import HButton from '../components/button/HButton.vue'
 import DisabledButton from '../components/button/DisabledButton.vue'
 import PlainButton from '../components/button/PlainButton.vue'
-import HButton from '../components/button/HButton.vue'
 import CircleButton from '../components/button/CircleButton.vue'
 import TextButton from '../components/button/TextButton.vue'
 import WorkspaceButton from '../components/button/WorkspaceButton.vue'
@@ -12,57 +11,57 @@ import { action } from '@storybook/addon-actions'
 export default { title: 'Button' }
 
 // Customize components here. For instance, here's my-button component with a text of "with text"
-export const basicButton = () => ({
-  components: { BasicButton },
+export const hButton = () => ({
+  components: { HButton },
   template: `
   <div>
-  <basic-button
+  <h-button
     @click="action"
     size="medium"
     class="body-bold cancel-button"
   >
   Cancel
-  </basic-button>
-  <basic-button
+  </h-button>
+  <h-button
     @click="action"
     size="medium"
     type="primary"
     class="body-bold button-style"
   >
   Save
-  </basic-button>
-  <basic-button
+  </h-button>
+  <h-button
     @click="action"
     size="medium"
     type="success"
     class="body-bold button-style"
   >
   Success
-  </basic-button>
-  <basic-button
+  </h-button>
+  <h-button
     @click="action"
     size="medium"
     type="info"
     class="body-bold button-style"
   >
   Info
-  </basic-button>
-  <basic-button
+  </h-button>
+  <h-button
     @click="action"
     size="medium"
     type="warning"
     class="body-bold button-style"
   >
   Warning
-  </basic-button>
-  <basic-button
+  </h-button>
+  <h-button
     @click="action"
     size="medium"
     type="danger"
     class="body-bold button-style"
   >
   Danger
-  </basic-button>
+  </h-button>
   </div>  
   `,
   methods: { action: action('click') }
@@ -175,62 +174,6 @@ export const plainButton = () => ({
   >
   Danger
   </plain-button>
-  </div>  
-  `,
-  methods: { action: action('click') }
-})
-
-export const hButton = () => ({
-  components: { HButton },
-  template: `
-  <div>
-  <h-button
-    @click="action"
-    size="medium"
-    class="body-bold cancel-button"
-  >
-  Cancel
-  </h-button>
-  <h-button
-    @click="action"
-    size="medium"
-    type="primary"
-    class="body-bold button-style"
-  >
-  Save
-  </h-button>
-  <h-button
-    @click="action"
-    size="medium"
-    type="success"
-    class="body-bold button-style"
-  >
-  Success
-  </h-button>
-  <h-button
-    @click="action"
-    size="medium"
-    type="info"
-    class="body-bold button-style"
-  >
-  Info
-  </h-button>
-  <h-button
-    @click="action"
-    size="medium"
-    type="warning"
-    class="body-bold button-style"
-  >
-  Warning
-  </h-button>
-  <h-button
-    @click="action"
-    size="medium"
-    type="danger"
-    class="body-bold button-style"
-  >
-  Danger
-  </h-button>
   </div>  
   `,
   methods: { action: action('click') }

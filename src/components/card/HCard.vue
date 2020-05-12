@@ -13,7 +13,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "../../styles/theme";
 
 .el-card.is-always-shadow {
@@ -25,6 +25,11 @@ export default {
 
 .el-card__header {
   border-bottom: transparent;
+  padding: 25px 25px 40px 0px;
+}
+
+.el-card {
+  padding: 0px 25px 40px 40px;
 }
 
 </style>>

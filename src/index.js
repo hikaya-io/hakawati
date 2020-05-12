@@ -15,10 +15,9 @@ import HAvatar from './components/avatar/HAvatar.vue'
 // import BreadcrumbIconSeparator from './components/breadcrumb/BreadcrumbIconSeparator.vue'
 
 // Button
-import BasicButton from './components/button/BasicButton.vue'
+import HButton from './components/button/HButton.vue'
 import DisabledButton from './components/button/DisabledButton.vue'
 import PlainButton from './components/button/PlainButton.vue'
-import HButton from './components/button/HButton.vue'
 import CircleButton from './components/button/CircleButton.vue'
 import TextButton from './components/button/TextButton.vue'
 import WorkspaceButton from './components/button/WorkspaceButton.vue'
@@ -112,7 +111,6 @@ import HForm from './components/form/HForm.vue'
 // Import other components from here
 
 const components = [
-  BasicButton,
   DisabledButton,
   PlainButton,
   HButton,
@@ -185,7 +183,6 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default {
   install,
-  BasicButton,
   DisabledButton,
   PlainButton,
   HButton,
