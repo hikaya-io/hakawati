@@ -1,16 +1,9 @@
 <template>
   <div>
-    <el-button
-      type="text"
-      @click="dialogVisible = true"
-    >
-      {{openDialogText}}
-    </el-button>
-    <slot></slot>
     <el-dialog
       :title="title"
-      :visible.sync="dialogVisible"
-      width="30%"
+      :visible.sync="visible"
+      :width="width"
       :before-close="handleClose"
     >
       <span>{{message}}</span>
@@ -19,7 +12,7 @@
         class="dialog-footer"
       >
         <el-button
-          @click="dialogVisible = false"
+          @click="closeDialog"
           round
         >
         Cancel
@@ -55,23 +48,39 @@ export default {
     openDialogText: {
       type: String,
       default: ''
+    },
+    dialogVisible: {
+      type: Boolean,
+      default: false
+    },
+    width: {
+      type: String,
+      default: '30%'
     }
   },
-
-  data () {
-    return {
-      dialogVisible: false
+  computed: {
+    visible: {
+      get () {
+        return this.dialogVisible
+      },
+      set (val) {
+        return val
+      }
     }
   },
   methods: {
     handleConfirm () {
-      this.dialogVisible = false
       this.$emit('dialogConfirmed')
+      this.closeDialog()
+    },
+    closeDialog () {
+      this.$emit('dialogClosed')
     },
     handleClose (done) {
       this.$confirm('Are you sure to close this dialog?')
         .then(_ => {
           done()
+          this.closeDialog()
         })
         .catch(_ => {})
     }
