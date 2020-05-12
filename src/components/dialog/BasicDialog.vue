@@ -6,7 +6,7 @@
       :width="width"
       :before-close="handleClose"
     >
-      <span>{{message}}</span>
+      <slot/>
       <span
         slot="footer"
         class="dialog-footer"
