@@ -21,19 +21,10 @@ $red-fill: #FFEBEB;
 $yellow-fill: #FEF9E7;
 $purple-fill: #F5EBFA;
 
-$heading-grey: #666666;
+$heading-grey: #737581;
 $dark-body-grey: #333333;
 $light-body-grey: #CCCCCC;
-$guest-grey: #737581;
 $background-color: #F4F5FC;
-
-// $gray-darker:  #434551;
-// $gray-dark: #60626E;
-// $gray-medium: #888A94;
-// $gray-light: #9D9EA7;
-// $gray-lighter: #B9BAC0;
-// $gray-very-light: #D5D6D9;
-// $gray-lightest: #EEEEF0;
 
 // Default Variables
 $primary-color: $blue;
@@ -48,7 +39,7 @@ $warning-color: $yellow;
 $warning-fill: $yellow-fill;
 $danger-color: $red;
 $danger-fill: $red-fill;
-$info-color: $guest-grey;
+$info-color: $heading-grey;
 $guest-color: $purple;
 $guest-color-fill: $purple-fill;
 
