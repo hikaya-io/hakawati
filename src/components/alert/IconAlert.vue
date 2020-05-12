@@ -2,6 +2,7 @@
     <el-alert
       :title="title"
       :type="type"
+      show-icon
     />
 </template>
 

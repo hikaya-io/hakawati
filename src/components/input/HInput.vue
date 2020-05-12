@@ -47,6 +47,10 @@ export default {
   padding: 0 0 0 0;
 }
 
+.el-input__inner:focus {
+    border-color:$primary-color-sub;
+}
+
 .el-input.is-focus .el-input__inner {
     border-color: $light-body-grey;
 }

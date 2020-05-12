@@ -24,8 +24,4 @@ export default {
 <style lang="scss">
 @import "../../styles/theme";
 
-.el-alert__title {
-  font-family: $main-font-family;
-}
-
 </style>

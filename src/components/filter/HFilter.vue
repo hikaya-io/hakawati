@@ -125,6 +125,7 @@ export default {
 .el-popover {
   border-radius: 25px;
   color: $dark-body-grey;
+  border-color: transparent;
 }
 
 .align-center {
@@ -139,7 +140,6 @@ export default {
 .el-checkbox-button.is-checked .el-checkbox-button__inner {
     color: $primary-color;
     background-color: $primary-fill;
-    border-color: $primary-fill;
 }
 
 .el-checkbox-button.is-focus .el-checkbox-button__inner {

@@ -36,6 +36,8 @@ export const triggerDropdown = () => ({
           @click="$emit('click')"
           size="small"
           type="primary"
+          class="button-style"
+          round
         >
         More options <i class="el-icon-arrow-down el-icon--right"></i>
         </el-button>

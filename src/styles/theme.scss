@@ -13,12 +13,6 @@ $red: #FF3333;
 $yellow: #F9C80E;
 $purple: #6633CC;
 
-$heading-grey: #666666;
-$dark-body-grey: #333333;
-$light-body-grey: #CCCCCC;
-$gray: #737581;
-$background-color: #F4F5FC;
-
 $blue-fill: #EBEBFF;
 $blue-sub-fill: #F0EBFA;
 $cyan-fill: #E9FAFA;
@@ -27,6 +21,11 @@ $red-fill: #FFEBEB;
 $yellow-fill: #FEF9E7;
 $purple-fill: #F5EBFA;
 
+$heading-grey: #666666;
+$dark-body-grey: #333333;
+$light-body-grey: #CCCCCC;
+$guest-grey: #737581;
+$background-color: #F4F5FC;
 
 // $gray-darker:  #434551;
 // $gray-dark: #60626E;
@@ -40,15 +39,18 @@ $purple-fill: #F5EBFA;
 $primary-color: $blue;
 $primary-fill: $blue-fill;
 $primary-color-sub: $blue-sub;
+$primary-color-sub-fill: $blue-sub-fill;
 $secondary-color: $cyan;
 $secondary-fill: $cyan-fill;
 $success-color: $green;
 $success-fill: $green-fill;
-$info-color: $heading-grey;
 $warning-color: $yellow;
 $warning-fill: $yellow-fill;
 $danger-color: $red;
 $danger-fill: $red-fill;
+$info-color: $guest-grey;
+$guest-color: $purple;
+$guest-color-fill: $purple-fill;
 
 $site-content-text-color: $dark-body-grey;
 $standard-label-color: $background-color;
@@ -119,7 +121,7 @@ $dark-color: $dark-body-grey;
   font-weight: normal;
   font-size: 22px;
   line-height: 26px;
-  color: $white;
+  color: $dark-body-grey;
 }
 
 /* Footer - Lato R15 */
@@ -146,12 +148,12 @@ $dark-color: $dark-body-grey;
   color: $heading-grey;
 }
 
-.plain-button {
+.plain-style {
   font-family: $main-font-family;
   font-style: normal;
-  font-weight: normal;
-  font-size: 22px;
-  line-height: 26px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
 }
 
 .ws-button {
@@ -159,10 +161,12 @@ $dark-color: $dark-body-grey;
   font-family: $main-font-family;
 }
 
-.button-shadow {
-  background: $white;
-  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25);
+.button-style {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
   border-color: transparent;
+  padding: 11px 33px;
+  color: $white;
 }
 
 .h-border {
