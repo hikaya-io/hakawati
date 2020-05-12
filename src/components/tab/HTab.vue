@@ -75,12 +75,20 @@ export default {
 }
 
 // card styling
-  .el-card.is-always-shadow {
-    border: 2px solid #F4F5FC;
-    box-sizing: border-box;
-    box-shadow: inset 0px 3px 3px rgba(50, 50, 50, 0.25);
-    border-radius: 0px 20px 20px 0px;
-  }
+  // .el-card.is-always-shadow {
+  //   border: 2px solid #F4F5FC;
+  //   box-sizing: border-box;
+  //   box-shadow: inset 0px 3px 3px rgba(50, 50, 50, 0.25);
+  //   border-radius: 0px 20px 20px 0px;
+  // }
+
+.el-card.is-always-shadow {
+  border: 2px solid #F4F5FC;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 20px 20px 0px;
+  border-color: transparent;
+}
 
   .el-card__body {
     padding: 0px 30px 10px 0px;

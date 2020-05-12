@@ -28,4 +28,10 @@ export default {
   font-family: $main-font-family;
 }
 
+.el-alert--success {
+    background-color: $green-fill;
+    color: $green;
+    border-color: $green;
+}
+
 </style>

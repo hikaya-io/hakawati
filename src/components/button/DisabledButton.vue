@@ -3,6 +3,7 @@
     :size="size"
     :type="type"
     disabled
+    round
   >
     <slot></slot>
   </el-button>
