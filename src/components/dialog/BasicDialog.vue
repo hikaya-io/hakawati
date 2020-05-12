@@ -12,7 +12,7 @@
         class="dialog-footer"
       >
         <el-button
-          @click="closeDialog"
+          @click="handleClose"
           round
         >
         Cancel
@@ -22,7 +22,7 @@
           @click="handleConfirm"
           round
         >
-          Confirm
+          {{ confirmLabel }}
         </el-button>
       </span>
     </el-dialog>
@@ -71,18 +71,10 @@ export default {
   methods: {
     handleConfirm () {
       this.$emit('dialogConfirmed')
-      this.closeDialog()
+      this.handleClose()
     },
-    closeDialog () {
+    handleClose () {
       this.$emit('dialogClosed')
-    },
-    handleClose (done) {
-      this.$confirm('Are you sure to close this dialog?')
-        .then(_ => {
-          done()
-          this.closeDialog()
-        })
-        .catch(_ => {})
     }
   }
 }
