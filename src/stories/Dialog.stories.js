@@ -3,8 +3,6 @@ import BasicButton from '../components/button/BasicButton.vue'
 import HForm from '../components/form/HForm.vue'
 import HInput from '../components/input/HInput.vue'
 
-import { action } from '@storybook/addon-actions'
-
 // This is required for each story
 export default {
   title: 'Dialog'
