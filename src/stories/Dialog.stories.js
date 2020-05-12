@@ -1,4 +1,4 @@
-import BasicDialog from '../components/dialog/BasicDialog.vue'
+import HDialog from '../components/dialog/BasicDialog.vue'
 import BasicButton from '../components/button/BasicButton.vue'
 import HForm from '../components/form/HForm.vue'
 import HInput from '../components/input/HInput.vue'
@@ -10,7 +10,7 @@ export default {
 
 export const basicDialog = () => ({
   components: {
-    BasicDialog,
+    HDialog,
     BasicButton
   },
   data () {
@@ -29,7 +29,7 @@ export const basicDialog = () => ({
   template: `
   <div>
     <basic-button @click="toggleVisibility" size="medium" class="plain-button" type="primary">Open Dialog</basic-button>
-    <basic-dialog
+    <h-dialog
       @dialogConfirmed="confirm"
       @dialogClosed="toggleVisibility"
       :dialogVisible="visibility"
@@ -40,14 +40,14 @@ export const basicDialog = () => ({
       class="body-reg"
     >
     Welcome
-    </basic-dialog>
+    </h-dialog>
   </div>
     `
 })
 
 export const formDialog = () => ({
   components: {
-    BasicDialog,
+    HDialog,
     BasicButton,
     HForm,
     HInput
@@ -73,7 +73,7 @@ export const formDialog = () => ({
   <div>
     <basic-button @click="toggleVisibility" size="medium" class="plain-button" type="primary">Open Dialog with Form</basic-button>
 
-    <basic-dialog
+    <h-dialog
       @dialogConfirmed="confirm"
       @dialogClosed="toggleVisibility"
       :dialogVisible="visibility"
@@ -93,7 +93,7 @@ export const formDialog = () => ({
         />
       </h-form>
       {{ form.input }}
-    </basic-dialog>
+    </h-dialog>
   </div>
   `
 })

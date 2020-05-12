@@ -31,7 +31,7 @@
 
 <script>
 export default {
-  name: 'BasicDialog',
+  name: 'HDialog',
   props: {
     title: {
       type: String,
