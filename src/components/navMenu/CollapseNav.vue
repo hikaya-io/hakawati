@@ -42,6 +42,11 @@ export default {
 
   .el-menu {
     font-family: $main-font-family;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: $dark-body-grey;
 
     .el-button {
       position: absolute;
