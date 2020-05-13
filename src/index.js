@@ -232,7 +232,7 @@ export default {
   HDrawer,
   PaginationBasic,
   PaginationPageSize,
-  BasicDialog,
+  HDialog,
   BasicTab,
   CardTab,
   VerticalTab,
