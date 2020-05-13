@@ -60,11 +60,7 @@
 
 <script>
 export default {
-  props: ['tableData'],
-  data () {
-    return {
-      name: 'TableWithGroupingHead'
-    }
-  }
+  name: 'HTableWithGroupingHead',
+  props: ['tableData']
 }
 </script>

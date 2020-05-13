@@ -28,10 +28,10 @@
 
 <script>
 export default {
+  name: 'HTableWithMultipleSelect',
   props: ['tableData'],
   data () {
     return {
-      name: 'TableWithMultipleSelect',
       multipleSelection: []
     }
   },

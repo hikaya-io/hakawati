@@ -23,10 +23,10 @@
 
 <script>
 export default {
+  name: 'HTable',
   props: ['tableData'],
   data () {
     return {
-      name: 'HTable',
       multipleSelection: []
     }
   },

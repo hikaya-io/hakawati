@@ -15,12 +15,8 @@
 
 <script>
 export default {
-  props: ['tableData'],
-  data () {
-    return {
-      name: 'TableBasic'
-    }
-  }
+  name: 'HTableBasic',
+  props: ['tableData']
 }
 </script>
 
@@ -32,7 +28,6 @@ export default {
   box-sizing: border-box;
   border-radius: 6px;
 }
-
 
 .el-table th td {
   border: none;

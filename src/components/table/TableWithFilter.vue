@@ -40,12 +40,8 @@
 
 <script>
 export default {
+  name: 'HTableWithFilter',
   props: ['tableData', 'filterData'],
-  data () {
-    return {
-      name: 'TableWithFilter'
-    }
-  },
   created () {
     this.tagColumn = this.tableData[0].tag
     this.noTagColumn = { ...this.tableData[0] }
