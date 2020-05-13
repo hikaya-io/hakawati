@@ -1,25 +1,18 @@
 <template>
   <div>
-    <el-button
-      type="text"
-      @click="dialogVisible = true"
-    >
-      {{openDialogText}}
-    </el-button>
-    <slot></slot>
     <el-dialog
       :title="title"
-      :visible.sync="dialogVisible"
-      width="30%"
+      :visible.sync="visible"
+      :width="width"
       :before-close="handleClose"
     >
-      <span>{{message}}</span>
+      <slot/>
       <span
         slot="footer"
         class="dialog-footer"
       >
         <el-button
-          @click="dialogVisible = false"
+          @click="handleClose"
           round
         >
         Cancel
@@ -29,7 +22,7 @@
           @click="handleConfirm"
           round
         >
-          Confirm
+          {{ confirmLabel }}
         </el-button>
       </span>
     </el-dialog>
@@ -38,7 +31,7 @@
 
 <script>
 export default {
-  name: 'BasicDialog',
+  name: 'HDialog',
   props: {
     title: {
       type: String,
@@ -52,28 +45,36 @@ export default {
       type: String,
       default: ''
     },
-    openDialogText: {
+    dialogVisible: {
+      type: Boolean,
+      default: false
+    },
+    width: {
       type: String,
-      default: ''
+      default: '30%'
+    },
+    confirmLabel: {
+      type: String,
+      default: 'Confirm'
     }
   },
-
-  data () {
-    return {
-      dialogVisible: false
+  computed: {
+    visible: {
+      get () {
+        return this.dialogVisible
+      },
+      set (val) {
+        return val
+      }
     }
   },
   methods: {
     handleConfirm () {
-      this.dialogVisible = false
       this.$emit('dialogConfirmed')
+      this.handleClose()
     },
-    handleClose (done) {
-      this.$confirm('Are you sure to close this dialog?')
-        .then(_ => {
-          done()
-        })
-        .catch(_ => {})
+    handleClose () {
+      this.$emit('dialogClosed')
     }
   }
 }

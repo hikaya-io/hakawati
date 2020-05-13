@@ -39,8 +39,7 @@ import BasicDatePicker from './components/datepicker/BasicDatePicker.vue'
 import DateRangePicker from './components/datepicker/DateRangePicker.vue'
 
 // Dialog
-import BasicDialog from './components/dialog/BasicDialog.vue'
-import FormDialog from './components/dialog/FormDialog.vue'
+import HDialog from './components/dialog/BasicDialog.vue'
 
 // Drawer
 import HDrawer from './components/drawer/HDrawer.vue'
@@ -159,8 +158,7 @@ const components = [
   HDrawer,
   PaginationBasic,
   PaginationPageSize,
-  BasicDialog,
-  FormDialog,
+  HDialog,
   BasicTab,
   CardTab,
   VerticalTab,
@@ -231,8 +229,7 @@ export default {
   HDrawer,
   PaginationBasic,
   PaginationPageSize,
-  BasicDialog,
-  FormDialog,
+  HDialog,
   BasicTab,
   CardTab,
   VerticalTab,
