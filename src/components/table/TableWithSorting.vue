@@ -18,12 +18,8 @@
 
 <script>
 export default {
+  name: 'HTableWithSorting',
   props: ['tableData'],
-  data () {
-    return {
-      name: 'TableWithSorting'
-    }
-  },
   methods: {
     formatter (row, column) {
       return row.address

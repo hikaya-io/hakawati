@@ -24,12 +24,8 @@
 
 <script>
 export default {
+  name: 'HTableWithExpandableRow',
   props: ['tableData'],
-  data () {
-    return {
-      name: 'TableWithExpandableRow'
-    }
-  },
   created () {
     this.columnNames = this.tableData[0]
   }

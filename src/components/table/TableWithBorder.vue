@@ -17,11 +17,7 @@
 
 <script>
 export default {
-  props: ['tableData'],
-  data () {
-    return {
-      name: 'TableWithBorder'
-    }
-  }
+  name: 'HTableWithBorder',
+  props: ['tableData']
 }
 </script>

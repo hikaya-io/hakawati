@@ -38,12 +38,8 @@
 
 <script>
 export default {
+  name: 'HTableWithSummaryRow',
   props: ['tableData'],
-  data () {
-    return {
-      name: 'TableWithSummaryRow'
-    }
-  },
   methods: {
     getSummaries (param) {
       const { columns, data } = param
