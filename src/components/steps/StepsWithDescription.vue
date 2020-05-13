@@ -11,7 +11,7 @@
 </template>
 <script>
 export default {
-  name: 'BasicSteps',
+  name: 'StepsWithDescription',
   props: {
     active: {
       type: Number,

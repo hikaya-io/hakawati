@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'BasicTag',
+  name: 'RemovableTag',
   props: {
     type: {
       type: String,

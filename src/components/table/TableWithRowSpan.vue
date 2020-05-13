@@ -75,7 +75,7 @@
 
 <script>
 export default {
-  name: 'HTableWithRowSpan',
+  name: 'TableWithRowSpan',
   props: ['tableData'],
   methods: {
     arraySpanMethod ({ row, column, rowIndex, columnIndex }) {

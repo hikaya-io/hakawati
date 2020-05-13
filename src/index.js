@@ -10,10 +10,6 @@ import DescriptionAlert from './components/alert/DescriptionAlert.vue'
 // Avatar
 import HAvatar from './components/avatar/HAvatar.vue'
 
-// Breadcrumb
-// import BreadcrumbBasic from './components/breadcrumb/BreadcrumbBasic.vue'
-// import BreadcrumbIconSeparator from './components/breadcrumb/BreadcrumbIconSeparator.vue'
-
 // Button
 import HButton from './components/button/HButton.vue'
 import DisabledButton from './components/button/DisabledButton.vue'
@@ -55,8 +51,8 @@ import HFilter from './components/filter/HFilter.vue'
 import HInput from './components/input/HInput.vue'
 import DisabledInput from './components/input/DisabledInput.vue'
 import ClearInput from './components/input/ClearInput.vue'
-import PasswordBox from './components/input/PasswordBox.vue'
-import TextArea from './components/input/TextArea.vue'
+import InputPasswordBox from './components/input/PasswordBox.vue'
+import InputTextArea from './components/input/TextArea.vue'
 import InputLength from './components/input/InputLength.vue'
 import HLabelInput from './components/input/HLabelInput.vue'
 
@@ -78,7 +74,7 @@ import GroupedSelect from './components/select/GroupedSelect.vue'
 
 // Steps
 import BasicSteps from './components/steps/BasicSteps.vue'
-import BasicStepsWithDescription from './components/steps/BasicStepsWithDescription.vue'
+import StepsWithDescription from './components/steps/StepsWithDescription.vue'
 
 // Switch
 import BasicSwitch from './components/switch/BasicSwitch.vue'
@@ -93,8 +89,6 @@ import HTab from './components/tab/HTab.vue'
 
 // Table
 import HTable from './components/table/HTable.vue'
-// import BasicTable from './components/table/BasicTable.vue'
-// import TableWithStatus from './components/table/TableWithStatus.vue'
 
 // Tag
 import HTag from './components/tag/HTag.vue'
@@ -123,15 +117,13 @@ const components = [
   HInput,
   DisabledInput,
   ClearInput,
-  PasswordBox,
-  TextArea,
+  InputPasswordBox,
+  InputTextArea,
   InputLength,
   HLabelInput,
   TopNav,
   CollapseNav,
   HTable,
-  // BasicTable,
-  // TableWithStatus,
   UploadExcel,
   HDropdown,
   TriggerDropdown,
@@ -142,8 +134,6 @@ const components = [
   TextSwitch,
   DisabledSwitch,
   HCard,
-  // BreadcrumbBasic,
-  // BreadcrumbIconSeparator,
   HSelect,
   MultiSelect,
   GroupedSelect,
@@ -154,7 +144,7 @@ const components = [
   BasicDatePicker,
   DateRangePicker,
   BasicSteps,
-  BasicStepsWithDescription,
+  StepsWithDescription,
   HDrawer,
   PaginationBasic,
   PaginationPageSize,
@@ -194,15 +184,13 @@ export default {
   HInput,
   DisabledInput,
   ClearInput,
-  PasswordBox,
-  TextArea,
+  InputPasswordBox,
+  InputTextArea,
   InputLength,
   HLabelInput,
   TopNav,
   CollapseNav,
   HTable,
-  // BasicTable,
-  // TableWithStatus,
   UploadExcel,
   HDropdown,
   TriggerDropdown,
@@ -213,8 +201,6 @@ export default {
   TextSwitch,
   DisabledSwitch,
   HCard,
-  // BreadcrumbBasic,
-  // BreadcrumbIconSeparator,
   HSelect,
   MultiSelect,
   GroupedSelect,
@@ -225,7 +211,7 @@ export default {
   BasicDatePicker,
   DateRangePicker,
   BasicSteps,
-  BasicStepsWithDescription,
+  StepsWithDescription,
   HDrawer,
   PaginationBasic,
   PaginationPageSize,

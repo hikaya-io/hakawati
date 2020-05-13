@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: 'HTableWithStatus',
+  name: 'TableWithStatus',
   props: ['tableData'],
   methods: {
     tableRowClassName ({ row, rowIndex }) {
