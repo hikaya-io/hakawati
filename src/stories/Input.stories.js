@@ -1,8 +1,8 @@
 import HInput from '../components/input/HInput.vue'
 import DisabledInput from '../components/input/DisabledInput.vue'
 import ClearInput from '../components/input/ClearInput.vue'
-import InputPasswordBox from '../components/input/PasswordBox.vue'
-import InputTextArea from '../components/input/TextArea.vue'
+import InputPasswordBox from '../components/input/InputPasswordBox.vue'
+import InputTextArea from '../components/input/InputTextArea.vue'
 import InputLength from '../components/input/InputLength.vue'
 import HLabelInput from '../components/input/HLabelInput.vue'
 
@@ -79,7 +79,7 @@ export const clearInput = () => ({
   `
 })
 
-export const passwordBox = () => ({
+export const inputPasswordBox = () => ({
   components: { HForm, InputPasswordBox },
   data () {
     return {
@@ -93,7 +93,7 @@ export const passwordBox = () => ({
       ref="form"
       :model="form"
     >
-      <password-box
+      <input-password-box
         v-model="form.input"
         placeholder="Enter password"
         show-password
@@ -102,7 +102,7 @@ export const passwordBox = () => ({
   `
 })
 
-export const textArea = () => ({
+export const inputTextArea = () => ({
   components: { HForm, InputTextArea },
   data () {
     return {
@@ -116,7 +116,7 @@ export const textArea = () => ({
       ref="form"
       :model="form"
     >
-      <text-area
+      <input-text-area
         v-model="form.textArea"
         placeholder="Text area input here"
       />
