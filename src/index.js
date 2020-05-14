@@ -10,6 +10,10 @@ import DescriptionAlert from './components/alert/DescriptionAlert.vue'
 // Avatar
 import HAvatar from './components/avatar/HAvatar.vue'
 
+// Breadcrumb
+import BreadcrumbBasic from './components/breadcrumb/BreadcrumbBasic.vue'
+import BreadcrumbIconSeparator from './components/breadcrumb/BreadcrumbIconSeparator.vue'
+
 // Button
 import HButton from './components/button/HButton.vue'
 import DisabledButton from './components/button/DisabledButton.vue'
@@ -156,7 +160,9 @@ const components = [
   HForm,
   HAvatar,
   HSearch,
-  HFilter
+  HFilter,
+  BreadcrumbBasic,
+  BreadcrumbIconSeparator
 ]
 
 const install = function (Vue) {
@@ -223,5 +229,7 @@ export default {
   HForm,
   HAvatar,
   HSearch,
-  HFilter
+  HFilter,
+  BreadcrumbBasic,
+  BreadcrumbIconSeparator
 }

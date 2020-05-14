@@ -9,9 +9,7 @@ export const topNav = () => ({
   template: `
   <top-nav default-active="1">
       <el-menu-item index="1">Maps</el-menu-item>
-      <el-menu-item index="2"
-        ><a href="#" target="_blank">Tables</a></el-menu-item
-      >
+      <el-menu-item index="2">Tables</el-menu-item>
       <el-menu-item index="3" disabled>Reports</el-menu-item>
       <el-submenu index="4">
         <template slot="title">Workspace</template>
@@ -36,7 +34,7 @@ export const collapseNav = () => ({
   <el-menu-item index="2">
   <i class="el-icon-location"></i>
   <span slot="title">Admin boundary</span>
-</el-menu-item>
+  </el-menu-item>
       <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-set-up"></i>

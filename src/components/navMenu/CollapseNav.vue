@@ -43,10 +43,10 @@ export default {
   .el-menu {
     font-family: $main-font-family;
     font-style: normal;
-    font-weight: bold;
     font-size: 18px;
     line-height: 22px;
     color: $dark-body-grey;
+    padding: 10px 20px 20px 10px;
 
     .el-button {
       position: absolute;
@@ -65,7 +65,19 @@ export default {
       }
     }
   }
-  .el-menu:not(.el-menu--collapse) {
-    width: 200px;
-  }
+
+.el-menu:not(.el-menu--collapse) {
+    width: 250px;
+}
+
+.el-menu-item.is-active {
+    color: $primary-color;
+    background-color: transparent;
+}
+
+.el-menu-item:hover, .el-menu-item:focus {
+    background-color: transparent;
+    color: $primary-color;
+}
+
 </style>

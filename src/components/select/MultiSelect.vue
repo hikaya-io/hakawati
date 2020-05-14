@@ -59,4 +59,16 @@ export default {
     background-color: transparent;
 }
 
+// style selected options
+.el-icon-close:before {
+    background-color: $primary-fill;
+    color: $heading-grey;
+}
+
+.el-tag.el-tag--info {
+    background-color: $primary-fill;
+    border-color: transparent;
+    color: $primary-color;
+}
+
 </style>

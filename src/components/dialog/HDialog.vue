@@ -83,8 +83,13 @@ export default {
 <style lang="scss">
 @import "../../styles/theme";
 
-.el-dialog__title {
-    padding: 20px;
+.el-dialog {
+  box-shadow: 0px 0px 30px rgba(115, 117, 129, 0.25);
+  border-radius: 20px;
+}
+
+.el-dialog__header {
+    padding: 30px 20px 20px 20px;
     padding-bottom: 10px;
     color: $dark-body-grey;
 }

@@ -13,7 +13,8 @@ export const basicCheckbox = () => ({
   components: { BasicCheckbox },
   template: `
   <div>
-    <basic-checkbox @click="action"
+    <basic-checkbox
+      @click="action"
       class="body-reg"
     >
       Checkbox A
@@ -27,7 +28,8 @@ export const disabledCheckbox = () => ({
   components: { DisabledCheckbox },
   template: `
     <div>
-      <disabled-checkbox @click="action"
+      <disabled-checkbox
+        @click="action"
         class="body-reg"
       >
         Checkbox A

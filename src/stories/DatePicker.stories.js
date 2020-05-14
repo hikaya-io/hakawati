@@ -33,6 +33,7 @@ export const dateRangePicker = () => ({
     startDate="Start"
     endDate="End"
     />
+    <br>
   dd-MM-yyyy format: 
   <date-range-picker
     format="dd-MM-yyyy"
