@@ -54,13 +54,21 @@ export default {
 .el-select-dropdown__list {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 0px 0px 6px 6px;
+  border-color: transparent;
   color: $dark-body-grey;
+
 }
 
 .el-select-dropdown__item.is-disabled:hover{
   background-color: transparent;
   color: #C0C4CC;
   cursor: not-allowed;
+}
+
+.el-input__inner {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  border-color: transparent;
 }
 
 </style>

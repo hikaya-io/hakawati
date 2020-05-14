@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'HTableBasic',
+  name: 'TableBasic',
   props: ['tableData']
 }
 </script>

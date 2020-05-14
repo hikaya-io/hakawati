@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'TextArea',
+  name: 'InputTextArea',
   props: {
     type: {
       type: String,

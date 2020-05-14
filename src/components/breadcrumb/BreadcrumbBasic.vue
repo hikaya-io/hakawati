@@ -1,5 +1,7 @@
 <template>
-    <el-breadcrumb :separator="separator">
+    <el-breadcrumb
+      :separator="separator"
+    >
         <el-breadcrumb-item
           v-for="(item, index) in items"
           :key="index"
@@ -32,8 +34,5 @@ export default {
 
 .el-breadcrumb__inner.is-link .a {
     color: $primary-color;
-    background-color: $primary-fill;
-    padding: 7px 20px;
-    border-radius: 20px 20px 20px 20px;
 }
 </style>

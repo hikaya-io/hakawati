@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: 'HTableWithSorting',
+  name: 'TableWithSorting',
   props: ['tableData'],
   methods: {
     formatter (row, column) {

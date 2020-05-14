@@ -105,6 +105,7 @@
 import HCheckbox from '../checkbox/HCheckbox.vue'
 
 export default {
+  name: 'HFilter',
   components: { HCheckbox },
 
   data () {

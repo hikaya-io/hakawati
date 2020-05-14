@@ -1,11 +1,15 @@
 import HDrawer from '../components/drawer/HDrawer.vue'
+import HButton from '../components/button/HButton.vue'
 
 // This is required for each story
 export default { title: 'Drawer' }
 
 // Customize components here.
 export const hDrawer = () => ({
-  components: { HDrawer },
+  components: {
+    HDrawer,
+    HButton
+  },
   data () {
     return {
       drawer: false,
@@ -15,13 +19,13 @@ export const hDrawer = () => ({
   },
   template: `
   <div>
-    <el-button 
+    <h-button 
       @click="drawer = true"
       type="primary"
       style="margin-left: 16px;"
     >
       Open drawer
-    </el-button>
+    </h-button>
     <h-drawer
       :title="title"
       :visible.sync="drawer"
@@ -43,7 +47,10 @@ export const hDrawer = () => ({
 })
 
 export const drawerWithoutTitle = () => ({
-  components: { HDrawer },
+  components: {
+    HDrawer,
+    HButton
+  },
   data () {
     return {
       drawer: false,
@@ -53,13 +60,13 @@ export const drawerWithoutTitle = () => ({
   },
   template: `
     <div>
-      <el-button 
+      <h-button 
         @click="drawer = true"
         type="primary"
         style="margin-left: 16px;"
       >
         Open drawer
-      </el-button>
+      </h-button>
       <h-drawer
         :title="title"
         :visible.sync="drawer"
@@ -80,7 +87,10 @@ export const drawerWithoutTitle = () => ({
 })
 
 export const drawerNotClosableOnClick = () => ({
-  components: { HDrawer },
+  components: {
+    HDrawer,
+    HButton
+  },
   data () {
     return {
       drawer: false,
@@ -90,13 +100,13 @@ export const drawerNotClosableOnClick = () => ({
   },
   template: `
       <div>
-        <el-button 
+        <h-button 
           @click="drawer=true"
           type="primary"
           style="margin-left: 16px;"
         >
           Open drawer
-        </el-button>
+        </h-button>
 
         <h-drawer
           :title="title"
@@ -118,7 +128,10 @@ export const drawerNotClosableOnClick = () => ({
 })
 
 export const doubleDrawer = () => ({
-  components: { HDrawer },
+  components: {
+    HDrawer,
+    HButton
+  },
   data () {
     return {
       drawerRight: false,
@@ -128,12 +141,12 @@ export const doubleDrawer = () => ({
   },
   template: `
   <div>
-    <el-button 
+    <h-button 
       @click="drawerRight = true"
       type="primary"
     >
       Open right drawer
-    </el-button>
+    </h-button>
     <h-drawer
       :title="title"
       :visible.sync="drawerRight"
@@ -146,12 +159,12 @@ export const doubleDrawer = () => ({
       class="body-reg"
     >
       <span>Hi, there!</span>
-      <el-button
+      <h-button
         @click="drawerLeft = true"
         type="primary"
       >
       Open left drawer
-      </el-button>
+      </h-button>
     </h-drawer>
     <h-drawer
       :title="title"

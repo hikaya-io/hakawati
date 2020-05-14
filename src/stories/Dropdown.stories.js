@@ -1,5 +1,6 @@
 import HDropdown from '../components/dropdown/HDropdown.vue'
 import TriggerDropdown from '../components/dropdown/TriggerDropdown.vue'
+import HButton from '../components/button/HButton.vue'
 
 import { action } from '@storybook/addon-actions'
 
@@ -8,13 +9,13 @@ export default { title: 'Dropdown' }
 
 // Customize components here.
 export const hDropdown = () => ({
-  components: { HDropdown },
+  components: { HDropdown, HButton },
   template: `
   <h-dropdown>
     <div slot="title">
-      <span class="el-dropdown-link">
+      <h-button class="el-dropdown-link">
       More options<i class="el-icon-arrow-down el-icon--right"></i>
-      </span>
+      </h-button>
     </div>
     <template slot="items">
         <el-dropdown-item>Edit</el-dropdown-item>
@@ -28,19 +29,18 @@ export const hDropdown = () => ({
 })
 
 export const triggerDropdown = () => ({
-  components: { TriggerDropdown },
+  components: { TriggerDropdown, HButton },
   template: `
     <trigger-dropdown>
       <div slot="title">
-        <el-button
+        <h-button
           @click="$emit('click')"
           size="small"
           type="primary"
           class="button-style"
-          round
         >
         More options <i class="el-icon-arrow-down el-icon--right"></i>
-        </el-button>
+        </h-button>
       </div>
       <template slot="items">
           <el-dropdown-item>Workspace 1</el-dropdown-item>

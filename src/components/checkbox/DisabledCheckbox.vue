@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'BasicCheckbox',
+  name: 'DisabledCheckbox',
   props: {
     type: {
       type: String,

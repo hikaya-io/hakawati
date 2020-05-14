@@ -32,12 +32,8 @@ export default {
   }
 }
 </script>
-<style scoped lang="scss">
+<style lang="scss">
 @import "../../styles/theme";
-
-.el-input__inner {
-  border-color: transparent;
-}
 
 .en-round input {
   border-radius: 30px;

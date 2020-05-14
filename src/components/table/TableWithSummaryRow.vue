@@ -38,7 +38,7 @@
 
 <script>
 export default {
-  name: 'HTableWithSummaryRow',
+  name: 'TableWithSummaryRow',
   props: ['tableData'],
   methods: {
     getSummaries (param) {

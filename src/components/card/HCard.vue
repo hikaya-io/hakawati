@@ -25,7 +25,7 @@ export default {
 
 .el-card__header {
   border-bottom: transparent;
-  padding: 25px 25px 40px 0px;
+  padding: 40px 25px 40px 0px;
 }
 
 .el-card {

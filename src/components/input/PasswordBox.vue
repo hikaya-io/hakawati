@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'PasswordBox',
+  name: 'InputPasswordBox',
   props: {
     type: {
       type: String,

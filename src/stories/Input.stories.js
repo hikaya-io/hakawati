@@ -1,8 +1,8 @@
 import HInput from '../components/input/HInput.vue'
 import DisabledInput from '../components/input/DisabledInput.vue'
 import ClearInput from '../components/input/ClearInput.vue'
-import PasswordBox from '../components/input/PasswordBox.vue'
-import TextArea from '../components/input/TextArea.vue'
+import InputPasswordBox from '../components/input/PasswordBox.vue'
+import InputTextArea from '../components/input/TextArea.vue'
 import InputLength from '../components/input/InputLength.vue'
 import HLabelInput from '../components/input/HLabelInput.vue'
 
@@ -80,7 +80,7 @@ export const clearInput = () => ({
 })
 
 export const passwordBox = () => ({
-  components: { HForm, PasswordBox },
+  components: { HForm, InputPasswordBox },
   data () {
     return {
       form: {
@@ -103,7 +103,7 @@ export const passwordBox = () => ({
 })
 
 export const textArea = () => ({
-  components: { HForm, TextArea },
+  components: { HForm, InputTextArea },
   data () {
     return {
       form: {

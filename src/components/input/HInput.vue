@@ -48,11 +48,18 @@ export default {
 }
 
 .el-input__inner:focus {
-    border-color:$primary-color-sub;
+    border-color: $primary-color-sub;
 }
 
 .el-input.is-focus .el-input__inner {
     border-color: $light-body-grey;
+}
+
+.el-input.is-disabled .el-input__inner {
+    background-color: $background-color;
+    border-color: $light-body-grey;
+    color: $background-color;
+    cursor: not-allowed;
 }
 
 </style>

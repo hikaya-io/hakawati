@@ -28,7 +28,7 @@
 
 <script>
 export default {
-  name: 'HTableWithMultipleSelect',
+  name: 'TableWithMultipleSelect',
   props: ['tableData'],
   data () {
     return {

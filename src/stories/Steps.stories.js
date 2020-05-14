@@ -1,5 +1,5 @@
 import BasicSteps from '../components/steps/BasicSteps.vue'
-import BasicStepsWithDescription from '../components/steps/BasicStepsWithDescription.vue'
+import StepsWithDescription from '../components/steps/StepsWithDescription.vue'
 
 export default { title: 'Steps' }
 
@@ -62,8 +62,8 @@ export const basicSteps = () => ({
     </div>`
 })
 
-export const withDescription = () => ({
-  components: { BasicStepsWithDescription },
+export const stepsWithDescription = () => ({
+  components: { StepsWithDescription },
   methods: {
     next () {
       if (this.active++ >= this.steps.length) this.active = 0
@@ -110,13 +110,13 @@ export const withDescription = () => ({
   template: `
     <div>Vertical step bar
     Default
-        <basic-steps-with-description 
+        <steps-with-description 
             :active="active"
             class="body-reg"
         />
     <br>
     Passing array of steps
-        <basic-steps-with-description
+        <steps-with-description
             :steps="stepsWithDesc"
             :active="active"
             class="body-reg"

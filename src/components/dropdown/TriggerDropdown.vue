@@ -21,7 +21,10 @@ export default {
   font-size: 14px;
 }
 
-.el-dropdown {
+.el-dropdown-menu {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 0px 6px 6px;
   border-color: transparent;
 }
+
 </style>
