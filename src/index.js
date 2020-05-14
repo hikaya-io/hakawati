@@ -39,7 +39,7 @@ import BasicDatePicker from './components/datepicker/BasicDatePicker.vue'
 import DateRangePicker from './components/datepicker/DateRangePicker.vue'
 
 // Dialog
-import HDialog from './components/dialog/BasicDialog.vue'
+import HDialog from './components/dialog/HDialog.vue'
 
 // Drawer
 import HDrawer from './components/drawer/HDrawer.vue'
