@@ -65,10 +65,4 @@ export default {
   cursor: not-allowed;
 }
 
-.el-input__inner {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 30px;
-  border-color: transparent;
-}
-
 </style>

@@ -46,7 +46,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import "../../styles/theme";
 
 .el-select-dropdown__item.hover, .el-select-dropdown__item:hover {
