@@ -1,10 +1,7 @@
 <template>
   <el-form
-    :model="model"
-    :label-width="labelWidth"
-    :label-position="labelPosition"
-    :size="size"
-    :disabled="disabled"
+    v-bind="$attrs"
+    v-on="$listeners"
   >
     <slot />
   </el-form>
