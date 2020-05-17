@@ -4,8 +4,23 @@ on:
   push:
     branches:
       - develop
+  pull_request:
+    braches:
+      - develop
 
 jobs:
+  build-check:
+    name: Build check
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop'
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - run: yarn install
+      - run: yarn build-lib
+
   build-publish:
     runs-on: ubuntu-latest
     steps:

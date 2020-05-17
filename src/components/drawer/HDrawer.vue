@@ -36,6 +36,7 @@ export default {
 
 .el-drawer__body{
     padding: 0px 38px 58px 38px;
+    max-height: 85%;
 }
 
 .el-drawer.ltr, .el-drawer.rtl {
