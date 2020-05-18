@@ -1,4 +1,4 @@
-# vue-ui-components
+# hakawati
 This is a collection of reusable UI components built in [Vue](https://vuejs.org/) based on our [design system](https://team.hikaya.io/design/color.html). Our UI components are based on [ElementUI](https://element.eleme.io/#/en-US), a desktop-focused UI library.
 <br/>
 <p align="center">
