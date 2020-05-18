@@ -1,9 +1,9 @@
 {
-  "name": "@hikaya/vue-ui-components",
-  "version": "0.3.17",
+  "name": "@hikaya/hakawati",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hikaya-io/vue-ui-components.git"
+    "url": "https://github.com/hikaya-io/hakawati.git"
   },
   "main": "./dist/hikaya-ui-components.umd.js",
   "scripts": {
