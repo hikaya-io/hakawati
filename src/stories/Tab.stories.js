@@ -18,7 +18,7 @@ export const basicTab = () => ({
   <el-tab-pane label="Reports" name="third">Reports</el-tab-pane>
   <el-tab-pane label="Tables" name="fourth">Tables</el-tab-pane>
   </basic-tab>
-  </div>  
+  </div>
   `,
   methods: { action: action('click') }
 })
@@ -33,7 +33,7 @@ export const cardTab = () => ({
     <el-tab-pane label="Reports" name="third">Reports</el-tab-pane>
     <el-tab-pane label="Tables" name="fourth">Tables</el-tab-pane>
     </card-tab>
-    </div>  
+    </div>
     `,
   methods: { action: action('click') }
 })
@@ -48,7 +48,7 @@ export const verticalTab = () => ({
     <el-tab-pane label="Reports" name="third">Reports</el-tab-pane>
     <el-tab-pane label="Tables" name="fourth">Tables</el-tab-pane>
     </vertical-tab>
-    </div>  
+    </div>
     `,
   methods: { action: action('click') }
 })
@@ -60,15 +60,13 @@ export const hTab = () => ({
       activeName="first"
       tabPosition="left"
     >
-    <div slot="title">
-    <span class="body-2-bold">Workspace Settings</span>
-    <p class="footer">Workspace 1</p>
-    </div>
+    <el-tab-pane label="Workspace Settings" disabled></el-tab-pane>
+    <el-tab-pane label="Workspace 1" disabled></el-tab-pane>
     <el-tab-pane label="Details" name="first">Details</el-tab-pane>
     <el-tab-pane label="People" name="second">People</el-tab-pane>
     <el-tab-pane label="Configurations" name="third">Configurations</el-tab-pane>
     <el-tab-pane label="Settings" name="fourth">Settings</el-tab-pane>
-    </h-tab> 
+    </h-tab>
     `,
   methods: { action: action('click') }
 })
