@@ -1,9 +1,6 @@
 
 <template>
-<el-card class="box-card">
-        <div slot="header">
-            <slot name="title">Workspace</slot>
-        </div>
+  <div class="nav-card">
         <el-tabs
           v-model="activeName"
           :title="title"
@@ -12,7 +9,7 @@
         >
             <slot></slot>
         </el-tabs>
-    </el-card>
+  </div>
 </template>
 
 <script>
@@ -104,4 +101,29 @@ export default {
     height: 755px;
   }
 
-</style>>
+.nav-card .el-tabs__header {
+    border: 2px solid #F4F5FC;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 20px 20px 0px;
+  border-color: transparent;
+}
+.nav-card .el-tabs--left {
+  overflow: visible;
+}
+
+.nav-card .el-tabs--left .el-tabs__header.is-left {
+  height: 100vh;
+  width: 251px;
+}
+
+.nav-card #tab-0.el-tabs__item.is-disabled{
+  margin-top: 5px;
+  font-size:22px;
+  color: $dark-body-grey;
+}
+
+.nav-card #tab-1.el-tabs__item.is-disabled{
+  color: $dark-body-grey;
+}
+</style>
