@@ -120,12 +120,10 @@ export default {
 .nav-card #tab-0.el-tabs__item.is-disabled{
   margin-top: 5px;
   font-size:22px;
-  color: #333333;
+  color: $dark-body-grey;
 }
 
 .nav-card #tab-1.el-tabs__item.is-disabled{
-  color: #333333;
+  color: $dark-body-grey;
 }
 </style>
-
-
