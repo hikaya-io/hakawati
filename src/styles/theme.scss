@@ -186,3 +186,16 @@ $dark-color: $dark-body-grey;
     border-color: transparent;
   }
 }
+
+.maps {
+  .el-menu-item {
+    height: auto;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .el-menu-item.is-hover {
+    background: none !important;
+    color: $primary-color;
+  }
+}

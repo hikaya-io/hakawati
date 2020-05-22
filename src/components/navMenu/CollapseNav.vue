@@ -70,14 +70,20 @@ export default {
     width: 250px;
 }
 
+.el-menu:hover {
+  background: none !important;
+}
+
 .el-menu-item.is-active {
     color: $primary-color;
     background-color: transparent;
 }
 
-.el-menu-item:hover, .el-menu-item:focus {
-    background-color: transparent;
-    color: $primary-color;
+.el-submenu__title {
+  line-height: 47px;
 }
 
+.el-menu-item {
+  line-height: 50px;
+}
 </style>
