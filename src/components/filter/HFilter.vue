@@ -136,6 +136,7 @@ export default {
 // Removes checkbox button border
 .el-checkbox-button:first-child .el-checkbox-button__inner {
     border-left: transparent;
+    border-color: transparent
 }
 
 .el-checkbox-button.is-checked .el-checkbox-button__inner {

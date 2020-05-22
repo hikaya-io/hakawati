@@ -43,8 +43,8 @@ export default {
   .el-menu {
     font-family: $main-font-family;
     font-style: normal;
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 16px;
+    line-height: 19px;
     color: $dark-body-grey;
     padding: 10px 20px 20px 10px;
 
@@ -86,4 +86,21 @@ export default {
 .el-menu-item {
   line-height: 50px;
 }
+
+.el-menu-item:hover, .el-menu-item:focus {
+    outline: none;
+    background-color: transparent;
+}
+
+.el-menu-item:not(.is-disabled):hover {
+    outline: none;
+    color: $primary-color;
+    text-align: center;
+    background-color: transparent;
+}
+
+.el-submenu__title:hover {
+  background-color: transparent;
+}
+
 </style>
