@@ -50,6 +50,7 @@ export const iconSeparatorBreadcrumb = () => ({
       <breadcrumb-icon-separator
         @click="action"
         :items="items"
+        class="icon-separator"
       >
         Default
       </breadcrumb-icon-separator>

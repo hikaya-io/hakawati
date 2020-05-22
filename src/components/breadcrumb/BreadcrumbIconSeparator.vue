@@ -32,8 +32,10 @@ export default {
 <style lang="scss">
 @import "../../styles/theme";
 
-.el-icon-arrow-right:before {
-    font-size: 24px;
+.icon-separator {
+  .el-icon-arrow-right:before {
+      font-size: 24px;
+  }
 }
 
 .el-breadcrumb__item:last-child .el-breadcrumb__inner, .el-breadcrumb__item:last-child .el-breadcrumb__inner:hover, .el-breadcrumb__item:last-child .el-breadcrumb__inner a, .el-breadcrumb__item:last-child .el-breadcrumb__inner a:hover {

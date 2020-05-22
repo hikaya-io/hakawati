@@ -38,7 +38,9 @@ export default {
   border-color: transparent;
 }
 
-.el-button--primary {
-  background-color: $primary-color-sub;
+.el-button.is-circle {
+    border-radius: 50%;
+    padding: 12px;
 }
+
 </style>

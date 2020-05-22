@@ -33,4 +33,11 @@ export default {
 <style lang="scss">
 @import "../../styles/theme";
 
+.el-button.is-round {
+    padding: 13px 33px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: $main-font-family;
+}
+
 </style>

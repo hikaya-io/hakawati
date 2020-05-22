@@ -33,13 +33,17 @@ export default {
   border-color: $light-body-grey;
 }
 .el-checkbox-button.is-checked .el-checkbox-button__inner {
-    background-color: $primary-fill;
+    background-color: transparent;
     color: $primary-color;
-    border-color: $primary-fill;
+    border-color: $primary-color;
     -webkit-box-shadow: -1px 0 0 0 #8585ff;
 }
 
 el-checkbox-button.is-checked:first-child .el-checkbox-button__inner {
     border-left-color: $primary-fill;
+}
+
+.el-checkbox__inner::after {
+    color: $primary-fill;
 }
 </style>
