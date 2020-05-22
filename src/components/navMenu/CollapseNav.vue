@@ -37,7 +37,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "../../styles/theme";
 
   .el-menu {
@@ -92,7 +92,7 @@ export default {
     background-color: transparent;
 }
 
-.el-menu-item:not(.is-disabled):hover {
+.el-menu--vertical .el-menu-item:not(.is-disabled):hover {
     outline: none;
     color: $primary-color;
     text-align: center;

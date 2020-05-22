@@ -189,15 +189,10 @@ $dark-color: $dark-body-grey;
   }
 }
 
-.maps {
-  .el-menu-item {
-    height: auto;
-    white-space: normal;
-    word-break: break-word;
-  }
-
-  .el-menu-item.is-hover {
-    background: none !important;
-    color: $primary-color;
-  }
-}
+// .maps {
+//   .el-menu-item {
+//     height: auto;
+//     white-space: normal;
+//     word-break: break-word;
+//   }
+// }
