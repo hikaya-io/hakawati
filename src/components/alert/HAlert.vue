@@ -24,4 +24,8 @@ export default {
 <style lang="scss">
 @import "../../styles/theme";
 
+.el-alert__title {
+    font-size: 16px;
+    line-height: 19px;
+}
 </style>
