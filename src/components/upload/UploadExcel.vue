@@ -21,7 +21,7 @@
         @click="handleUpload"
         round
       >
-        Browse
+        browse files
       </el-button>
     </div>
   </div>
