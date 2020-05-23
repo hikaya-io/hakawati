@@ -66,8 +66,10 @@ export default {
     }
   }
 
-.el-menu:not(.el-menu--collapse) {
-    width: 250px;
+.map-nav {
+  .el-menu:not(.el-menu--collapse) {
+      width: 250px;
+  }
 }
 
 .el-menu:hover {

@@ -30,7 +30,7 @@ export const topNav = () => ({
 export const collapseNav = () => ({
   components: { CollapseNav },
   template: `
-  <collapse-nav default-active="1">
+  <collapse-nav class="map-nav" default-active="1">
   <el-menu-item index="2">
   <i class="el-icon-location"></i>
   <span slot="title">Admin boundary</span>
