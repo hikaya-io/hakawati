@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "../../styles/theme";
 
 .el-menu-item {
@@ -44,13 +44,13 @@ export default {
   color: $dark-body-grey;
 }
 
+// style selected submenu
 .el-menu--popup {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 0px 0px 6px 6px;
   border-color: transparent;
 }
 
-// style selected submenu
 .el-menu--horizontal .el-menu .el-menu-item.is-active, .el-menu--horizontal .el-menu .el-submenu.is-active > .el-submenu__title {
     color: $primary-color;
 }
@@ -66,19 +66,11 @@ export default {
 }
 
 .el-menu.el-menu--horizontal {
-    border-bottom: solid 2px $background-color;
+    border-bottom: solid 1px $background-color;
     padding-bottom: 10px;
 }
 
 // style selected tab
-.el-menu--horizontal > .el-menu-item.is-active {
-    border-bottom: transparent;
-    color: $primary-color;
-    background-color: $primary-fill;
-    text-align: center;
-    border-radius: 30px;
-}
-
 .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
     outline: none;
     color: $primary-color;
@@ -91,5 +83,13 @@ export default {
     background-color: $primary-fill;
     border-radius: 30px;
     text-align: center;
+}
+
+.el-menu--horizontal > .el-menu-item.is-active {
+    border-bottom: transparent;
+    color: $primary-color;
+    background-color: $primary-fill;
+    text-align: center;
+    border-radius: 30px;
 }
 </style>

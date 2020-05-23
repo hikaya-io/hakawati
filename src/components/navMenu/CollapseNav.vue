@@ -70,10 +70,9 @@ export default {
   .el-menu:not(.el-menu--collapse) {
       width: 250px;
   }
-}
-
-.el-menu:hover {
+  &:hover {
   background: none !important;
+  }
 }
 
 .el-menu-item.is-active {
