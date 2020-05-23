@@ -28,4 +28,8 @@ export default {
 <style scoped lang="scss">
 @import "../../styles/theme";
 
+.el-button {
+  padding: 13px 33px;
+  border-radius: 25px;
+}
 </style>

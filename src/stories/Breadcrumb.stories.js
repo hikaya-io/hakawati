@@ -30,8 +30,7 @@ export const basicBreadCrumb = () => ({
     <div>
     <breadcrumb-basic
       :items="items"
-      separator="|"
-      class="body-reg"
+      separator=" "
     >
       Default
     </breadcrumb-basic>
@@ -51,7 +50,7 @@ export const iconSeparatorBreadcrumb = () => ({
       <breadcrumb-icon-separator
         @click="action"
         :items="items"
-        class="body-reg"
+        class="icon-separator"
       >
         Default
       </breadcrumb-icon-separator>

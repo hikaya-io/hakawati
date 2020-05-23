@@ -28,4 +28,13 @@ export default {
 
 <style lang="scss">
 
+.el-alert__title.is-bold {
+    font-weight: normal;
+    font-size: 20px;
+}
+
+.el-alert .el-alert__description {
+    font-size: 16px;
+}
+
 </style>

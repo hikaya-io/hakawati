@@ -28,13 +28,22 @@ export default {
 
 .el-drawer__header{
     font-family: $main-font-family;
-    font-size: 35px;
+    font-style: normal;
     font-weight: bold;
+    font-size: 36px;
+    line-height: 43px;
     color: $dark-body-grey;
     padding: 38px 38px 58px 38px;
+    margin-bottom: none;
 }
 
 .el-drawer__body{
+    font-family: $main-font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: $dark-body-grey;
     padding: 0px 38px 58px 38px;
     max-height: 85%;
 }

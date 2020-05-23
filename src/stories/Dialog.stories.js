@@ -29,7 +29,6 @@ export const hDialog = () => ({
     <h-button
       @click="toggleVisibility"
       size="medium"
-      class="plain-button"
       type="primary"
     >
     Open Dialog

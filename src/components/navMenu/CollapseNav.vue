@@ -37,14 +37,14 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "../../styles/theme";
 
   .el-menu {
     font-family: $main-font-family;
     font-style: normal;
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 16px;
+    line-height: 19px;
     color: $dark-body-grey;
     padding: 10px 20px 20px 10px;
 
@@ -66,8 +66,13 @@ export default {
     }
   }
 
-.el-menu:not(.el-menu--collapse) {
-    width: 250px;
+.map-nav {
+  .el-menu:not(.el-menu--collapse) {
+      width: 250px;
+  }
+  &:hover {
+  background: none !important;
+  }
 }
 
 .el-menu-item.is-active {
@@ -75,9 +80,28 @@ export default {
     background-color: transparent;
 }
 
+.el-submenu__title {
+  line-height: 47px;
+}
+
+.el-menu-item {
+  line-height: 50px;
+}
+
 .el-menu-item:hover, .el-menu-item:focus {
+    outline: none;
     background-color: transparent;
+}
+
+.el-menu--vertical .el-menu-item:not(.is-disabled):hover {
+    outline: none;
     color: $primary-color;
+    text-align: center;
+    background-color: transparent;
+}
+
+.el-submenu__title:hover {
+  background-color: transparent;
 }
 
 </style>

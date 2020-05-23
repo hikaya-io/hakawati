@@ -89,14 +89,26 @@ export default {
 }
 
 .el-dialog__header {
-    padding: 30px 20px 20px 20px;
-    padding-bottom: 10px;
-    color: $dark-body-grey;
+  padding: 30px 20px 20px 20px;
+  padding-bottom: 10px;
+  color: $heading-grey;
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  padding: 30px 20px 15px 20px;
 }
 
 .el-dialog__body {
-    padding: 30px 20px 20px 20px;
-    color: $dark-body-grey;
+  padding: 30px 20px 20px 20px;
+  color: $heading-grey;
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  padding: 15px 20px 20px 20px;
 }
 
 </style>
