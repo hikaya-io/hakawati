@@ -1,5 +1,6 @@
 <template>
   <el-alert
+    class="description-alert"
     :title="title"
     :type="type"
     :description="description"
@@ -28,13 +29,14 @@ export default {
 
 <style lang="scss">
 
-.el-alert__title.is-bold {
-    font-weight: normal;
-    font-size: 20px;
-}
+.description-alert {
+  .el-alert__title.is-bold {
+      font-weight: normal;
+      font-size: 20px;
+  }
 
-.el-alert .el-alert__description {
-    font-size: 16px;
+  .el-alert .el-alert__description {
+      font-size: 16px;
+  }
 }
-
 </style>

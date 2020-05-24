@@ -1,7 +1,7 @@
 <template>
-  <div class="breadcrumb-icon h-breadcrumb">
+  <div class="h-breadcrumb">
     <el-breadcrumb
-      :separator-class="separatorClass"
+      :separator="separator"
     >
         <el-breadcrumb-item
           v-for="(item, index) in items"
@@ -9,7 +9,7 @@
           :to="item.to"
           :replace="item.replace"
         >
-          {{item.label}}
+        {{item.label}}
         </el-breadcrumb-item>
     </el-breadcrumb>
   </div>
@@ -17,15 +17,15 @@
 
 <script>
 export default {
-  name: 'BreadcrumbIconSeparator',
+  name: 'HBreadcrumb',
   props: {
     items: {
       type: Array,
       default: () => []
     },
-    separatorClass: {
+    separator: {
       type: String,
-      default: 'el-icon-arrow-right'
+      default: '/'
     }
   }
 }
@@ -34,13 +34,18 @@ export default {
 <style lang="scss">
 @import "../../styles/theme";
 
-.breadcrumb-icon {
-  .el-icon-arrow-right:before {
-      font-size: 24px;
+.h-breadcrumb {
+  .el-breadcrumb__inner.is-link, .el-breadcrumb__inner a {
+      color: $light-body-grey;
+      padding: 38px;
+      font-size: 36px;
+      font-weight: bold;
   }
 
   .el-breadcrumb__item:last-child .el-breadcrumb__inner, .el-breadcrumb__item:last-child .el-breadcrumb__inner:hover, .el-breadcrumb__item:last-child .el-breadcrumb__inner a, .el-breadcrumb__item:last-child .el-breadcrumb__inner a:hover {
-  padding: 0 0 0 36px;
+      color: $dark-body-grey;
+      font-size: 36px;
+      font-weight: bold;
   }
 }
 </style>

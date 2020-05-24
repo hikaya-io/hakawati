@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="collapse-nav">
     <el-menu
       :default-active="defaultActive"
       class="el-menu-vertical-demo"
@@ -40,20 +40,27 @@ export default {
 <style lang="scss">
 @import "../../styles/theme";
 
+.collapse-nav {
+
+  .el-menu-vertical-demo {
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 20px 20px 0px;
+  }
   .el-menu {
     font-family: $main-font-family;
     font-style: normal;
     font-size: 16px;
     line-height: 19px;
     color: $dark-body-grey;
-    padding: 10px 20px 20px 10px;
+    padding: 10px 10px 10px 10px;
+    border-right: transparent;
 
-    .el-button {
-      position: absolute;
-      transition: left 0.4s;
-      top: 15px;
-      right: -15px;
-      z-index: 10;
+      .el-button {
+        position: absolute;
+        transition: left 0.4s;
+        top: 15px;
+        right: -15px;
+        z-index: 10;
 
       .button-arrow {
         transition-duration: 0.5s;
@@ -65,43 +72,60 @@ export default {
       }
     }
   }
+  .el-menu--inline {
+    padding: 0px 0px 5px 5px;
+  }
 
-.map-nav {
   .el-menu:not(.el-menu--collapse) {
       width: 250px;
   }
   &:hover {
   background: none !important;
   }
-}
 
-.el-menu-item.is-active {
+  .el-menu-item-group__title {
+      padding: 0px 5px 0px 20px;
+  }
+
+  .el-menu-item.is-active {
     color: $primary-color;
+    font-weight: bold;
     background-color: transparent;
-}
+  }
 
-.el-submenu__title {
-  line-height: 47px;
-}
-
-.el-menu-item {
-  line-height: 50px;
-}
-
-.el-menu-item:hover, .el-menu-item:focus {
-    outline: none;
-    background-color: transparent;
-}
-
-.el-menu--vertical .el-menu-item:not(.is-disabled):hover {
-    outline: none;
+  .el-submenu__title {
+    line-height: 50px;
+    color: $dark-body-grey;
+  }
+  &.is-active {
     color: $primary-color;
-    text-align: center;
+    font-weight: bold;
+  }
+  &.is-opened {
+    color: $primary-color;
+    font-weight: bold;
+  }
+
+  .el-menu-item {
+    line-height: 50px;
+    color: $dark-body-grey;
+  }
+
+  .el-menu-item:hover, .el-menu-item:focus {
+      outline: none;
+      background-color: transparent;
+      font-weight: bold;
+  }
+
+  .el-menu--vertical .el-menu-item:not(.is-disabled):hover {
+      outline: none;
+      color: $primary-color;
+      text-align: center;
+      background-color: transparent;
+  }
+
+  .el-submenu__title:hover {
     background-color: transparent;
+  }
 }
-
-.el-submenu__title:hover {
-  background-color: transparent;
-}
-
 </style>

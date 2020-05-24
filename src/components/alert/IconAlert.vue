@@ -1,5 +1,6 @@
 <template>
     <el-alert
+      class="h-alert"
       :title="title"
       :type="type"
       show-icon

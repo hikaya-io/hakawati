@@ -1,5 +1,6 @@
 <template>
   <el-alert
+    class="h-alert"
     :title="title"
     :type="type"
   />
@@ -24,8 +25,10 @@ export default {
 <style lang="scss">
 @import "../../styles/theme";
 
-.el-alert__title {
-    font-size: 16px;
-    line-height: 19px;
+.h-alert {
+  .el-alert__title {
+      font-size: 16px;
+      line-height: 19px;
+  }
 }
 </style>

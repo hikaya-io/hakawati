@@ -11,7 +11,7 @@ import DescriptionAlert from './components/alert/DescriptionAlert.vue'
 import HAvatar from './components/avatar/HAvatar.vue'
 
 // Breadcrumb
-import BreadcrumbBasic from './components/breadcrumb/BreadcrumbBasic.vue'
+import HBreadcrumb from './components/breadcrumb/HBreadcrumb.vue'
 import BreadcrumbIconSeparator from './components/breadcrumb/BreadcrumbIconSeparator.vue'
 
 // Button
@@ -161,7 +161,7 @@ const components = [
   HAvatar,
   HSearch,
   HFilter,
-  BreadcrumbBasic,
+  HBreadcrumb,
   BreadcrumbIconSeparator
 ]
 
@@ -230,6 +230,6 @@ export default {
   HAvatar,
   HSearch,
   HFilter,
-  BreadcrumbBasic,
+  HBreadcrumb,
   BreadcrumbIconSeparator
 }
