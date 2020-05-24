@@ -12,15 +12,9 @@ import HAvatar from './components/avatar/HAvatar.vue'
 
 // Breadcrumb
 import HBreadcrumb from './components/breadcrumb/HBreadcrumb.vue'
-import BreadcrumbIconSeparator from './components/breadcrumb/BreadcrumbIconSeparator.vue'
 
 // Button
 import HButton from './components/button/HButton.vue'
-import DisabledButton from './components/button/DisabledButton.vue'
-import PlainButton from './components/button/PlainButton.vue'
-import CircleButton from './components/button/CircleButton.vue'
-import TextButton from './components/button/TextButton.vue'
-import WorkspaceButton from './components/button/WorkspaceButton.vue'
 
 // Card
 import HCard from './components/card/HCard.vue'
@@ -108,12 +102,7 @@ import HForm from './components/form/HForm.vue'
 // Import other components from here
 
 const components = [
-  DisabledButton,
-  PlainButton,
   HButton,
-  CircleButton,
-  TextButton,
-  WorkspaceButton,
   BasicCheckbox,
   DisabledCheckbox,
   CheckboxGroup,
@@ -161,8 +150,7 @@ const components = [
   HAvatar,
   HSearch,
   HFilter,
-  HBreadcrumb,
-  BreadcrumbIconSeparator
+  HBreadcrumb
 ]
 
 const install = function (Vue) {
@@ -177,12 +165,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default {
   install,
-  DisabledButton,
-  PlainButton,
   HButton,
-  CircleButton,
-  TextButton,
-  WorkspaceButton,
   BasicCheckbox,
   DisabledCheckbox,
   CheckboxGroup,
@@ -230,6 +213,5 @@ export default {
   HAvatar,
   HSearch,
   HFilter,
-  HBreadcrumb,
-  BreadcrumbIconSeparator
+  HBreadcrumb
 }

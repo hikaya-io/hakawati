@@ -1,9 +1,4 @@
 import HButton from '../components/button/HButton.vue'
-import DisabledButton from '../components/button/DisabledButton.vue'
-import PlainButton from '../components/button/PlainButton.vue'
-import CircleButton from '../components/button/CircleButton.vue'
-import TextButton from '../components/button/TextButton.vue'
-import WorkspaceButton from '../components/button/WorkspaceButton.vue'
 
 import { action } from '@storybook/addon-actions'
 
@@ -19,6 +14,7 @@ export const hButton = () => ({
     @click="action"
     size="medium"
     class="body-bold cancel-button"
+    round
   >
   Cancel
   </h-button>
@@ -27,6 +23,7 @@ export const hButton = () => ({
     size="medium"
     type="primary"
     class="body-bold button-style"
+    round
   >
   Save
   </h-button>
@@ -35,6 +32,7 @@ export const hButton = () => ({
     size="medium"
     type="success"
     class="body-bold button-style"
+    round
   >
   Success
   </h-button>
@@ -43,6 +41,7 @@ export const hButton = () => ({
     size="medium"
     type="info"
     class="body-bold button-style"
+    round
   >
   Info
   </h-button>
@@ -51,6 +50,7 @@ export const hButton = () => ({
     size="medium"
     type="warning"
     class="body-bold button-style"
+    round
   >
   Warning
   </h-button>
@@ -59,6 +59,7 @@ export const hButton = () => ({
     size="medium"
     type="danger"
     class="body-bold button-style"
+    round
   >
   Danger
   </h-button>
@@ -68,213 +69,232 @@ export const hButton = () => ({
 })
 
 export const disabledButton = () => ({
-  components: { DisabledButton },
+  components: { HButton },
   template: `
   <div>
-  <disabled-button
+  <h-button
     @click="action"
     size="medium"
     class="body-bold cancel-button"
+    disabled
   >
   Cancel
-  </disabled-button>
-  <disabled-button
+  </h-button>
+  <h-button
     @click="action"
     size="medium"
     type="primary"
     class="body-bold button-style"
+    disabled
   >
   Save
-  </disabled-button>
-  <disabled-button
+  </h-button>
+  <h-button
     @click="action"
     size="medium"
     type="success"
     class="body-bold button-style"
+    disabled
   >
   Success
-  </disabled-button>
-  <disabled-button
+  </h-button>
+  <h-button
     @click="action"
     size="medium"
     type="info"
     class="body-bold button-style"
+    disabled
   >
   Info
-  </disabled-button>
-  <disabled-button
+  </h-button>
+  <h-button
     @click="action"
     size="medium"
     type="warning"
     class="body-bold button-style"
+    disabled
   >
   Warning
-  </disabled-button>
-  <disabled-button
+  </h-button>
+  <h-button
     @click="action"
     size="medium"
     type="danger"
     class="body-bold button-style"
+    disabled
   >
   Danger
-  </disabled-button>
+  </h-button>
   </div>  
   `,
   methods: { action: action('click') }
 })
 
 export const plainButton = () => ({
-  components: { PlainButton },
+  components: { HButton },
   template: `
   <div>
-  <plain-button
+  <h-button
     @click="action"
     size="medium"
-    class="plain-style cancel-button"
+    class="cancel-button"
   >
   Cancel
-  </plain-button>
-  <plain-button
+  </h-button>
+  <h-button
     @click="action"
     size="medium"
     type="primary"
-    class="plain-style"
+    class="button-style"
+    plain
   >
   Save
-  </plain-button>
-  <plain-button
+  </h-button>
+  <h-button
     @click="action"
     size="medium"
     type="success"
-    class="plain-style"
+    class="button-style"
+    plain
   >
   Success
-  </plain-button>
-  <plain-button
+  </h-button>
+  <h-button
     @click="action"
     size="medium"
-    class="plain-style"
     type="info"
+    class="button-style"
+    plain
   >
   Info
-  </plain-button>
-  <plain-button
+  </h-button>
+  <h-button
     @click="action"
     size="medium"
-    class="plain-style"
     type="warning"
+    class="button-style"
+    plain
   >
   Warning
-  </plain-button>
-  <plain-button
+  </h-button>
+  <h-button
     @click="action"
     size="medium"
-    class="plain-style"
     type="danger"
+    class="button-style"
+    plain
   >
   Danger
-  </plain-button>
+  </h-button>
   </div>  
   `,
   methods: { action: action('click') }
 })
 
 export const circleButton = () => ({
-  components: { CircleButton },
+  components: { HButton },
   template: `
   <div>
-  <circle-button
+  <h-button
     @click="action"
     size="medium"
     icon="el-icon-bell"
+    circle
   >
-  </circle-button>
-  <circle-button
+  </h-button>
+  <h-button
     @click="action"
     size="medium"
     icon="el-icon-user-solid"
     type="primary"
+    circle
   >
-  </circle-button>
-  <circle-button
+  </h-button>
+  <h-button
     @click="action"
     size="medium"
     icon="el-icon-check"
     type="success"
+    circle
   >
-  </circle-button>
-  <circle-button
+  </h-button>
+  <h-button
     @click="action"
     size="medium"
     icon="el-icon-s-tools"
     type="info"
+    circle
   >
-  </circle-button>
-  <circle-button
+  </h-button>
+  <h-button
     @click="action"
     size="medium"
     icon="el-icon-present"
     type="warning"
+    circle
   >
-  </circle-button>
-  <circle-button
+  </h-button>
+  <h-button
     @click="action"
     size="medium"
     icon="el-icon-delete"
     type="danger"
+    circle
   >
-  </circle-button>
+  </h-button>
   </div>  
   `,
   methods: { action: action('click') }
 })
 
 export const textButton = () => ({
-  components: { TextButton },
+  components: { HButton },
   template: `
   <div>
-  <text-button
+  <h-button
     @click="action"
     size="medium"
     type="text"
     class="ws-button body-bold"
+    round
   >
   Text button
-  </text-button>
-  <text-button
+  </h-button>
+  <h-button
     @click="action"
     size="medium"
     type="text"
     class="ws-button body-bold"
+    round
     disabled
   >
   Text button
-  </text-button>
+  </h-button>
   </div>
   `,
   methods: { action: action('click') }
 })
 
 export const workspaceButton = () => ({
-  components: { WorkspaceButton },
+  components: { HButton },
   template: `
   <div>
-  <workspace-button
+  <h-button
     @click="action"
     size="medium"
     icon="el-icon-circle-plus-outline"
     class="ws-button body-bold"
   >
   Add Workspace
-  </workspace-button>
-  <workspace-button
+  </h-button>
+  <h-button
     @click="action"
     size="medium"
     icon="el-icon-s-tools"
     class="ws-button body-bold"
   >
   Workspace Settings
-  </workspace-button>
+  </h-button>
   </div>  
   `,
   methods: { action: action('click') }

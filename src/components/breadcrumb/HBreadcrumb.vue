@@ -1,7 +1,7 @@
 <template>
-  <div class="h-breadcrumb">
     <el-breadcrumb
       :separator="separator"
+      class="h-breadcrumb"
     >
         <el-breadcrumb-item
           v-for="(item, index) in items"
@@ -12,7 +12,6 @@
         {{item.label}}
         </el-breadcrumb-item>
     </el-breadcrumb>
-  </div>
 </template>
 
 <script>
@@ -25,7 +24,7 @@ export default {
     },
     separator: {
       type: String,
-      default: '/'
+      default: ''
     }
   }
 }

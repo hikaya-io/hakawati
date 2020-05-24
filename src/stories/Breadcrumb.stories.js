@@ -1,5 +1,4 @@
 import HBreadcrumb from '../components/breadcrumb/HBreadcrumb.vue'
-import BreadcrumbIconSeparator from '../components/breadcrumb/BreadcrumbIconSeparator.vue'
 
 // This is required for each story
 export default { title: 'Breadcrumb' }
@@ -36,23 +35,4 @@ export const hBreadCrumb = () => ({
     </h-breadcrumb>
     </div>  
   `
-})
-
-export const iconSeparatorBreadcrumb = () => ({
-  components: { BreadcrumbIconSeparator },
-  data () {
-    return {
-      items
-    }
-  },
-  template: `
-      <div>
-      <breadcrumb-icon-separator
-        @click="action"
-        :items="items"
-      >
-        Default
-      </breadcrumb-icon-separator>
-      </div>  
-    `
 })
