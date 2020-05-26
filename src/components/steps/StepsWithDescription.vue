@@ -1,5 +1,9 @@
 <template>
-  <el-steps :active="active" finish-status="success" :direction="direction">
+  <el-steps
+    :active="active"
+    finish-status="success"
+    :direction="direction"
+  >
     <el-step
       v-for="(step, i) in steps"
       :key="i"

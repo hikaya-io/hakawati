@@ -65,7 +65,6 @@ import HSearch from './components/search/HSearch.vue'
 
 // Select
 import HSelect from './components/select/HSelect.vue'
-import MultiSelect from './components/select/MultiSelect.vue'
 import GroupedSelect from './components/select/GroupedSelect.vue'
 
 // Steps
@@ -124,7 +123,6 @@ const components = [
   DisabledSwitch,
   HCard,
   HSelect,
-  MultiSelect,
   GroupedSelect,
   HTag,
   RemovableTag,
@@ -185,7 +183,6 @@ export default {
   DisabledSwitch,
   HCard,
   HSelect,
-  MultiSelect,
   GroupedSelect,
   HTag,
   RemovableTag,
