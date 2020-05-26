@@ -43,12 +43,6 @@ import HFilter from './components/filter/HFilter.vue'
 
 // Input
 import HInput from './components/input/HInput.vue'
-import DisabledInput from './components/input/DisabledInput.vue'
-import ClearInput from './components/input/ClearInput.vue'
-import InputPasswordBox from './components/input/InputPasswordBox.vue'
-import InputTextArea from './components/input/InputTextArea.vue'
-import InputLength from './components/input/InputLength.vue'
-import HLabelInput from './components/input/HLabelInput.vue'
 
 // Nav menu
 import TopNav from './components/navMenu/TopNav.vue'
@@ -95,12 +89,6 @@ const components = [
   CheckboxGroup,
   HCheckbox,
   HInput,
-  DisabledInput,
-  ClearInput,
-  InputPasswordBox,
-  InputTextArea,
-  InputLength,
-  HLabelInput,
   TopNav,
   CollapseNav,
   HTable,
@@ -146,12 +134,6 @@ export default {
   CheckboxGroup,
   HCheckbox,
   HInput,
-  DisabledInput,
-  ClearInput,
-  InputPasswordBox,
-  InputTextArea,
-  InputLength,
-  HLabelInput,
   TopNav,
   CollapseNav,
   HTable,
