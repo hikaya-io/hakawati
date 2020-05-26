@@ -29,6 +29,7 @@ import HCheckbox from './components/checkbox/HCheckbox.vue'
 
 // Datepicker
 import HDatePicker from './components/datepicker/HDatePicker.vue'
+import DateRangePicker from './components/datepicker/DateRangePicker.vue'
 
 // Dialog
 import HDialog from './components/dialog/HDialog.vue'
@@ -132,6 +133,7 @@ const components = [
   DynamicTag,
   HCascader,
   HDatePicker,
+  DateRangePicker,
   BasicSteps,
   StepsWithDescription,
   HDrawer,
@@ -193,6 +195,7 @@ export default {
   DynamicTag,
   HCascader,
   HDatePicker,
+  DateRangePicker,
   BasicSteps,
   StepsWithDescription,
   HDrawer,
