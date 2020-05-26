@@ -1,5 +1,5 @@
 <template>
-  <el-form-item id="label-input">
+  <el-form-item class="h-input">
     <div
       v-if="label"
       slot="label"
@@ -60,7 +60,7 @@ export default {
 <style lang="scss">
 @import "../../styles/theme";
 
-#label-input {
+.h-input {
   .el-form-item__label {
     padding-bottom: 0;
   }
