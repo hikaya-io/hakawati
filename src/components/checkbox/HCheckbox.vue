@@ -36,7 +36,7 @@ export default {
     background-color: transparent;
     color: $primary-color;
     border-color: $primary-color;
-    -webkit-box-shadow: -1px 0 0 0 #8585ff;
+    -webkit-box-shadow: -1px 0 0 0 $primary-color;
 }
 
 el-checkbox-button.is-checked:first-child .el-checkbox-button__inner {

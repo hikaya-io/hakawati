@@ -5,12 +5,13 @@
     :size="size"
     :format="format"
     :placeholder="placeholder"
+    class="h-date-picker"
   />
 </template>
 
 <script>
 export default {
-  name: 'BasicDatePicker',
+  name: 'HDatePicker',
   props: {
     type: {
       type: String,
@@ -40,8 +41,9 @@ export default {
 <style lang="scss">
 @import "../../styles/theme";
 
-.el-picker-panel {
-  background-color: $background-color;
+.h-date-picker {
+  .el-picker-panel {
+    background-color: $background-color;
+  }
 }
-
 </style>

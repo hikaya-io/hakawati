@@ -1,6 +1,8 @@
 <template>
   <el-checkbox
-    @click="$emit('click')"
+    class="basic-checkbox"
+    v-bind="$attrs"
+    v-on="$listeners"
   >
     <slot></slot>
   </el-checkbox>
@@ -15,4 +17,9 @@ export default {
 <style lang="scss">
 @import "../../styles/theme";
 
+.basic-checkbox {
+  .el-checkbox__inner {
+  color: $dark-body-grey;
+  }
+}
 </style>

@@ -24,13 +24,11 @@ import HCascader from './components/cascader/HCascader.vue'
 
 // Checkbox
 import BasicCheckbox from './components/checkbox/BasicCheckbox.vue'
-import DisabledCheckbox from './components/checkbox/DisabledCheckbox.vue'
 import CheckboxGroup from './components/checkbox/CheckboxGroup.vue'
 import HCheckbox from './components/checkbox/HCheckbox.vue'
 
 // Datepicker
-import BasicDatePicker from './components/datepicker/BasicDatePicker.vue'
-import DateRangePicker from './components/datepicker/DateRangePicker.vue'
+import HDatePicker from './components/datepicker/HDatePicker.vue'
 
 // Dialog
 import HDialog from './components/dialog/HDialog.vue'
@@ -104,7 +102,6 @@ import HForm from './components/form/HForm.vue'
 const components = [
   HButton,
   BasicCheckbox,
-  DisabledCheckbox,
   CheckboxGroup,
   HCheckbox,
   HInput,
@@ -134,8 +131,7 @@ const components = [
   RemovableTag,
   DynamicTag,
   HCascader,
-  BasicDatePicker,
-  DateRangePicker,
+  HDatePicker,
   BasicSteps,
   StepsWithDescription,
   HDrawer,
@@ -167,7 +163,6 @@ export default {
   install,
   HButton,
   BasicCheckbox,
-  DisabledCheckbox,
   CheckboxGroup,
   HCheckbox,
   HInput,
@@ -197,8 +192,7 @@ export default {
   RemovableTag,
   DynamicTag,
   HCascader,
-  BasicDatePicker,
-  DateRangePicker,
+  HDatePicker,
   BasicSteps,
   StepsWithDescription,
   HDrawer,
