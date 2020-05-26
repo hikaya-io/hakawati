@@ -32,6 +32,11 @@ export default {
 
 .h-alert {
   .el-alert__title {
+      font-size: 18px;
+      line-height: 22px;
+  }
+
+  .el-alert__description {
       font-size: 16px;
       line-height: 19px;
   }
