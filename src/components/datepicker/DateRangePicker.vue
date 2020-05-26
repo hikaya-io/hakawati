@@ -6,6 +6,7 @@
     :range-separator="rangeSeparator"
     :start-placeholder="startDate"
     :end-placeholder="endDate"
+    class="h-date-picker"
   />
 </template>
 
@@ -48,9 +49,5 @@ export default {
 
 <style lang="scss">
 @import "../../styles/theme";
-
-.el-picker-panel {
-  background-color: $background-color;
-}
 
 </style>

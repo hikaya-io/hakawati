@@ -1,20 +1,20 @@
-import BasicDatePicker from '../components/datepicker/BasicDatePicker.vue'
+import HDatePicker from '../components/datepicker/HDatePicker.vue'
 import DateRangePicker from '../components/datepicker/DateRangePicker.vue'
 
 export default { title: 'Datepicker' }
 
-export const basicDatePicker = () => ({
-  components: { BasicDatePicker },
+export const hDatePicker = () => ({
+  components: { HDatePicker },
   template: `
   <div>
   Default date format: 
-  <basic-date-picker 
+  <h-date-picker 
     placeholder="Select a date" 
   />
   <br>
   dd-MM-yyyy format:
-  <basic-date-picker
-    type="daterange"
+  <h-date-picker
+    type="date"
     size="medium"
     format="dd-MM-yyyy"
     placeholder="Select a date"
@@ -37,6 +37,9 @@ export const dateRangePicker = () => ({
   dd-MM-yyyy format: 
   <date-range-picker
     format="dd-MM-yyyy"
+    rangeSeparator="To"
+    startDate="Start"
+    endDate="End"
   />
   </div>`
 })

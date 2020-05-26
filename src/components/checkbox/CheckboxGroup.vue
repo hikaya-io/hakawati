@@ -21,8 +21,4 @@ export default {
 <style lang="scss">
 @import "../../styles/theme";
 
-.el-checkbox__inner {
-  color: $dark-body-grey;
-}
-
 </style>

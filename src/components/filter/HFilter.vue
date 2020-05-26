@@ -7,6 +7,7 @@
       trigger="manual"
       v-model="visible"
       :visible-arrow=false
+      class="h-filter"
     >
       <el-row :gutter="20"  class="align-center">
         <el-col :span="3" class="spacer">
@@ -94,19 +95,20 @@
           <div></div>
         </el-col>
       </el-row>
-      <el-button slot="reference" type="text" @click="visible = !visible">
+      <h-button slot="reference" type="text" @click="visible = !visible">
         <i class="el-icon-s-operation"></i> Filter
-      </el-button>
+      </h-button>
     </el-popover>
   </div>
 </template>
 
 <script>
 import HCheckbox from '../checkbox/HCheckbox.vue'
+import HButton from '../button/HButton.vue'
 
 export default {
   name: 'HFilter',
-  components: { HCheckbox },
+  components: { HCheckbox, HButton },
 
   data () {
     return {
@@ -119,32 +121,38 @@ export default {
 <style lang="scss">
 @import "../../styles/theme";
 
-.spacer {
-  padding: 15px 33px;
+.h-filter {
+  .el-button {
+    box-shadow: none;
+  }
 }
 
-.el-popover {
-  border-radius: 25px;
-  color: $dark-body-grey;
-  border-color: transparent;
-}
-
-.align-center {
-  text-align: center;
-}
-
-// Removes checkbox button border
-.el-checkbox-button:first-child .el-checkbox-button__inner {
-    border-left: transparent;
-    border-color: transparent
-}
-
-.el-checkbox-button.is-checked .el-checkbox-button__inner {
-    color: $primary-color;
-    background-color: $primary-fill;
-}
-
-.el-checkbox-button.is-focus .el-checkbox-button__inner {
+  .el-popover {
+    border-radius: 25px;
+    color: $dark-body-grey;
     border-color: transparent;
-}
+  }
+
+  .align-center {
+    text-align: center;
+  }
+
+  // Removes checkbox button border
+  .spacer {
+    padding: 15px 33px;
+  }
+
+  .el-checkbox-button:first-child .el-checkbox-button__inner {
+      border-left: transparent;
+      border-color: transparent
+  }
+
+  .el-checkbox-button.is-checked .el-checkbox-button__inner {
+      color: $primary-color;
+      background-color: $primary-fill;
+  }
+
+  .el-checkbox-button.is-focus .el-checkbox-button__inner {
+      border-color: transparent;
+  }
 </style>

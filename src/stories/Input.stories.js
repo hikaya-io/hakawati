@@ -1,10 +1,4 @@
 import HInput from '../components/input/HInput.vue'
-import DisabledInput from '../components/input/DisabledInput.vue'
-import ClearInput from '../components/input/ClearInput.vue'
-import InputPasswordBox from '../components/input/InputPasswordBox.vue'
-import InputTextArea from '../components/input/InputTextArea.vue'
-import InputLength from '../components/input/InputLength.vue'
-import HLabelInput from '../components/input/HLabelInput.vue'
 
 import HForm from '../components/form/HForm.vue'
 
@@ -35,7 +29,7 @@ export const hInput = () => ({
 })
 
 export const disabledInput = () => ({
-  components: { HForm, DisabledInput },
+  components: { HForm, HInput },
   data () {
     return {
       form: {
@@ -48,7 +42,7 @@ export const disabledInput = () => ({
       ref="form"
       :model="form"
     >
-      <disabled-input
+      <h-input
         v-model="form.input"
         placeholder="Input here"
         disabled
@@ -58,7 +52,7 @@ export const disabledInput = () => ({
 })
 
 export const clearInput = () => ({
-  components: { HForm, ClearInput },
+  components: { HForm, HInput },
   data () {
     return {
       form: {
@@ -71,7 +65,7 @@ export const clearInput = () => ({
       ref="form"
       :model="form"
     >
-      <clear-input
+      <h-input
         v-model="form.input"
         clearable
       />
@@ -80,7 +74,7 @@ export const clearInput = () => ({
 })
 
 export const inputPasswordBox = () => ({
-  components: { HForm, InputPasswordBox },
+  components: { HForm, HInput },
   data () {
     return {
       form: {
@@ -93,7 +87,7 @@ export const inputPasswordBox = () => ({
       ref="form"
       :model="form"
     >
-      <input-password-box
+      <h-input
         v-model="form.input"
         placeholder="Enter password"
         show-password
@@ -103,7 +97,7 @@ export const inputPasswordBox = () => ({
 })
 
 export const inputTextArea = () => ({
-  components: { HForm, InputTextArea },
+  components: { HForm, HInput },
   data () {
     return {
       form: {
@@ -116,7 +110,7 @@ export const inputTextArea = () => ({
       ref="form"
       :model="form"
     >
-      <input-text-area
+      <h-input
         v-model="form.textArea"
         placeholder="Text area input here"
       />
@@ -125,7 +119,7 @@ export const inputTextArea = () => ({
 })
 
 export const inputLength = () => ({
-  components: { HForm, InputLength },
+  components: { HForm, HInput },
   data () {
     return {
       form: {
@@ -138,10 +132,12 @@ export const inputLength = () => ({
       ref="form"
       :model="form"
     >
-      <input-length
+      <h-input
         v-model="form.textArea"
         maxlength="100"
         placeholder="Text area input with limit"
+        rows="4"
+        type="textarea"
         show-word-limit
       />
     </h-form>
@@ -149,7 +145,7 @@ export const inputLength = () => ({
 })
 
 export const hLabelInput = () => ({
-  components: { HForm, HLabelInput },
+  components: { HForm, HInput },
   data () {
     return {
       form: {
@@ -165,7 +161,7 @@ export const hLabelInput = () => ({
         label-position="top"
         labelWidth="120px"
       >
-        <h-label-input
+        <h-input
           placeholder="Input here"
           label="Label Input"
           v-model="form.input"
@@ -178,7 +174,7 @@ export const hLabelInput = () => ({
         label-position="left"
         labelWidth="120px"
       >
-        <h-label-input
+        <h-input
           placeholder="Input here"
           label="Required Input"
           v-model="form.input"
@@ -192,7 +188,7 @@ export const hLabelInput = () => ({
         label-position="left"
         labelWidth="120px"
       >
-        <h-label-input
+        <h-input
           placeholder="Input here"
           label="Disabled Input"
           v-model="form.input"

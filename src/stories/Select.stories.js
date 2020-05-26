@@ -1,5 +1,4 @@
 import HSelect from '../components/select/HSelect.vue'
-import MultiSelect from '../components/select/MultiSelect.vue'
 import GroupedSelect from '../components/select/GroupedSelect.vue'
 
 import { withKnobs, text, boolean } from '@storybook/addon-knobs'
@@ -104,7 +103,7 @@ export const hSelect = () => ({
 })
 
 export const multiSelect = () => ({
-  components: { MultiSelect },
+  components: { HSelect },
   props: {
 
     disabled: {
@@ -127,12 +126,13 @@ export const multiSelect = () => ({
   },
   template: `
       <div>
-        <multi-select
+        <h-select
           :options="options"
           :collapse-tags="collapseTags"
           :placeholder="placeholder"
           :disabled="disabled"
           @change="onChange"
+          multiple
         />
       </div>  
     `

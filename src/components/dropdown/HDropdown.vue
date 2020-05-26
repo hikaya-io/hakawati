@@ -1,10 +1,12 @@
 <template>
+  <div class="h-dropdown">
   <el-dropdown>
     <slot name="title"></slot>
     <el-dropdown-menu slot="dropdown">
       <slot name="items"></slot>
     </el-dropdown-menu>
   </el-dropdown>
+  </div>
 </template>
 
 <script>
@@ -16,20 +18,22 @@ export default {
 <style lang="scss">
 @import "../../styles/theme";
 
-.el-dropdown-menu {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 0px 0px 6px 6px;
-  border-color: transparent;
-}
+.h-dropdown {
+  .el-dropdown-menu {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 0px 6px 6px;
+    border-color: transparent;
+    font-size: 16px;
+  }
 
-.el-dropdown-link {
-  cursor: pointer;
-  color: $primary-color;
+  .el-icon-arrow-down {
+    font-size: 14px;
+  }
+
+  .el-button {
+  font-size: 16px;
+  font-weight: bold;
   font-family: $main-font-family;
+  }
 }
-
-.el-icon-arrow-down {
-  font-size: 14px;
-}
-
 </style>

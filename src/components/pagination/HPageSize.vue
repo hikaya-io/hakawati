@@ -1,16 +1,18 @@
 <template>
-  <el-pagination
-    layout="sizes, prev, pager, next"
-    :total="parseInt(totalPageNumber)"
-    :background="background == 'true' ? true : false"
-    :page-sizes="convertPageSizes"
-    :page-size="parseInt(pageSize)"
-  />
+  <div class="h-pagination">
+    <el-pagination
+      layout="sizes, prev, pager, next"
+      :total="parseInt(totalPageNumber)"
+      :background="background == 'true' ? true : false"
+      :page-sizes="convertPageSizes"
+      :page-size="parseInt(pageSize)"
+    />
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'PaginationPageSize',
+  name: 'HPageSize',
   props: ['totalPageNumber', 'background', 'pageSizes', 'pageSize'],
   computed: {
     convertPageSizes (val) {

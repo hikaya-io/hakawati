@@ -1,10 +1,11 @@
-import BasicSteps from '../components/steps/BasicSteps.vue'
-import StepsWithDescription from '../components/steps/StepsWithDescription.vue'
+import HSteps from '../components/steps/HSteps.vue'
+
+import HButton from '../components/button/HButton.vue'
 
 export default { title: 'Steps' }
 
 export const basicSteps = () => ({
-  components: { BasicSteps },
+  components: { HSteps, HButton },
   data () {
     return {
       active: 0,
@@ -24,20 +25,20 @@ export const basicSteps = () => ({
   template: `
     <div>
     Default
-        <basic-steps
+        <h-steps
             :active="active"
             class="body-reg"
         />
     <br>
     Passing array of steps
-        <basic-steps
+        <h-steps
             :steps="steps"
             :active="active"
             class="body-reg"
         />
     <br>
     Change direction to horizontal
-        <basic-steps
+        <h-steps
             :steps="steps"
             direction="vertical"
             :active="active"
@@ -45,7 +46,7 @@ export const basicSteps = () => ({
         />
     <br>
     Simple Step bar
-        <basic-steps
+        <h-steps
             :steps="steps"
             :isSimple="true"
             orientation="vertical"
@@ -53,17 +54,17 @@ export const basicSteps = () => ({
             class="body-reg"
         />
     <br>
-        <el-button
+        <h-button
             style="margin-top: 12px;"
             @click="next"
         >
         Next step
-        </el-button>
+        </h-button>
     </div>`
 })
 
 export const stepsWithDescription = () => ({
-  components: { StepsWithDescription },
+  components: { HSteps, HButton },
   methods: {
     next () {
       if (this.active++ >= this.steps.length) this.active = 0
@@ -110,23 +111,23 @@ export const stepsWithDescription = () => ({
   template: `
     <div>Vertical step bar
     Default
-        <steps-with-description 
+        <h-steps 
             :active="active"
             class="body-reg"
         />
     <br>
     Passing array of steps
-        <steps-with-description
+        <h-steps
             :steps="stepsWithDesc"
             :active="active"
             class="body-reg"
         />
-        <el-button
+        <h-button
             style="margin-top: 12px;"
             @click="next"
         >
         Next step
-        </el-button>
+        </h-button>
     </div>
     `
 })

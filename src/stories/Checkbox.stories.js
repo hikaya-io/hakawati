@@ -1,5 +1,4 @@
 import BasicCheckbox from '../components/checkbox/BasicCheckbox.vue'
-import DisabledCheckbox from '../components/checkbox/DisabledCheckbox.vue'
 import CheckboxGroup from '../components/checkbox/CheckboxGroup.vue'
 import HCheckbox from '../components/checkbox/HCheckbox.vue'
 
@@ -25,15 +24,15 @@ export const basicCheckbox = () => ({
 })
 
 export const disabledCheckbox = () => ({
-  components: { DisabledCheckbox },
+  components: { BasicCheckbox },
   template: `
     <div>
-      <disabled-checkbox
-        @click="action"
+      <basic-checkbox
         class="body-reg"
+        disabled
       >
         Checkbox A
-      </disabled-checkbox>
+      </basic-checkbox>
     </div>
     `,
   methods: { action: action('click') }

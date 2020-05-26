@@ -1,5 +1,4 @@
-import BreadcrumbBasic from '../components/breadcrumb/BreadcrumbBasic.vue'
-import BreadcrumbIconSeparator from '../components/breadcrumb/BreadcrumbIconSeparator.vue'
+import HBreadcrumb from '../components/breadcrumb/HBreadcrumb.vue'
 
 // This is required for each story
 export default { title: 'Breadcrumb' }
@@ -19,8 +18,8 @@ const items = [
 ]
 
 // Customize components here. For instance, here's my-button component with a text of "with text"
-export const basicBreadCrumb = () => ({
-  components: { BreadcrumbBasic },
+export const hBreadCrumb = () => ({
+  components: { HBreadcrumb },
   data () {
     return {
       items
@@ -28,32 +27,12 @@ export const basicBreadCrumb = () => ({
   },
   template: `
     <div>
-    <breadcrumb-basic
+    <h-breadcrumb
       :items="items"
       separator=" "
     >
       Default
-    </breadcrumb-basic>
+    </h-breadcrumb>
     </div>  
   `
-})
-
-export const iconSeparatorBreadcrumb = () => ({
-  components: { BreadcrumbIconSeparator },
-  data () {
-    return {
-      items
-    }
-  },
-  template: `
-      <div>
-      <breadcrumb-icon-separator
-        @click="action"
-        :items="items"
-        class="icon-separator"
-      >
-        Default
-      </breadcrumb-icon-separator>
-      </div>  
-    `
 })

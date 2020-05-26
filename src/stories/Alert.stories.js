@@ -1,6 +1,4 @@
 import HAlert from '../components/alert/HAlert.vue'
-import IconAlert from '../components/alert/IconAlert.vue'
-import DescriptionAlert from '../components/alert/DescriptionAlert.vue'
 
 // This is required for each story
 export default { title: 'Alert' }
@@ -12,25 +10,25 @@ export const hAlert = () => ({
   <div>
     <div style='margin-bottom:15px'>
       <h-alert 
-        title="success alert" 
+        title="Success alert" 
         type="success"
       /> 
     </div>
     <div style='margin-bottom:15px'>
       <h-alert 
-        title="info alert" 
+        title="Info alert" 
         type="info"
       />
     </div>
     <div style='margin-bottom:15px'>
       <h-alert 
-        title="warning alert" 
+        title="Warning alert" 
         type="warning"
       />
     </div>
     <div style='margin-bottom:15px'>
       <h-alert 
-        title="error alert" 
+        title="Error alert" 
         type="error"
       />
     </div>
@@ -39,33 +37,33 @@ export const hAlert = () => ({
 })
 
 export const iconAlert = () => ({
-  components: { IconAlert },
+  components: { HAlert },
   template: `
   <div>
     <div style='margin-bottom:15px'>
-      <icon-alert
-        title="success alert"
+      <h-alert
+        title="Success alert"
         type="success"
         show-icon
       />
     </div>
     <div style='margin-bottom:15px'>
-      <icon-alert
-        title="info alert"
+      <h-alert
+        title="Info alert"
         type="info"
         show-icon
       />
     </div>
     <div style='margin-bottom:15px'>
-      <icon-alert
-        title="warning alert"
+      <h-alert
+        title="Warning alert"
         type="warning"
         show-icon
       />
     </div>
     <div style='margin-bottom:15px'>
-      <icon-alert
-        title="error alert"
+      <h-alert
+        title="Error alert"
         type="error"
         show-icon
       />
@@ -75,14 +73,37 @@ export const iconAlert = () => ({
 })
 
 export const descriptionAlert = () => ({
-  components: { DescriptionAlert },
+  components: { HAlert },
   template: `
   <div>
-    <description-alert 
-      type="success" 
-      title="Alert title" 
-      description="Add description here"
-    />
+    <div style='margin-bottom:15px'>
+      <h-alert 
+        type="success" 
+        title="Alert title" 
+        description="Add description here"
+      />
+    </div>
+    <div style='margin-bottom:15px'>
+      <h-alert 
+        type="info"
+        title="Info alert" 
+        description="Add description here"
+      />
+    </div>
+    <div style='margin-bottom:15px'>
+    <h-alert 
+        type="warning"
+        title="Warning alert" 
+        description="Add description here"
+      />
+    </div>
+    <div style='margin-bottom:15px'>
+      <h-alert 
+        type="error"
+        title="Error alert" 
+        description="Add description here"
+      />
+    </div>
   </div>
       `
 })
