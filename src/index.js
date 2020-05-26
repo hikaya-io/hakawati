@@ -71,9 +71,7 @@ import GroupedSelect from './components/select/GroupedSelect.vue'
 import HSteps from './components/steps/HSteps.vue'
 
 // Switch
-import BasicSwitch from './components/switch/BasicSwitch.vue'
-import TextSwitch from './components/switch/TextSwitch.vue'
-import DisabledSwitch from './components/switch/DisabledSwitch.vue'
+import HSwitch from './components/switch/HSwitch.vue'
 
 // Tab
 import BasicTab from './components/tab/BasicTab.vue'
@@ -117,9 +115,7 @@ const components = [
   HAlert,
   IconAlert,
   DescriptionAlert,
-  BasicSwitch,
-  TextSwitch,
-  DisabledSwitch,
+  HSwitch,
   HCard,
   HSelect,
   GroupedSelect,
@@ -176,9 +172,7 @@ export default {
   HAlert,
   IconAlert,
   DescriptionAlert,
-  BasicSwitch,
-  TextSwitch,
-  DisabledSwitch,
+  HSwitch,
   HCard,
   HSelect,
   GroupedSelect,

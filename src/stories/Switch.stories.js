@@ -1,6 +1,4 @@
-import BasicSwitch from '../components/switch/BasicSwitch.vue'
-import TextSwitch from '../components/switch/TextSwitch.vue'
-import DisabledSwitch from '../components/switch/DisabledSwitch.vue'
+import HSwitch from '../components/switch/HSwitch.vue'
 
 import { action } from '@storybook/addon-actions'
 
@@ -8,8 +6,8 @@ import { action } from '@storybook/addon-actions'
 export default { title: 'Switch' }
 
 // Customize components here. For instance, here's my-button component with a text of "with text"
-export const basicSwitch = () => ({
-  components: { BasicSwitch },
+export const hSwitch = () => ({
+  components: { HSwitch },
   data () {
     return {
       value: true
@@ -17,20 +15,19 @@ export const basicSwitch = () => ({
   },
   template: `
     <div>
-      <basic-switch
-        v-model="value"
+      <h-switch
         activeColor="#3333FF"
         inactiveColor="#E1E1E1"
         @click="action"
       >
-      </basic-switch>
+      </h-switch>
     </div>
     `,
   methods: { action: action('click') }
 })
 
 export const textSwitch = () => ({
-  components: { TextSwitch },
+  components: { HSwitch },
   data () {
     return {
       value: true
@@ -38,22 +35,21 @@ export const textSwitch = () => ({
   },
   template: `
       <div>
-        <text-switch
-          v-model="value"
+        <h-switch
           activeColor="#3333FF"
           inactiveColor="#E1E1E1"
           activeText="Activate user"
           inactiveText="Deactivate user"
           @click="action"
         >
-        </text-switch>
+        </h-switch>
       </div>
       `,
   methods: { action: action('click') }
 })
 
 export const disabledSwitch = () => ({
-  components: { DisabledSwitch },
+  components: { HSwitch },
   data () {
     return {
       value: true
@@ -61,13 +57,13 @@ export const disabledSwitch = () => ({
   },
   template: `
       <div>
-        <disabled-switch
-          v-model="value"
+        <h-switch
           activeColor="#3333FF"
           inactiveColor="#E1E1E1"
           @click="action"
+          disabled
         >
-        </disabled-switch>
+        </h-switch>
       </div>
       `,
   methods: { action: action('click') }
