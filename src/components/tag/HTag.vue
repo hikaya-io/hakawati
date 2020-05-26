@@ -29,4 +29,22 @@ export default {
 .button-new-tag {
   border-radius: 20px;
 }
+
+.removable-tag {
+  .el-tag.el-tag--success {
+      border-color: transparent;
+  }
+
+  .el-tag.el-tag--info {
+      border-color: transparent;
+  }
+
+  .el-tag.el-tag--warning {
+      border-color: transparent;
+  }
+
+  .el-tag.el-tag--danger {
+      border-color: transparent;
+  }
+}
 </style>

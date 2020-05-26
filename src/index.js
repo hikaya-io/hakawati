@@ -79,7 +79,6 @@ import HTable from './components/table/HTable.vue'
 
 // Tag
 import HTag from './components/tag/HTag.vue'
-import RemovableTag from './components/tag/RemovableTag.vue'
 import DynamicTag from './components/tag/DynamicTag.vue'
 
 // Upload
@@ -113,7 +112,6 @@ const components = [
   HSelect,
   GroupedSelect,
   HTag,
-  RemovableTag,
   DynamicTag,
   HCascader,
   HDatePicker,
@@ -165,7 +163,6 @@ export default {
   HSelect,
   GroupedSelect,
   HTag,
-  RemovableTag,
   DynamicTag,
   HCascader,
   HDatePicker,
