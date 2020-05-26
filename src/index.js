@@ -74,9 +74,6 @@ import HSteps from './components/steps/HSteps.vue'
 import HSwitch from './components/switch/HSwitch.vue'
 
 // Tab
-import BasicTab from './components/tab/BasicTab.vue'
-import CardTab from './components/tab/CardTab.vue'
-import VerticalTab from './components/tab/VerticalTab.vue'
 import HTab from './components/tab/HTab.vue'
 
 // Table
@@ -130,9 +127,6 @@ const components = [
   PaginationBasic,
   PaginationPageSize,
   HDialog,
-  BasicTab,
-  CardTab,
-  VerticalTab,
   HTab,
   HForm,
   HAvatar,
@@ -187,9 +181,6 @@ export default {
   PaginationBasic,
   PaginationPageSize,
   HDialog,
-  BasicTab,
-  CardTab,
-  VerticalTab,
   HTab,
   HForm,
   HAvatar,
