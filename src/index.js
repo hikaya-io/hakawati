@@ -49,8 +49,8 @@ import TopNav from './components/navMenu/TopNav.vue'
 import CollapseNav from './components/navMenu/CollapseNav.vue'
 
 // Pagination
-import PaginationBasic from './components/pagination/PaginationBasic.vue'
-import PaginationPageSize from './components/pagination/PaginationPageSize.vue'
+import HPagination from './components/pagination/HPagination.vue'
+import HPageSize from './components/pagination/HPageSize.vue'
 
 // Search
 import HSearch from './components/search/HSearch.vue'
@@ -106,8 +106,8 @@ const components = [
   DateRangePicker,
   HSteps,
   HDrawer,
-  PaginationBasic,
-  PaginationPageSize,
+  HPagination,
+  HPageSize,
   HDialog,
   HTab,
   HForm,
@@ -151,8 +151,8 @@ export default {
   DateRangePicker,
   HSteps,
   HDrawer,
-  PaginationBasic,
-  PaginationPageSize,
+  HPagination,
+  HPageSize,
   HDialog,
   HTab,
   HForm,

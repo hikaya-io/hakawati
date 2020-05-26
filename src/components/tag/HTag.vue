@@ -1,9 +1,11 @@
 <template>
+  <div class="h-tag">
   <el-tag
     :type="type"
   >
     <slot></slot>
   </el-tag>
+  </div>
 </template>
 
 <script>
@@ -22,15 +24,17 @@ export default {
 @import "../../styles/theme";
 
 .el-tag {
-  border-radius: 20px;
+  border-radius: 4px;
   border-color: transparent;
+  margin-bottom: 5px;;
 }
 
 .button-new-tag {
   border-radius: 20px;
+  border-color: transparent;
 }
 
-.removable-tag {
+.h-tag {
   .el-tag.el-tag--success {
       border-color: transparent;
   }

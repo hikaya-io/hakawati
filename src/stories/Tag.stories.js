@@ -21,7 +21,7 @@ export const hTag = () => ({
 export const removableTag = () => ({
   components: { HTag },
   template: `
-    <div class="removable-tag">
+    <div>
     <h-tag closable>Tag 1</h-tag>
     <h-tag closable type="success">Tag 2</h-tag>
     <h-tag closable type="info">Tag 3</h-tag>

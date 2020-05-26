@@ -42,17 +42,15 @@ export default {
     font-weight: normal;
     font-size: 16px;
     line-height: 19px;
-    color: $dark-body-grey;
+    color: $heading-grey;
     margin: 0px 35px 0px 35px;
     padding: 20px 30px 20px 30px;
   }
 
-  .el-submenu__title {
-    font-family: $main-font-family;
-    font-style: normal;
+  .el-menu--horizontal > .el-submenu .el-submenu__title {
     font-size: 16px;
-    color: $dark-body-grey;
-  }
+    color: $heading-grey;
+}
 
   // style selected submenu
   .el-menu--popup {
@@ -66,7 +64,7 @@ export default {
   }
 
   .el-menu.el-menu--horizontal {
-      border-bottom: solid 1px $background-color;
+      border-bottom: transparent;
       padding-bottom: 10px;
       vertical-align: text-bottom;
   }
@@ -79,21 +77,13 @@ export default {
     text-align: center;
   }
 
-  .el-menu--horizontal > .el-submenu .el-submenu__title {
-    color: $dark-body-grey;
-  }
-
   // style selected tab
   .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
-      outline: none;
-      color: $primary-color;
       border-radius: 30px;
       text-align: center;
   }
 
   .el-menu--horizontal .el-menu-item:not(.is-disabled):focus {
-    color: $primary-color;
-    background-color: $primary-fill;
     border-radius: 30px;
     text-align: center;
   }
@@ -126,22 +116,17 @@ export default {
 .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
     outline: none;
     color: $primary-color;
-    border-radius: 30px;
-    text-align: center;
 }
 
 .el-menu--horizontal .el-menu-item:not(.is-disabled):focus {
     color: $primary-color;
     background-color: $primary-fill;
-    border-radius: 30px;
-    text-align: center;
 }
 
 .el-menu--horizontal > .el-menu-item.is-active {
     border-bottom: transparent;
     color: $primary-color;
     background-color: $primary-fill;
-    text-align: center;
-    border-radius: 30px;
 }
+
 </style>
