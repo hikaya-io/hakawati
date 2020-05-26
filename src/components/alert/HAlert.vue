@@ -3,6 +3,7 @@
     class="h-alert"
     :title="title"
     :type="type"
+    :description="description"
   />
 </template>
 
@@ -15,6 +16,10 @@ export default {
       default: ''
     },
     type: {
+      type: String,
+      default: ''
+    },
+    description: {
       type: String,
       default: ''
     }

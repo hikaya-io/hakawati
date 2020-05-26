@@ -4,8 +4,6 @@ import './styles/theme.scss'
 
 // Alert
 import HAlert from './components/alert/HAlert.vue'
-import IconAlert from './components/alert/IconAlert.vue'
-import DescriptionAlert from './components/alert/DescriptionAlert.vue'
 
 // Avatar
 import HAvatar from './components/avatar/HAvatar.vue'
@@ -110,8 +108,6 @@ const components = [
   UploadExcel,
   HDropdown,
   HAlert,
-  IconAlert,
-  DescriptionAlert,
   HSwitch,
   HCard,
   HSelect,
@@ -164,8 +160,6 @@ export default {
   UploadExcel,
   HDropdown,
   HAlert,
-  IconAlert,
-  DescriptionAlert,
   HSwitch,
   HCard,
   HSelect,
