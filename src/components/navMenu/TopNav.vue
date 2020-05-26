@@ -106,4 +106,42 @@ export default {
     border-radius: 30px;
   }
 }
+
+.el-menu--horizontal > .el-menu-item {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+// style nav bar and border
+.el-menu {
+  margin-top: 10px;
+}
+
+.el-menu.el-menu--horizontal {
+    border-bottom: solid 1px $background-color;
+    padding-bottom: 10px;
+}
+
+// style selected tab
+.el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
+    outline: none;
+    color: $primary-color;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.el-menu--horizontal .el-menu-item:not(.is-disabled):focus {
+    color: $primary-color;
+    background-color: $primary-fill;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.el-menu--horizontal > .el-menu-item.is-active {
+    border-bottom: transparent;
+    color: $primary-color;
+    background-color: $primary-fill;
+    text-align: center;
+    border-radius: 30px;
+}
 </style>

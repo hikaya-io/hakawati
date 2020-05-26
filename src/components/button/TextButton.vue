@@ -1,0 +1,35 @@
+<template>
+  <el-button @click="$emit('click')"
+    :size="size"
+    :type="type"
+    v-bind="$attrs"
+    v-on="$listeners"
+  >
+    <slot></slot>
+  </el-button>
+</template>
+
+<script>
+export default {
+  name: 'TextButton',
+  props: {
+    type: {
+      type: String,
+      default: ''
+    },
+    size: {
+      type: String,
+      default: ''
+    }
+  }
+}
+</script>
+
+<style scoped lang="scss">
+@import "../../styles/theme";
+
+.el-button {
+  padding: 13px 33px;
+  border-radius: 25px;
+}
+</style>
