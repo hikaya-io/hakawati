@@ -39,7 +39,6 @@ import HDrawer from './components/drawer/HDrawer.vue'
 
 // Dropdown
 import HDropdown from './components/dropdown/HDropdown.vue'
-import TriggerDropdown from './components/dropdown/TriggerDropdown.vue'
 
 // Filter
 import HFilter from './components/filter/HFilter.vue'
@@ -117,7 +116,6 @@ const components = [
   HTable,
   UploadExcel,
   HDropdown,
-  TriggerDropdown,
   HAlert,
   IconAlert,
   DescriptionAlert,
@@ -179,7 +177,6 @@ export default {
   HTable,
   UploadExcel,
   HDropdown,
-  TriggerDropdown,
   HAlert,
   IconAlert,
   DescriptionAlert,
