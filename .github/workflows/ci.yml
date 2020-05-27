@@ -5,7 +5,7 @@ on:
     branches:
       - develop
   pull_request:
-    braches:
+    branches:
       - develop
 
 jobs:
@@ -30,8 +30,12 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: |
-          yarn install
-          yarn build-lib
-          yarn publish --access=public
+          if [[ $GITHUB_EVENT_NAME != "pull_request" ]]; then
+            yarn install
+            yarn build-lib
+            yarn publish --access=public
+          else
+            echo "+++++ No Publish on PR event +++++++++"
+          fi
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
