@@ -112,7 +112,9 @@ export const inputTextArea = () => ({
     >
       <h-input
         v-model="form.textArea"
-        placeholder="Text area input here"
+        placeholder="Text area with 4 rows"
+        type="textarea"
+        rows="4"
       />
     </h-form>
   `
@@ -134,10 +136,10 @@ export const inputLength = () => ({
     >
       <h-input
         v-model="form.textArea"
-        maxlength="100"
-        placeholder="Text area input with limit"
-        rows="4"
+        maxlength="250"
+        placeholder="Text area input with limit with 4 rows"
         type="textarea"
+        rows="4"
         show-word-limit
       />
     </h-form>
