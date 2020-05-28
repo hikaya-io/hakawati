@@ -110,14 +110,6 @@ export default {
     color: $dark-body-grey;
     }
 
-  .el-card.is-always-shadow {
-    border: 2px solid #F4F5FC;
-    box-sizing: border-box;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
-    border-radius: 0px 20px 20px 0px;
-    border-color: transparent;
-  }
-
   .box-card {
     width: 251px;
     height: 755px;
