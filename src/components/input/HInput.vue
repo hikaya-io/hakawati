@@ -38,8 +38,8 @@ export default {
       default: ''
     },
     rows: {
-      type: Number,
-      default: null
+      type: String,
+      default: ''
     },
     disabled: {
       type: Boolean,
@@ -105,6 +105,13 @@ export default {
     border-color: $light-body-grey;
     color: $background-color;
     cursor: not-allowed;
+  }
+  .el-textarea__inner {
+    font-family: $main-font-family;
+    font-size: 16px;
+    color: $heading-grey;
+    line-height: 19px;
+    padding-top: 10px;
   }
 }
 
