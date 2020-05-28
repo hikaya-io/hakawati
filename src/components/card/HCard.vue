@@ -1,5 +1,5 @@
 <template>
-  <div class="h-card">
+  <div>
     <el-card>
         <div slot="header">
             <slot name="title"></slot>
@@ -29,6 +29,32 @@ export default {
   .el-card__header {
     border-bottom: none;
     padding: 40px 25px 40px 0px;
+  }
+
+  .el-card__body {
+    padding: 0px;
+  }
+
+  .el-card {
+    padding: 0px 25px 40px 40px;
+  }
+}
+
+.h-plain-card {
+  .el-card.is-always-shadow {
+    border: 2px solid $background-color;
+    box-sizing: border-box;
+    border-radius: 6px;
+    box-shadow: none !important;
+  }
+
+  .el-card__header {
+    border-bottom: none;
+    padding: 40px 25px 40px 0px;
+  }
+
+  .el-card__body {
+    padding: 0px;
   }
 
   .el-card {
