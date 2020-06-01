@@ -1,11 +1,9 @@
 # hakawati
-This is a collection of reusable UI components built in [Vue](https://vuejs.org/) based on our [design system](https://team.hikaya.io/design/color.html). Our UI components are based on [ElementUI](https://element.eleme.io/#/en-US), a desktop-focused UI library.
+This is a collection of reusable UI components built in [Vue](https://vuejs.org/) based on our design system. Our UI components are based on [ElementUI](https://element.eleme.io/#/en-US), a desktop-focused UI library.
 <br/>
 <p align="center">
   <img src="src/assets/vue-storybook.png" height="150" />
 </p>
-
-Our current UI library can be found [here](https://vue-ui-components.now.sh/).
 
 ## Setup
 ```
