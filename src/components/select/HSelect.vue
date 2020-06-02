@@ -4,6 +4,8 @@
     v-bind="$attrs"
     v-on="$listeners"
     @change="$emit('change', $event)"
+    :placeholder="placeholder"
+    :disabled="disabled"
     class="h-select"
   >
     <el-option

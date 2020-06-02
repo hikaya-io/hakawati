@@ -3,6 +3,8 @@
     v-model="value"
     v-bind="$attrs"
     v-on="$listeners"
+    :active-color="activeColor"
+    :inactive-color="inactiveColor"
     @click="$emit('click')"
     />
 </template>

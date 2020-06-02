@@ -1,11 +1,9 @@
 import HSteps from '../components/steps/HSteps.vue'
 
-import HButton from '../components/button/HButton.vue'
-
 export default { title: 'Steps' }
 
 export const basicSteps = () => ({
-  components: { HSteps, HButton },
+  components: { HSteps },
   data () {
     return {
       active: 0,
@@ -54,18 +52,18 @@ export const basicSteps = () => ({
             class="body-reg"
         />
     <br>
-        <h-button
+        <el-button
             style="margin-top: 12px;"
             @click="next"
             dark-text
         >
         Next step
-        </h-button>
+        </el-button>
     </div>`
 })
 
 export const stepsWithDescription = () => ({
-  components: { HSteps, HButton },
+  components: { HSteps },
   methods: {
     next () {
       if (this.active++ >= this.steps.length) this.active = 0
@@ -123,13 +121,13 @@ export const stepsWithDescription = () => ({
             :active="active"
             class="body-reg"
         />
-        <h-button
+        <el-button
             style="margin-top: 12px;"
             @click="next"
             dark-text
         >
         Next step
-        </h-button>
+        </el-button>
     </div>
     `
 })
