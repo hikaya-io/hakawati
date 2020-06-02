@@ -95,20 +95,19 @@
           <div></div>
         </el-col>
       </el-row>
-      <h-button slot="reference" type="text" @click="visible = !visible">
+      <el-button slot="reference" type="text" @click="visible = !visible">
         <i class="el-icon-s-operation"></i> Filter
-      </h-button>
+      </el-button>
     </el-popover>
   </div>
 </template>
 
 <script>
 import HCheckbox from '../checkbox/HCheckbox.vue'
-import HButton from '../button/HButton.vue'
 
 export default {
   name: 'HFilter',
-  components: { HCheckbox, HButton },
+  components: { HCheckbox },
 
   data () {
     return {

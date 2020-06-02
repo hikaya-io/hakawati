@@ -1,5 +1,4 @@
 import HDialog from '../components/dialog/HDialog.vue'
-import HButton from '../components/button/HButton.vue'
 
 // This is required for each story
 export default {
@@ -7,10 +6,7 @@ export default {
 }
 
 export const hDialog = () => ({
-  components: {
-    HDialog,
-    HButton
-  },
+  components: { HDialog },
   data () {
     return {
       visibility: false
@@ -26,13 +22,13 @@ export const hDialog = () => ({
   },
   template: `
   <div>
-    <h-button
+    <el-button
       @click="toggleVisibility"
       size="medium"
       type="primary"
     >
     Open Dialog
-    </h-button>
+    </el-button>
     <h-dialog
       @dialogConfirmed="confirm"
       @dialogClosed="toggleVisibility"

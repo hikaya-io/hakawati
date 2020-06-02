@@ -13,7 +13,7 @@ export const hButton = () => ({
   <h-button
     @click="action"
     size="medium"
-    class="body-bold cancel-button"
+    dark-text
     round
   >
   Cancel
@@ -22,7 +22,6 @@ export const hButton = () => ({
     @click="action"
     size="medium"
     type="primary"
-    class="body-bold button-style"
     round
   >
   Save
@@ -31,7 +30,6 @@ export const hButton = () => ({
     @click="action"
     size="medium"
     type="success"
-    class="body-bold button-style"
     round
   >
   Success
@@ -40,7 +38,6 @@ export const hButton = () => ({
     @click="action"
     size="medium"
     type="info"
-    class="body-bold button-style"
     round
   >
   Info
@@ -49,7 +46,6 @@ export const hButton = () => ({
     @click="action"
     size="medium"
     type="warning"
-    class="body-bold button-style"
     round
   >
   Warning
@@ -58,16 +54,14 @@ export const hButton = () => ({
     @click="action"
     size="medium"
     type="danger"
-    class="body-bold button-style"
     round
   >
   Danger
   </h-button>
-  </div>  
+  </div>
   `,
   methods: { action: action('click') }
 })
-
 export const disabledButton = () => ({
   components: { HButton },
   template: `
@@ -75,7 +69,7 @@ export const disabledButton = () => ({
   <h-button
     @click="action"
     size="medium"
-    class="body-bold cancel-button"
+    dark-text
     disabled
   >
   Cancel
@@ -84,7 +78,6 @@ export const disabledButton = () => ({
     @click="action"
     size="medium"
     type="primary"
-    class="body-bold button-style"
     disabled
   >
   Save
@@ -93,7 +86,6 @@ export const disabledButton = () => ({
     @click="action"
     size="medium"
     type="success"
-    class="body-bold button-style"
     disabled
   >
   Success
@@ -102,7 +94,6 @@ export const disabledButton = () => ({
     @click="action"
     size="medium"
     type="info"
-    class="body-bold button-style"
     disabled
   >
   Info
@@ -111,7 +102,6 @@ export const disabledButton = () => ({
     @click="action"
     size="medium"
     type="warning"
-    class="body-bold button-style"
     disabled
   >
   Warning
@@ -120,16 +110,14 @@ export const disabledButton = () => ({
     @click="action"
     size="medium"
     type="danger"
-    class="body-bold button-style"
     disabled
   >
   Danger
   </h-button>
-  </div>  
+  </div>
   `,
   methods: { action: action('click') }
 })
-
 export const plainButton = () => ({
   components: { HButton },
   template: `
@@ -138,6 +126,7 @@ export const plainButton = () => ({
     @click="action"
     size="medium"
     class="cancel-button"
+    dark-text
   >
   Cancel
   </h-button>
@@ -145,7 +134,6 @@ export const plainButton = () => ({
     @click="action"
     size="medium"
     type="primary"
-    class="button-style"
     plain
   >
   Save
@@ -154,7 +142,6 @@ export const plainButton = () => ({
     @click="action"
     size="medium"
     type="success"
-    class="button-style"
     plain
   >
   Success
@@ -163,7 +150,6 @@ export const plainButton = () => ({
     @click="action"
     size="medium"
     type="info"
-    class="button-style"
     plain
   >
   Info
@@ -172,7 +158,6 @@ export const plainButton = () => ({
     @click="action"
     size="medium"
     type="warning"
-    class="button-style"
     plain
   >
   Warning
@@ -181,16 +166,14 @@ export const plainButton = () => ({
     @click="action"
     size="medium"
     type="danger"
-    class="button-style"
     plain
   >
   Danger
   </h-button>
-  </div>  
+  </div>
   `,
   methods: { action: action('click') }
 })
-
 export const circleButton = () => ({
   components: { HButton },
   template: `
@@ -199,6 +182,7 @@ export const circleButton = () => ({
     @click="action"
     size="medium"
     icon="el-icon-bell"
+    dark-text
     circle
   >
   </h-button>
@@ -242,11 +226,10 @@ export const circleButton = () => ({
     circle
   >
   </h-button>
-  </div>  
+  </div>
   `,
   methods: { action: action('click') }
 })
-
 export const textButton = () => ({
   components: { HButton },
   template: `
@@ -255,7 +238,7 @@ export const textButton = () => ({
     @click="action"
     size="medium"
     type="text"
-    class="ws-button body-bold"
+    dark-text
     round
   >
   Text button
@@ -264,9 +247,8 @@ export const textButton = () => ({
     @click="action"
     size="medium"
     type="text"
-    class="ws-button body-bold"
-    round
     disabled
+    round
   >
   Text button
   </h-button>
@@ -274,7 +256,6 @@ export const textButton = () => ({
   `,
   methods: { action: action('click') }
 })
-
 export const workspaceButton = () => ({
   components: { HButton },
   template: `
@@ -283,7 +264,7 @@ export const workspaceButton = () => ({
     @click="action"
     size="medium"
     icon="el-icon-circle-plus-outline"
-    class="ws-button body-bold"
+    workspace-button
   >
   Add Workspace
   </h-button>
@@ -291,11 +272,11 @@ export const workspaceButton = () => ({
     @click="action"
     size="medium"
     icon="el-icon-s-tools"
-    class="ws-button body-bold"
+    workspace-button
   >
   Workspace Settings
   </h-button>
-  </div>  
+  </div>
   `,
   methods: { action: action('click') }
 })
