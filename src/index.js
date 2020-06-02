@@ -13,7 +13,6 @@ import HBreadcrumb from './components/breadcrumb/HBreadcrumb.vue'
 
 // Button
 import HButton from './components/button/HButton.vue'
-import CircleButton from './components/button/CircleButton.vue'
 
 // Card
 import HCard from './components/card/HCard.vue'
@@ -86,7 +85,6 @@ import HForm from './components/form/HForm.vue'
 
 const components = [
   HButton,
-  CircleButton,
   BasicCheckbox,
   CheckboxGroup,
   HCheckbox,
@@ -132,7 +130,6 @@ if (typeof window !== 'undefined' && window.Vue) {
 export default {
   install,
   HButton,
-  CircleButton,
   BasicCheckbox,
   CheckboxGroup,
   HCheckbox,
