@@ -103,12 +103,9 @@ export default {
 }
 
 // style nav bar and border
-.el-menu {
-  margin-top: 10px;
-}
 
 .el-menu.el-menu--horizontal {
-    border-bottom: solid 1px $background-color;
+    border-bottom: transparent;
     padding-bottom: 10px;
 }
 
