@@ -57,6 +57,7 @@ export const basicSteps = () => ({
         <h-button
             style="margin-top: 12px;"
             @click="next"
+            dark-text
         >
         Next step
         </h-button>
@@ -125,6 +126,7 @@ export const stepsWithDescription = () => ({
         <h-button
             style="margin-top: 12px;"
             @click="next"
+            dark-text
         >
         Next step
         </h-button>

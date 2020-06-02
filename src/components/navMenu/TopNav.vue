@@ -45,11 +45,13 @@ export default {
     color: $heading-grey;
     margin: 0px 35px 0px 35px;
     padding: 20px 30px 20px 30px;
+    border-radius: 30px;
   }
 
   .el-menu--horizontal > .el-submenu .el-submenu__title {
     font-size: 16px;
     color: $heading-grey;
+    border-radius: 30px;
 }
 
   // style selected submenu
