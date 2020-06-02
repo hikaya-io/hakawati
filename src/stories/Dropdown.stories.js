@@ -1,5 +1,6 @@
 import HDropdown from '../components/dropdown/HDropdown.vue'
 
+import HButton from '../components/button/HButton.vue'
 import { action } from '@storybook/addon-actions'
 
 // This is required for each story
