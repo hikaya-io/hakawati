@@ -1,4 +1,5 @@
 import HButton from '../components/button/HButton.vue'
+import CircleButton from '../components/button/CircleButton.vue'
 
 import { action } from '@storybook/addon-actions'
 
@@ -12,18 +13,14 @@ export const hButton = () => ({
   <div>
   <h-button
     @click="action"
-    size="medium"
     class="body-bold cancel-button"
-    round
   >
   Cancel
   </h-button>
   <h-button
     @click="action"
-    size="medium"
     type="primary"
     class="body-bold button-style"
-    round
   >
   Save
   </h-button>
@@ -192,56 +189,50 @@ export const plainButton = () => ({
 })
 
 export const circleButton = () => ({
-  components: { HButton },
+  components: { CircleButton },
   template: `
   <div>
-  <h-button
+  <circle-button
     @click="action"
-    size="medium"
     icon="el-icon-bell"
     circle
   >
-  </h-button>
-  <h-button
+  </circle-button>
+  <circle-button
     @click="action"
-    size="medium"
     icon="el-icon-user-solid"
     type="primary"
     circle
   >
-  </h-button>
-  <h-button
+  </circle-button>
+  <circle-button
     @click="action"
-    size="medium"
     icon="el-icon-check"
     type="success"
     circle
   >
-  </h-button>
-  <h-button
+  </circle-button>
+  <circle-button
     @click="action"
-    size="medium"
     icon="el-icon-s-tools"
     type="info"
     circle
   >
-  </h-button>
-  <h-button
+  </circle-button>
+  <circle-button
     @click="action"
-    size="medium"
     icon="el-icon-present"
     type="warning"
     circle
   >
-  </h-button>
-  <h-button
+  </circle-button>
+  <circle-button
     @click="action"
-    size="medium"
     icon="el-icon-delete"
     type="danger"
     circle
   >
-  </h-button>
+  </circle-button>
   </div>  
   `,
   methods: { action: action('click') }
