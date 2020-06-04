@@ -112,6 +112,8 @@ export default {
     color: $heading-grey;
     line-height: 19px;
     padding-top: 10px;
+    min-height: 33px;
+    height: 62px;
   }
 }
 
