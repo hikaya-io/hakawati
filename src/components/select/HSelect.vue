@@ -71,7 +71,7 @@ export default {
 
   .el-select-dropdown__item.is-disabled:hover{
     background-color: transparent;
-    color: #C0C4CC;
+    color: $light-body-grey;
     cursor: not-allowed;
   }
 
