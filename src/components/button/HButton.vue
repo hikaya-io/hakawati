@@ -3,6 +3,7 @@
     v-bind="$attrs"
     v-on="$listeners"
     :class="buttonStyle"
+    native-type="button"
   >
     <slot></slot>
   </el-button>
@@ -10,6 +11,7 @@
 <script>
 export default {
   name: 'HButton',
+  inheritAttrs: false,
   props: {
     darkText: {
       type: Boolean,
