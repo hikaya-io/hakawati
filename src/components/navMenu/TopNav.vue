@@ -32,9 +32,6 @@ export default {
 
 .top-nav {
     // style nav bar and border
-  .el-menu {
-    margin-top: 10px;
-  }
 
   .el-menu-item {
     font-family: $main-font-family;
@@ -67,7 +64,7 @@ export default {
 
   .el-menu.el-menu--horizontal {
       border-bottom: transparent;
-      padding-bottom: 10px;
+      padding: 10px 20px 10px 20px;
       vertical-align: text-bottom;
   }
 
@@ -102,13 +99,6 @@ export default {
 .el-menu--horizontal > .el-menu-item {
   margin-left: 25px;
   margin-right: 25px;
-}
-
-// style nav bar and border
-
-.el-menu.el-menu--horizontal {
-    border-bottom: transparent;
-    padding-bottom: 10px;
 }
 
 // style selected tab
