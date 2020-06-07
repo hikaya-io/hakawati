@@ -120,22 +120,29 @@ table {
 
 // styles table multiple selection
 .el-checkbox__input.is-indeterminate .el-checkbox__inner {
-    background-color: $primary-color-sub;
-    border-color: $primary-color-sub;
-    padding: 0 0 0 15px;;
+    background-color: $background-color;
+    border-color: $primary-color;
+}
+
+.el-checkbox__input.is-indeterminate .el-checkbox__inner::before{
+    background-color: $primary-color;
 }
 
 .el-checkbox__input.is-checked .el-checkbox__inner {
-    background-color: $primary-color-sub;
-    border-color: $primary-color-sub;
+    background-color: $background-color;
+    border-color: $primary-color;
+}
+
+.el-checkbox__input.is-checked .el-checkbox__inner::after{
+ border-color: $primary-color;
 }
 
 .el-checkbox__input.is-focus .el-checkbox__inner {
-    border-color: $primary-color-sub;
+    border-color: $primary-color;
 }
 
 .el-checkbox__input:hover .el-checkbox__inner {
-    border-color: $primary-color-sub;
+    border-color: $primary-color;
 }
 
 </style>
