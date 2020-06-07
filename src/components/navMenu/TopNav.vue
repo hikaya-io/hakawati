@@ -32,16 +32,16 @@ export default {
 
 .top-nav {
     // style nav bar and border
-
   .el-menu-item {
     font-family: $main-font-family;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
-    line-height: 19px;
     color: $heading-grey;
-    margin: 0px 35px 0px 35px;
-    padding: 20px 30px 20px 30px;
+    padding: 0px 25px;
+    margin-top: 5px;
+    height: 50px;
+    line-height: 50px;
     border-radius: 30px;
   }
 
@@ -74,6 +74,10 @@ export default {
     background-color: $primary-fill;
     border-radius: 30px;
     text-align: center;
+    padding: 0px 25px;
+    margin-top: 5px;
+    height: 50px;
+    line-height: 50px;
   }
 
   // style selected tab
@@ -93,6 +97,10 @@ export default {
     background-color: $primary-fill;
     text-align: center;
     border-radius: 30px;
+    padding: 0px 25px;
+    margin-top: 5px;
+    height: 50px;
+    line-height: 50px;
   }
 }
 
