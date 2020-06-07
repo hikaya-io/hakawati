@@ -1,5 +1,6 @@
 <template>
-  <el-form-item class="h-input">
+  <div class="h-input">
+  <el-form-item>
     <div
       v-if="label"
       slot="label"
@@ -19,6 +20,7 @@
       <slot></slot>
     </el-input>
   </el-form-item>
+  </div>
 </template>
 
 <script>
@@ -108,9 +110,7 @@ export default {
   }
   .el-textarea__inner {
     font-family: $main-font-family;
-    font-size: 16px;
     color: $heading-grey;
-    line-height: 19px;
     padding-top: 10px;
   }
 }

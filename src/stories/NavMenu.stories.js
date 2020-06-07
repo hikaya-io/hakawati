@@ -7,7 +7,7 @@ export default { title: 'Nav Menu' }
 export const topNav = () => ({
   components: { TopNav },
   template: `
-  <top-nav class="top-nav"default-active="1">
+  <top-nav default-active="1">
       <el-menu-item index="1">Maps</el-menu-item>
       <el-menu-item index="2">Tables</el-menu-item>
       <el-menu-item index="3" disabled>Reports</el-menu-item>
@@ -30,7 +30,7 @@ export const topNav = () => ({
 export const collapseNav = () => ({
   components: { CollapseNav },
   template: `
-  <collapse-nav class="map-nav" default-active="1">
+  <collapse-nav default-active="1">
   <el-menu-item index="2">
   <i class="el-icon-location"></i>
   <span slot="title">Admin boundary</span>

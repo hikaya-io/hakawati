@@ -1,11 +1,12 @@
 <template>
-  <el-form
-    v-bind="$attrs"
-    v-on="$listeners"
-    class="h-form"
-  >
-    <slot />
-  </el-form>
+  <div class="h-form">
+    <el-form
+      v-bind="$attrs"
+      v-on="$listeners"
+    >
+      <slot />
+    </el-form>
+  </div>
 </template>
 
 <script>

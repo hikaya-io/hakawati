@@ -29,11 +29,5 @@ export default {
   .el-icon-arrow-down {
     font-size: 14px;
   }
-
-  .el-button {
-  font-size: 16px;
-  font-weight: bold;
-  font-family: $main-font-family;
-  }
 }
 </style>
