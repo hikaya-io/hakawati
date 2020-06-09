@@ -61,6 +61,7 @@ import GroupedSelect from './components/select/GroupedSelect.vue'
 
 // Steps
 import HSteps from './components/steps/HSteps.vue'
+import Steps from './components/steps/Steps.vue'
 
 // Switch
 import HSwitch from './components/switch/HSwitch.vue'
@@ -105,6 +106,7 @@ const components = [
   HDatePicker,
   DateRangePicker,
   HSteps,
+  Steps,
   HDrawer,
   HPagination,
   HPageSize,
@@ -150,6 +152,7 @@ export default {
   HDatePicker,
   DateRangePicker,
   HSteps,
+  Steps,
   HDrawer,
   HPagination,
   HPageSize,

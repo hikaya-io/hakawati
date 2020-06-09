@@ -1,11 +1,54 @@
+import Steps from '../components/steps/Steps.vue'
 import HSteps from '../components/steps/HSteps.vue'
 
 import HButton from '../components/button/HButton.vue'
 
 export default { title: 'Steps' }
 
-export const basicSteps = () => ({
+export const layerSteps = () => ({
   components: { HSteps, HButton },
+  methods: {
+    next () {
+      if (this.active++ >= this.steps.length) this.active = 0
+    }
+  },
+  data () {
+    return {
+      active: 0,
+      steps: [
+        {
+          title: 'Value column'
+        },
+        {
+          title: 'Location column'
+        },
+        {
+          title: 'Tooltip description'
+
+        }
+      ]
+    }
+  },
+  template: `
+    <div> Layer steps
+        <h-steps 
+            :steps="steps"
+            :active="active"
+        />
+    <br>
+        <h-button
+            style="margin-top: 12px;"
+            @click="next"
+            dark-text
+        >
+        Next step
+        </h-button>
+    </div>
+    `
+})
+
+export const basicSteps = () => ({
+  components: { Steps, HButton },
   data () {
     return {
       active: 0,
@@ -25,20 +68,20 @@ export const basicSteps = () => ({
   template: `
     <div>
     Default
-        <h-steps
+        <steps
             :active="active"
             class="body-reg"
         />
     <br>
     Passing array of steps
-        <h-steps
+        <steps
             :steps="steps"
             :active="active"
             class="body-reg"
         />
     <br>
     Change direction to horizontal
-        <h-steps
+        <steps
             :steps="steps"
             direction="vertical"
             :active="active"
@@ -46,7 +89,7 @@ export const basicSteps = () => ({
         />
     <br>
     Simple Step bar
-        <h-steps
+        <steps
             :steps="steps"
             :isSimple="true"
             orientation="vertical"
@@ -57,6 +100,7 @@ export const basicSteps = () => ({
         <h-button
             style="margin-top: 12px;"
             @click="next"
+            dark-text
         >
         Next step
         </h-button>
@@ -64,7 +108,7 @@ export const basicSteps = () => ({
 })
 
 export const stepsWithDescription = () => ({
-  components: { HSteps, HButton },
+  components: { Steps, HButton },
   methods: {
     next () {
       if (this.active++ >= this.steps.length) this.active = 0
@@ -111,13 +155,13 @@ export const stepsWithDescription = () => ({
   template: `
     <div>Vertical step bar
     Default
-        <h-steps 
+        <steps 
             :active="active"
             class="body-reg"
         />
     <br>
     Passing array of steps
-        <h-steps
+        <steps
             :steps="stepsWithDesc"
             :active="active"
             class="body-reg"
@@ -125,6 +169,7 @@ export const stepsWithDescription = () => ({
         <h-button
             style="margin-top: 12px;"
             @click="next"
+            dark-text
         >
         Next step
         </h-button>
