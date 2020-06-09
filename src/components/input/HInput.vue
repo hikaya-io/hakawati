@@ -112,6 +112,8 @@ export default {
     font-family: $main-font-family;
     color: $heading-grey;
     padding-top: 10px;
+    min-height: 33px;
+    height: 62px;
   }
 }
 
