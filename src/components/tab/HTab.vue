@@ -1,10 +1,9 @@
 
 <template>
-  <div>
+  <div :class="className">
       <el-tabs
         v-bind="$attrs"
         v-on="$listeners"
-        :class="className"
       >
           <slot></slot>
       </el-tabs>
@@ -28,7 +27,7 @@ export default {
   },
   data: function () {
     return {
-      className: { 'h-tab': true }
+      className: { 'vertical-card-tab': true }
     }
   },
   created () {
@@ -55,7 +54,7 @@ export default {
     margin: 10px 10px 10px 0px;
   }
 
-.h-tab {
+.vertical-card-tab {
   // tab styling
   .el-tabs--left .el-tabs__item.is-left{
     text-align: left;
