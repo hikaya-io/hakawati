@@ -1,10 +1,10 @@
 <template>
-  <div class="h-step">
+  <div class="step">
     <el-steps
       :active="active"
       finish-status="success"
+      :simple="isSimple"
       :direction="direction"
-      simple
     >
       <el-step
         v-for="(step, i) in steps"
@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: 'HSteps',
+  name: 'Steps',
   props: {
     steps: {
       type: Array,
@@ -42,6 +42,10 @@ export default {
       type: Number,
       default: 0
     },
+    isSimple: {
+      type: Boolean,
+      default: false
+    },
     direction: {
       type: String,
       default: 'horizontal'
@@ -56,43 +60,18 @@ export default {
 <style lang="scss">
 @import "../../styles/theme";
 
-.h-step {
+.step {
   .el-step__head.is-success {
-    color: transparent;
-    border-color: transparent;
+    color: $primary-color;
+    border-color: $primary-color;
   }
 
-  .el-step__title {
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      padding: 13px 33px;
-      border-radius: 25px;
-
-    &.is-process {
-      color: $primary-color;
-      background: $primary-fill;
-    }
-
-    &.is-wait {
-      color: $light-body-grey;
-      background: #fff;
-    }
-
-    &.is-success {
-      color: $light-body-grey;
-      background: $primary-fill;
-    }
+  .el-step__title.is-success {
+    color: $primary-color;
   }
 
-  .el-step__icon.is-text {
-    border: 0px;
-  }
-
-  .el-icon-check:before {
-    content: "";
-  }
-
-  .el-steps--simple {
-    background: $background-color;
+  .el-step__description.is-success {
+    color: $primary-color;
   }
 }
 </style>

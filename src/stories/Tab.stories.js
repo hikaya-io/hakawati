@@ -10,9 +10,8 @@ export const hTab = () => ({
   components: { HTab },
   template: `
     <h-tab
-      activeName="first"
-      tabPosition="left"
-      class="h-tab"
+      v-model="active"
+      tab-position="left"
     >
       <el-tab-pane label="Workspace Settings" disabled></el-tab-pane>
       <el-tab-pane label="Workspace 1" disabled></el-tab-pane>
@@ -22,7 +21,12 @@ export const hTab = () => ({
       <el-tab-pane label="Settings" name="fourth">Settings</el-tab-pane>
     </h-tab>
     `,
-  methods: { action: action('click') }
+  methods: { action: action('click') },
+  data: function () {
+    return {
+      active: 'first'
+    }
+  }
 })
 
 export const basicTab = () => ({
@@ -30,8 +34,8 @@ export const basicTab = () => ({
   template: `
   <div>
   <h-tab
-    activeName="first"
-    class="basic-tab"
+    v-model="active"
+    basic
   >
     <el-tab-pane label="Maps" name="first">Maps</el-tab-pane>
     <el-tab-pane label="Dashboards" name="second">Dashboards</el-tab-pane>
@@ -40,7 +44,12 @@ export const basicTab = () => ({
   </h-tab>
   </div>
   `,
-  methods: { action: action('click') }
+  methods: { action: action('click') },
+  data: function () {
+    return {
+      active: 'first'
+    }
+  }
 })
 
 export const cardTab = () => ({
@@ -66,9 +75,9 @@ export const verticalTab = () => ({
   template: `
     <div>
     <h-tab
-      activeName="first"
-      tabPosition="left"
-      class="vertical-tab"
+      v-model="active"
+      tab-position="left"
+      vertical
     >
       <el-tab-pane label="Maps" name="first">Maps</el-tab-pane>
       <el-tab-pane label="Dashboards" name="second">Dashboards</el-tab-pane>
@@ -77,5 +86,10 @@ export const verticalTab = () => ({
     </h-tab>
     </div>
     `,
-  methods: { action: action('click') }
+  methods: { action: action('click') },
+  data: function () {
+    return {
+      active: 'first'
+    }
+  }
 })

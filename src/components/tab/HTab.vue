@@ -1,12 +1,9 @@
 
 <template>
-  <div>
+  <div :class="className">
       <el-tabs
-        v-model="activeName"
-        :title="title"
-        :tab-position="tabPosition"
-        :type="type"
-        @tab-click="$emit('click')"
+        v-bind="$attrs"
+        v-on="$listeners"
       >
           <slot></slot>
       </el-tabs>
@@ -19,26 +16,25 @@
 export default {
   name: 'HTab',
   props: {
-    title: {
-      type: String,
-      default: ''
+    basic: {
+      type: Boolean,
+      default: false
     },
-    tabPosition: {
-      type: String,
-      default: ''
-    },
-    activeName: {
-      type: String,
-      default: ''
-    },
-    type: {
-      type: String,
-      default: ''
+    vertical: {
+      type: Boolean,
+      default: false
     }
   },
-  methods: {
-    click (tab, event) {
-      console.log(tab, event)
+  data: function () {
+    return {
+      className: { 'vertical-card-tab': true }
+    }
+  },
+  created () {
+    if (this.basic) {
+      this.className = { 'basic-tab': true }
+    } else if (this.vertical) {
+      this.className = { 'vertical-tab': true }
     }
   }
 }
@@ -58,7 +54,7 @@ export default {
     margin: 10px 10px 10px 0px;
   }
 
-.h-tab {
+.vertical-card-tab {
   // tab styling
   .el-tabs--left .el-tabs__item.is-left{
     text-align: left;
