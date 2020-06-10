@@ -1,13 +1,14 @@
 <template>
   <el-table
     ref="multipleTable"
-    @selection-change="handleSelectionChange"
+    @current-change="handleSelectionChange"
     :data="tableData"
     :default-sort="{prop: 'date', order: 'descending'}"
     style="width: 100%"
+    highlight-current-row
   >
     <el-table-column
-      type="selection"
+      type="index"
       width="55"
     />
     <el-table-column
@@ -23,7 +24,7 @@
 
 <script>
 export default {
-  name: 'HTable',
+  name: 'HkoboTable',
   props: ['tableData'],
   data () {
     return {
@@ -148,4 +149,5 @@ table {
 .el-table--group::after, .el-table--border::after, .el-table::before{
   background-color: transparent;
 }
+
 </style>
