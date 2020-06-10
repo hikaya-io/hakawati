@@ -1,4 +1,5 @@
 import HTable from '../components/table/HTable.vue'
+import HkoboTable from '../components/table/HKoboTable.vue'
 import TableBasic from '../components/table/TableBasic.vue'
 import TableWithBorder from '../components/table/TableWithBorder.vue'
 import TableWithExpandableRow from '../components/table/TableWithExpandableRow.vue'
@@ -26,6 +27,18 @@ export const hTable = () => ({
     }
   },
   template: '<h-table :tableData="tableData" />'
+})
+
+export const hKoboTable = () => ({
+  components: {
+    HkoboTable
+  },
+  data () {
+    return {
+      tableData: tableData
+    }
+  },
+  template: '<hkobo-table :tableData="tableData" />'
 })
 
 export const tableBasic = () => ({

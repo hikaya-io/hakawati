@@ -71,6 +71,7 @@ import HTab from './components/tab/HTab.vue'
 
 // Table
 import HTable from './components/table/HTable.vue'
+import HkoboTable from './components/table/HKoboTable.vue'
 
 // Tag
 import HTag from './components/tag/HTag.vue'
@@ -93,6 +94,7 @@ const components = [
   TopNav,
   CollapseNav,
   HTable,
+  HkoboTable,
   UploadExcel,
   HDropdown,
   HAlert,
@@ -139,6 +141,7 @@ export default {
   TopNav,
   CollapseNav,
   HTable,
+  HkoboTable,
   UploadExcel,
   HDropdown,
   HAlert,
