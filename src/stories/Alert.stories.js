@@ -20,18 +20,24 @@ export const hAlert = () => ({
       <h-alert
         title="Info alert"
         type="info"
+        center
+        closable
       />
     </div>
     <div style='margin-bottom:15px'>
       <h-alert
         title="Warning alert"
         type="warning"
+        center
+        closable
       />
     </div>
     <div style='margin-bottom:15px'>
       <h-alert
         title="Error alert"
         type="error"
+        center
+        closable
       />
     </div>
   </div>
