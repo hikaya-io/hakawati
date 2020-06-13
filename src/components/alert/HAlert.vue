@@ -1,29 +1,18 @@
 <template>
   <el-alert
     class="h-alert"
-    :title="title"
-    :type="type"
-    :description="description"
-  />
+    v-bind="$props"
+  >
+    <template v-for="(index, name) in $slots" v-slot:[name]>
+      <slot :name="name" />
+    </template>
+  </el-alert>
 </template>
 
 <script>
 export default {
   name: 'HAlert',
-  props: {
-    title: {
-      type: String,
-      default: ''
-    },
-    type: {
-      type: String,
-      default: ''
-    },
-    description: {
-      type: String,
-      default: ''
-    }
-  }
+  props: ['title', 'type', 'description', 'closable', 'show-icon', 'center', 'close-text', 'effect']
 }
 </script>
 

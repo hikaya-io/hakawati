@@ -9,27 +9,35 @@ export const hAlert = () => ({
   template: `
   <div>
     <div style='margin-bottom:15px'>
-      <h-alert 
-        title="Success alert" 
+      <h-alert
+        title="Success alert"
         type="success"
-      /> 
+        center
+        closable
+      />
     </div>
     <div style='margin-bottom:15px'>
-      <h-alert 
-        title="Info alert" 
+      <h-alert
+        title="Info alert"
         type="info"
+        center
+        closable
       />
     </div>
     <div style='margin-bottom:15px'>
-      <h-alert 
-        title="Warning alert" 
+      <h-alert
+        title="Warning alert"
         type="warning"
+        center
+        closable
       />
     </div>
     <div style='margin-bottom:15px'>
-      <h-alert 
-        title="Error alert" 
+      <h-alert
+        title="Error alert"
         type="error"
+        center
+        closable
       />
     </div>
   </div>
@@ -77,33 +85,89 @@ export const descriptionAlert = () => ({
   template: `
   <div>
     <div style='margin-bottom:15px'>
-      <h-alert 
-        type="success" 
-        title="Alert title" 
+      <h-alert
+        type="success"
+        title="Alert title"
         description="Add description here"
       />
     </div>
     <div style='margin-bottom:15px'>
-      <h-alert 
+      <h-alert
         type="info"
-        title="Info alert" 
+        title="Info alert"
         description="Add description here"
       />
     </div>
     <div style='margin-bottom:15px'>
-    <h-alert 
+    <h-alert
         type="warning"
-        title="Warning alert" 
+        title="Warning alert"
         description="Add description here"
       />
     </div>
     <div style='margin-bottom:15px'>
-      <h-alert 
+      <h-alert
         type="error"
-        title="Error alert" 
+        title="Error alert"
         description="Add description here"
       />
     </div>
+  </div>
+      `
+})
+
+export const usingSlot = () => ({
+  components: { HAlert },
+  template: `
+  <div>
+    <div style='margin-bottom:15px'>
+      <h-alert
+        type="success"
+      >
+        <slot name="title">
+          <div>
+            The title can also be passed as a slot
+          </div>
+        </slot>
+        <slot name="description">
+          <div>
+           Something desctipion here you can use any kind of html <i>here </i>
+          </div>
+        </slot>
+      </h-alert>
+    </div>
+    <div style='margin-bottom:15px'>
+    <h-alert
+      type="info"
+    >
+      <slot name="title">
+        <div>
+          The title can also be passed as a slot
+        </div>
+      </slot>
+      <slot name="description">
+        <div>
+         Something desctipion here you can use any kind of html <i>here </i>
+        </div>
+      </slot>
+    </h-alert>
+  </div>
+  <div style='margin-bottom:15px'>
+  <h-alert
+    type="error"
+  >
+    <slot name="title">
+      <div>
+        The title can also be passed as a slot
+      </div>
+    </slot>
+    <slot name="description">
+      <div>
+       Something desctipion here you can use any kind of html <i>here </i>
+      </div>
+    </slot>
+  </h-alert>
+</div>
   </div>
       `
 })
