@@ -3,8 +3,8 @@
 // Color Palette
 $white: #fff;
 $black: #000;
-$blue: #3333FF;
-$blue-sub: #6666FF;
+$blue: #4B3EF9;
+$blue-sub: #6633FF;
 $cyan: #33CCCC;
 
 // $orange: #FF8360;
@@ -13,9 +13,9 @@ $red: #FF3333;
 $yellow: #F9C80E;
 $purple: #6633CC;
 
-$blue-fill: #EBEBFF;
+$blue-fill: #F0F0FF;
 $blue-sub-fill: #F0EBFA;
-$cyan-fill: #E9FAFA;
+$cyan-fill: #E6FFFC;
 $green-fill: #E5FAF0;
 $red-fill: #FFEBEB;
 $yellow-fill: #FEF9E7;
@@ -176,7 +176,7 @@ $dark-color: $dark-body-grey;
 }
 
 .card-shadow {
-  background: #FFFFFF;
+  background: $white;
   box-shadow: 0px 0px 17px rgba(115, 117, 129, 0.25);
   // border-radius: 20px;
 }
