@@ -95,7 +95,7 @@ export default {
   }
 
   #tab-0.el-tabs__item.is-disabled{
-    margin: 40px 20px 0px 0px;
+    margin: 30px 20px 0px 0px;
     font-size: 22px;
     color: $dark-body-grey;
   }
