@@ -47,8 +47,8 @@ export default {
     font-family: $main-font-family;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 22px;
+    line-height: 26px;
     color: $dark-body-grey;
     padding: 10px 5px 10px 20px;
     margin: 10px 10px 10px 0px;
@@ -97,12 +97,14 @@ export default {
   #tab-0.el-tabs__item.is-disabled{
     margin: 30px 20px 0px 0px;
     font-size: 22px;
+    line-height: 26px;
     color: $dark-body-grey;
   }
 
   #tab-1.el-tabs__item.is-disabled{
     margin: 0px 20px 40px 0px;
-    font-size: 16px;
+    font-size: 15px;
+    line-height: 18px;
     color: $dark-body-grey;
     }
 

@@ -45,11 +45,6 @@ export default {
 <style lang="scss">
 @import "../../styles/theme";
 
-.el-select {
-  font-family: 'Lato', sans-serif;
-  font-size: 16px;
-}
-
 li.el-select-group__title {
     font-family: $main-font-family;
     font-size: 14px;

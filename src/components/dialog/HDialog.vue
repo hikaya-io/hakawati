@@ -96,8 +96,8 @@ export default {
   font-family: $main-font-family;
   font-style: normal;
   font-weight: bold;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 22px;
+  line-height: 26px;
   padding: 30px 20px 15px 20px;
 }
 
@@ -107,8 +107,8 @@ export default {
   font-family: $main-font-family;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 14px;
+  line-height: 17px;
   padding: 15px 20px 20px 20px;
 }
 

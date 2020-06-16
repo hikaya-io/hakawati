@@ -41,8 +41,8 @@ export default {
     font-family: $main-font-family;
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
-    line-height: 19px;
+    font-size: 22px;
+    line-height: 26px;
     color: $dark-body-grey;
     padding: 0px 38px 58px 38px;
     max-height: 85%;
