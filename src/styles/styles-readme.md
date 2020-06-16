@@ -2,9 +2,9 @@
 
 |  | Color | Hex | Fill | | Hex |
 |--|--|--|--|--|--|
-| ![#3333FF](https://placehold.it/20/3333FF/000000?text=+) | $primary-color | `#3333FF` | ![#EBEBFF](https://placehold.it/20/EBEBFF/000000?text=+) | $primary-fill |`#EBEBFF`|
-| ![#6666FF](https://placehold.it/20/6666FF/000000?text=+) | $primary-color-sub | `#6666FF` | ![#F0EBFA](https://placehold.it/20/F0EBFA/000000?text=+)  | $primary-color-sub-fill |`#F0EBFA` |
-| ![#33CCCC](https://placehold.it/20/33CCCC/000000?text=+) | $secondary-color | `#33CCCC` | ![#E9FAFA](https://placehold.it/20/E9FAFA/000000?text=+) | $secondary-color-fill |`#E9FAFA` | 
+| ![#4B3EF9](https://placehold.it/20/4B3EF9/000000?text=+) | $primary-color | `#4B3EF9` | ![#F0F0FF](https://placehold.it/20/F0F0FF/000000?text=+) | $primary-fill |`#F0F0FF`|
+| ![#6633FF](https://placehold.it/20/6633FF/000000?text=+) | $primary-color-sub | `#6633FF` | ![#F0EBFA](https://placehold.it/20/F0EBFA/000000?text=+)  | $primary-color-sub-fill |`#F0EBFA` |
+| ![#33CCCC](https://placehold.it/20/33CCCC/000000?text=+) | $secondary-color | `#33CCCC` | ![#E6FFFC](https://placehold.it/20/E6FFFC/000000?text=+) | $secondary-color-fill |`#E6FFFC` | 
 ![#00CC66](https://placehold.it/20/00CC66/000000?text=+) | $success-color | `#00CC66` | ![#E5FAF0](https://placehold.it/20/E5FAF0/000000?text=+) | $success-fill | `#E5FAF0` | 
 ![#FF3333](https://placehold.it/20/FF3333/000000?text=+) | $danger-color| `#FF3333` | ![#FFEBEB](https://placehold.it/20/FFEBEB/000000?text=+) | $danger-fill | `#FFEBEB` |
 ![#F9C80E](https://placehold.it/20/F9C80E/000000?text=+) | $warning-color| `#F9C80E` | ![#FEF9E7](https://placehold.it/20/FEF9E7/000000?text=+) | $warning-fill | `#FEF9E7` |

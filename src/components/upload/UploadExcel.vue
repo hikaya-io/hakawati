@@ -16,7 +16,6 @@
       <el-button
         :loading="loading"
         style="margin-left:16px;"
-        size="mini"
         type="primary"
         @click="handleUpload"
         round
@@ -146,7 +145,7 @@ export default {
   height: 160px;
   line-height: 160px;
   margin: 0 auto;
-  font-size: 18px;
+  font-size: 22px;
   border-radius: 5px;
   text-align: center;
   color: #bbb;

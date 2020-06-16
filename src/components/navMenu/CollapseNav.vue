@@ -49,8 +49,8 @@ export default {
   .el-menu {
     font-family: $main-font-family;
     font-style: normal;
-    font-size: 16px;
-    line-height: 19px;
+    font-size: 14px;
+    line-height: 17px;
     color: $dark-body-grey;
     padding: 10px 10px 10px 10px;
     border-right: transparent;

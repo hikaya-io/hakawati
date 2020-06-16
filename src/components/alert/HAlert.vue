@@ -21,13 +21,13 @@ export default {
 
 .h-alert {
   .el-alert__title {
-      font-size: 18px;
-      line-height: 22px;
+      font-size: 14px;
+      line-height: 17px;
   }
 
   .el-alert__description {
-      font-size: 16px;
-      line-height: 19px;
+      font-size: 14px;
+      line-height: 17px;
   }
 }
 </style>

@@ -3,8 +3,8 @@
 // Color Palette
 $white: #fff;
 $black: #000;
-$blue: #3333FF;
-$blue-sub: #6666FF;
+$blue: #4B3EF9;
+$blue-sub: #6633FF;
 $cyan: #33CCCC;
 
 // $orange: #FF8360;
@@ -13,9 +13,9 @@ $red: #FF3333;
 $yellow: #F9C80E;
 $purple: #6633CC;
 
-$blue-fill: #EBEBFF;
+$blue-fill: #F0F0FF;
 $blue-sub-fill: #F0EBFA;
-$cyan-fill: #E9FAFA;
+$cyan-fill: #E6FFFC;
 $green-fill: #E5FAF0;
 $red-fill: #FFEBEB;
 $yellow-fill: #FEF9E7;
@@ -76,33 +76,23 @@ $dark-color: $dark-body-grey;
   color: $dark-body-grey;
 }
 
-/* Body Bold - Lato B16 */
-.body-bold {
-  font-family: $main-font-family;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 19px;
-  color: $dark-body-grey;
-}
-
-/* Body 2 Bold - Lato B20 */
-.body-2-bold {
-  font-family: $main-font-family;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 24px;
-  color: $dark-body-grey;
-}
-
 /* Body Reg - Lato R16 */
 .body-reg {
   font-family: $main-font-family;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 14px;
+  line-height: 17px;
+  color: $dark-body-grey;
+}
+
+/* Body Bold - Lato B16 */
+.body-bold {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
   color: $dark-body-grey;
 }
 
@@ -111,8 +101,18 @@ $dark-color: $dark-body-grey;
   font-family: $main-font-family;
   font-style: normal;
   font-weight: normal;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 22px;
+  line-height: 26px;
+  color: $dark-body-grey;
+}
+
+/* Body 2 Bold - Lato B20 */
+.body-2-bold {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 26px;
   color: $dark-body-grey;
 }
 
@@ -121,8 +121,8 @@ $dark-color: $dark-body-grey;
   font-family: $main-font-family;
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
-  line-height: 17px;
+  font-size: 15px;
+  line-height: 18px;
   color: $dark-body-grey;
 }
 
@@ -140,8 +140,8 @@ $dark-color: $dark-body-grey;
   color: $heading-grey;
   font-weight: normal;
   padding: 13px 33px;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 14px;
+  line-height: 17px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 25px;
   border: none;
@@ -164,8 +164,8 @@ $dark-color: $dark-body-grey;
   border-color: transparent;
   padding: 13px 33px;
   color: $white;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 14px;
+  line-height: 17px;
   font-weight: bold;
   font-family: $main-font-family;
   border: none;
@@ -176,7 +176,7 @@ $dark-color: $dark-body-grey;
 }
 
 .card-shadow {
-  background: #FFFFFF;
+  background: $white;
   box-shadow: 0px 0px 17px rgba(115, 117, 129, 0.25);
   // border-radius: 20px;
 }
@@ -196,11 +196,3 @@ $dark-color: $dark-body-grey;
     border-color: transparent;
   }
 }
-
-// .maps {
-//   .el-menu-item {
-//     height: auto;
-//     white-space: normal;
-//     word-break: break-word;
-//   }
-// }

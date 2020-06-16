@@ -34,6 +34,6 @@ export default {
     background-color: $primary-color-sub;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 50px;
-    font-size: 16px;
+    font-size: 14px;
 }
 </style>

@@ -16,7 +16,7 @@ export const hSwitch = () => ({
   template: `
     <div>
       <h-switch
-        activeColor="#3333FF"
+        activeColor="#4B3EF9"
         inactiveColor="#E1E1E1"
         @click="action"
       >
@@ -36,7 +36,7 @@ export const textSwitch = () => ({
   template: `
       <div>
         <h-switch
-          activeColor="#3333FF"
+          activeColor="#4B3EF9"
           inactiveColor="#E1E1E1"
           activeText="Activate user"
           inactiveText="Deactivate user"
@@ -58,7 +58,7 @@ export const disabledSwitch = () => ({
   template: `
       <div>
         <h-switch
-          activeColor="#3333FF"
+          activeColor="#4B3EF9"
           inactiveColor="#E1E1E1"
           @click="action"
           disabled
