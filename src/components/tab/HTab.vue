@@ -65,7 +65,7 @@ export default {
     background: $primary-fill;
     background-color: $primary-fill;
     border-radius: 0px 40px 40px 0px;
-    margin: 0px 35px 0px 0;
+    margin: 10px 35px 0px 0px;
   }
 
   .el-tabs__active-bar {
