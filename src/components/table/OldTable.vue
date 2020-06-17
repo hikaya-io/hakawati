@@ -1,33 +1,30 @@
 <template>
   <el-table
-    ref="HTable"
-    v-loading.fullscreen.lock="loading"
+    ref="multipleTable"
     @selection-change="handleSelectionChange"
     :data="tableData"
-    height="100vh"
+    :default-sort="{prop: 'date', order: 'descending'}"
+    style="width: 100%"
   >
     <el-table-column
       type="selection"
       width="55"
-      fixed
     />
-    <slot/>
+    <el-table-column
+      v-for="(value, key) in tableData[0]"
+      :prop="key"
+      :label="key.charAt(0).toUpperCase() + key.slice(1)"
+      :key="key"
+      sortable
+    >
+    </el-table-column>
   </el-table>
 </template>
 
 <script>
 export default {
-  name: 'HTable',
-  props: {
-    tableData: {
-      type: Array,
-      default: () => []
-    },
-    loading: {
-      type: Boolean,
-      default: false
-    }
-  },
+  name: 'OldTable',
+  props: ['tableData'],
   data () {
     return {
       multipleSelection: []
@@ -148,7 +145,4 @@ table {
     border-color: $primary-color;
 }
 
-.el-table--group::after, .el-table--border::after, .el-table::before{
-  background-color: transparent;
-}
 </style>

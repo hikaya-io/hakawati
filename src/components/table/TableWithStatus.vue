@@ -1,4 +1,5 @@
 <template>
+<div class="table-with-status">
   <el-table
     :data="tableData"
     style="width: 100%"
@@ -13,6 +14,7 @@
     >
     </el-table-column>
   </el-table>
+</div>
 </template>
 
 <script>
@@ -39,7 +41,7 @@ export default {
 
 <style lang="scss">
 @import "../../styles/theme";
-
+.table-with-status{
 .el-table {
   font-family: "Lato", sans-serif;
   font-weight: 300;
@@ -57,5 +59,6 @@ export default {
 
 .el-table .success-row {
   background: #f0f9eb;
+}
 }
 </style>

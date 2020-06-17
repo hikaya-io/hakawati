@@ -1,5 +1,6 @@
 import HTable from '../components/table/HTable.vue'
 import HkoboTable from '../components/table/HKoboTable.vue'
+import OldTable from '../components/table/OldTable.vue'
 import TableBasic from '../components/table/TableBasic.vue'
 import TableWithBorder from '../components/table/TableWithBorder.vue'
 import TableWithExpandableRow from '../components/table/TableWithExpandableRow.vue'
@@ -23,10 +24,34 @@ export const hTable = () => ({
   },
   data () {
     return {
+      tableData: tableDataNew
+    }
+  },
+  template: `
+  <h-table :tableData="tableData">
+  <el-table-column
+  v-for="(value, key) in tableData[0]"
+  :prop="key"
+  :label="key.charAt(0).toUpperCase() + key.slice(1)"
+  :key="key"
+  sortable
+  width="100px"
+>
+</el-table-column>
+  </h-table>
+  `
+})
+
+export const oldTable = () => ({
+  components: {
+    OldTable
+  },
+  data () {
+    return {
       tableData: tableData
     }
   },
-  template: '<h-table :tableData="tableData" />'
+  template: '<old-table :tableData="tableData" />'
 })
 
 export const hKoboTable = () => ({
@@ -210,7 +235,96 @@ const tableAccountantData = [{
 }
 ]
 
-const tableData = [{
+const tableData = [
+  {
+    date: '2020-05-03',
+    name: 'Tom',
+    state: 'California',
+    city: 'Los Angeles',
+    address: 'No. 189, Grove St, Los Angeles',
+    zip: 'CA 90036',
+    tag: 'Home'
+  },
+  {
+    date: '2020-07-02',
+    name: 'John',
+    state: 'Andalucia',
+    city: 'Malaga',
+    address: 'No. 11, Avenida, Malaga',
+    zip: 'CA 29011',
+    tag: 'Office'
+  },
+  {
+    date: '2020-07-02',
+    name: 'John',
+    state: 'Andalucia',
+    city: 'Malaga',
+    address: 'No. 11, Avenida, Malaga',
+    zip: 'CA 29011',
+    tag: 'School'
+  }
+]
+
+const tableDataNew = [{
+  date: '2020-05-03',
+  name: 'Tom',
+  state: 'California',
+  city: 'Los Angeles',
+  address: 'No. 189, Grove St, Los Angeles',
+  zip: 'CA 90036',
+  tag: 'Home',
+  a: '2020-05-03',
+  b: 'Tom',
+  c: 'California',
+  d: 'Los Angeles',
+  e: 'No. 189, Grove St, Los Angeles',
+  f: 'CA 90036',
+  g: 'Home',
+  h: '2020-05-03',
+  i: 'Tom',
+  j: 'California',
+  k: 'Los Angeles',
+  l: 'No. 189, Grove St, Los Angeles',
+  m: 'CA 90036',
+  n: 'Home'
+},
+{
+  date: '2020-07-02',
+  name: 'John',
+  state: 'Andalucia',
+  city: 'Malaga',
+  address: 'No. 11, Avenida, Malaga',
+  zip: 'CA 29011',
+  tag: 'School'
+},
+{
+  date: '2020-05-03',
+  name: 'Tom',
+  state: 'California',
+  city: 'Los Angeles',
+  address: 'No. 189, Grove St, Los Angeles',
+  zip: 'CA 90036',
+  tag: 'Home'
+},
+{
+  date: '2020-07-02',
+  name: 'John',
+  state: 'Andalucia',
+  city: 'Malaga',
+  address: 'No. 11, Avenida, Malaga',
+  zip: 'CA 29011',
+  tag: 'Office'
+},
+{
+  date: '2020-07-02',
+  name: 'John',
+  state: 'Andalucia',
+  city: 'Malaga',
+  address: 'No. 11, Avenida, Malaga',
+  zip: 'CA 29011',
+  tag: 'School'
+},
+{
   date: '2020-05-03',
   name: 'Tom',
   state: 'California',
