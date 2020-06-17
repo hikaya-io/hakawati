@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="cardClass">
     <el-card>
         <div slot="header">
             <slot name="title"></slot>
@@ -11,12 +11,24 @@
 
 <script>
 export default {
-  name: 'HCard'
+  name: 'HCard',
+  props: {
+    plain: Boolean
+  },
+  computed: {
+    cardClass () {
+      return this.plain ? { 'h-card': true } : { 'h-card-plain': true }
+    }
+  }
 }
 </script>
 
 <style lang="scss">
 @import "../../styles/theme";
+
+.el-card {
+  height: 100%;
+}
 
 .h-card {
   .el-card.is-always-shadow {

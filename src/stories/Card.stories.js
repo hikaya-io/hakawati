@@ -7,7 +7,7 @@ export default { title: 'Card' }
 export const hCard = () => ({
   components: { HCard },
   template: `
-  <h-card class="h-card">
+  <h-card>
     <div slot="title"
       class="body-3-bold"
     >
@@ -27,7 +27,7 @@ export const hCard = () => ({
 export const hPlainCard = () => ({
   components: { HCard },
   template: `
-  <h-card class="h-plain-card">
+  <h-card plain>
     <div slot="title"
       class="body-3-bold"
     >
