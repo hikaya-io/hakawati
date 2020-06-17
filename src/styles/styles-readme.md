@@ -49,24 +49,60 @@ $main-font-family: 'Lato', san-serif;
 ```
 
 
-####  Heading - Lato B35
+####  Heading - Lato B36
 ```
 .heading {
   font-family: $main-font-family;
   font-style: normal;
   font-weight: bold;
-  font-size: 35px;
-  line-height: 42px;
+  font-size: 36px;
+  line-height: 43px;
   color: $heading-grey;
 }
 ```
 
-#### Body Bold - Lato B18
+#### Body Bold - Lato B14
 ```
 .body-bold {
   font-family: $main-font-family;
   font-style: normal;
   font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  color: $dark-body-grey;
+}
+```
+
+#### Body Reg - Lato R14
+```
+.body-reg {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: $dark-body-grey;
+}
+```
+
+#### Body 2 Bold - Lato B18
+```
+.body-bold {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  color: $dark-body-grey;
+}
+```
+
+#### Body 2 Reg - Lato R18
+```
+.body-reg {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: normal;
   font-size: 18px;
   line-height: 22px;
   color: $dark-body-grey;
@@ -83,17 +119,7 @@ $main-font-family: 'Lato', san-serif;
   line-height: 26px;
   color: $dark-body-grey;
 }
-```
-#### Body Reg - Lato R18
-```
-.body-reg {
-  font-family: $main-font-family;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-  color: $dark-body-grey;
-}
+
 ```
 #### Body 3 Reg - Lato R22
 ```
@@ -105,6 +131,7 @@ $main-font-family: 'Lato', san-serif;
   line-height: 26px;
   color: $dark-body-grey;
 }
+
 ```
 #### Footer - Lato R15
 ```
