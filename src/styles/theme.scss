@@ -76,7 +76,7 @@ $dark-color: $dark-body-grey;
   color: $dark-body-grey;
 }
 
-/* Body Reg - Lato R16 */
+/* Body Reg - Lato R14 */
 .body-reg {
   font-family: $main-font-family;
   font-style: normal;
@@ -86,7 +86,7 @@ $dark-color: $dark-body-grey;
   color: $dark-body-grey;
 }
 
-/* Body Bold - Lato B16 */
+/* Body Bold - Lato B14 */
 .body-bold {
   font-family: $main-font-family;
   font-style: normal;
@@ -96,8 +96,28 @@ $dark-color: $dark-body-grey;
   color: $dark-body-grey;
 }
 
-/* Body 2 Reg - Lato R20 */
+/* Body 2 Reg - Lato R18 */
 .body-2-reg {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: $dark-body-grey;
+}
+
+/* Body 2 Bold - Lato B18 */
+.body-2-bold {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  color: $dark-body-grey;
+}
+
+/* Body 3 Reg - Lato R22 */
+.body-3-reg {
   font-family: $main-font-family;
   font-style: normal;
   font-weight: normal;
@@ -106,8 +126,8 @@ $dark-color: $dark-body-grey;
   color: $dark-body-grey;
 }
 
-/* Body 2 Bold - Lato B20 */
-.body-2-bold {
+/* Body 3 Bold - Lato B22 */
+.body-3-bold {
   font-family: $main-font-family;
   font-style: normal;
   font-weight: bold;
@@ -116,7 +136,7 @@ $dark-color: $dark-body-grey;
   color: $dark-body-grey;
 }
 
-/* Footer - Lato R14 */
+/* Footer - Lato R15 */
 .footer {
   font-family: $main-font-family;
   font-style: normal;

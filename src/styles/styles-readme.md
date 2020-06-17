@@ -73,9 +73,9 @@ $main-font-family: 'Lato', san-serif;
 }
 ```
 
-#### Body 2 Bold - Lato B22
+#### Body 3 Bold - Lato B22
 ```
-.body-2-bold {
+.body-3-bold {
   font-family: $main-font-family;
   font-style: normal;
   font-weight: bold;
@@ -95,9 +95,9 @@ $main-font-family: 'Lato', san-serif;
   color: $dark-body-grey;
 }
 ```
-#### Body 2 Reg - Lato R22
+#### Body 3 Reg - Lato R22
 ```
-.body-2-reg {
+.body-3-reg {
   font-family: $main-font-family;
   font-style: normal;
   font-weight: normal;

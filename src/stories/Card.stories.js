@@ -9,7 +9,7 @@ export const hCard = () => ({
   template: `
   <h-card class="h-card">
     <div slot="title"
-      class="body-2-bold"
+      class="body-3-bold"
     >
         <span>Title</span>
     </div>
@@ -29,7 +29,7 @@ export const hPlainCard = () => ({
   template: `
   <h-card class="h-plain-card">
     <div slot="title"
-      class="body-2-bold"
+      class="body-3-bold"
     >
         <span>Title</span>
     </div>
