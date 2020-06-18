@@ -29,15 +29,20 @@ export const hTable = () => ({
   },
   template: `
   <h-table :tableData="tableData">
-  <el-table-column
-  v-for="(value, key) in tableData[0]"
-  :prop="key"
-  :label="key.charAt(0).toUpperCase() + key.slice(1)"
-  :key="key"
-  sortable
-  width="100px"
->
-</el-table-column>
+    <el-table-column
+    type="selection"
+    width="55"
+    fixed
+    />
+    <el-table-column
+    v-for="(value, key) in tableData[0]"
+    :prop="key"
+    :label="key.charAt(0).toUpperCase() + key.slice(1)"
+    :key="key"
+    sortable
+    width="100px"
+    >
+    </el-table-column>
   </h-table>
   `
 })
