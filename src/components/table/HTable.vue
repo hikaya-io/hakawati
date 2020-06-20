@@ -6,11 +6,6 @@
     :data="tableData"
     height="100vh"
   >
-    <el-table-column
-      type="selection"
-      width="55"
-      fixed
-    />
     <slot/>
   </el-table>
 </template>
@@ -149,6 +144,11 @@ table {
 }
 
 .el-table--group::after, .el-table--border::after, .el-table::before{
+  background-color: transparent;
+}
+
+// Removes extra line at the bottom of the table
+.el-table__fixed::before, .el-table__fixed-right::before{
   background-color: transparent;
 }
 </style>
