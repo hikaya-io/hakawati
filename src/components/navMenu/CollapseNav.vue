@@ -8,7 +8,6 @@
     <div class="layer-heading">
       <h1 class="layer-heading--text" :class="isCollapse ? 'heading-collapse' : ''">Layers</h1>
     </div>
-      <!-- <hr class="layer-heading--line"> -->
       <slot></slot>
       <transition name="button-move">
         <el-button
@@ -159,13 +158,8 @@ export default {
   }
   .layer-heading {
     border-bottom: solid 1px $primary-background-color;
-
   &--text{
     margin: 2rem 0 2rem 1rem;
-  }
-  &--line{
-    // border-color:$primary-background-color;
-    // background-color:$primary-background-color;
   }
   }
 
