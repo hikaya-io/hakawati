@@ -5,6 +5,10 @@
       class="el-menu-vertical-demo"
       :collapse="isCollapse"
     >
+    <div class="layer-heading">
+      <h1 class="layer-heading--text" :class="isCollapse ? 'heading-collapse' : ''">Layers</h1>
+    </div>
+      <!-- <hr class="layer-heading--line"> -->
       <slot></slot>
       <transition name="button-move">
         <el-button
@@ -52,14 +56,13 @@ export default {
     font-size: 14px;
     line-height: 17px;
     color: $dark-body-grey;
-    padding: 10px 10px 10px 10px;
+    padding: 10px;
     border-right: transparent;
 
       .el-button {
         position: absolute;
         transition: left 0.4s;
         top: 15px;
-        right: -15px;
         z-index: 10;
 
       .button-arrow {
@@ -107,8 +110,11 @@ export default {
   }
 
   .el-menu-item {
-    line-height: 50px;
+    line-height: 20px;
     color: $dark-body-grey;
+  }
+  .el-menu.el-menu--inline > li {
+    padding: 0px 17px !important;
   }
 
   .el-menu-item:hover, .el-menu-item:focus {
@@ -127,5 +133,45 @@ export default {
   .el-submenu__title:hover {
     background-color: transparent;
   }
+  .el-menu--collapse{
+    width: 0;
+    padding: 0;
+  }
+  .el-menu-vertical-demo.el-menu{
+    height: 95vh;
+    right: 10px;
+  }
+  .el-button.el-button--default.el-button--mini.is-circle{
+    right: -48px;
+    padding: 10px 15px;
+    border-radius: 0 20px 20px 0;
+  }
+  .el-button.el-button--default.el-button--mini.is-circle.btn-not-collapse{
+    right: -15px;
+    padding: 10px;
+    border-radius: 50%;
+  }
+  .el-icon-arrow-right.button-arrow{
+    font-size: 1rem;
+  }
+  .el-icon-arrow-left.button-arrow{
+    font-size: 1rem;
+  }
+  .layer-heading {
+    border-bottom: solid 1px $primary-background-color;
+
+  &--text{
+    margin: 2rem 0 2rem 1rem;
+  }
+  &--line{
+    // border-color:$primary-background-color;
+    // background-color:$primary-background-color;
+  }
+  }
+
+  .heading-collapse{
+    color: transparent;
+  }
+
 }
 </style>
