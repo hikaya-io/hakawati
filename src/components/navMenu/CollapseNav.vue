@@ -6,7 +6,7 @@
       :collapse="isCollapse"
     >
     <div class="layer-heading">
-      <h1 class="layer-heading--text" :class="isCollapse ? 'heading-collapse' : ''">Layers</h1>
+      <h1 class="layer-heading--text" :class="isCollapse ? 'heading-collapse' : ''"><slot name="header"></slot></h1>
     </div>
       <slot></slot>
       <transition name="button-move">
@@ -111,6 +111,7 @@ export default {
 
   .el-menu-item {
     line-height: 20px;
+    height: 2rem;
     color: $dark-body-grey;
   }
   .el-menu.el-menu--inline > li {
