@@ -98,6 +98,7 @@ export default {
   .el-submenu__title {
     line-height: 50px;
     color: $dark-body-grey;
+    font-weight: bold;
   }
   &.is-active {
     color: $primary-color;
