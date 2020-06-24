@@ -239,7 +239,8 @@ export const textButton = () => ({
     size="medium"
     type="text"
     dark-text
-    round
+    class="text-style"
+    icon="el-icon-guide"
   >
   Text button
   </h-button>
@@ -248,7 +249,7 @@ export const textButton = () => ({
     size="medium"
     type="text"
     disabled
-    round
+    class="text-style"
   >
   Text button
   </h-button>
@@ -263,7 +264,7 @@ export const workspaceButton = () => ({
   <h-button
     @click="action"
     size="medium"
-    icon="el-icon-circle-plus-outline"
+    icon="el-icon-plus"
     workspace-button
   >
   Add Workspace
