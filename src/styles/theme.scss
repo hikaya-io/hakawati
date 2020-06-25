@@ -191,6 +191,23 @@ $dark-color: $dark-body-grey;
   border: none;
 }
 
+.text-style {
+  border-radius: 25px;
+  color: $heading-grey;
+  font-size: 14px;
+  line-height: 17px;
+  box-shadow: none;
+
+  &:hover {
+    color: $primary-color;
+    background-color: $primary-fill;
+  }
+  &:active, :focus {
+    color: $primary-color;
+    background-color: $primary-fill;
+  }
+}
+
 .h-border {
   border-radius: 5px;
 }
