@@ -212,7 +212,7 @@ export const drawerCustomOverlayColor = () => ({
       :wrapper-closable="true"
       :modal="true"
       class="body-bold"
-      overlay-color="rgba(255, 0, 0, 0.30)"
+      overlay-color="rgba(255, 255, 255, 0.10)"
     >
       <span
         class="body-reg"
