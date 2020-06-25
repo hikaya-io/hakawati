@@ -70,6 +70,7 @@ export default {
 <style lang="scss">
   .h-grid {
     overflow: hidden;
+    overflow-y: scroll;
     padding: 20px;
   }
 </style>

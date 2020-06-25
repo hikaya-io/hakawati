@@ -2,6 +2,7 @@
   <el-drawer
     v-bind="$attrs"
     v-on="$listeners"
+    :style="cssVars"
   >
     <slot></slot>
   </el-drawer>
@@ -9,7 +10,20 @@
 
 <script>
 export default {
-  name: 'HDrawer'
+  name: 'HDrawer',
+  props: {
+    overlayColor: {
+      type: String,
+      default: 'rgba(255,255,255,0)'
+    }
+  },
+  computed: {
+    cssVars () {
+      return {
+        '--overlay-color': this.overlayColor
+      }
+    }
+  }
 }
 </script>
 
@@ -70,6 +84,10 @@ export default {
         -webkit-animation: ltr-drawer-in 0.5s 1ms;
         animation: ltr-drawer-in 0.5s 1ms;
     }
+}
+
+.el-drawer__container {
+  background-color: var(--overlay-color);
 }
 
 .el-icon-close:before {
