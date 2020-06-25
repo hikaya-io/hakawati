@@ -8,7 +8,9 @@
     <div class="layer-heading">
       <h1 class="layer-heading--text" :class="isCollapse ? 'heading-collapse' : ''"><slot name="header"></slot></h1>
     </div>
+    <div class="layer-content">
       <slot></slot>
+    </div>
       <transition name="button-move">
         <el-button
           v-bind:icon="isCollapse ? 'el-icon-arrow-right button-arrow' : 'el-icon-arrow-left button-arrow'"
@@ -79,7 +81,7 @@ export default {
   }
 
   .el-menu:not(.el-menu--collapse) {
-      width: 250px;
+      width: 350px;
   }
   &:hover {
   background: none !important;
@@ -168,6 +170,21 @@ export default {
   .heading-collapse{
     color: transparent;
   }
-
+  .layer-content{
+    overflow-y: scroll;
+    height: 85vh;
+  }
+  .el-checkbox__label{
+    width: 290px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .table-list{
+    width: 290px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 </style>

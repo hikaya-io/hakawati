@@ -32,33 +32,86 @@ export const collapseNav = () => ({
   components: { CollapseNav, BasicCheckbox },
   template: `
   <collapse-nav default-active='1'>
-  <template v-slot:header>Layers</template>
-  <el-submenu index='1'>
-    <template slot='title'>
-      <span slot='title'>Table 1</span>
-    </template>
-    <el-menu-item index='1-1'>
-      <basic-checkbox class='body-reg'>
-        Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1
-      </basic-checkbox>
-    </el-menu-item>
-    <el-menu-item index='1-2'>
-      <basic-checkbox class='body-reg'>Layer 2</basic-checkbox>
-    </el-menu-item>
-  </el-submenu>
-  <el-submenu index='2'>
-    <template slot='title'>
-      <span slot='title'>
-        Table 2Table 2Table 2Table 2Table 2Table 2Table 2
-      </span>
-    </template>
-    <el-menu-item index='2-1'>
-      <basic-checkbox class='body-reg'>Layer 1</basic-checkbox>
-    </el-menu-item>
-    <el-menu-item index='2-2'>
-      <basic-checkbox class='body-reg'>Layer 2</basic-checkbox>
-    </el-menu-item>
-  </el-submenu>
+    <template v-slot:header>Layers</template>
+    <el-submenu index='1'>
+      <template slot='title'>
+        <div class='table-list' slot='title'>
+          Table 1
+        </div>
+      </template>
+      <el-menu-item index='1-1'>
+        <basic-checkbox class='body-reg'>
+          Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer
+          1Layer 1Layer 1Layer 1
+        </basic-checkbox>
+      </el-menu-item>
+      <el-menu-item index='1-2'>
+        <basic-checkbox class='body-reg'>Layer 2</basic-checkbox>
+      </el-menu-item>
+      <el-menu-item index='1-3'>
+        <basic-checkbox class='body-reg'>
+          Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer
+          1Layer 1Layer 1Layer 1
+        </basic-checkbox>
+      </el-menu-item>
+      <el-menu-item index='1-4'>
+        <basic-checkbox class='body-reg'>Layer 2</basic-checkbox>
+      </el-menu-item>
+    </el-submenu>
+    <el-submenu index='2'>
+      <template slot='title'>
+        <div class='table-list' slot='title'>
+          Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table
+          2Table 2Table 2Table 2
+        </div>
+      </template>
+      <el-menu-item index='2-1'>
+        <basic-checkbox class='body-reg'>Layer 1</basic-checkbox>
+      </el-menu-item>
+      <el-menu-item index='2-2'>
+        <basic-checkbox class='body-reg'>Layer 2</basic-checkbox>
+      </el-menu-item>
+    </el-submenu>
+    <el-submenu index='3'>
+      <template slot='title'>
+        <div class='table-list' slot='title'>
+          Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table
+          2Table 2Table 2Table 2
+        </div>
+      </template>
+      <el-menu-item index='3-1'>
+        <basic-checkbox class='body-reg'>Layer 1</basic-checkbox>
+      </el-menu-item>
+      <el-menu-item index='3-2'>
+        <basic-checkbox class='body-reg'>Layer 2</basic-checkbox>
+      </el-menu-item>
+    </el-submenu>
+    <el-submenu index='4'>
+      <template slot='title'>
+        <div class='table-list' slot='title'>
+          Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table
+          2Table 2Table 2Table 2
+        </div>
+      </template>
+      <el-menu-item index='4-1'>
+        <basic-checkbox class='body-reg'>Layer 1</basic-checkbox>
+      </el-menu-item>
+      <el-menu-item index='4-2'>
+        <basic-checkbox class='body-reg'>Layer 2</basic-checkbox>
+      </el-menu-item>
+      <el-menu-item index='4-3'>
+        <basic-checkbox class='body-reg'>Layer 1</basic-checkbox>
+      </el-menu-item>
+      <el-menu-item index='4-4'>
+        <basic-checkbox class='body-reg'>Layer 2</basic-checkbox>
+      </el-menu-item>
+      <el-menu-item index='4-5'>
+        <basic-checkbox class='body-reg'>Layer 1</basic-checkbox>
+      </el-menu-item>
+      <el-menu-item index='4-6'>
+        <basic-checkbox class='body-reg'>Layer 2</basic-checkbox>
+      </el-menu-item>
+    </el-submenu>
   </collapse-nav>
   `
 })
