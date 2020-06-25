@@ -5,7 +5,12 @@
       class="el-menu-vertical-demo"
       :collapse="isCollapse"
     >
+    <div class="layer-heading">
+      <h1 class="layer-heading--text" :class="isCollapse ? 'heading-collapse' : ''"><slot name="header"></slot></h1>
+    </div>
+    <div class="layer-content">
       <slot></slot>
+    </div>
       <transition name="button-move">
         <el-button
           v-bind:icon="isCollapse ? 'el-icon-arrow-right button-arrow' : 'el-icon-arrow-left button-arrow'"
@@ -52,14 +57,13 @@ export default {
     font-size: 14px;
     line-height: 17px;
     color: $dark-body-grey;
-    padding: 10px 10px 10px 10px;
+    padding: 10px;
     border-right: transparent;
 
       .el-button {
         position: absolute;
         transition: left 0.4s;
         top: 15px;
-        right: -15px;
         z-index: 10;
 
       .button-arrow {
@@ -77,7 +81,7 @@ export default {
   }
 
   .el-menu:not(.el-menu--collapse) {
-      width: 250px;
+      width: 350px;
   }
   &:hover {
   background: none !important;
@@ -96,6 +100,7 @@ export default {
   .el-submenu__title {
     line-height: 50px;
     color: $dark-body-grey;
+    font-weight: bold;
   }
   &.is-active {
     color: $primary-color;
@@ -107,8 +112,12 @@ export default {
   }
 
   .el-menu-item {
-    line-height: 50px;
+    line-height: 20px;
+    height: 2rem;
     color: $dark-body-grey;
+  }
+  .el-menu.el-menu--inline > li {
+    padding: 0px 17px !important;
   }
 
   .el-menu-item:hover, .el-menu-item:focus {
@@ -127,5 +136,53 @@ export default {
   .el-submenu__title:hover {
     background-color: transparent;
   }
+  .el-menu--collapse{
+    width: 0;
+    padding: 0;
+  }
+  .el-menu-vertical-demo.el-menu{
+    height: 95vh;
+    right: 10px;
+  }
+  .el-button.el-button--default.el-button--mini.is-circle{
+    right: -48px;
+    padding: 10px 15px;
+    border-radius: 0 20px 20px 0;
+  }
+  .el-button.el-button--default.el-button--mini.is-circle.btn-not-collapse{
+    right: -15px;
+    padding: 10px;
+    border-radius: 50%;
+  }
+  .el-icon-arrow-right.button-arrow{
+    font-size: 1rem;
+  }
+  .el-icon-arrow-left.button-arrow{
+    font-size: 1rem;
+  }
+  .layer-heading {
+    border-bottom: solid 1px $primary-background-color;
+  &--text{
+    margin: 2rem 0 2rem 1rem;
+  }
+  }
+
+  .heading-collapse{
+    color: transparent;
+  }
+  .layer-content{
+    overflow-y: scroll;
+    height: 85vh;
+  }
+  .el-checkbox__label, .table-list{
+    width: 290px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.el-tooltip__popper.is-dark{
+  width: 21rem;
 }
 </style>

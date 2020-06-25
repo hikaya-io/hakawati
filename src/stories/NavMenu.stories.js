@@ -1,5 +1,6 @@
 import TopNav from '../components/navMenu/TopNav.vue'
 import CollapseNav from '../components/navMenu/CollapseNav.vue'
+import BasicCheckbox from '../components/checkbox/BasicCheckbox.vue'
 
 // This is required for each story
 export default { title: 'Nav Menu' }
@@ -28,38 +29,125 @@ export const topNav = () => ({
 })
 
 export const collapseNav = () => ({
-  components: { CollapseNav },
+  components: { CollapseNav, BasicCheckbox },
   template: `
-  <collapse-nav default-active="1">
-  <el-menu-item index="2">
-  <i class="el-icon-location"></i>
-  <span slot="title">Admin boundary</span>
-  </el-menu-item>
-      <el-submenu index="1">
-        <template slot="title">
-          <i class="el-icon-set-up"></i>
-          <span slot="title">Indicators</span>
-        </template>
-        <el-menu-item-group>
-          <span slot="title">Group One</span>
-          <el-menu-item index="1-2">item one</el-menu-item>
-        </el-menu-item-group>
-        <el-menu-item-group title="Group Two">
-          <el-menu-item index="1-3">item three</el-menu-item>
-        </el-menu-item-group>
-        <el-submenu index="1-4">
-          <span slot="title">item four</span>
-          <el-menu-item index="1-4-1">item one</el-menu-item>
-        </el-submenu>
-      </el-submenu>
-      <el-menu-item index="3" disabled>
-        <i class="el-icon-document"></i>
-        <span slot="title">Navigator Three</span>
+  <collapse-nav default-active='1'>
+    <template v-slot:header>Layers</template>
+    <el-submenu index='1'>
+      <template slot='title'>
+        <div class='table-list' slot='title'>
+          Table 1
+        </div>
+      </template>
+      <el-menu-item index='1-1'>
+        <el-tooltip
+          class='item'
+          effect='dark'
+          content='Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer1Layer 1Layer 1Layer 1 r 1Layer 1Layer 1Layer 1Layer 1Layer1Layer 1Layer 1Layer 1'
+          placement='top-end'
+        >
+        <basic-checkbox class='body-reg'>
+          Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer
+          1Layer 1Layer 1Layer 1
+        </basic-checkbox>
       </el-menu-item>
-      <el-menu-item index="4">
-        <i class="el-icon-setting"></i>
-        <span slot="title">Navigator Four</span>
+      <el-menu-item index='1-2'>
+        <basic-checkbox class='body-reg'>Layer 2</basic-checkbox>
       </el-menu-item>
+      <el-menu-item index='1-3'>
+        <el-tooltip
+          class='item'
+          effect='dark'
+          content='Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer1Layer 1Layer 1Layer 1 r 1Layer 1Layer 1Layer 1Layer 1Layer1Layer 1Layer 1Layer 1'
+          placement='top-end'
+        >
+        <basic-checkbox class='body-reg'>
+          Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer
+          1Layer 1Layer 1Layer 1
+        </basic-checkbox>
+      </el-menu-item>
+      <el-menu-item index='1-4'>
+        <basic-checkbox class='body-reg'>Layer 2</basic-checkbox>
+      </el-menu-item>
+    </el-submenu>
+    <el-submenu index='2'>
+      <template slot='title'>
+        <div class='table-list' slot='title'>
+          <el-tooltip
+            class='item'
+            effect='dark'
+            content='Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2'
+            placement='top-end'
+          >
+          <span>
+            Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table
+            2Table 2Table 2Table 2
+          </span>
+        </div>
+      </template>
+      <el-menu-item index='2-1'>
+        <basic-checkbox class='body-reg'>Layer 1</basic-checkbox>
+      </el-menu-item>
+      <el-menu-item index='2-2'>
+        <basic-checkbox class='body-reg'>Layer 2</basic-checkbox>
+      </el-menu-item>
+    </el-submenu>
+    <el-submenu index='3'>
+      <template slot='title'>
+        <div class='table-list' slot='title'>
+          <el-tooltip
+            class='item'
+            effect='dark'
+            content='Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2'
+            placement='top-end'
+          >
+          <span>
+            Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table
+            2Table 2Table 2Table 2
+          </span>
+        </div>
+      </template>
+      <el-menu-item index='3-1'>
+        <basic-checkbox class='body-reg'>Layer 1</basic-checkbox>
+      </el-menu-item>
+      <el-menu-item index='3-2'>
+        <basic-checkbox class='body-reg'>Layer 2</basic-checkbox>
+      </el-menu-item>
+    </el-submenu>
+    <el-submenu index='4'>
+      <template slot='title'>
+        <div class='table-list' slot='title'>
+          <el-tooltip
+            class='item'
+            effect='dark'
+            content='Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2'
+            placement='top-end'
+          >
+          <span>
+            Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table
+            2Table 2Table 2Table 2
+          </span>
+        </div>
+      </template>
+      <el-menu-item index='4-1'>
+        <basic-checkbox class='body-reg'>Layer 1</basic-checkbox>
+      </el-menu-item>
+      <el-menu-item index='4-2'>
+        <basic-checkbox class='body-reg'>Layer 2</basic-checkbox>
+      </el-menu-item>
+      <el-menu-item index='4-3'>
+        <basic-checkbox class='body-reg'>Layer 1</basic-checkbox>
+      </el-menu-item>
+      <el-menu-item index='4-4'>
+        <basic-checkbox class='body-reg'>Layer 2</basic-checkbox>
+      </el-menu-item>
+      <el-menu-item index='4-5'>
+        <basic-checkbox class='body-reg'>Layer 1</basic-checkbox>
+      </el-menu-item>
+      <el-menu-item index='4-6'>
+        <basic-checkbox class='body-reg'>Layer 2</basic-checkbox>
+      </el-menu-item>
+    </el-submenu>
   </collapse-nav>
   `
 })
