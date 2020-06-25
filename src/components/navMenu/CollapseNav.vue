@@ -183,6 +183,6 @@ export default {
 }
 
 .el-tooltip__popper.is-dark{
-  width: 35rem;
+  width: 21rem;
 }
 </style>
