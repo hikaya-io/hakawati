@@ -19,7 +19,7 @@ export const hDrawer = () => ({
   },
   template: `
   <div>
-    <h-button 
+    <h-button
       @click="drawer = true"
       type="primary"
       style="margin-left: 16px;"
@@ -60,7 +60,7 @@ export const drawerWithoutTitle = () => ({
   },
   template: `
     <div>
-      <h-button 
+      <h-button
         @click="drawer = true"
         type="primary"
         style="margin-left: 16px;"
@@ -100,7 +100,7 @@ export const drawerNotClosableOnClick = () => ({
   },
   template: `
       <div>
-        <h-button 
+        <h-button
           @click="drawer=true"
           type="primary"
           style="margin-left: 16px;"
@@ -141,7 +141,7 @@ export const doubleDrawer = () => ({
   },
   template: `
   <div>
-    <h-button 
+    <h-button
       @click="drawerRight = true"
       type="primary"
     >
@@ -173,11 +173,52 @@ export const doubleDrawer = () => ({
       size="48%"
       :show-close="true"
       :wrapper-closable="true"
-      :modal="true"
       class="body-reg"
       :modal="false"
     >
       <span>Hi, there!</span>
+    </h-drawer>
+  </div>
+  `
+})
+
+export const drawerCustomOverlayColor = () => ({
+  components: {
+    HDrawer,
+    HButton
+  },
+  data () {
+    return {
+      drawer: false,
+      direction: 'rtl',
+      title: 'I am the title'
+    }
+  },
+  template: `
+  <div>
+    <h-button
+      @click="drawer = true"
+      type="primary"
+      style="margin-left: 16px;"
+    >
+      Open drawer
+    </h-button>
+    <h-drawer
+      :title="title"
+      :visible.sync="drawer"
+      :direction="direction"
+      size="48%"
+      :show-close="false"
+      :wrapper-closable="true"
+      :modal="true"
+      class="body-bold"
+      overlay-color="rgba(255, 255, 255, 0.10)"
+    >
+      <span
+        class="body-reg"
+      >
+        Hi, there!
+      </span>
     </h-drawer>
   </div>
   `
