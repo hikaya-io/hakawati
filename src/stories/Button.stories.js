@@ -238,7 +238,6 @@ export const textButton = () => ({
     @click="action"
     size="medium"
     type="text"
-    dark-text
     class="text-style"
     icon="el-icon-guide"
   >
