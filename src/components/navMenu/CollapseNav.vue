@@ -174,17 +174,15 @@ export default {
     overflow-y: scroll;
     height: 85vh;
   }
-  .el-checkbox__label{
+  .el-checkbox__label, .table-list{
     width: 290px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .table-list{
-    width: 290px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+}
+
+.el-tooltip__popper.is-dark{
+  width: 35rem;
 }
 </style>

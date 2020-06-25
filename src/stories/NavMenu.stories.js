@@ -40,6 +40,12 @@ export const collapseNav = () => ({
         </div>
       </template>
       <el-menu-item index='1-1'>
+        <el-tooltip
+          class='item'
+          effect='dark'
+          content='Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer1Layer 1Layer 1Layer 1 r 1Layer 1Layer 1Layer 1Layer 1Layer1Layer 1Layer 1Layer 1'
+          placement='top-end'
+        >
         <basic-checkbox class='body-reg'>
           Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer
           1Layer 1Layer 1Layer 1
@@ -49,6 +55,12 @@ export const collapseNav = () => ({
         <basic-checkbox class='body-reg'>Layer 2</basic-checkbox>
       </el-menu-item>
       <el-menu-item index='1-3'>
+        <el-tooltip
+          class='item'
+          effect='dark'
+          content='Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer1Layer 1Layer 1Layer 1 r 1Layer 1Layer 1Layer 1Layer 1Layer1Layer 1Layer 1Layer 1'
+          placement='top-end'
+        >
         <basic-checkbox class='body-reg'>
           Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer
           1Layer 1Layer 1Layer 1
@@ -61,8 +73,16 @@ export const collapseNav = () => ({
     <el-submenu index='2'>
       <template slot='title'>
         <div class='table-list' slot='title'>
-          Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table
-          2Table 2Table 2Table 2
+          <el-tooltip
+            class='item'
+            effect='dark'
+            content='Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2'
+            placement='top-end'
+          >
+          <span>
+            Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table
+            2Table 2Table 2Table 2
+          </span>
         </div>
       </template>
       <el-menu-item index='2-1'>
@@ -75,8 +95,16 @@ export const collapseNav = () => ({
     <el-submenu index='3'>
       <template slot='title'>
         <div class='table-list' slot='title'>
-          Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table
-          2Table 2Table 2Table 2
+          <el-tooltip
+            class='item'
+            effect='dark'
+            content='Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2'
+            placement='top-end'
+          >
+          <span>
+            Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table
+            2Table 2Table 2Table 2
+          </span>
         </div>
       </template>
       <el-menu-item index='3-1'>
@@ -89,8 +117,16 @@ export const collapseNav = () => ({
     <el-submenu index='4'>
       <template slot='title'>
         <div class='table-list' slot='title'>
-          Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table
-          2Table 2Table 2Table 2
+          <el-tooltip
+            class='item'
+            effect='dark'
+            content='Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2'
+            placement='top-end'
+          >
+          <span>
+            Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table 2Table
+            2Table 2Table 2Table 2
+          </span>
         </div>
       </template>
       <el-menu-item index='4-1'>
