@@ -30,4 +30,23 @@ export default {
       line-height: 17px;
   }
 }
+
+.info-alert {
+  .el-alert__title {
+    font-size: 14px;
+    line-height: 17px;
+    color: $dark-body-grey;
+    background-color: $background-color;
+  }
+
+  .el-alert__description {
+    color: $dark-body-grey;
+    background-color: $background-color;
+  }
+
+  .el-icon-close:before {
+    color: $primary-color;
+    vertical-align: text-bottom;
+  }
+}
 </style>

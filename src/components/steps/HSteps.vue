@@ -66,20 +66,22 @@ export default {
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       padding: 13px 33px;
       border-radius: 25px;
+      font-size: 14px;
+      line-height: 17px;
 
     &.is-process {
       color: $primary-color;
-      background: $primary-fill;
+      background: $white;
     }
 
     &.is-wait {
       color: $light-body-grey;
-      background: #fff;
+      background: $white;
     }
 
     &.is-success {
       color: $light-body-grey;
-      background: $primary-fill;
+      background: $background-color;
     }
   }
 
