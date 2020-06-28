@@ -17,7 +17,7 @@ export default {
   },
   computed: {
     cardClass () {
-      return this.plain ? { 'h-card': true } : { 'h-card-plain': true }
+      return this.plain ? { 'h-card-plain': true } : { 'h-card': true }
     }
   }
 }
@@ -52,7 +52,7 @@ export default {
   }
 }
 
-.h-plain-card {
+.h-card-plain {
   .el-card.is-always-shadow {
     border: 2px solid $background-color;
     box-sizing: border-box;

@@ -35,8 +35,9 @@ export default {
 
 .h-breadcrumb {
   .el-breadcrumb__inner.is-link, .el-breadcrumb__inner a {
-      color: $light-body-grey;
-      padding: 38px;
+      color: $dark-body-grey;
+      opacity: 0.3;
+      padding: 50px 31px 67px 0px;
       font-size: 36px;
       font-weight: bold;
   }
@@ -45,6 +46,7 @@ export default {
       color: $dark-body-grey;
       font-size: 36px;
       font-weight: bold;
+      padding: 50px 31px 67px 0px;
   }
 }
 </style>
