@@ -11,11 +11,7 @@
     >
       <el-row :gutter="20"  class="align-center">
         <el-col :span="3" class="spacer">
-          <div>
-            <i class="el-icon-s-operation"></i>
-          </div>
         </el-col>
-
         <el-col :span="6">
           <el-row :gutter="20">
             <el-col class="spacer">

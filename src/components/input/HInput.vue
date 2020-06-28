@@ -104,10 +104,11 @@ export default {
 
   .el-input.is-disabled .el-input__inner {
     background-color: $background-color;
-    border-color: $light-body-grey;
+    border-color: $background-color;
     color: $background-color;
     cursor: not-allowed;
   }
+  
   .el-textarea__inner {
     font-family: $main-font-family;
     color: $heading-grey;

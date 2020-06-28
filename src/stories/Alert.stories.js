@@ -14,15 +14,20 @@ export const hAlert = () => ({
         type="success"
         center
         closable
-      />
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum gravida erat tristique facilisi. Leo, at urna arcu velit, quis enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum gravida erat tristique facilisi. Leo, at urna arcu velit, quis enim.
+      </h-alert>
     </div>
     <div style='margin-bottom:15px'>
       <h-alert
         title="Info alert"
         type="info"
+        class="info-alert"
         center
         closable
-      />
+      >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum gravida erat tristique facilisi. Leo, at urna arcu velit, quis enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum gravida erat tristique facilisi. Leo, at urna arcu velit, quis enim.
+        </h-alert>
     </div>
     <div style='margin-bottom:15px'>
       <h-alert
@@ -30,7 +35,9 @@ export const hAlert = () => ({
         type="warning"
         center
         closable
-      />
+      >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum gravida erat tristique facilisi. Leo, at urna arcu velit, quis enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum gravida erat tristique facilisi. Leo, at urna arcu velit, quis enim.
+      </h-alert>
     </div>
     <div style='margin-bottom:15px'>
       <h-alert
@@ -38,7 +45,9 @@ export const hAlert = () => ({
         type="error"
         center
         closable
-      />
+      >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum gravida erat tristique facilisi. Leo, at urna arcu velit, quis enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum gravida erat tristique facilisi. Leo, at urna arcu velit, quis enim.
+      </h-alert>
     </div>
   </div>
     `

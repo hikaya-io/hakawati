@@ -42,8 +42,8 @@ export const layerSteps = () => ({
     <br>
         <h-button
             style="margin-top: 12px;"
+            type="primary"
             @click="next"
-            dark-text
         >
         Next step
         </h-button>
@@ -103,8 +103,8 @@ export const basicSteps = () => ({
     <br>
         <h-button
             style="margin-top: 12px;"
+            type="primary"
             @click="next"
-            dark-text
         >
         Next step
         </h-button>
@@ -172,8 +172,8 @@ export const stepsWithDescription = () => ({
         />
         <h-button
             style="margin-top: 12px;"
+            type="primary"
             @click="next"
-            dark-text
         >
         Next step
         </h-button>
