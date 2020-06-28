@@ -12,6 +12,7 @@
         :title="step.title"
         :description="step.description"
         :space="200"
+        @click.native="e => clickStep(e,i)"
       />
     </el-steps>
   </div>
@@ -45,6 +46,10 @@ export default {
     direction: {
       type: String,
       default: 'horizontal'
+    },
+    clickStep: {
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -68,6 +73,7 @@ export default {
       border-radius: 25px;
       font-size: 14px;
       line-height: 17px;
+      cursor: pointer;
 
     &.is-process {
       color: $primary-color;

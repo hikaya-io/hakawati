@@ -3,6 +3,8 @@ import HSteps from '../components/steps/HSteps.vue'
 
 import HButton from '../components/button/HButton.vue'
 
+import { action } from '@storybook/addon-actions'
+
 export default { title: 'Steps' }
 
 export const layerSteps = () => ({
@@ -10,7 +12,8 @@ export const layerSteps = () => ({
   methods: {
     next () {
       if (this.active++ >= this.steps.length) this.active = 0
-    }
+    },
+    action: action('click')
   },
   data () {
     return {
@@ -34,6 +37,7 @@ export const layerSteps = () => ({
         <h-steps 
             :steps="steps"
             :active="active"
+            :clickStep="action"
         />
     <br>
         <h-button
