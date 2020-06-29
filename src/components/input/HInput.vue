@@ -108,7 +108,7 @@ export default {
     color: $background-color;
     cursor: not-allowed;
   }
-  
+
   .el-textarea__inner {
     font-family: $main-font-family;
     color: $heading-grey;
