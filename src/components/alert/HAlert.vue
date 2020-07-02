@@ -49,4 +49,7 @@ export default {
     vertical-align: text-bottom;
   }
 }
+.el-alert--info.is-light{
+    background-color: $background-color;
+}
 </style>
