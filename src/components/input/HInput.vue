@@ -105,7 +105,7 @@ export default {
   .el-input.is-disabled .el-input__inner {
     background-color: $background-color;
     border-color: $background-color;
-    color: $background-color;
+    color: $heading-grey;
     cursor: not-allowed;
   }
 
