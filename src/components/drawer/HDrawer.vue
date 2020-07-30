@@ -30,17 +30,17 @@ export default {
 <style lang="scss">
 @import "../../styles/theme";
 
-.el-drawer.rtl{
+.el-drawer.rtl {
     box-shadow: 0px 0px 17px rgba(115, 117, 129, 0.25);
     border-radius: 20px 0 0 20px;
 }
 
-.el-drawer.ltr{
+.el-drawer.ltr {
     box-shadow: 0px 0px 17px rgba(115, 117, 129, 0.25);
     border-radius: 0 20px 20px 0;
 }
 
-.el-drawer__header{
+.el-drawer__header {
     font-family: $main-font-family;
     font-style: normal;
     font-weight: bold;
@@ -51,7 +51,7 @@ export default {
     margin-bottom: none;
 }
 
-.el-drawer__body{
+.el-drawer__body {
     font-family: $main-font-family;
     font-style: normal;
     font-weight: normal;
@@ -88,6 +88,10 @@ export default {
 
 .el-drawer__container {
   background-color: var(--overlay-color);
+
+  :focus {
+    outline: none;
+  }
 }
 
 .el-icon-close:before {
