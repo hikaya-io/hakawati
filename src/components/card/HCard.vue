@@ -48,7 +48,7 @@ export default {
   }
 
   .el-card {
-    padding: 0px 25px 40px 40px;
+    padding: 0px 40px 40px 40px;
   }
 }
 
@@ -62,7 +62,7 @@ export default {
 
   .el-card__header {
     border-bottom: none;
-    padding: 40px 25px 40px 0px;
+    padding: 40px 40px 40px 0px;
   }
 
   .el-card__body {
@@ -70,7 +70,7 @@ export default {
   }
 
   .el-card {
-    padding: 0px 25px 40px 40px;
+    padding: 0px 40px 40px 40px;
   }
 }
 </style>>
