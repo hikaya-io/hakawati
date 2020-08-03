@@ -21,7 +21,7 @@ export default {
   name: 'HSelect',
   props: {
     value: {
-      type: [String, Number],
+      type: [String, Number, Array],
       default: null
     },
     options: {
