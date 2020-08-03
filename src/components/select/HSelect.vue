@@ -1,6 +1,6 @@
 <template>
   <el-select
-    v-model="value"
+    v-model="selectValue"
     v-bind="$attrs"
     v-on="$listeners"
     @change="$emit('change', $event)"
@@ -19,6 +19,11 @@
 <script>
 export default {
   name: 'HSelect',
+  data () {
+    return {
+      selectValue: this.value
+    }
+  },
   props: {
     value: {
       type: [String, Number, Array],
