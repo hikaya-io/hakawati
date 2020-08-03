@@ -1,10 +1,10 @@
 <template>
-    <el-switch
+  <el-switch
     v-model="value"
     v-bind="$attrs"
     v-on="$listeners"
     @click="$emit('click')"
-    />
+  />
 </template>
 
 <script>

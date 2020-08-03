@@ -19,12 +19,11 @@
 <script>
 export default {
   name: 'HSelect',
-  data () {
-    return {
-      value: ''
-    }
-  },
   props: {
+    value: {
+      type: [String, Number],
+      default: null
+    },
     options: {
       type: Array,
       default: () => []
