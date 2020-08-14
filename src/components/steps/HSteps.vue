@@ -77,7 +77,7 @@ export default {
   .el-step__title {
     &.is-process {
       color: $primary-color;
-      font-weight: lighter;
+      font-weight: normal;
     }
 
     &.is-wait {
