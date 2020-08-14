@@ -1,5 +1,5 @@
 <template>
-  <div class="h-step">
+  <div class="h-step-v1">
     <el-steps
       :active="active"
       finish-status="success"
@@ -61,7 +61,36 @@ export default {
 <style lang="scss">
 @import "../../styles/theme";
 
-.h-step {
+.h-step-v1 {
+  .el-step__head.is-success {
+    color: transparent;
+    border-color: transparent;
+  }
+
+  .el-step__title {
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      padding: 13px 33px;
+      border-radius: 25px;
+      font-size: 14px;
+      line-height: 17px;
+      cursor: pointer;
+
+    &.is-process {
+      color: $primary-color;
+      background: $white;
+    }
+
+    &.is-wait {
+      color: $light-body-grey;
+      background: $white;
+    }
+
+    &.is-success {
+      color: $light-body-grey;
+      background: $background-color;
+    }
+  }
+
   .el-step__icon.is-text {
     border: 0px;
   }
@@ -71,23 +100,7 @@ export default {
   }
 
   .el-steps--simple {
-    background-color: transparent;
-  }
-
-  .el-step__title {
-    &.is-process {
-      color: $primary-color;
-      // color: $dark-body-grey;
-      font-weight: lighter;
-    }
-
-    &.is-wait {
-      color: $light-body-grey;
-    }
-
-    &.is-success {
-      color: $light-body-grey;
-    }
+    background: $background-color;
   }
 }
 </style>
