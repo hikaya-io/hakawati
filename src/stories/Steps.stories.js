@@ -1,5 +1,6 @@
 import Steps from '../components/steps/Steps.vue'
 import HSteps from '../components/steps/HSteps.vue'
+import HStepsv1 from '../components/steps/HStepsv1.vue'
 
 import HButton from '../components/button/HButton.vue'
 
@@ -34,7 +35,51 @@ export const layerSteps = () => ({
   },
   template: `
     <div> Layer steps
-        <h-steps 
+        <h-steps
+            :steps="steps"
+            :active="active"
+            :clickStep="action"
+        />
+    <br>
+        <h-button
+            style="margin-top: 12px;"
+            type="primary"
+            @click="next"
+        >
+        Next step
+        </h-button>
+    </div>
+    `
+})
+
+export const LayerStepsV1 = () => ({
+  components: { HStepsv1, HButton },
+  methods: {
+    next () {
+      if (this.active++ >= this.steps.length) this.active = 0
+    },
+    action: action('click')
+  },
+  data () {
+    return {
+      active: 0,
+      steps: [
+        {
+          title: 'Value column'
+        },
+        {
+          title: 'Location column'
+        },
+        {
+          title: 'Tooltip description'
+
+        }
+      ]
+    }
+  },
+  template: `
+    <div> Layer steps
+        <h-stepsv1
             :steps="steps"
             :active="active"
             :clickStep="action"
