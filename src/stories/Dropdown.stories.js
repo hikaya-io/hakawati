@@ -23,7 +23,7 @@ export const hDropdown = () => ({
         <el-dropdown-item>Edit</el-dropdown-item>
         <el-dropdown-item>Change data type</el-dropdown-item>
         <el-dropdown-item disabled>For admins only</el-dropdown-item>
-        <el-dropdown-item divided>Delete</el-dropdown-item>
+        <el-dropdown-item class="danger-item" divided>Delete</el-dropdown-item>
     </template>
     </h-dropdown>
     `,
