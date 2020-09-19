@@ -1,15 +1,20 @@
 <template>
-    <el-switch
-    v-model="value"
+  <el-switch
+    v-model="switchValue"
     v-bind="$attrs"
     v-on="$listeners"
     @click="$emit('click')"
-    />
+  />
 </template>
 
 <script>
 export default {
   name: 'HSwitch',
+  data () {
+    return {
+      switchValue: this.value
+    }
+  },
   props: {
     value: {
       type: Boolean,

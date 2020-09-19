@@ -64,7 +64,7 @@ export default {
 
   .el-menu.el-menu--horizontal {
       border-bottom: transparent;
-      padding: 10px 20px 10px 20px;
+      padding: 5px 20px 5px 20px;
       vertical-align: text-bottom;
   }
 

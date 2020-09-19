@@ -25,4 +25,13 @@ export default {
     border-color: transparent;
   }
 }
+
+.danger-item {
+  color: $danger-color;
+
+  &.el-dropdown-menu__item:not(.is-disabled):hover {
+    background-color: $danger-fill;
+    color: $danger-color;
+  }
+}
 </style>

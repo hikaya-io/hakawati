@@ -76,6 +76,16 @@ $dark-color: $dark-body-grey;
   color: $dark-body-grey;
 }
 
+/* Heading 2 - Lato B30 */
+.heading-2 {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 36px;
+  color: $dark-body-grey;
+}
+
 /* Body Reg - Lato R14 */
 .body-reg {
   font-family: $main-font-family;

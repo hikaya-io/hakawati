@@ -57,7 +57,7 @@ export default {
     font-size: 14px;
     line-height: 17px;
     color: $dark-body-grey;
-    padding: 10px;
+    padding: 0.5rem 0.5rem 0.5rem 1.05rem;
     border-right: transparent;
 
       .el-button {
