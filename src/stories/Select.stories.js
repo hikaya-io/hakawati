@@ -87,18 +87,29 @@ export const hSelect = () => ({
   },
   data () {
     return {
-      options
+      options,
+      selectedOption: 'option_4'
     }
   },
   template: `
     <div>
+    <p>Blank:</p>
       <h-select
         :options="options"
         :placeholder="placeholder"
         :disabled="disabled"
         @change="onChange"
       />
-    </div>  
+      <br>
+      <p>Selected:</p>
+      <h-select
+        v-model="selectedOption"
+        :options="options"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        @change="onChange"
+      />
+    </div>
   `
 })
 
@@ -134,7 +145,7 @@ export const multiSelect = () => ({
           @change="onChange"
           multiple
         />
-      </div>  
+      </div>
     `
 })
 
@@ -159,12 +170,12 @@ export const groupedSelect = () => ({
   },
   template: `
       <div>
-        <grouped-select 
-          :options="options" 
-          :placeholder="placeholder" 
-          :disabled="disabled" 
+        <grouped-select
+          :options="options"
+          :placeholder="placeholder"
+          :disabled="disabled"
           @change="onChange"
         />
-      </div>  
+      </div>
     `
 })
