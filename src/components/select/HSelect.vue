@@ -1,6 +1,6 @@
 <template>
   <el-select
-    v-model="selectValue"
+    v-model="selectedValue"
     v-bind="$attrs"
     v-on="$listeners"
     @change="$emit('change', $event)"
@@ -19,11 +19,6 @@
 <script>
 export default {
   name: 'HSelect',
-  data () {
-    return {
-      selectValue: this.value
-    }
-  },
   props: {
     value: {
       type: [String, Number, Array],
@@ -32,18 +27,16 @@ export default {
     options: {
       type: Array,
       default: () => []
-    },
-    placeholder: {
-      type: String,
-      default: 'Select an option'
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    collapseTags: {
-      type: Boolean,
-      default: false
+    }
+  },
+  computed: {
+    selectedValue: {
+      get () {
+        return this.value
+      },
+      set (val) {
+        this.$emit('input', val)
+      }
     }
   }
 }
