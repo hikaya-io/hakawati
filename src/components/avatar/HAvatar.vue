@@ -31,7 +31,7 @@ export default {
 @import "../../styles/theme";
 
 .el-avatar {
-    background-color: $primary-color;
+    background-color: $primary-sub-color;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 50px;
     font-size: 14px;
