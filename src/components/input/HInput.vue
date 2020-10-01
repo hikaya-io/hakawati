@@ -111,7 +111,7 @@ export default {
 
   .el-textarea__inner {
     font-family: $main-font-family;
-    color: $heading-grey;
+    color: $dark-body-grey;
     padding-top: 10px;
     min-height: 33px;
     height: 62px;
