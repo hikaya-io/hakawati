@@ -29,5 +29,14 @@ export default {
     background-color: $primary-fill;
     color: $primary-color;
   }
+
+  .el-pager li {
+    min-width: 28px;
+
+    &.active {
+      background-color: $primary-fill;
+      border-radius: 50px;
+    }
+  }
 }
 </style>
