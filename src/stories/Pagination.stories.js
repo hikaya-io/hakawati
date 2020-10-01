@@ -14,7 +14,7 @@ export const hPagination = () => ({
       When you have less then 51 pages
       </span>
       <h-pagination
-        totalPageNumber="50"
+        :total="50"
       />
     </div>
     <div class="block">
@@ -22,7 +22,7 @@ export const hPagination = () => ({
         When you have more than 50 pages
       </span>
       <h-pagination
-      totalPageNumber="50"
+        :total="50"
       />
     </div>
   </div>
@@ -39,18 +39,18 @@ export const hPaginationWithBackground = () => ({
         Pagination with colored background is a basic pagination with a background attribute.
       </span>
       <h-pagination
-        totalPageNumber="50"
-        background="true"
+        :total="50"
+        :background="true"
       />
     </div>
-    </br>
+    <br>
     <div class="block">
       <span>
         When you have more than 50 pages
       </span>
       <h-pagination
-        totalPageNumber="51"
-        background="true"
+        :total="51"
+        :background="true"
       />
     </div>
   </div>
@@ -65,10 +65,10 @@ export const hPageSize = () => ({
       Pagination with Page Size.
     </span>
     <h-page-size
-      totalPageNumber="50"
-      background="true"
-      page-sizes="[10, 20, 30, 40]"
-      page-size="10"
+      :total="50"
+      :background="true"
+      :page-sizes="[10, 20, 30, 40]"
+      :page-size="10"
     />
   </div>
   `

@@ -2,8 +2,9 @@
   <div class="h-pagination">
   <el-pagination
     layout="prev, pager, next"
-    :total="parseInt(totalPageNumber)"
-    :background="background == 'true' ? true : false"
+    v-bind="$attrs"
+    v-on="$listeners"
+    :background="background"
   />
   </div>
 </template>
@@ -11,7 +12,12 @@
 <script>
 export default {
   name: 'HPagination',
-  props: ['totalPageNumber', 'background']
+  props: {
+    background: {
+      type: Boolean,
+      default: false
+    }
+  }
 }
 </script>
 
