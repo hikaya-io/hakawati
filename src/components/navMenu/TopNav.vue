@@ -2,7 +2,6 @@
   <div class="top-nav">
     <el-menu
       :default-active="activeIndex"
-      class="el-menu-demo"
       mode="horizontal"
       :index="index"
     >
@@ -123,7 +122,7 @@ export default {
 .el-menu--horizontal > .el-menu-item.is-active {
     border-bottom: transparent;
     color: $primary-color;
-    background-color: $primary-fill;
+    // background-color: $primary-fill;
 }
 
 </style>
