@@ -1,9 +1,7 @@
 <template>
   <el-switch
-    v-model="switchValue"
     v-bind="$attrs"
     v-on="$listeners"
-    @click="$emit('click')"
   />
 </template>
 
@@ -11,15 +9,7 @@
 export default {
   name: 'HSwitch',
   data () {
-    return {
-      switchValue: this.value
-    }
-  },
-  props: {
-    value: {
-      type: Boolean,
-      default: true
-    }
+    return {}
   }
 }
 </script>

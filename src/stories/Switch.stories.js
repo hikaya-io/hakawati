@@ -18,7 +18,8 @@ export const hSwitch = () => ({
       <h-switch
         activeColor="#4B3EF9"
         inactiveColor="#E1E1E1"
-        @click="action"
+        v-model="value"
+        @change="action"
       >
       </h-switch>
     </div>
@@ -40,7 +41,8 @@ export const textSwitch = () => ({
           inactiveColor="#E1E1E1"
           activeText="Activate user"
           inactiveText="Deactivate user"
-          @click="action"
+          v-model="value"
+          @change="action"
         >
         </h-switch>
       </div>
@@ -60,7 +62,7 @@ export const disabledSwitch = () => ({
         <h-switch
           activeColor="#4B3EF9"
           inactiveColor="#E1E1E1"
-          @click="action"
+          v-model="value"
           disabled
         >
         </h-switch>
