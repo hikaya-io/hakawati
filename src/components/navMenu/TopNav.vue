@@ -122,7 +122,7 @@ export default {
 .el-menu--horizontal > .el-menu-item.is-active {
     border-bottom: transparent;
     color: $primary-color;
-    // background-color: $primary-fill;
+    background-color: $primary-fill;
 }
 
 </style>
