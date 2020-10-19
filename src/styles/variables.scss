@@ -1,0 +1,35 @@
+/* BreakPoints */
+
+// Mobile devices
+$screen-xs-min: 360px;
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+
+@mixin sm-menu {
+  .el-menu--horizontal .el-menu-item,
+  .el-menu--horizontal .el-submenu {
+    text-align: center;
+    float: none;
+    display: block;
+    height: 100%;
+    width: 100%;
+    border-top: 1px solid #EAEAEB;
+    font-size: 18px;
+  }
+
+  .el-menu--horizontal .el-menu-item {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
