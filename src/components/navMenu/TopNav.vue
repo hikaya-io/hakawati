@@ -3,7 +3,8 @@
     <el-menu
       :default-active="activeIndex"
       mode="horizontal"
-      :index="index"
+      v-bind="$attrs"
+      v-on="$listeners"
     >
     <slot></slot>
     </el-menu>
@@ -14,10 +15,6 @@
 export default {
   name: 'TopNav',
   props: {
-    index: {
-      type: String,
-      default: ''
-    },
     activeIndex: {
       type: String,
       default: ''
