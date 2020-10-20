@@ -260,3 +260,27 @@ $dark-color: $dark-body-grey;
     border-color: transparent;
   }
 }
+
+.message-style {
+  width: 100%;
+  border: none;
+
+  @mixin message($type: 'info') {
+
+    @if info {
+      background-color: $background-color;
+    }
+
+    @if error {
+      background-color: $red-fill;
+    }
+
+    @if warning {
+      background-color: $yellow-fill;
+    }
+
+    @if success {
+      background-color: $green-fill;
+    }
+  }
+}
