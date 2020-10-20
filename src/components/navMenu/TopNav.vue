@@ -37,6 +37,7 @@ export default {
 
 <style lang="scss">
 @import "../../styles/theme";
+@import "../../styles/variables";
 
 .top-nav {
     // style nav bar and border
@@ -79,13 +80,28 @@ export default {
   .el-menu--horizontal > .el-submenu.is-active .el-submenu__title {
     border-bottom: transparent;
     color: $primary-color;
-    background-color: $primary-fill;
+    // background-color: $primary-fill;
     border-radius: 30px;
     text-align: center;
-    padding: 0px 25px;
+    padding: 0px 20px 5px 20px;
     margin-top: 5px;
     height: 50px;
     line-height: 50px;
+
+    // adding the dot when menu item is selected
+    display: inline-block;
+    position: relative;
+
+    &:before {
+      content: '.';
+      display: inline-block;
+      position: absolute;
+      bottom: -0.25rem;
+      left: 0;
+      text-align: center;
+      width: 100%;
+      font-size: 48px;
+    }
   }
 
   // style selected tab
@@ -102,13 +118,28 @@ export default {
   .el-menu--horizontal > .el-menu-item.is-active {
     border-bottom: transparent;
     color: $primary-color;
-    background-color: $primary-fill;
+    // background-color: $primary-fill;
     text-align: center;
     border-radius: 30px;
     padding: 0px 25px;
     margin-top: 5px;
     height: 50px;
     line-height: 50px;
+
+    // adding the dot when menu item is selected
+    display: inline-block;
+    position: relative;
+
+    &:before {
+      content: '.';
+      display: inline-block;
+      position: absolute;
+      bottom: -0.25rem;
+      left: 0;
+      text-align: center;
+      width: 100%;
+      font-size: 48px;
+    }
   }
 }
 
@@ -125,20 +156,10 @@ export default {
 
 .el-menu--horizontal .el-menu-item:not(.is-disabled):focus {
     color: $primary-color;
-    background-color: $primary-fill;
+    // background-color: $primary-fill;
 }
 
-.el-menu--horizontal > .el-menu-item.is-active {
-    border-bottom: transparent;
-    color: $primary-color;
-    background-color: $primary-fill;
-}
-
-</style>
-<style lang="scss">
-@import "../../styles/theme";
-@import "../../styles/variables";
-
+// styling for minimized nav bar
 .top-nav {
   width: 100%;
   position: fixed;
@@ -191,8 +212,8 @@ export default {
   }
 
   #toggle .span {
-    height: 4px;
-    margin: 5px 0;
+    height: 2px;
+    margin: 7px 0;
     transition: all .3s ease-out;
     backface-visibility: visible;
     visibility: visible;
