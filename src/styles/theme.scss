@@ -260,3 +260,43 @@ $dark-color: $dark-body-grey;
     border-color: transparent;
   }
 }
+
+// style message and notification components
+@mixin message($type) {
+  top: 0px !important;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+
+  @if $type == 'error' {
+    background-color: $red-fill;
+  }
+
+  @else if $type == 'warning' {
+    background-color: $yellow-fill;
+  }
+
+  @else if $type == 'success' {
+    background-color: $green-fill;
+  }
+
+  @else {
+    background-color: $background-color;
+  }
+}
+
+.message-error {
+  @include message(error);
+}
+
+.message-warning {
+  @include message(warning);
+}
+
+.message-success {
+  @include message(success);
+}
+
+.message-info {
+  @include message(info);
+}
