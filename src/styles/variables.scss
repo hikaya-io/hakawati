@@ -1,0 +1,51 @@
+/* BreakPoints */
+
+// Mobile devices
+$screen-xs-min: 360px;
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+
+@mixin sm-menu {
+  .el-menu--horizontal .el-menu-item,
+  .el-menu--horizontal .el-submenu {
+    text-align: center;
+    float: none;
+    display: block;
+    height: 100%;
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .el-menu--horizontal .el-menu-item {
+    margin: 5px 0px 5px 0px;
+    border-bottom: none;
+  }
+
+  .el-menu--horizontal > .el-menu-item.is-active, .el-menu-item.is-focus {
+    border-bottom: transparent;
+    color: $primary-color;
+    // background-color: $primary-fill;
+    text-align: center;
+    border-radius: 5px;
+    padding: 0px 20px 5px 20px;
+    margin-top: 5px;
+    height: 50px;
+    line-height: 50px;
+  }
+
+  .el-menu--horizontal > .el-submenu.is-active .el-submenu__title {
+    margin: 5px 0px 5px 0px;
+    border-bottom: transparent;
+  }
+}

@@ -20,6 +20,7 @@ $green-fill: #E5FAF0;
 $red-fill: #FFEBEB;
 $yellow-fill: #FEF9E7;
 $purple-fill: #F5EBFA;
+$cancel-click: #D6D6FF;
 
 
 $heading-grey: #737581;
@@ -180,12 +181,25 @@ $dark-color: $dark-body-grey;
   }
   &:focus {
     border: none;
+    background-color: $white;
+  }
+  &:active {
+    border: none;
+    background-color: $cancel-click;
   }
 }
 
 .ws-button {
   color: $primary-color;
   font-family: $main-font-family;
+  &:focus {
+    border: none;
+    background-color: $white;
+  }
+  &:active {
+    border: none;
+    background-color: $cancel-click;
+  }
 }
 
 .button-style {
@@ -212,9 +226,13 @@ $dark-color: $dark-body-grey;
     color: $primary-color;
     background-color: $primary-fill;
   }
-  &:active, :focus {
+  &:focus {
     color: $primary-color;
-    background-color: $primary-fill;
+    background-color: $white;
+  }
+  &:active {
+    border: none;
+    background-color: $cancel-click;
   }
 }
 
@@ -225,7 +243,6 @@ $dark-color: $dark-body-grey;
 .card-shadow {
   background: $white;
   box-shadow: 0px 0px 17px rgba(115, 117, 129, 0.25);
-  // border-radius: 20px;
 }
 
 .dropdown-shadow {
@@ -242,4 +259,44 @@ $dark-color: $dark-body-grey;
     border-radius: 25px !important;
     border-color: transparent;
   }
+}
+
+// style message and notification components
+@mixin message($type) {
+  top: 0px !important;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+
+  @if $type == 'error' {
+    background-color: $red-fill;
+  }
+
+  @else if $type == 'warning' {
+    background-color: $yellow-fill;
+  }
+
+  @else if $type == 'success' {
+    background-color: $green-fill;
+  }
+
+  @else {
+    background-color: $background-color;
+  }
+}
+
+.message-error {
+  @include message(error);
+}
+
+.message-warning {
+  @include message(warning);
+}
+
+.message-success {
+  @include message(success);
+}
+
+.message-info {
+  @include message(info);
 }

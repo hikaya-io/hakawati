@@ -1,6 +1,7 @@
 
 import './styles/element-variables.scss'
 import './styles/theme.scss'
+import './styles/variables.scss'
 
 // Alert
 import HAlert from './components/alert/HAlert.vue'

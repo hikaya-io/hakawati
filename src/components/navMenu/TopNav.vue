@@ -1,13 +1,20 @@
 <template>
   <div class="top-nav">
-    <el-menu
-      :default-active="activeIndex"
-      class="el-menu-demo"
-      mode="horizontal"
-      :index="index"
-    >
-    <slot></slot>
-    </el-menu>
+    <div id="menu" :class="{ active: isActive }">
+      <el-menu
+        :default-active="activeIndex"
+        mode="horizontal"
+        v-bind="$attrs"
+        v-on="$listeners"
+      >
+        <slot></slot>
+      </el-menu>
+    </div>
+    <div id="toggle" @click="isActive = !isActive">
+      <div class="span" id="top" :class="{ active: isActive }"></div>
+      <div class="span" id="middle" :class="{ active: isActive }"></div>
+      <div class="span" id="bottom" :class="{ active: isActive }"></div>
+    </div>
   </div>
 </template>
 
@@ -15,13 +22,14 @@
 export default {
   name: 'TopNav',
   props: {
-    index: {
-      type: String,
-      default: ''
-    },
     activeIndex: {
       type: String,
       default: ''
+    }
+  },
+  data () {
+    return {
+      isActive: false
     }
   }
 }
@@ -29,6 +37,7 @@ export default {
 
 <style lang="scss">
 @import "../../styles/theme";
+@import "../../styles/variables";
 
 .top-nav {
     // style nav bar and border
@@ -71,13 +80,28 @@ export default {
   .el-menu--horizontal > .el-submenu.is-active .el-submenu__title {
     border-bottom: transparent;
     color: $primary-color;
-    background-color: $primary-fill;
+    // background-color: $primary-fill;
     border-radius: 30px;
     text-align: center;
-    padding: 0px 25px;
+    padding: 0px 20px 5px 20px;
     margin-top: 5px;
     height: 50px;
     line-height: 50px;
+
+    // adding the dot when menu item is selected
+    display: inline-block;
+    position: relative;
+
+    &:before {
+      content: '.';
+      display: inline-block;
+      position: absolute;
+      bottom: -0.25rem;
+      left: 0;
+      text-align: center;
+      width: 100%;
+      font-size: 48px;
+    }
   }
 
   // style selected tab
@@ -94,13 +118,28 @@ export default {
   .el-menu--horizontal > .el-menu-item.is-active {
     border-bottom: transparent;
     color: $primary-color;
-    background-color: $primary-fill;
+    // background-color: $primary-fill;
     text-align: center;
     border-radius: 30px;
     padding: 0px 25px;
     margin-top: 5px;
     height: 50px;
     line-height: 50px;
+
+    // adding the dot when menu item is selected
+    display: inline-block;
+    position: relative;
+
+    &:before {
+      content: '.';
+      display: inline-block;
+      position: absolute;
+      bottom: -0.25rem;
+      left: 0;
+      text-align: center;
+      width: 100%;
+      font-size: 48px;
+    }
   }
 }
 
@@ -117,13 +156,82 @@ export default {
 
 .el-menu--horizontal .el-menu-item:not(.is-disabled):focus {
     color: $primary-color;
-    background-color: $primary-fill;
+    // background-color: $primary-fill;
 }
 
-.el-menu--horizontal > .el-menu-item.is-active {
-    border-bottom: transparent;
-    color: $primary-color;
-    background-color: $primary-fill;
+// styling for minimized nav bar
+.top-nav {
+  width: 100%;
+  position: fixed;
+  top: 0;
 }
 
+#toggle {
+  position: absolute;
+  right: 20px;
+  top: 14px;
+  z-index: 999;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  float: right;
+  transition: all .3s ease-out;
+  visibility: hidden;
+  opacity: 0;
+}
+
+#toggle .span {
+  border-radius: 10px;
+  background: $primary-color;
+  transition: all 0.3s ease-out;
+  backface-visibility: hidden;
+}
+
+#top.span.active {
+  transform: rotate(45deg) translateX(3px) translateY(5px);
+}
+
+#middle.span.active {
+  opacity: 0;
+}
+
+#bottom.span.active {
+  transform: rotate(-45deg) translateX(8px) translateY(-10px);
+}
+
+@media only screen and (max-width: $screen-md-min) {
+
+  .logo-header {
+    padding: 0;
+  }
+
+  #toggle {
+    visibility: visible;
+    opacity: 1;
+    margin-top: 6px;
+  }
+
+  #toggle .span {
+    height: 2px;
+    margin: 7px 0;
+    transition: all .3s ease-out;
+    backface-visibility: visible;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  #menu .el-menu-item,
+  #menu .el-submenu {
+    display: none;
+  }
+
+  #menu.active {
+    margin: 70px 0;
+    visibility: visible;
+    opacity: 0.98;
+    transition: all .5s ease-out;
+
+    @include sm-menu;
+  }
+}
 </style>
