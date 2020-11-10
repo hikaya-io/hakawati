@@ -1,8 +1,6 @@
 <template>
   <el-input
     prefix-icon="el-icon-search"
-    :placeholder="placeholder"
-    v-model="input"
     v-bind="$attrs"
     v-on="$listeners"
     class="h-search"
@@ -13,21 +11,6 @@
 <script>
 export default {
   name: 'HSearch',
-  props: {
-    placeholder: {
-      type: String,
-      default: ''
-    },
-    isClearable: {
-      type: Boolean,
-      default: false
-    }
-  },
-  data () {
-    return {
-      input: ''
-    }
-  },
   methods: {
   }
 }
