@@ -101,46 +101,46 @@ table {
 
 // styles table sort
 .el-table .descending .sort-caret.descending {
-    border-top-color: $primary-color-sub;
+  border-top-color: $primary-color-sub;
 }
 
 .el-table .ascending .sort-caret.ascending {
-    border-bottom-color: $primary-color-sub;
+  border-bottom-color: $primary-color-sub;
 }
 
 .el-table .sort-caret.descending {
-    border-top-color: $background-color;
+  border-top-color: $background-color;
 }
 
 .el-table .sort-caret.ascending {
-    border-bottom-color: $background-color;
+  border-bottom-color: $background-color;
 }
 
 // styles table multiple selection
 .el-checkbox__input.is-indeterminate .el-checkbox__inner {
-    background-color: $background-color;
-    border-color: $primary-color;
+  background-color: $background-color;
+  border-color: $primary-color;
 }
 
 .el-checkbox__input.is-indeterminate .el-checkbox__inner::before{
-    background-color: $primary-color;
+  background-color: $primary-color;
 }
 
 .el-checkbox__input.is-checked .el-checkbox__inner {
-    background-color: $background-color;
-    border-color: $primary-color;
+  background-color: $background-color;
+  border-color: $primary-color;
 }
 
 .el-checkbox__input.is-checked .el-checkbox__inner::after{
- border-color: $primary-color;
+  border-color: $primary-color;
 }
 
 .el-checkbox__input.is-focus .el-checkbox__inner {
-    border-color: $primary-color;
+  border-color: $primary-color;
 }
 
 .el-checkbox__input:hover .el-checkbox__inner {
-    border-color: $primary-color;
+  border-color: $primary-color;
 }
 
 .el-table--group::after, .el-table--border::after, .el-table::before{
