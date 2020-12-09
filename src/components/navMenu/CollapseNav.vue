@@ -6,7 +6,7 @@
       :collapse="isCollapse"
     >
     <div class="layer-heading">
-      <h1 class="layer-heading--text" :class="isCollapse ? 'heading-collapse' : ''"><slot name="header"></slot></h1>
+      <h3 class="layer-heading--text" :class="isCollapse ? 'heading-collapse' : ''"><slot name="header"></slot></h3>
     </div>
     <div class="layer-content">
       <slot></slot>
@@ -93,22 +93,22 @@ export default {
 
   .el-menu-item.is-active {
     color: $primary-color;
-    font-weight: bold;
+    font-weight: normal;
     background-color: transparent;
   }
 
   .el-submenu__title {
     line-height: 50px;
     color: $dark-body-grey;
-    font-weight: bold;
+    font-weight: normal;
   }
   &.is-active {
     color: $primary-color;
-    font-weight: bold;
+    font-weight: normal;
   }
   &.is-opened {
     color: $primary-color;
-    font-weight: bold;
+    font-weight: normal;
   }
 
   .el-menu-item {
@@ -123,7 +123,7 @@ export default {
   .el-menu-item:hover, .el-menu-item:focus {
       outline: none;
       background-color: transparent;
-      font-weight: bold;
+      font-weight: normal;
   }
 
   .el-menu--vertical .el-menu-item:not(.is-disabled):hover {

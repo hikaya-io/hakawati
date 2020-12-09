@@ -47,8 +47,8 @@ export default {
     font-family: $main-font-family;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 16px;
+    line-height: 19px;
     color: $dark-body-grey;
     padding: 10px 5px 10px 20px;
     margin: 10px 10px 10px 0px;
@@ -61,6 +61,7 @@ export default {
   }
 
   .el-tabs__item.is-active {
+    font-weight: bold;
     color: $primary-color;
     background: $primary-fill;
     background-color: $primary-fill;
@@ -104,8 +105,9 @@ export default {
 
   #tab-1.el-tabs__item.is-disabled{
     margin: 0px 20px 40px 0px;
-    font-size: 15px;
-    line-height: 18px;
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: normal;
     color: $dark-body-grey;
     }
 
