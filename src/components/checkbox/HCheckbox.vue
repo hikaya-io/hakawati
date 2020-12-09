@@ -33,17 +33,24 @@ export default {
   border-color: $light-body-grey;
 }
 .el-checkbox-button.is-checked .el-checkbox-button__inner {
-    background-color: transparent;
-    color: $primary-color;
-    border-color: $primary-color;
-    -webkit-box-shadow: -1px 0 0 0 $primary-color;
+  background-color: transparent;
+  color: $primary-color;
+  border-color: $primary-color;
+  -webkit-box-shadow: -1px 0 0 0 $primary-color;
 }
 
 el-checkbox-button.is-checked:first-child .el-checkbox-button__inner {
-    border-left-color: $primary-fill;
+  border-left-color: $primary-fill;
 }
 
 .el-checkbox__inner::after {
-    color: $primary-fill;
+  color: $primary-fill;
+}
+
+.el-checkbox__input.is-focus .el-checkbox__inner {
+    border-color: $light-body-grey !important;
+}
+.el-checkbox__input.is-checked .el-checkbox__inner {
+  border-color: $primary-color !important;
 }
 </style>

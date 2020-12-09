@@ -51,7 +51,7 @@ $placeholder-color: $background-color;
 $input-value-color: $background-color;
 $help-text-color: $background-color;
 $disables-opacity: 0.25;
-$main-font-family: 'Lato', sans-serif;
+$main-font-family: 'Roboto', sans-serif;
 $primary-background-color: $background-color;
 $light-color: $light-body-grey;
 $dark-color: $dark-body-grey;
@@ -62,8 +62,8 @@ $dark-color: $dark-body-grey;
   font-family: $main-font-family;
   font-style: normal;
   font-weight: bold;
-  font-size: 48px;
-  line-height: 58px;
+  font-size: 36px;
+  line-height: 43px;
   color: $dark-body-grey;
 }
 
@@ -72,8 +72,8 @@ $dark-color: $dark-body-grey;
   font-family: $main-font-family;
   font-style: normal;
   font-weight: bold;
-  font-size: 36px;
-  line-height: 43px;
+  font-size: 22px;
+  line-height: 26px;
   color: $dark-body-grey;
 }
 
@@ -82,8 +82,8 @@ $dark-color: $dark-body-grey;
   font-family: $main-font-family;
   font-style: normal;
   font-weight: bold;
-  font-size: 30px;
-  line-height: 36px;
+  font-size: 28px;
+  line-height: 32px;
   color: $dark-body-grey;
 }
 
@@ -112,8 +112,8 @@ $dark-color: $dark-body-grey;
   font-family: $main-font-family;
   font-style: normal;
   font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 16px;
+  line-height: 19px;
   color: $dark-body-grey;
 }
 
@@ -122,8 +122,8 @@ $dark-color: $dark-body-grey;
   font-family: $main-font-family;
   font-style: normal;
   font-weight: bold;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 16px;
+  line-height: 19px;
   color: $dark-body-grey;
 }
 
@@ -132,8 +132,8 @@ $dark-color: $dark-body-grey;
   font-family: $main-font-family;
   font-style: normal;
   font-weight: normal;
-  font-size: 22px;
-  line-height: 26px;
+  font-size: 18px;
+  line-height: 22px;
   color: $dark-body-grey;
 }
 
@@ -142,8 +142,8 @@ $dark-color: $dark-body-grey;
   font-family: $main-font-family;
   font-style: normal;
   font-weight: bold;
-  font-size: 22px;
-  line-height: 26px;
+  font-size: 18px;
+  line-height: 22px;
   color: $dark-body-grey;
 }
 
@@ -192,6 +192,7 @@ $dark-color: $dark-body-grey;
 .ws-button {
   color: $primary-color;
   font-family: $main-font-family;
+  font-weight: normal;
   &:focus {
     border: none;
     background-color: $white;
@@ -210,7 +211,7 @@ $dark-color: $dark-body-grey;
   color: $white;
   font-size: 14px;
   line-height: 17px;
-  font-weight: bold;
+  font-weight: normal;
   font-family: $main-font-family;
   border: none;
 }

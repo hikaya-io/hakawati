@@ -25,9 +25,15 @@ export default {
 @import "../../styles/theme";
 
 .h-pagination {
+
+  .el-pagination {
+    font-weight: normal;
+  }
+
   .el-pagination.is-background .el-pager li:not(.disabled).active {
     background-color: $primary-fill;
     color: $primary-color;
+    border-radius: 0px;
   }
 
   .el-pager li {
