@@ -73,7 +73,6 @@ export default {
   }
 
   // style selected options
-  
   .el-select-dropdown.is-multiple .el-select-dropdown__item.selected {
     color: $primary-color;
       background-color: transparent;

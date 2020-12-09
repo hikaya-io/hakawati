@@ -35,10 +35,7 @@ export default {
     border-color: transparent;
   }
 }
-
-.el-cascader-node.in-active-path, 
-.el-cascader-node.is-selectable.in-checked-path, 
-.el-cascader-node.is-active {
+.el-cascader-node.in-active-path, .el-cascader-node.is-selectable.in-checked-path, .el-cascader-node.is-active {
   font-weight: normal;
 }
 
