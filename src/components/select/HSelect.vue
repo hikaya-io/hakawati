@@ -73,21 +73,24 @@ export default {
   }
 
   // style selected options
-
   .el-select-dropdown.is-multiple .el-select-dropdown__item.selected {
-      color: $primary-color;
+    color: $primary-color;
       background-color: transparent;
   }
 
   .el-icon-close:before {
-      background-color: $primary-fill;
+    background-color: $primary-fill;
       color: $heading-grey;
   }
 
   .el-tag.el-tag--info {
-      background-color: $primary-fill;
+    background-color: $primary-fill;
       border-color: transparent;
       color: $primary-color;
   }
+}
+
+.el-select-dropdown__item.selected {
+  font-weight: normal;
 }
 </style>

@@ -48,7 +48,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import "../../styles/theme";
 
 // styles table header

@@ -1,6 +1,6 @@
 <template>
   <h-card>
-    <div slot="title" class="body-reg">
+    <div slot="title" class="body-3-bold">
       <span>{{ title }}</span>
     </div>
     <div slot="items">

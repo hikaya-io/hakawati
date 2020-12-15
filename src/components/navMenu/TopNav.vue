@@ -81,7 +81,7 @@ export default {
     border-bottom: transparent;
     color: $primary-color;
     // background-color: $primary-fill;
-    border-radius: 30px;
+    // border-radius: 30px;
     text-align: center;
     padding: 0px 20px 5px 20px;
     margin-top: 5px;
@@ -120,7 +120,7 @@ export default {
     color: $primary-color;
     // background-color: $primary-fill;
     text-align: center;
-    border-radius: 30px;
+    // border-radius: 30px;
     padding: 0px 25px;
     margin-top: 5px;
     height: 50px;

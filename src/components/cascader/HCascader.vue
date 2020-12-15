@@ -28,10 +28,15 @@ export default {
   .el-cascader-menu {
     color: $dark-body-grey;
   }
+
   .el-cascader-menu__list {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 0px 0px 6px 6px;
     border-color: transparent;
   }
 }
+.el-cascader-node.in-active-path, .el-cascader-node.is-selectable.in-checked-path, .el-cascader-node.is-active {
+  font-weight: normal;
+}
+
 </style>
