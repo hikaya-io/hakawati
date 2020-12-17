@@ -1,6 +1,7 @@
 <template>
     <el-checkbox-button
-      :size="size"
+      v-bind="$attrs"
+      v-on="$listeners"
       :border="false"
     >
     {{ text }}
@@ -11,10 +12,6 @@
 export default {
   name: 'HCheckbox',
   props: {
-    size: {
-      type: String,
-      default: ''
-    },
     text: {
       type: String,
       default: ''
@@ -39,7 +36,7 @@ export default {
   -webkit-box-shadow: -1px 0 0 0 $primary-color;
 }
 
-el-checkbox-button.is-checked:first-child .el-checkbox-button__inner {
+.el-checkbox-button.is-checked:first-child .el-checkbox-button__inner {
   border-left-color: $primary-fill;
 }
 
