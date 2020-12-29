@@ -1,23 +1,25 @@
 <template>
-    <el-checkbox-button
-      v-bind="$attrs"
-      v-on="$listeners"
-      :border="false"
-    >
+  <el-checkbox-button
+    v-bind="$attrs"
+    v-on="$listeners"
+    :border="false"
+    :true-label="text"
+    false-label=""
+  >
     {{ text }}
-    </el-checkbox-button>
+  </el-checkbox-button>
 </template>
 
 <script>
 export default {
-  name: 'HCheckbox',
+  name: "HCheckbox",
   props: {
     text: {
       type: String,
-      default: ''
+      default: ""
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -45,7 +47,7 @@ export default {
 }
 
 .el-checkbox__input.is-focus .el-checkbox__inner {
-    border-color: $light-body-grey !important;
+  border-color: $light-body-grey !important;
 }
 .el-checkbox__input.is-checked .el-checkbox__inner {
   border-color: $primary-color !important;
