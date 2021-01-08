@@ -19,7 +19,7 @@
           </el-row>
         </el-col>
         <el-col :span="3" class="spacer"></el-col>
-        <el-col :span="6" :bind="filter.title" v-for="filter in filters">
+        <el-col :span="6" :bind="filter.title" v-for="(filter, index) in filters" :key="index">
           <el-row :gutter="20">
             <el-col class="spacer">
               <b>{{ filter.title }}</b>
@@ -35,7 +35,7 @@
             </div>
           </el-row>
         </el-col>
-        
+
       </el-row>
       <el-button slot="reference" type="text" @click="visible = !visible">
         <i class="el-icon-s-operation"></i> Filter
@@ -45,10 +45,10 @@
 </template>
 
 <script>
-import HCheckbox from "../checkbox/HCheckbox.vue";
+import HCheckbox from '../checkbox/HCheckbox.vue'
 
 export default {
-  name: "HFilter",
+  name: 'HFilter',
   components: { HCheckbox },
   props: {
     filters: {
@@ -60,22 +60,22 @@ export default {
       default: null
     }
   },
-  data() {
+  data () {
     return {
       visible: false
-    };
+    }
   },
   computed: {
     selected: {
-      get() {
-        return this.value;
+      get () {
+        return this.value
       },
-      set(val) {
-        this.$emit("input", val);
+      set (val) {
+        this.$emit('input', val)
       }
     }
   }
-};
+}
 </script>
 
 <style lang="scss">
