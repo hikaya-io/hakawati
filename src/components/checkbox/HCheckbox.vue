@@ -12,14 +12,14 @@
 
 <script>
 export default {
-  name: "HCheckbox",
+  name: 'HCheckbox',
   props: {
     text: {
       type: String,
-      default: ""
+      default: ''
     }
   }
-};
+}
 </script>
 
 <style lang="scss">

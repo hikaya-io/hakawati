@@ -273,37 +273,6 @@ const options = [
   }
 ]
 
-const hOptions = [{
-  value: 'data_type',
-  label: 'Change data type',
-  children: [{
-    value: 'number',
-    label: 'Number'
-  }, {
-    value: 'string',
-    label: 'String'
-  }, {
-    value: 'datetime',
-    label: 'Datetime'
-  }, {
-    value: 'geometry',
-    label: 'Geometry'
-  }
-  ]
-}, {
-  value: 'unique_value',
-  label: 'Assign as unique'
-}, {
-  value: 'rename_column',
-  label: 'Rename column'
-}, {
-  value: 'add_column',
-  label: 'Add new column'
-}, {
-  value: 'delete_column',
-  label: 'Delete column'
-}]
-
 export const hCascader = () => ({
   components: { HCascader },
   data () {
@@ -312,7 +281,7 @@ export const hCascader = () => ({
     }
   },
   template: `
-  <h-cascader 
+  <h-cascader
     :options='options'
   >
   none

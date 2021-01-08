@@ -9,7 +9,7 @@ export const filter = () => ({
   components: {
     HFilter
   },
-  data() {
+  data () {
     return {
       filters: [{
         title: 'choice',
@@ -25,20 +25,20 @@ export const filter = () => ({
   `,
   methods: {
     // append selection of filter to the array and remove if exists
-    selectedChoice(c) {
-      var exists = this.selected.includes(c);
+    selectedChoice (c) {
+      var exists = this.selected.includes(c)
       if (!exists && c) {
-        this.selected.push(c);
+        this.selected.push(c)
       } else {
-        this.getIndex(c);
+        this.getIndex(c)
       }
     },
     // remove item from list
-    getIndex(c) {
+    getIndex (c) {
       for (let i = 0; i < this.selected.length; i++) {
-        if (this.selected[i] == c) {
-          this.selected.splice(i, 1);
-          i--;
+        if (this.selected[i] === c) {
+          this.selected.splice(i, 1)
+          i--
         }
       }
     }

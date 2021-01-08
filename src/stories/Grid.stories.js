@@ -1,7 +1,6 @@
 import HGrid from '../components/grid/HGrid.vue'
 import Item from '../components/grid/Item.vue'
 import ComplexItem from '../components/grid/ComplexItem.vue'
-import { action } from '@storybook/addon-actions'
 
 // This is required for each story
 export default { title: 'Grid' }
