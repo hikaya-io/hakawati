@@ -9,6 +9,15 @@
       class="h-filter"
     >
       <el-row :gutter="20" class="align-center">
+      <el-col :span="24">
+          <el-row :gutter="20">
+            <el-col class="spacer">
+              <b>
+                <i class="el-icon-close" @click="visible = !visible"></i>
+              </b>
+            </el-col>
+          </el-row>
+        </el-col>
         <el-col :span="3" class="spacer"></el-col>
         <el-col :span="6" :bind="filter.title" v-for="filter in filters">
           <el-row :gutter="20">
@@ -26,16 +35,7 @@
             </div>
           </el-row>
         </el-col>
-
-        <el-col :span="3">
-          <el-row :gutter="20">
-            <el-col class="spacer">
-              <b>
-                <i class="el-icon-close" @click="visible = !visible"></i>
-              </b>
-            </el-col>
-          </el-row>
-        </el-col>
+        
       </el-row>
       <el-button slot="reference" type="text" @click="visible = !visible">
         <i class="el-icon-s-operation"></i> Filter
@@ -114,5 +114,8 @@ export default {
 
 .el-checkbox-button.is-focus .el-checkbox-button__inner {
   border-color: transparent;
+}
+.el-icon-close{
+  float: inline-end;
 }
 </style>
