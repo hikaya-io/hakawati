@@ -12,6 +12,7 @@ import TableWithRowSpan from '../components/table/TableWithRowSpan.vue'
 import TableWithSorting from '../components/table/TableWithSorting.vue'
 import TableWithStatus from '../components/table/TableWithStatus.vue'
 import TableWithSummaryRow from '../components/table/TableWithSummaryRow.vue'
+import { action } from '@storybook/addon-actions'
 
 // This is required for each story
 export default {
@@ -27,8 +28,9 @@ export const hTable = () => ({
       tableData: tableDataNew
     }
   },
+  methods: { action: action('header click') },
   template: `
-  <h-table :tableData="tableData">
+  <h-table :tableData="tableData" @header-click="action">
     <el-table-column
     type="selection"
     width="55"
