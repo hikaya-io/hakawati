@@ -2,9 +2,10 @@
   <el-table
     ref="HTable"
     v-loading.fullscreen.lock="loading"
+    v-bind="$attrs"
+    v-on="$listeners"
     @selection-change="handleSelectionChange"
     :data="tableData"
-    height="100vh"
   >
     <slot/>
   </el-table>
