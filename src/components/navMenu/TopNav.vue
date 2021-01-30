@@ -93,6 +93,7 @@ export default {
     position: relative;
 
     &:before {
+      font-family: 'Lato';
       content: '.';
       display: inline-block;
       position: absolute;
@@ -131,6 +132,7 @@ export default {
     position: relative;
 
     &:before {
+      font-family: 'Lato';
       content: '.';
       display: inline-block;
       position: absolute;

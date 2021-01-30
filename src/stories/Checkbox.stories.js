@@ -67,9 +67,9 @@ export const hCheckbox = () => ({
       <div>
         <h-checkbox
           size="small"
-          class="body-reg button-pill"
           text="Option 1"
           v-model="value"
+          checkbox-tag
         />
         <p>Value: {{ value }}</p>
       </div>

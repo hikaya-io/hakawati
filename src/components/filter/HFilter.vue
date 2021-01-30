@@ -2,7 +2,7 @@
   <div>
     <el-popover
       placement="bottom"
-      width="600"
+      width="350"
       trigger="manual"
       v-model="visible"
       :visible-arrow="false"
@@ -19,7 +19,7 @@
           </el-row>
         </el-col>
         <el-col :span="3" class="spacer"></el-col>
-        <el-col :span="6" :bind="filter.title" v-for="(filter, index) in filters" :key="index">
+        <el-col :span="6" :bind="filter.title" v-for="(filter, index) in filters" :key="index" class="filter-title">
           <el-row :gutter="20">
             <el-col class="spacer">
               <b>{{ filter.title }}</b>
@@ -28,8 +28,8 @@
               <el-col class="spacer">
                 <h-checkbox
                   :text="choice"
-                  class="button-pill"
                   @change="$emit('change', choice)"
+                  button-pill
                 />
               </el-col>
             </div>
@@ -78,44 +78,45 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../../styles/theme";
 
-.h-filter {
+::v-deep .h-filter {
   .el-button {
     box-shadow: none;
   }
 }
 
-.el-popover {
+::v-deep .el-popover {
   border-radius: 25px;
   color: $dark-body-grey;
   border-color: transparent;
 }
 
-.align-center {
+::v-deep .align-center {
   text-align: center;
 }
 
 // Removes checkbox button border
-.spacer {
+::v-deep .spacer {
   padding: 15px 33px;
 }
 
-.el-checkbox-button:first-child .el-checkbox-button__inner {
+::v-deep .el-checkbox-button:first-child .el-checkbox-button__inner {
   border-left: transparent;
   border-color: transparent;
 }
 
-.el-checkbox-button.is-checked .el-checkbox-button__inner {
+::v-deep .el-checkbox-button.is-checked .el-checkbox-button__inner {
   color: $primary-color;
   background-color: $primary-fill;
 }
 
-.el-checkbox-button.is-focus .el-checkbox-button__inner {
+::v-deep .el-checkbox-button.is-focus .el-checkbox-button__inner {
   border-color: transparent;
 }
-.el-icon-close{
+
+::v-deep .el-icon-close {
   float: inline-end;
 }
 </style>

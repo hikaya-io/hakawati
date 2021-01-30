@@ -4,6 +4,7 @@
     v-on="$listeners"
     :border="false"
     :true-label="text"
+    :class="checkboxStyle"
     false-label=""
   >
     {{ text }}
@@ -17,6 +18,31 @@ export default {
     text: {
       type: String,
       default: ''
+    },
+    checkboxButton: {
+      type: Boolean,
+      default: false
+    },
+    checkboxTag: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data: function () {
+    return {
+      checkboxStyle: {
+        'body-reg': true,
+        'button-pill': true,
+        'tag-pill': true
+      }
+    }
+  },
+  created () {
+    if (this.checkboxButton) {
+      this.checkboxStyle = { 'button-pill': true, 'body-reg': true }
+    }
+    if (this.checkboxTag) {
+      this.checkboxStyle = { 'tag-pill': true, 'body-reg': true }
     }
   }
 }
@@ -25,21 +51,22 @@ export default {
 <style lang="scss">
 @import "../../styles/theme";
 
-.el-checkbox-button {
-  color: $dark-body-grey;
-}
-.el-checkbox-button.is-focus {
-  border-color: $light-body-grey;
-}
-.el-checkbox-button.is-checked .el-checkbox-button__inner {
-  background-color: transparent;
-  color: $primary-color;
-  border-color: $primary-color;
-  -webkit-box-shadow: -1px 0 0 0 $primary-color;
+.el-checkbox-button:first-child .el-checkbox-button__inner {
+  border-left: transparent;
+  border-color: transparent;
+  border-left-color: $primary-fill;
 }
 
-.el-checkbox-button.is-checked:first-child .el-checkbox-button__inner {
-  border-left-color: $primary-fill;
+.el-checkbox-button {
+  color: $dark-body-grey;
+
+  &.is-focus {
+    border-color: $light-body-grey;
+  }
+}
+
+.el-checkbox-button.is-focus .el-checkbox-button__inner {
+  border-color: transparent;
 }
 
 .el-checkbox__inner::after {
@@ -49,7 +76,9 @@ export default {
 .el-checkbox__input.is-focus .el-checkbox__inner {
   border-color: $light-body-grey !important;
 }
+
 .el-checkbox__input.is-checked .el-checkbox__inner {
   border-color: $primary-color !important;
 }
+
 </style>
