@@ -56,7 +56,6 @@ export default {
 
 .el-checkbox-button:first-child .el-checkbox-button__inner {
   border-color: transparent;
-  border-left-color: $primary-fill;
 }
 
 .el-checkbox-button {
