@@ -255,10 +255,47 @@ $dark-color: $dark-body-grey;
 .button-pill {
   width: 110px;
   border-radius: 25px;
+}
+
+.plain-pill {
 
   .el-checkbox-button__inner {
     border-radius: 25px !important;
     border-color: transparent;
+  }
+
+  &.is-checked .el-checkbox-button__inner {
+    background-color: $primary-fill;
+    color: $primary-color;
+    border-color: transparent;
+    border-left: transparent;
+    -webkit-box-shadow: -1px 0 0 0 transparent;
+  }
+}
+
+.primary-pill {
+
+  .el-checkbox-button__inner {
+    border-radius: 25px !important;
+    border-color: transparent;
+  }
+}
+
+.secondary-pill {
+
+  .el-checkbox-button__inner {
+    border-radius: 25px !important;
+    border-color: transparent;
+    background-color: $secondary-fill;
+    color: $secondary-color;
+    -webkit-box-shadow: -1px 0 0 0 transparent;
+  }
+
+  &.is-checked .el-checkbox-button__inner {
+    background-color: $secondary-color;
+    color: $secondary-fill;
+    border-color: transparent;
+    -webkit-box-shadow: -1px 0 0 0 $secondary-color;
   }
 }
 
