@@ -261,7 +261,7 @@ $dark-color: $dark-body-grey;
     border-color: transparent;
   }
 
-  .el-checkbox-button.is-checked .el-checkbox-button__inner {
+  &.is-checked .el-checkbox-button__inner {
     background-color: $primary-fill;
     color: $primary-color;
     -webkit-box-shadow: -1px 0 0 0 $primary-color;
@@ -275,15 +275,12 @@ $dark-color: $dark-body-grey;
   .el-checkbox-button__inner {
     border-radius: 25px !important;
     border-color: transparent;
-  }
-
-  .el-checkbox-button .el-checkbox-button__inner {
     background-color: $secondary-fill;
     color: $secondary-color;
     -webkit-box-shadow: -1px 0 0 0 $secondary-color;
   }
-  
-  .el-checkbox-button.is-checked .el-checkbox-button__inner {
+
+  &.is-checked .el-checkbox-button__inner {
     background-color: $secondary-color;
     color: $secondary-fill;
     -webkit-box-shadow: -1px 0 0 0 $secondary-color;

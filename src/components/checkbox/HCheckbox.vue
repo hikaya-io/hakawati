@@ -30,11 +30,7 @@ export default {
   },
   data: function () {
     return {
-      checkboxStyle: {
-        'body-reg': true,
-        'button-pill': true,
-        'tag-pill': true
-      }
+      checkboxStyle: {}
     }
   },
   created () {
@@ -52,7 +48,6 @@ export default {
 @import "../../styles/theme";
 
 .el-checkbox-button:first-child .el-checkbox-button__inner {
-  border-left: transparent;
   border-color: transparent;
   border-left-color: $primary-fill;
 }

@@ -68,15 +68,30 @@ export const hCheckbox = () => ({
         <h-checkbox
           size="small"
           text="Option 1"
-          v-model="value"
+          v-model="value1"
+        />
+        <p>Value: {{ value1 }}</p>
+        <h-checkbox
+          size="small"
+          text="Option 2"
+          v-model="value2"
+          checkbox-button
+        />
+        <p>Value: {{ value2 }}</p>
+        <h-checkbox
+          size="small"
+          text="Option 3"
+          v-model="value3"
           checkbox-tag
         />
-        <p>Value: {{ value }}</p>
+        <p>Value: {{ value3 }}</p>
       </div>
       `,
   data () {
     return {
-      value: false
+      value1: false,
+      value2: false,
+      value3: false
     }
   },
   methods: { action: action('click') }
