@@ -69,20 +69,21 @@ export const hCheckbox = () => ({
           size="small"
           text="Option 1"
           v-model="value1"
+          primary-checkbox
         />
         <p>Value: {{ value1 }}</p>
         <h-checkbox
           size="small"
           text="Option 2"
           v-model="value2"
-          checkbox-button
+          plain-checkbox
         />
         <p>Value: {{ value2 }}</p>
         <h-checkbox
           size="small"
           text="Option 3"
           v-model="value3"
-          checkbox-tag
+          secondary-checkbox
         />
         <p>Value: {{ value3 }}</p>
       </div>

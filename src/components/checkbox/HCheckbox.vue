@@ -19,11 +19,15 @@ export default {
       type: String,
       default: ''
     },
-    checkboxButton: {
+    plainCheckbox: {
       type: Boolean,
       default: false
     },
-    checkboxTag: {
+    primaryCheckbox: {
+      type: Boolean,
+      default: false
+    },
+    secondaryCheckbox: {
       type: Boolean,
       default: false
     }
@@ -34,11 +38,14 @@ export default {
     }
   },
   created () {
-    if (this.checkboxButton) {
-      this.checkboxStyle = { 'button-pill': true, 'body-reg': true }
+    if (this.plainCheckbox) {
+      this.checkboxStyle = { 'button-pill': true, 'body-reg': true, 'plain-pill': true }
     }
-    if (this.checkboxTag) {
-      this.checkboxStyle = { 'tag-pill': true, 'body-reg': true }
+    if (this.primaryCheckbox) {
+      this.checkboxStyle = { 'button-pill': true, 'body-reg': true, 'primary-pill': true }
+    }
+    if (this.secondaryCheckbox) {
+      this.checkboxStyle = { 'button-pill': true, 'body-reg': true, 'secondary-pill': true }
     }
   }
 }
