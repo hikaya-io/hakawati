@@ -29,7 +29,7 @@
                 <h-checkbox
                   :text="choice"
                   @change="$emit('change', choice)"
-                  button-pill
+                  plain-checkbox
                 />
               </el-col>
             </div>
@@ -78,45 +78,50 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "../../styles/theme";
 
-::v-deep .h-filter {
+.h-filter {
   .el-button {
     box-shadow: none;
   }
+
+  .el-checkbox-button:first-child .el-checkbox-button__inner {
+    border-left: transparent;
+    border-color: transparent;
+  }
+
+  .el-checkbox-button.is-checked .el-checkbox-button__inner {
+    color: $primary-color;
+    background-color: $primary-fill;
+  }
+
+  .el-checkbox-button.is-focus .el-checkbox-button__inner {
+    border-color: transparent;
+  }
+
+  .filter-title {
+    margin-left: 5%;
+  }
 }
 
-::v-deep .el-popover {
-  border-radius: 25px;
-  color: $dark-body-grey;
-  border-color: transparent;
-}
+  .el-popover {
+    border-radius: 25px;
+    color: $dark-body-grey;
+    border-color: transparent;
+  }
 
-::v-deep .align-center {
-  text-align: center;
-}
+  .align-center {
+    text-align: center;
+  }
 
-// Removes checkbox button border
-::v-deep .spacer {
-  padding: 15px 33px;
-}
+  .spacer {
+    padding: 15px 33px;
+  }
 
-::v-deep .el-checkbox-button:first-child .el-checkbox-button__inner {
-  border-left: transparent;
-  border-color: transparent;
-}
+  .el-icon-close {
+    float: right;
+    margin-right: 5%;
+  }
 
-::v-deep .el-checkbox-button.is-checked .el-checkbox-button__inner {
-  color: $primary-color;
-  background-color: $primary-fill;
-}
-
-::v-deep .el-checkbox-button.is-focus .el-checkbox-button__inner {
-  border-color: transparent;
-}
-
-::v-deep .el-icon-close {
-  float: inline-end;
-}
 </style>
