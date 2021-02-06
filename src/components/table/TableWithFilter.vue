@@ -42,7 +42,7 @@
 export default {
   name: 'TableWithFilter',
   props: ['tableData', 'filterData'],
-  created () {
+  mounted () {
     this.tagColumn = this.tableData[0].tag
     this.noTagColumn = { ...this.tableData[0] }
     delete this.noTagColumn.tag

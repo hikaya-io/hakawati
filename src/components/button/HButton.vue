@@ -30,7 +30,7 @@ export default {
       }
     }
   },
-  created () {
+  mounted () {
     if (this.plain) {
       this.buttonStyle = { 'button-style': true }
     }

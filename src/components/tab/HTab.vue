@@ -30,7 +30,7 @@ export default {
       className: { 'vertical-card-tab': true }
     }
   },
-  created () {
+  mounted () {
     if (this.basic) {
       this.className = { 'basic-tab': true }
     } else if (this.vertical) {

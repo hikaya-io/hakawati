@@ -26,7 +26,7 @@
 export default {
   name: 'TableWithExpandableRow',
   props: ['tableData'],
-  created () {
+  mounted () {
     this.columnNames = this.tableData[0]
   }
 }
