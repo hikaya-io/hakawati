@@ -37,7 +37,7 @@ export default {
       checkboxStyle: {}
     }
   },
-  created () {
+  mounted () {
     if (this.plainCheckbox) {
       this.checkboxStyle = { 'button-pill': true, 'body-reg': true, 'plain-pill': true }
     }

@@ -40,7 +40,7 @@ export default {
       eventItems: []
     }
   },
-  created () {
+  mounted () {
     if (this.cols < 1) {
       this.cols = 1
     }
