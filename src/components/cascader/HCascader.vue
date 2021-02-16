@@ -29,7 +29,11 @@ export default {
   },
   mounted () {
     if (!this.showDefault) {
-      this.$children[1].$refs.reference = this.$children[0].$el
+      if (this.$children.length > 1) {
+        this.$children[1].$refs.reference = this.$children[0].$el
+      } else {
+        this.$children[0].$refs.reference = this.$el
+      }
     }
   },
   methods: {

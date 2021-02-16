@@ -297,10 +297,19 @@ export const customComponent = () => ({
     }
   },
   template: `
-  <h-cascader :options="options">
-    <template slot="custom" slot-scope="scope">
-      <el-button ref="custom" @click="scope.toggle()">Button</el-button>
-    </template>
-  </h-cascader>
+    <div>
+    <h-cascader :options="options">
+      <template slot="custom" slot-scope="scope">
+        <el-button ref="custom" @click="scope.toggle()">Button</el-button>
+      </template>
+    </h-cascader>
+    <h-cascader :options="options" style="margin-top: 20px">
+      <template slot="custom" slot-scope="scope">
+        <div @click="scope.toggle()" style="display: inline; cursor: pointer">
+          Some text
+        </div>
+      </template>
+    </h-cascader>
+    </div>
   `
 })
