@@ -288,3 +288,19 @@ export const hCascader = () => ({
   </h-cascader>
     `
 })
+
+export const customComponent = () => ({
+  components: { HCascader },
+  data () {
+    return {
+      options
+    }
+  },
+  template: `
+  <h-cascader :options="options">
+    <template slot="custom" slot-scope="scope">
+      <el-button ref="custom" @click="scope.toggle()">Button</el-button>
+    </template>
+  </h-cascader>
+  `
+})

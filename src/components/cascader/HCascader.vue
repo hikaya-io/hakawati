@@ -1,17 +1,41 @@
 <template>
-  <el-cascader
-    class="h-cascader"
-    :options="options"
-  />
+  <div>
+    <slot name="custom" v-bind:toggle="toggleDropdownVisibility">
+    </slot>
+    <el-cascader
+      v-show="showDefault"
+      ref="cascader"
+      class="h-cascader"
+      v-bind="$attrs"
+      v-on="$listeners"
+      @visible-change="dropDownVisible = !dropDownVisible"
+    />
+  </div>
 </template>
 
 <script>
+
 export default {
   name: 'HCascader',
-  props: {
-    options: {
-      type: Array,
-      default: () => []
+  data () {
+    return {
+      dropDownVisible: false
+    }
+  },
+  computed: {
+    showDefault () {
+      return !!this.$slots.default
+    }
+  },
+  mounted () {
+    if (!this.showDefault) {
+      this.$children[1].$refs.reference = this.$children[0].$el
+    }
+  },
+  methods: {
+    toggleDropdownVisibility () {
+      this.dropDownVisible = !this.dropDownVisible
+      this.$refs.cascader.toggleDropDownVisible()
     }
   }
 }
