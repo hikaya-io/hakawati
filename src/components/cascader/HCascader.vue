@@ -41,6 +41,11 @@ export default {
         this.$children[0].$refs.reference = this.$el
       }
     }
+
+    //  Workaround for https://github.com/ElemeFE/element/issues/18025
+    this.$watch('$refs.cascader.value', (newValue, oldValue) => {
+      this.$refs.cascader.computePresentContent()
+    }, { deep: true })
   },
   methods: {
     toggleDropdownVisibility () {

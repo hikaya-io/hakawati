@@ -293,12 +293,18 @@ export const customComponent = () => ({
   components: { HCascader },
   data () {
     return {
-      options
+      options,
+      selected: null
+    }
+  },
+  methods: {
+    onChange (value) {
+      console.log(value)
     }
   },
   template: `
     <div>
-    <h-cascader :options="options">
+    <h-cascader :options="options" v-model="selected" @change="onChange">
       <template slot="custom" slot-scope="scope">
         <el-button ref="custom" @click="scope.toggle()">Button</el-button>
       </template>
