@@ -309,6 +309,10 @@ export const customComponent = () => ({
           Some text
         </div>
       </template>
+      <template slot-scope="{ node, data}">
+        <span v-if="data.value === 'guide'" style="color: red;">{{ data.label }}</span>
+        <span v-else>{{ data.label }}</span>
+      </template>
     </h-cascader>
     </div>
   `
