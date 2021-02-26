@@ -235,5 +235,10 @@ export default {
 
     @include sm-menu;
   }
+
+  .el-menu--horizontal{
+    width: 30%;
+    margin: 0 auto;
+  }
 }
 </style>
