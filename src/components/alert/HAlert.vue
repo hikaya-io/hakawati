@@ -2,6 +2,7 @@
   <el-alert
     class="h-alert"
     v-bind="$props"
+    v-on="$listeners"
   >
     <template v-for="(index, name) in $slots" v-slot:[name]>
       <slot :name="name" />
