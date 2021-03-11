@@ -24,6 +24,7 @@ export const topNav = () => ({
           <el-menu-item index="4-4-3">item three</el-menu-item>
         </el-submenu>
       </el-submenu>
+      <el-menu-item index="6">Dashboard</el-menu-item>
     </top-nav>
 `
 })

@@ -3,7 +3,7 @@
     <div id="menu" :class="{ active: isActive }">
       <el-menu
         :default-active="activeIndex"
-        mode="horizontal"
+        :mode="mode"
         v-bind="$attrs"
         v-on="$listeners"
       >
@@ -29,7 +29,36 @@ export default {
   },
   data () {
     return {
-      isActive: false
+      isActive: false,
+      mode: 'horizontal',
+      windowWidth: window.innerWidth
+    }
+  },
+
+  watch: {
+    windowWidth(newWidth, oldWidth){
+      if(newWidth <= 768){
+        this.mode = "vertical"
+      }else{
+        this.mode = "horizontal"
+      }
+    }
+  },
+
+  mounted() {
+    this.mode = this.windowWidth <= 768 ? 'vertical' : 'horizontal'
+    this.$nextTick(() => {
+      window.addEventListener('resize', this.onResize);
+    })
+  },
+
+  beforeDestroy() { 
+    window.removeEventListener('resize', this.onResize); 
+  },
+
+  methods: {  
+    onResize() {
+      this.windowWidth = window.innerWidth
     }
   }
 }
@@ -58,7 +87,7 @@ export default {
     font-size: 16px;
     color: $heading-grey;
     border-radius: 30px;
-}
+  }
 
   // style selected submenu
   .el-menu--popup {
@@ -236,9 +265,15 @@ export default {
     @include sm-menu;
   }
 
-  .el-menu--horizontal{
-    width: 30%;
+  .top-nav .el-menu{
+    width: 50%;
     margin: 0 auto;
+    margin-left: 50%;
+  }
+
+  .el-menu--inline{
+    margin-left: 0 !important;
+    margin: 0 auto !important;
   }
 }
 </style>

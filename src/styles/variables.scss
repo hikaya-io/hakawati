@@ -18,7 +18,9 @@ $screen-xl-min: 1200px;
 
 @mixin sm-menu {
   .el-menu--horizontal .el-menu-item,
-  .el-menu--horizontal .el-submenu {
+  .el-menu--horizontal .el-submenu,
+  .el-menu .el-menu-item,
+  .el-menu .el-submenu {
     text-align: center;
     float: none;
     display: block;
@@ -27,7 +29,7 @@ $screen-xl-min: 1200px;
     margin-top: 5px;
   }
 
-  .el-menu--horizontal .el-menu-item {
+  .el-menu--horizontal .el-menu-item, .el-menu .el-menu-item {
     margin: 5px 0px 5px 0px;
     border-bottom: none;
   }
@@ -44,7 +46,7 @@ $screen-xl-min: 1200px;
     line-height: 50px;
   }
 
-  .el-menu--horizontal > .el-submenu.is-active .el-submenu__title {
+  .el-menu--horizontal > .el-submenu.is-active .el-submenu__title,  .el-menu > .el-submenu.is-active .el-submenu__title {
     margin: 5px 0px 5px 0px;
     border-bottom: transparent;
   }
