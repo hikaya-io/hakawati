@@ -3,7 +3,6 @@ module.exports = {
   addons: [
     '@storybook/addon-storysource',
     '@storybook/addon-knobs/register',
-    '@storybook/addon-viewport',
-    '@storybook/addon-controls'
+    '@storybook/addon-viewport'
   ]
 };
