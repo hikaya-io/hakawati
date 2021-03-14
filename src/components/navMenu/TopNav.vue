@@ -198,6 +198,16 @@ export default {
     .el-menu {
       height: 100%;
       overflow-y: scroll;
+
+      &-item:not(.is-disabled):hover {
+        color: $primary-color;
+        background-color: $background-color;
+      }
+    }
+
+    .el-submenu__title:not(.is-disabled):hover {
+      color: $primary-color;
+      background-color: $background-color;
     }
   }
 
