@@ -1,4 +1,5 @@
 import { configure } from '@storybook/vue';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 
 import Vue from 'vue';
 import ElementUI from 'element-ui';
@@ -10,3 +11,7 @@ import '@/styles/element-variables.scss'
 Vue.use(ElementUI, { locale });
 
 configure(require.context('../src', true, /\.stories\.js$/), module);
+
+export  const parameters = {
+  viewPort: INITIAL_VIEWPORTS
+}
