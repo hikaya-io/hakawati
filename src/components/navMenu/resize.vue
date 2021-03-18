@@ -7,7 +7,7 @@ export default {
   name: 'ResizeMixin',
   data () {
     return {
-      deviceType: DESKTOP
+      deviceType: MOBILE
     }
   },
   beforeMount () {
@@ -15,9 +15,10 @@ export default {
   },
   mounted () {
     const isMobile = this.isMobile()
-    if (isMobile) {
-      this.deviceType = MOBILE
+    if (!isMobile) {
+      this.deviceType = DESKTOP
     }
+    this.onDeviceTypeChanged(this.deviceType)
   },
   beforeDestroy () {
     window.removeEventListener('resize', this.resizeHandler)

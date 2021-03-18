@@ -14,7 +14,7 @@
           <slot></slot>
         </el-menu>
       </div>
-      <div v-else class="mobile-menu" key="small">
+      <div v-else :class="{'mobile-menu': true, 'collapsed': !isActive}" key="small">
         <transition name="slide">
           <template v-if="isActive">
             <el-menu
@@ -62,7 +62,7 @@ export default {
       isCollapsed: true
     }
   },
-  created () {
+  mounted () {
     this.showMobile = this.deviceType === 'mobile'
   },
   methods: {
@@ -209,6 +209,10 @@ export default {
       color: $primary-color;
       background-color: $background-color;
     }
+  }
+
+  .mobile-menu.collapsed {
+    width: 0 !important;
   }
 
   .brand {
