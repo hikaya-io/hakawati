@@ -9,6 +9,9 @@ export const topNav = () => ({
   components: { TopNav },
   template: `
   <top-nav default-active="1">
+      <template slot="mobile-before">
+        <el-menu-item index="0">Menu Item Before</el-menu-item>
+      </template>
       <el-menu-item index="1">Maps</el-menu-item>
       <el-menu-item index="2">Tables</el-menu-item>
       <el-menu-item index="3" disabled>Reports</el-menu-item>
@@ -24,6 +27,10 @@ export const topNav = () => ({
           <el-menu-item index="4-4-3">item three</el-menu-item>
         </el-submenu>
       </el-submenu>
+
+      <template slot="mobile-after">
+        <el-menu-item index="5">Menu Item After</el-menu-item>
+      </template>
     </top-nav>
 `
 })

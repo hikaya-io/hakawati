@@ -25,12 +25,17 @@
               v-on="$listeners"
               @select="toggleSidebar"
             >
+              <slot name="mobile-before"></slot>
               <slot></slot>
+              <slot name="mobile-after"></slot>
             </el-menu>
           </template>
         </transition>
       </div>
     </transition>
+    <div v-if="showRightArea && !showMobile" class="right-area">
+      <slot name="right-area"><span>Right Area</span></slot>
+    </div>
     <div v-if="showMobile" id="toggle" @click="toggleSidebar">
       <div class="span" id="top" :class="{ active: isActive }"></div>
       <div class="span" id="middle" :class="{ active: isActive }"></div>
@@ -51,6 +56,10 @@ export default {
       default: ''
     },
     showBrand: {
+      type: Boolean,
+      default: true
+    },
+    showRightArea: {
       type: Boolean,
       default: true
     }
@@ -219,6 +228,13 @@ export default {
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 10px;
+  }
+
+  .right-area {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: 20px;
   }
 
   .fade-enter-active, .fade-leave-active {
