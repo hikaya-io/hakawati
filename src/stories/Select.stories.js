@@ -88,7 +88,7 @@ export const hSelect = () => ({
   data () {
     return {
       options,
-      selectedOption: 'option_4'
+      selectedOption: 'option_4',
     }
   },
   template: `
@@ -99,6 +99,7 @@ export const hSelect = () => ({
         :placeholder="placeholder"
         :disabled="disabled"
         @change="onChange"
+        :option-attributes="{test: '1'}"
       />
       <br>
       <p>Selected:</p>

@@ -12,6 +12,7 @@
       :label="item.label"
       :disabled="item.disabled"
       :value="item.value"
+      v-bind="optionAttributes"
     />
   </el-select>
 </template>
@@ -27,6 +28,10 @@ export default {
     options: {
       type: Array,
       default: () => []
+    },
+    optionAttributes: {
+      type: Object,
+      default: () => ({})
     }
   },
   computed: {
