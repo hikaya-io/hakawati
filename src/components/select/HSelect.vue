@@ -6,6 +6,23 @@
     @change="$emit('change', $event)"
     class="h-select"
   >
+    <template v-for="item in options">
+      <el-option
+        v-if="'extraAttrs' in item"
+        :key="item.value"
+        :label="item.label"
+        :disabled="item.disabled"
+        :value="item.value"
+        v-bind="item.extraAttrs"
+      />
+      <el-option
+        v-else
+        :key="item.value"
+        :label="item.label"
+        :disabled="item.disabled"
+        :value="item.value"
+      />
+    </template>
     <el-option
       v-for="item in options"
       :key="item.value"
@@ -52,11 +69,11 @@ export default {
 
 .h-select {
   .el-select .el-input.is-focus .el-input__inner {
-      border-color: $light-body-grey;
+    border-color: $light-body-grey;
   }
 
   .el-select .el-input__inner:focus {
-      border-color: $light-body-grey;
+    border-color: $light-body-grey;
   }
 
   .el-select-dropdown__list {
@@ -67,11 +84,11 @@ export default {
   }
 
   .el-select-dropdown__item.hover, .el-select-dropdown__item:hover {
-      color: $primary-color;
-      background-color: transparent;
+    color: $primary-color;
+    background-color: transparent;
   }
 
-  .el-select-dropdown__item.is-disabled:hover{
+  .el-select-dropdown__item.is-disabled:hover {
     background-color: transparent;
     color: $light-body-grey;
     cursor: not-allowed;
@@ -80,18 +97,18 @@ export default {
   // style selected options
   .el-select-dropdown.is-multiple .el-select-dropdown__item.selected {
     color: $primary-color;
-      background-color: transparent;
+    background-color: transparent;
   }
 
   .el-icon-close:before {
     background-color: $primary-fill;
-      color: $heading-grey;
+    color: $heading-grey;
   }
 
   .el-tag.el-tag--info {
     background-color: $primary-fill;
-      border-color: transparent;
-      color: $primary-color;
+    border-color: transparent;
+    color: $primary-color;
   }
 }
 
