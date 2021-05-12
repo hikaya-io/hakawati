@@ -88,7 +88,12 @@ export const hSelect = () => ({
   data () {
     return {
       options,
-      selectedOption: 'option_4',
+      selectedOption: 'option_4'
+    }
+  },
+  mounted () {
+    for (const option of this.options) {
+      this.$set(option, 'extraAttrs', { 'data-cy': option.value })
     }
   },
   template: `
@@ -99,7 +104,6 @@ export const hSelect = () => ({
         :placeholder="placeholder"
         :disabled="disabled"
         @change="onChange"
-        :option-attributes="{test: '1'}"
       />
       <br>
       <p>Selected:</p>
