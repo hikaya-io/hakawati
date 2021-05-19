@@ -23,14 +23,6 @@
         :value="item.value"
       />
     </template>
-    <el-option
-      v-for="item in options"
-      :key="item.value"
-      :label="item.label"
-      :disabled="item.disabled"
-      :value="item.value"
-      v-bind="optionAttributes"
-    />
   </el-select>
 </template>
 
@@ -45,10 +37,6 @@ export default {
     options: {
       type: Array,
       default: () => []
-    },
-    optionAttributes: {
-      type: Object,
-      default: () => ({})
     }
   },
   computed: {
