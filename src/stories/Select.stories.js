@@ -140,6 +140,11 @@ export const multiSelect = () => ({
       options
     }
   },
+  mounted () {
+    for (const option of this.options) {
+      this.$set(option, 'extraAttrs', { 'data-cy': option.value })
+    }
+  },
   template: `
       <div>
         <h-select
