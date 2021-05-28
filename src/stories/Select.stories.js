@@ -100,6 +100,7 @@ export const hSelect = () => ({
     <div>
     <p>Blank:</p>
       <h-select
+        v-model="selectedOption"
         :options="options"
         :placeholder="placeholder"
         :disabled="disabled"
@@ -137,7 +138,8 @@ export const multiSelect = () => ({
   },
   data () {
     return {
-      options
+      options,
+      selectedOption: null
     }
   },
   mounted () {
@@ -148,6 +150,7 @@ export const multiSelect = () => ({
   template: `
       <div>
         <h-select
+          v-model="selectedOption"
           :options="options"
           :collapse-tags="collapseTags"
           :placeholder="placeholder"
