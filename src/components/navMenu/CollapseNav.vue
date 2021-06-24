@@ -152,8 +152,11 @@ export default {
     right: 10px;
   }
   .collapse-toggle.el-button--default.el-button--mini.is-circle{
-    right: -48px;
-    padding: 10px 15px;
+    right: -25px;
+    padding: 10px;
+    padding-left: 5px !important;
+    height: 65px;
+    width: 25px;
     border-radius: 0 20px 20px 0;
   }
   .collapse-toggle.el-button--default.el-button--mini.is-circle.btn-not-collapse{
