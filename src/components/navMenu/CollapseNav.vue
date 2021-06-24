@@ -4,19 +4,21 @@
       :default-active="defaultActive"
       class="el-menu-vertical-demo"
       :collapse="isCollapse"
+      v-bind="$attrs"
+      v-on="$listeners"
     >
-    <div class="layer-heading">
-      <h3 class="layer-heading--text" :class="isCollapse ? 'heading-collapse' : ''"><slot name="header"></slot></h3>
-    </div>
-    <div class="layer-content">
-      <slot></slot>
-    </div>
+      <div class="layer-heading">
+        <h3 class="layer-heading--text" :class="isCollapse ? 'heading-collapse' : ''"><slot name="header"></slot></h3>
+      </div>
+      <div class="layer-content">
+        <slot></slot>
+      </div>
       <transition name="button-move">
         <el-button
           v-bind:icon="isCollapse ? 'el-icon-arrow-right button-arrow' : 'el-icon-arrow-left button-arrow'"
           v-on:click="isCollapse = !isCollapse"
           size="mini"
-          :class="!isCollapse ? 'btn-not-collapse' : ''"
+          :class="{'btn-not-collapse': !isCollapse, 'collapse-toggle': true}"
           circle
         >
         </el-button>
@@ -32,6 +34,10 @@ export default {
     defaultActive: {
       type: String,
       default: ''
+    },
+    borderRadius: {
+      type: String,
+      default: '20px'
     }
   },
   data () {
@@ -48,8 +54,8 @@ export default {
 .collapse-nav {
 
   .el-menu-vertical-demo {
-    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
-    border-radius: 0px 20px 20px 0px;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 0 6px 6px 0;
   }
   .el-menu {
     font-family: $main-font-family;
@@ -60,11 +66,12 @@ export default {
     padding: 0.5rem 0.5rem 0.5rem 1.05rem;
     border-right: transparent;
 
-      .el-button {
+      .collapse-toggle {
         position: absolute;
         transition: left 0.4s;
-        top: 15px;
+        top: 90px;
         z-index: 10;
+        box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25), inset -4px 6px 2px -8px rgba(0,0,0,0.25);
 
       .button-arrow {
         transition-duration: 0.5s;
@@ -144,15 +151,21 @@ export default {
     height: 95vh;
     right: 10px;
   }
-  .el-button.el-button--default.el-button--mini.is-circle{
-    right: -48px;
-    padding: 10px 15px;
+  .collapse-toggle.el-button--default.el-button--mini.is-circle{
+    right: -25px;
+    padding: 10px;
+    padding-left: 5px !important;
+    height: 65px;
+    width: 25px;
     border-radius: 0 20px 20px 0;
   }
-  .el-button.el-button--default.el-button--mini.is-circle.btn-not-collapse{
-    right: -15px;
+  .collapse-toggle.el-button--default.el-button--mini.is-circle.btn-not-collapse{
+    right: -25px;
     padding: 10px;
-    border-radius: 50%;
+    padding-left: 5px !important;
+    height: 65px;
+    width: 25px;
+    border-radius: 0 20px 20px 0;
   }
   .el-icon-arrow-right.button-arrow{
     font-size: 1rem;
@@ -162,9 +175,9 @@ export default {
   }
   .layer-heading {
     border-bottom: solid 1px $primary-background-color;
-  &--text{
-    margin: 2rem 0 2rem 1rem;
-  }
+    &--text{
+      margin: 2rem 0 2rem 1rem;
+    }
   }
 
   .heading-collapse{
