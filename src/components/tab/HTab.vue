@@ -23,6 +23,10 @@ export default {
     vertical: {
       type: Boolean,
       default: false
+    },
+    cardTab: {
+      type: Boolean,
+      default: false
     }
   },
   data: function () {
@@ -35,6 +39,8 @@ export default {
       this.className = { 'basic-tab': true }
     } else if (this.vertical) {
       this.className = { 'vertical-tab': true }
+    } else if (this.cardTab) {
+      this.className = { 'card-tab': true }
     }
   }
 }
@@ -137,6 +143,25 @@ export default {
 
   .el-tabs__active-bar {
     background-color: transparent;
+  }
+}
+
+.card-tab {
+  .el-tabs--card > .el-tabs__header .el-tabs__item.is-active {
+    background-color: $primary-fill;
+    border-radius: 5px;
+  }
+  .el-tabs__item {
+    padding: 10px 20px;
+  }
+  .el-tabs--card > .el-tabs__header .el-tabs__nav {
+    border: none;
+  }
+  .el-tabs--card > .el-tabs__header {
+    border: none;
+  }
+  .el-tabs--card > .el-tabs__header .el-tabs__item {
+    border-left: none;
   }
 }
 </style>

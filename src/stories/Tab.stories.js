@@ -58,7 +58,7 @@ export const cardTab = () => ({
     <div>
     <h-tab
       type="card"
-      class="card-tab"
+      card-tab
     >
       <el-tab-pane label="Maps" name="first">Maps</el-tab-pane>
       <el-tab-pane label="Dashboards" name="second">Dashboards</el-tab-pane>
