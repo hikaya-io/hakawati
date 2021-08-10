@@ -46,23 +46,23 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../../styles/theme";
 
-  .el-tabs__item {
-    font-family: $main-font-family;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 19px;
-    color: $dark-body-grey;
-    padding: 10px 5px 10px 20px;
-    margin: 10px 10px 10px 0px;
-  }
+::v-deep .el-tabs__item {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: $dark-body-grey;
+  padding: 10px 5px 10px 20px;
+  margin: 10px 10px 10px 0px;
+}
 
-.vertical-card-tab {
+::v-deep .vertical-card-tab {
   // tab styling
-  .el-tabs--left .el-tabs__item.is-left{
+  .el-tabs--left .el-tabs__item.is-left {
     text-align: left;
   }
 
@@ -123,7 +123,7 @@ export default {
   }
 }
 
-.basic-tab {
+::v-deep .basic-tab {
   .el-tabs__header {
     border: 2px solid $background-color;
     box-sizing: none;
@@ -133,7 +133,7 @@ export default {
   }
 }
 
-.vertical-tab {
+::v-deep .vertical-tab {
   .el-tabs__item.is-active {
     color: $primary-color;
     font-family: $main-font-family;
@@ -146,8 +146,8 @@ export default {
   }
 }
 
-.card-tab {
-  .el-tabs--card > .el-tabs__header .el-tabs__item.is-active {
+::v-deep .card-tab {
+  ::v-deep .el-tabs--card > .el-tabs__header .el-tabs__item.is-active {
     background-color: $primary-fill;
     border-radius: 5px;
   }
@@ -162,6 +162,10 @@ export default {
   }
   .el-tabs--card > .el-tabs__header .el-tabs__item {
     border-left: none;
+  }
+  .vertical-card-tab .el-tabs__header {
+    -webkit-box-shadow: none;
+    box-shadow: none;
   }
 }
 </style>
