@@ -169,9 +169,11 @@ export default {
   }
   .el-icon-arrow-right.button-arrow{
     font-size: 1rem;
+    font-weight: 600;
   }
   .el-icon-arrow-left.button-arrow{
     font-size: 1rem;
+    font-weight: 600;
   }
   .layer-heading {
     border-bottom: solid 1px $primary-background-color;

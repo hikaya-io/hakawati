@@ -14,10 +14,10 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../../styles/theme";
 
-.basic-checkbox {
+::v-deep .basic-checkbox {
   .el-checkbox__inner {
   color: $dark-body-grey;
   }
