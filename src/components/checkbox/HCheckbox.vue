@@ -58,15 +58,11 @@ export default {
   border-color: transparent;
 }
 
-.el-checkbox-button {
-  color: $dark-body-grey;
-
-  &.is-focus {
-    border-color: $light-body-grey;
-  }
+.el-checkbox-button.is-focus .el-checkbox-button__inner {
+  border-color: transparent;
 }
 
-.el-checkbox-button.is-focus .el-checkbox-button__inner {
+.el-checkbox-button .el-checkbox-button__inner {
   border-color: transparent;
 }
 
