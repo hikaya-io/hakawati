@@ -62,11 +62,11 @@ export default {
 
 ::v-deep .vertical-card-tab {
   // tab styling
-  .el-tabs--left .el-tabs__item.is-left {
+  ::v-deep .el-tabs--left .el-tabs__item.is-left {
     text-align: left;
   }
 
-  .el-tabs__item.is-active {
+  ::v-deep .el-tabs__item.is-active {
     font-weight: bold;
     color: $primary-color;
     background: $primary-fill;
@@ -75,15 +75,15 @@ export default {
     margin: 10px 35px 0px 0px;
   }
 
-  .el-tabs__active-bar {
+  ::v-deep .el-tabs__active-bar {
     background-color: transparent;
   }
 
-  .el-tabs__nav-wrap::after{
+  ::v-deep .el-tabs__nav-wrap::after{
     background-color: transparent;
   }
 
-  .el-tabs__header {
+  ::v-deep .el-tabs__header {
     border: none;
     box-sizing: border-box;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
@@ -92,16 +92,16 @@ export default {
     margin-right: 0px;
   }
 
-  .el-tabs--left {
+  ::v-deep .el-tabs--left {
     overflow: visible;
   }
 
-  .el-tabs--left .el-tabs__header.is-left {
+  ::v-deep .el-tabs--left .el-tabs__header.is-left {
     height: 100vh;
     width: 251px;
   }
 
-  #tab-0.el-tabs__item.is-disabled{
+  ::v-deep #tab-0.el-tabs__item.is-disabled{
     margin: 30px 20px 0px 0px;
     font-weight: bold;
     font-size: 22px;
@@ -109,7 +109,7 @@ export default {
     color: $dark-body-grey;
   }
 
-  #tab-1.el-tabs__item.is-disabled{
+  ::v-deep #tab-1.el-tabs__item.is-disabled{
     margin: 0px 20px 40px 0px;
     font-size: 16px;
     line-height: 19px;
@@ -117,14 +117,14 @@ export default {
     color: $dark-body-grey;
     }
 
-  .box-card {
+  ::v-deep .box-card {
     width: 251px;
     height: 755px;
   }
 }
 
 ::v-deep .basic-tab {
-  .el-tabs__header {
+  ::v-deep .el-tabs__header {
     border: 2px solid $background-color;
     box-sizing: none;
     box-shadow: none;
@@ -134,14 +134,14 @@ export default {
 }
 
 ::v-deep .vertical-tab {
-  .el-tabs__item.is-active {
+  ::v-deep .el-tabs__item.is-active {
     color: $primary-color;
     font-family: $main-font-family;
     padding: 10px 5px 10px 20px;
     margin: 10px 10px 10px 0px;
   }
 
-  .el-tabs__active-bar {
+  ::v-deep .el-tabs__active-bar {
     background-color: transparent;
   }
 }
@@ -151,19 +151,19 @@ export default {
     background-color: $primary-fill;
     border-radius: 5px;
   }
-  .el-tabs__item {
+  ::v-deep .el-tabs__item {
     padding: 10px 20px;
   }
-  .el-tabs--card > .el-tabs__header .el-tabs__nav {
+  ::v-deep .el-tabs--card > .el-tabs__header .el-tabs__nav {
     border: none;
   }
-  .el-tabs--card > .el-tabs__header {
+  ::v-deep .el-tabs--card > .el-tabs__header {
     border: none;
   }
-  .el-tabs--card > .el-tabs__header .el-tabs__item {
+  ::v-deep .el-tabs--card > .el-tabs__header .el-tabs__item {
     border-left: none;
   }
-  .vertical-card-tab .el-tabs__header {
+  ::v-deep .vertical-card-tab .el-tabs__header {
     -webkit-box-shadow: none;
     box-shadow: none;
   }
