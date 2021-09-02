@@ -12,7 +12,7 @@
         class="dialog-footer"
       >
         <el-button
-          @click="handleClose"
+          @click="handleCancel"
           round
         >
         Cancel
@@ -72,6 +72,10 @@ export default {
   methods: {
     handleConfirm () {
       this.$emit('dialogConfirmed')
+      this.handleClose()
+    },
+    handleCancel () {
+      this.$emit('dialogCancelled')
       this.handleClose()
     },
     handleClose () {

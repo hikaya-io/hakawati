@@ -17,6 +17,9 @@ export const hDialog = () => ({
     confirm () {
       console.log('Confirmed')
     },
+    cancel () {
+      console.log('Cancel')
+    },
     toggleVisibility () {
       this.visibility = !this.visibility
     }
@@ -32,6 +35,7 @@ export const hDialog = () => ({
     </h-button>
     <h-dialog
       @dialogConfirmed="confirm"
+      @dialogCancelled="cancel"
       @dialogClosed="toggleVisibility"
       :dialogVisible="visibility"
       confirmLabel="Confirm"
