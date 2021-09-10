@@ -202,7 +202,8 @@ export default {
     left: 0;
     top: 0;
     bottom: 0;
-    width: 240px;
+    width: 252px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
 
     .el-menu {
       height: 100%;
@@ -274,7 +275,7 @@ export default {
   position: fixed;
   top: 0;
   display: flex;
-  height: 70px;
+  height: 75px;
 }
 
 #toggle {
