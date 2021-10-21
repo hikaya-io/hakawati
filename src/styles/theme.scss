@@ -179,6 +179,7 @@ $dark-color: $dark-body-grey;
   border: none;
   &:hover {
     border: none;
+    color: $primary-color;
   }
   &:focus {
     border: none;
