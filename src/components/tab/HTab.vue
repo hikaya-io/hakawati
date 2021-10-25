@@ -12,9 +12,11 @@
 
 <script>
 // import { action } from '@storybook/addon-actions'
+import ResizeMixin from '../navMenu/resize.vue'
 
 export default {
   name: 'HTab',
+  mixins: [ResizeMixin],
   props: {
     basic: {
       type: Boolean,
@@ -31,9 +33,20 @@ export default {
   },
   data: function () {
     return {
-      className: { 'vertical-card-tab': true }
+      className: { 'vertical-card-tab': true },
+      showMobile: false,
     }
   },
+
+  watch: {
+    showMobile: {
+      handler(showMobile) {
+        console.log(showMobile)
+      },
+      immediate: true
+    }
+  },
+
   mounted () {
     if (this.basic) {
       this.className = { 'basic-tab': true }
@@ -41,6 +54,21 @@ export default {
       this.className = { 'vertical-tab': true }
     } else if (this.cardTab) {
       this.className = { 'card-tab': true }
+    }
+
+    this.showMobile = this.deviceType === 'mobile'
+    console.log(this.showMobile)
+
+    if(this.className['vertical-card-tab'] && this.showMobile){
+      this.hideItems()
+    }
+  },
+
+  methods : {
+    hideItems(){
+      console.log(this.showMobile)
+      document.getElementsByClassName('el-tabs__header')[0].className += " hidden-header";
+      document.getElementsByClassName('el-tabs__content')[0].className += " no-padding";
     }
   }
 }
@@ -119,6 +147,14 @@ export default {
   .box-card {
     width: 251px;
     height: 755px;
+  }
+
+  .hidden-header{
+    display: none;
+  }
+
+  .no-padding{
+    padding-left: 0;
   }
 }
 
