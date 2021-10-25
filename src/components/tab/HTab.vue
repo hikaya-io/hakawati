@@ -38,15 +38,6 @@ export default {
     }
   },
 
-  watch: {
-    showMobile: {
-      handler(showMobile) {
-        console.log(showMobile)
-      },
-      immediate: true
-    }
-  },
-
   mounted () {
     if (this.basic) {
       this.className = { 'basic-tab': true }
