@@ -31,7 +31,7 @@ export default {
   },
   data: function () {
     return {
-      className: { 'vertical-card-tab': true },
+      className: { 'vertical-card-tab': true }
     }
   },
 
@@ -44,8 +44,8 @@ export default {
       this.className = { 'card-tab': true }
     }
 
-    document.getElementsByClassName('el-tabs__header')[0].className += " hidden-header";
-    document.getElementsByClassName('el-tabs__content')[0].className += " no-padding";
+    document.getElementsByClassName('el-tabs__header')[0].className += ' hidden-header'
+    document.getElementsByClassName('el-tabs__content')[0].className += ' no-padding'
   }
 }
 </script>
