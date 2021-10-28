@@ -31,9 +31,10 @@ export default {
   },
   data: function () {
     return {
-      className: { 'vertical-card-tab': true }
+      className: { 'vertical-card-tab': true },
     }
   },
+
   mounted () {
     if (this.basic) {
       this.className = { 'basic-tab': true }
@@ -42,6 +43,9 @@ export default {
     } else if (this.cardTab) {
       this.className = { 'card-tab': true }
     }
+
+    document.getElementsByClassName('el-tabs__header')[0].className += " hidden-header";
+    document.getElementsByClassName('el-tabs__content')[0].className += " no-padding";
   }
 }
 </script>
@@ -120,6 +124,7 @@ export default {
     width: 251px;
     height: 755px;
   }
+
 }
 
 .basic-tab {
@@ -166,6 +171,16 @@ export default {
   .vertical-card-tab .el-tabs__header {
     -webkit-box-shadow: none;
     box-shadow: none;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .hidden-header{
+    display: none;
+  }
+
+  .no-padding{
+    padding-left: 0;
   }
 }
 </style>
