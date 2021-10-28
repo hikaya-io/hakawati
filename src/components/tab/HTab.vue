@@ -12,11 +12,9 @@
 
 <script>
 // import { action } from '@storybook/addon-actions'
-import ResizeMixin from '../navMenu/resize.vue'
 
 export default {
   name: 'HTab',
-  mixins: [ResizeMixin],
   props: {
     basic: {
       type: Boolean,
@@ -34,7 +32,6 @@ export default {
   data: function () {
     return {
       className: { 'vertical-card-tab': true },
-      showMobile: false,
     }
   },
 
@@ -47,20 +44,8 @@ export default {
       this.className = { 'card-tab': true }
     }
 
-    this.showMobile = this.deviceType === 'mobile'
-    console.log(this.showMobile)
-
-    if(this.className['vertical-card-tab'] && this.showMobile){
-      this.hideItems()
-    }
-  },
-
-  methods : {
-    hideItems(){
-      console.log(this.showMobile)
-      document.getElementsByClassName('el-tabs__header')[0].className += " hidden-header";
-      document.getElementsByClassName('el-tabs__content')[0].className += " no-padding";
-    }
+    document.getElementsByClassName('el-tabs__header')[0].className += " hidden-header";
+    document.getElementsByClassName('el-tabs__content')[0].className += " no-padding";
   }
 }
 </script>
@@ -140,13 +125,6 @@ export default {
     height: 755px;
   }
 
-  .hidden-header{
-    display: none;
-  }
-
-  .no-padding{
-    padding-left: 0;
-  }
 }
 
 .basic-tab {
@@ -193,6 +171,16 @@ export default {
   .vertical-card-tab .el-tabs__header {
     -webkit-box-shadow: none;
     box-shadow: none;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .hidden-header{
+    display: none;
+  }
+
+  .no-padding{
+    padding-left: 0;
   }
 }
 </style>
