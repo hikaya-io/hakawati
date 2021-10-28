@@ -179,14 +179,17 @@ $dark-color: $dark-body-grey;
   border: none;
   &:hover {
     border: none;
+    color: $primary-color;
   }
   &:focus {
     border: none;
     background-color: $white;
+    color: $heading-grey;
   }
   &:active {
     border: none;
     background-color: $cancel-click;
+    color: $primary-color;
   }
 }
 

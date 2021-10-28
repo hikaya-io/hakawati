@@ -14,6 +14,7 @@ export const hButton = () => ({
     @click="action"
     size="medium"
     dark-text
+    class="cancel-button"
     round
   >
   Cancel
