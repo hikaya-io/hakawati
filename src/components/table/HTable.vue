@@ -29,6 +29,7 @@
           fixed="right"
           width="60"
         >
+          <!-- eslint-disable-next-line vue/no-unused-vars -->
           <template slot="header" slot-scope="scope">
             <div>
               <el-dropdown
