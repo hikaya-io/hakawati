@@ -31,20 +31,6 @@ export const hTable = () => ({
   methods: { action: action('header click') },
   template: `
   <h-table :tableData="tableData" @header-click="action">
-    <el-table-column
-    type="selection"
-    width="55"
-    fixed
-    />
-    <el-table-column
-    v-for="(value, key) in tableData[0]"
-    :prop="key"
-    :label="key.charAt(0).toUpperCase() + key.slice(1)"
-    :key="key"
-    sortable
-    width="100px"
-    >
-    </el-table-column>
   </h-table>
   `
 })
