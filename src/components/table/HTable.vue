@@ -16,10 +16,10 @@
           fixed
         />
         <el-table-column
-          v-for="col in shownTableColumns"
+          v-for="(col, index) in shownTableColumns"
           :prop="col"
           :label="titleCase(col)"
-          :key="col"
+          :key="`thead_${index}`"
           :sortable="sortable"
           width="100px"
         >
@@ -35,13 +35,18 @@
               <el-dropdown
                 trigger="click"
                 :hide-on-click="false"
+                @visible-change="onColumnsEdit"
               >
                 <span class="el-dropdown-link">
                   <i class="el-icon-s-operation table-settings"/>
                 </span>
-                <el-dropdown-menu slot="dropdown">
+                <draggable
+                  tag="el-dropdown-menu"
+                  :list="mutableTableColumns"
+                  :component-data="getDropdownMenuData()"
+                >
                   <el-dropdown-item
-                    v-for="col in tableColumns" :key="col">
+                    v-for="col in mutableTableColumns" :key="col">
                     <h-switch
                       v-if="useSwitch"
                       :value="!hiddenColumns.includes(col)"
@@ -57,7 +62,7 @@
                       {{ titleCase(col) }}
                     </el-checkbox>
                   </el-dropdown-item>
-                </el-dropdown-menu>
+                </draggable>
               </el-dropdown>
             </div>
 
@@ -71,10 +76,11 @@
 </template>
 
 <script>
+import draggable from 'vuedraggable'
 import HSwitch from '@/components/switch/HSwitch'
 export default {
   name: 'HTable',
-  components: { HSwitch },
+  components: { HSwitch, draggable },
   props: {
     tableData: {
       type: Array,
@@ -104,11 +110,13 @@ export default {
   data () {
     return {
       multipleSelection: [],
-      hiddenColumns: []
+      hiddenColumns: [],
+      tableColumns: [],
+      mutableTableColumns: []
     }
   },
   computed: {
-    tableColumns () {
+    origTableColumns () {
       if (this.tableData.length) {
         return Object.keys(this.tableData[0])
       }
@@ -116,7 +124,14 @@ export default {
     },
     shownTableColumns () {
       return this.tableColumns.filter(val => !this.hiddenColumns.includes(val))
+    },
+    columnsOrderChanged () {
+      return JSON.stringify(this.tableColumns) !== JSON.stringify(this.mutableTableColumns)
     }
+  },
+  mounted () {
+    this.tableColumns = [...this.origTableColumns]
+    this.mutableTableColumns = [...this.origTableColumns]
   },
   methods: {
     titleCase (val) {
@@ -140,6 +155,19 @@ export default {
         this.hiddenColumns.push(col)
       } else {
         this.hiddenColumns.splice(index, 1)
+      }
+    },
+    getDropdownMenuData () {
+      return {
+        slot: 'dropdown'
+      }
+    },
+    onColumnsEdit (val) {
+      if (!val && this.columnsOrderChanged) {
+        const ans = confirm('Are you sure you want to reorder the columns?')
+        if (ans) {
+          this.tableColumns = [...this.mutableTableColumns]
+        }
       }
     }
   }
