@@ -42,7 +42,15 @@
                 <el-dropdown-menu slot="dropdown">
                   <el-dropdown-item
                     v-for="col in tableColumns" :key="col">
+                    <h-switch
+                      v-if="useSwitch"
+                      :value="!hiddenColumns.includes(col)"
+                      :activeText="titleCase(col)"
+                      @change="hideOrShowColumn(col)"
+                    >
+                    </h-switch>
                     <el-checkbox
+                      v-else
                       :checked="!hiddenColumns.includes(col)"
                       @change="hideOrShowColumn(col)"
                     >
@@ -63,8 +71,10 @@
 </template>
 
 <script>
+import HSwitch from '@/components/switch/HSwitch'
 export default {
   name: 'HTable',
+  components: { HSwitch },
   props: {
     tableData: {
       type: Array,
@@ -85,6 +95,10 @@ export default {
     sortable: {
       type: Boolean,
       default: true
+    },
+    useSwitch: {
+      type: Boolean,
+      default: false
     }
   },
   data () {

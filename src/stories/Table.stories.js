@@ -35,6 +35,22 @@ export const hTable = () => ({
   `
 })
 
+export const hTableWithSwitch = () => ({
+  components: {
+    HTable
+  },
+  data () {
+    return {
+      tableData: tableDataNew
+    }
+  },
+  methods: { action: action('header click') },
+  template: `
+  <h-table :tableData="tableData" @header-click="action" use-switch>
+  </h-table>
+  `
+})
+
 export const oldTable = () => ({
   components: {
     OldTable
