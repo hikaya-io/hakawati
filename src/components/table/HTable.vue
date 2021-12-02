@@ -44,9 +44,14 @@
                   tag="el-dropdown-menu"
                   :list="mutableTableColumns"
                   :component-data="getDropdownMenuData()"
+                  ghost-class="drop-placeholder"
+                  chosen-class="chosen-item"
+                  drag-class="dragging-item"
                 >
                   <el-dropdown-item
-                    v-for="col in mutableTableColumns" :key="col">
+                    v-for="col in mutableTableColumns" :key="col"
+                    class="column-item"
+                  >
                     <h-switch
                       v-if="useSwitch"
                       :value="!hiddenColumns.includes(col)"
@@ -252,6 +257,7 @@ table {
 
   .table-settings {
     cursor: pointer;
+
   }
 
   // styles table multiple selection
@@ -292,4 +298,11 @@ table {
   overflow-y: auto;
   overflow-x: hidden;
 }
+
+.chosen-item {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: $body-grey;
+}
+
 </style>
