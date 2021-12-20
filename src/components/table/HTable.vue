@@ -23,6 +23,17 @@
           :sortable="sortable"
           width="100px"
         >
+          <editable-cell
+            slot-scope="scope"
+            :can-edit="editMode"
+            v-model="editableTableData[scope.$index][col]"
+            v-bind="editColumnComponents[col]"
+            >
+            <span slot="content">{{ scope.row[col] }}</span>
+            <template slot="edit-component-slot">
+              <slot :name="`edit-${col}`"></slot>
+            </template>
+          </editable-cell>
         </el-table-column>
 
         <el-table-column
@@ -72,7 +83,6 @@
             </div>
 
           </template>
-          <template></template>
         </el-table-column>
       </slot>
     </el-table>
@@ -83,9 +93,11 @@
 <script>
 import draggable from 'vuedraggable'
 import HSwitch from '@/components/switch/HSwitch'
+import EditableCell from './components/EditableCell'
+
 export default {
   name: 'HTable',
-  components: { HSwitch, draggable },
+  components: { HSwitch, draggable, EditableCell },
   props: {
     tableData: {
       type: Array,
@@ -110,6 +122,14 @@ export default {
     useSwitch: {
       type: Boolean,
       default: false
+    },
+    editMode: {
+      type: Boolean,
+      default: false
+    },
+    columnComponents: {
+      type: Object,
+      default: () => ({})
     }
   },
   data () {
@@ -117,7 +137,9 @@ export default {
       multipleSelection: [],
       hiddenColumns: [],
       tableColumns: [],
-      mutableTableColumns: []
+      mutableTableColumns: [],
+      editableTableData: [],
+      editColumnComponents: {}
     }
   },
   computed: {
@@ -137,6 +159,16 @@ export default {
   mounted () {
     this.tableColumns = [...this.origTableColumns]
     this.mutableTableColumns = [...this.origTableColumns]
+    this.editableTableData = [...this.tableData]
+    const keys = Object.keys(this.columnComponents)
+
+    for (const col of this.shownTableColumns) {
+      if (keys.indexOf(col) !== -1) {
+        this.$set(this.editColumnComponents, col, this.columnComponents[col])
+      } else {
+        this.$set(this.editColumnComponents, col, { 'editable-component': 'el-input' })
+      }
+    }
   },
   methods: {
     titleCase (val) {
