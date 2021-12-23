@@ -11,6 +11,7 @@
     :is="editableComponent"
     ref="input"
     @focus="onFieldClick"
+    @visible-change="onDropdownHidden"
     @keyup.enter.native="onInputExit"
     v-on="listeners"
     v-bind="$attrs"
@@ -53,7 +54,8 @@ export default {
   },
   data () {
     return {
-      editMode: false
+      editMode: false,
+      focusTriggered: false
     }
   },
   computed: {
@@ -71,6 +73,13 @@ export default {
       }
     }
   },
+  watch: {
+    editMode(val) {
+      if (!val) {
+        this.focusTriggered = false
+      }
+    }
+  },
   methods: {
     onFieldClick () {
       if (this.canEdit) {
@@ -79,12 +88,27 @@ export default {
           const inputRef = this.$refs.input
           if (inputRef && inputRef.focus) {
             inputRef.focus()
+            // Workaround for el-select
+            if (this.editableComponent === 'el-select') {
+              if (!this.focusTriggered) {
+                this.focusTriggered = true
+                inputRef.toggleMenu()
+              }
+            }
           }
         })
       }
     },
     onInputExit () {
       this.editMode = false
+    },
+    onDropdownHidden (val) {
+      // Workaround for el-select components
+      if (this.editableComponent === 'el-select') {
+        if (!val) {
+          this.editMode = false
+        }
+      }
     },
     onInputChange (val) {
       this.$emit('input', val)
@@ -96,14 +120,19 @@ export default {
 <style scoped lang="scss">
 @import "../../../styles/theme";
 
+.cell-content {
+  min-height: 38px;
+  align-items: center;
+  display: flex;
+}
+
 .edit-enabled-cell {
   cursor: pointer;
-  border: 1px solid transparent;
   border-radius: 6px;
-  padding: 5px;
 }
 
 .edit-enabled-cell:hover {
   background: $light-body-grey;
+  padding-left: 5px;
 }
 </style>

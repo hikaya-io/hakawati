@@ -86,6 +86,7 @@ export const hTableEditEnabled = () => ({
       <template slot="edit-tag">
         <el-option value="Home" label="Home"></el-option>
         <el-option value="School" label="School"></el-option>
+        <el-option value="Office" label="Office"></el-option>
       </template>
     </h-table>
     </div>
