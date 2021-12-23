@@ -74,13 +74,19 @@ export const hTableEditEnabled = () => ({
       }
     }
   },
-  methods: { action: action('header click') },
+  methods: {
+    action: action('header click'),
+    rowEdited (row) {
+      action('Row edited')
+    }
+  },
   template: `
     <div>
     <h-switch v-model="editMode" activeText="Edit" inactiveText="View"></h-switch>
     <h-table
       :tableData="tableData"
       @header-click="action"
+      @row-edited="rowEdited"
       :edit-mode="editMode"
       :column-components="columnComponents">
       <template slot="edit-tag">

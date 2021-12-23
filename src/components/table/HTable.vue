@@ -28,6 +28,7 @@
             :can-edit="editMode"
             v-model="editableTableData[scope.$index][col]"
             v-bind="editColumnComponents[col]"
+            @input-hidden="setLastEditedRow(scope.$index)"
             >
             <span slot="content">{{ scope.row[col] }}</span>
             <template slot="edit-component-slot">
@@ -139,7 +140,8 @@ export default {
       tableColumns: [],
       mutableTableColumns: [],
       editableTableData: [],
-      editColumnComponents: {}
+      editColumnComponents: {},
+      lastEditedRow: null
     }
   },
   computed: {
@@ -154,6 +156,16 @@ export default {
     },
     columnsOrderChanged () {
       return JSON.stringify(this.tableColumns) !== JSON.stringify(this.mutableTableColumns)
+    }
+  },
+  watch: {
+    editableTableData: {
+      deep: true,
+      handler (val) {
+        if (this.editMode) {
+          this.$emit('row-edited', this.editableTableData[this.lastEditedRow])
+        }
+      }
     }
   },
   mounted () {
@@ -206,6 +218,9 @@ export default {
           this.tableColumns = [...this.mutableTableColumns]
         }
       }
+    },
+    setLastEditedRow (index) {
+      this.lastEditedRow = index
     }
   }
 }

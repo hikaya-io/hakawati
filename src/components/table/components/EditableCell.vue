@@ -74,7 +74,7 @@ export default {
     }
   },
   watch: {
-    editMode(val) {
+    editMode (val) {
       if (!val) {
         this.focusTriggered = false
       }
@@ -101,12 +101,14 @@ export default {
     },
     onInputExit () {
       this.editMode = false
+      this.$emit('input-hidden')
     },
     onDropdownHidden (val) {
       // Workaround for el-select components
       if (this.editableComponent === 'el-select') {
         if (!val) {
           this.editMode = false
+          this.$emit('input-hidden')
         }
       }
     },
