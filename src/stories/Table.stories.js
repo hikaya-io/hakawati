@@ -13,6 +13,7 @@ import TableWithSorting from '../components/table/TableWithSorting.vue'
 import TableWithStatus from '../components/table/TableWithStatus.vue'
 import TableWithSummaryRow from '../components/table/TableWithSummaryRow.vue'
 import { action } from '@storybook/addon-actions'
+import HSwitch from '@/components/switch/HSwitch'
 
 // This is required for each story
 export default {
@@ -48,6 +49,53 @@ export const hTableWithSwitch = () => ({
   template: `
   <h-table :tableData="tableData" @header-click="action" use-switch>
   </h-table>
+  `
+})
+
+export const hTableEditEnabled = () => ({
+  components: {
+    HTable,
+    HSwitch
+  },
+  data () {
+    return {
+      tableData: tableDataNew,
+      editMode: false,
+      columnComponents: {
+        date: {
+          'editable-component': 'el-date-picker',
+          format: 'yyyy-MM-dd',
+          'value-format': 'yyyy-MM-dd'
+        },
+        tag: {
+          'editable-component': 'el-select',
+          'close-event': 'change'
+        }
+      }
+    }
+  },
+  methods: {
+    action: action('header click'),
+    rowEdited (row) {
+      action('Row edited')
+    }
+  },
+  template: `
+    <div>
+    <h-switch v-model="editMode" activeText="Edit" inactiveText="View"></h-switch>
+    <h-table
+      :tableData="tableData"
+      @header-click="action"
+      @row-edited="rowEdited"
+      :edit-mode="editMode"
+      :column-components="columnComponents">
+      <template slot="edit-tag">
+        <el-option value="Home" label="Home"></el-option>
+        <el-option value="School" label="School"></el-option>
+        <el-option value="Office" label="Office"></el-option>
+      </template>
+    </h-table>
+    </div>
   `
 })
 
