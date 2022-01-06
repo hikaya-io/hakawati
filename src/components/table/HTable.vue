@@ -6,6 +6,7 @@
       v-bind="$attrs"
       v-on="$listeners"
       @selection-change="handleSelectionChange"
+      @sort-change="onSortChanged"
       :data="tableData"
     >
       <slot>
@@ -20,7 +21,7 @@
           :prop="col"
           :label="titleCase(col)"
           :key="`thead_${index}`"
-          :sortable="sortable"
+          :sortable="sortable && !editMode"
           width="100px"
         >
           <editable-cell
@@ -221,6 +222,18 @@ export default {
     },
     setLastEditedRow (index) {
       this.lastEditedRow = index
+    },
+    onSortChanged (obj) {
+      function compare (a, b) {
+        if (a[obj.prop] < b[obj.prop]) {
+          return obj.order === 'ascending' ? -1 : 1
+        }
+        if (a[obj.prop] > b[obj.prop]) {
+          return obj.order === 'ascending' ? 1 : -1
+        }
+        return 0
+      }
+      this.editableTableData.sort(compare)
     }
   }
 }
