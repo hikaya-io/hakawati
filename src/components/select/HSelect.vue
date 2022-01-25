@@ -14,7 +14,10 @@
         :disabled="item.disabled"
         :value="item.value"
         v-bind="item.extraAttrs"
-      />
+      >
+        <span class="left-data-span">{{ item.label }}</span>
+        <span v-if="item.extra_data" class="right-data-span">{{ item.extra_data }}</span>
+      </el-option>
       <el-option
         v-else
         :key="item.value"
@@ -98,6 +101,16 @@ export default {
     border-color: transparent;
     color: $primary-color;
   }
+}
+
+.right-data-span{
+  float: right; 
+  color: #8492a6; 
+  font-size: 13px;
+}
+
+.left-data-span{
+  float: left;
 }
 
 .el-select-dropdown__item.selected {

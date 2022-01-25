@@ -12,7 +12,8 @@ export default {
 const options = [
   {
     label: 'Option 1',
-    value: 'option_1'
+    value: 'option_1',
+    extra_data: 'extra_info'
   },
   {
     label: 'Option 2',
