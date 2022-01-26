@@ -12,8 +12,7 @@ export default {
 const options = [
   {
     label: 'Option 1',
-    value: 'option_1',
-    extra_data: 'extra_info'
+    value: 'option_1'
   },
   {
     label: 'Option 2',
@@ -32,6 +31,25 @@ const options = [
     label: 'Option 5',
     value: 'option_5'
   }
+]
+
+const extraOptions = [
+  {
+    label: 'Option 1',
+    value: 'option_1',
+    extra_data: 'option 1'
+  },
+  {
+    label: 'Option 2',
+    value: 'option_2',
+    extra_data: 'option 2'
+  },
+  {
+    label: 'Option 3',
+    value: 'option_3',
+    extra_data: 'option 3'
+  },
+
 ]
 
 const groupOptions = [
@@ -109,6 +127,40 @@ export const hSelect = () => ({
       />
       <br>
       <p>Selected:</p>
+      <h-select
+        v-model="selectedOption"
+        :options="options"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        @change="onChange"
+      />
+    </div>
+  `
+})
+
+export const customSelect = () => ({
+  components: { HSelect },
+  props: {
+    placeholder: {
+      default: text('Placeholder', 'Select an option below')
+    }
+  },
+  methods: {
+    onChange (selectedValue) { console.log(selectedValue) }
+  },
+  data () {
+    return {
+      options: extraOptions,
+      selectedOption: null
+    }
+  },
+  mounted () {
+    for (const option of this.options) {
+      this.$set(option, 'extraAttrs', { 'data-cy': option.value })
+    }
+  },
+  template: `
+    <div>
       <h-select
         v-model="selectedOption"
         :options="options"
