@@ -143,7 +143,10 @@ export const customSelect = () => ({
   props: {
     placeholder: {
       default: text('Placeholder', 'Select an option below')
-    }
+    },
+    disabled: {
+      default: boolean('Disabled', false)
+    },
   },
   methods: {
     onChange (selectedValue) { console.log(selectedValue) }
