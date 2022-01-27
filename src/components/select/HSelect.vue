@@ -104,8 +104,8 @@ export default {
 }
 
 .right-data-span{
-  float: right; 
-  color: #8492a6; 
+  float: right;
+  color: #8492a6;
   font-size: 13px;
 }
 
