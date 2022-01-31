@@ -35,12 +35,12 @@ const options = [
 
 const extraOptions = [
   {
-    label: 'Option 1',
+    label: 'Option 1 with very long label text data',
     value: 'option_1',
     extra_data: 'option 1'
   },
   {
-    label: 'Option 2',
+    label: 'Option 2 with another very long label text data',
     value: 'option_2',
     extra_data: 'option 2'
   },

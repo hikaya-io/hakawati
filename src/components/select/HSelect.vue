@@ -105,12 +105,16 @@ export default {
 
 .right-data-span{
   float: right;
-  color: #8492a6;
-  font-size: 13px;
+  color: $light-body-grey;
+  font-size: 14px;
+  font-style: italic;
 }
 
 .left-data-span{
   float: left;
+  width: 70%;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .el-select-dropdown__item.selected {
