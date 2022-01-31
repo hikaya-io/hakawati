@@ -111,6 +111,9 @@ export default {
 
 .left-data-span{
   float: left;
+  width: 70%;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .el-select-dropdown__item.selected {
