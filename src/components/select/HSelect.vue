@@ -112,7 +112,7 @@ export default {
 
 .left-data-span{
   float: left;
-  width: 70%;
+  width: 80%;
   text-overflow: ellipsis;
   overflow: hidden;
 }
