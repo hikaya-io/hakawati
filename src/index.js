@@ -85,6 +85,7 @@ import UploadExcel from './components/upload/UploadExcel.vue'
 import HForm from './components/form/HForm.vue'
 
 // Import other components from here
+import HSideNav from '@/components/sidenav/HSideNav'
 
 const components = [
   HButton,
@@ -119,7 +120,8 @@ const components = [
   HAvatar,
   HSearch,
   HFilter,
-  HBreadcrumb
+  HBreadcrumb,
+  HSideNav
 ]
 
 const install = function (Vue) {
