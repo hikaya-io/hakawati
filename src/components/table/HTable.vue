@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-table
-      ref="HTable"
+      :ref="refTable"
       v-loading.fullscreen.lock="loading"
       v-bind="$attrs"
       v-on="$listeners"
@@ -132,6 +132,10 @@ export default {
     columnComponents: {
       type: Object,
       default: () => ({})
+    },
+    refTable: {
+      type: String,
+      default: 'HTable'
     }
   },
   data () {
