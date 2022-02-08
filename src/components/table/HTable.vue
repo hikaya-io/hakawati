@@ -354,6 +354,13 @@ table {
   .el-table--group::after, .el-table--border::after, .el-table::before{
     background-color: transparent;
   }
+
+  // Add spacing between table rows
+  &__header,
+  &__body,
+  &__footer {
+    border-spacing: 0 2px;
+  }
 }
 
 .el-dropdown-menu {
