@@ -58,7 +58,6 @@ export const hEmptyTable = () => ({
     :key="colIndex"
     :label="col.label"
     sortable
-    :formatter="cellValueFormatter"
     :width="col.width"
   />
   </el-table-column>
