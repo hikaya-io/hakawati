@@ -36,6 +36,36 @@ export const hTable = () => ({
   `
 })
 
+export const hEmptyTable = () => ({
+  components: {
+    HTable
+  },
+  data () {
+    return {
+      tableData: [],
+      tableColumns: [{ label: 'Date', width: 125 },
+        { label: 'Name', width: 125 },
+        { label: 'State', width: 125 },
+        { label: 'City', width: 125 },
+        { label: 'Address', width: 125 }]
+    }
+  },
+  methods: { action: action('header click') },
+  template: `
+  <h-table :tableData="tableData" empty-text="No data" @header-click="action">
+  <el-table-column
+    v-for="(col, colIndex) in tableColumns"
+    :key="colIndex"
+    :label="col.label"
+    sortable
+    :formatter="cellValueFormatter"
+    :width="col.width"
+  />
+  </el-table-column>
+  </h-table>
+  `
+})
+
 export const hTableWithSwitch = () => ({
   components: {
     HTable
