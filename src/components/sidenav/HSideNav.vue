@@ -52,11 +52,12 @@ export default {
 
   .navigation {
     height: 100%;
-    width: 300px;
+    width: 20%;
     border-right: 1px solid $light-body-grey;
+    transition: width 0.5s;
 
     &.collapsed {
-      width: 20px;
+      width: 2%;
     }
   }
 
@@ -65,10 +66,11 @@ export default {
     height: 26px;
     width: 26px;
     top: 40px;
-    left: 236px;
+    left: 16.5%;
+    transition: left 0.5s;
 
     &.collapsed {
-      left: 20px;
+      left: 2.1%;
     }
   }
 
