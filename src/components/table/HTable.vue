@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-table
-      ref="HTable"
+      :ref="refTable"
       v-loading.fullscreen.lock="loading"
       v-bind="$attrs"
       v-on="$listeners"
@@ -132,6 +132,10 @@ export default {
     columnComponents: {
       type: Object,
       default: () => ({})
+    },
+    refTable: {
+      type: String,
+      default: 'HTable'
     }
   },
   data () {
@@ -181,6 +185,23 @@ export default {
       } else {
         this.$set(this.editColumnComponents, col, { 'editable-component': 'el-input' })
       }
+    }
+
+    // https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/setProperty
+    // Fetch all stylesheets
+    const stylesheet = document.styleSheets[3]
+    let elTableBefore
+    // Find stylesheet with el-table::before class
+    for (let i = 0; i < stylesheet.cssRules.length; i++) {
+      if (stylesheet.cssRules[i].selectorText === '.el-table::before') {
+        elTableBefore = stylesheet.cssRules[i]
+      }
+    }
+    // Remove the extra line at the bottom of the table if data is present
+    if (this.tableData.length !== 0) {
+      elTableBefore.style.setProperty('display', 'none')
+    } else {
+      elTableBefore.style.setProperty('display', 'block')
     }
   },
   methods: {
@@ -274,7 +295,7 @@ table {
     border: none;
   }
 
-  .el-table__row {
+  &__row {
     border: 2px solid $background-color;
     box-sizing: border-box;
     border-radius: 6px;
@@ -347,8 +368,16 @@ table {
     border-color: $primary-color;
   }
 
-  .el-table--group::after, .el-table--border::after, .el-table::before{
+  &--group::after,
+  &--border::after {
     background-color: transparent;
+  }
+
+  // Add spacing between table rows
+  &__header,
+  &__body,
+  &__footer {
+    border-spacing: 0 2px;
   }
 }
 
