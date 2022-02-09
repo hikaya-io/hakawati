@@ -3,13 +3,15 @@
     v-model="selectedValue"
     v-bind="$attrs"
     v-on="$listeners"
+    no-match-text="No matching data"
+    no-data-text="No Data"
     @change="$emit('change', $event)"
     class="h-select"
   >
     <template v-for="item in options">
       <el-option
         v-if="'extraAttrs' in item"
-        :key="item.value"
+        :key="item.key"
         :label="item.label"
         :disabled="item.disabled"
         :value="item.value"
@@ -20,7 +22,7 @@
       </el-option>
       <el-option
         v-else
-        :key="item.value"
+        :key="item.key"
         :label="item.label"
         :disabled="item.disabled"
         :value="item.value"
