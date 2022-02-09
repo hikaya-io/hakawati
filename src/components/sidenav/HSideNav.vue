@@ -2,7 +2,12 @@
   <div class="side-nav" :style="{height: height}">
     <transition>
       <div ref="navigation" :class="{navigation: true, collapsed: isCollapsed}">
-        <slot></slot>
+        <div v-if="!isCollapsed" class="top">
+          <slot name="nav-top"></slot>
+        </div>
+        <div v-if="!isCollapsed" class="bottom">
+          <slot name="nav-bottom"></slot>
+        </div>
       </div>
     </transition>
     <transition name="button-move">
@@ -51,13 +56,30 @@ export default {
   height: 100%;
 
   .navigation {
+    display: flex;
+    flex-direction: column;
     height: 100%;
     width: 20%;
+    min-width: 200px;
     border-right: 1px solid $light-body-grey;
     transition: width 0.5s;
 
     &.collapsed {
       width: 2%;
+      min-width: 2%;
+    }
+
+    .top {
+      height: 100%;
+      max-height: calc(100% - 140px);
+      overflow-y: scroll;
+    }
+
+    .bottom {
+      margin-top: auto;
+      border-top: 1px solid $light-body-grey;
+      width: 100%;
+      min-height: 140px;
     }
   }
 
@@ -71,6 +93,62 @@ export default {
 
     &.collapsed {
       left: 2.1%;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .navigation {
+      &.collapsed {
+        min-width: 5%;
+      }
+    }
+
+    .toggle-button {
+      left: 205px;
+
+      &.collapsed {
+        left: 5%;
+      }
+    }
+  }
+
+  @media (min-width: 576px) {
+    .toggle-button {
+      left: 16.5%;
+
+      &.collapsed {
+        left: 2.5%;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .toggle-button {
+      left: 23%;
+
+      &.collapsed {
+        left: 2.5%;
+      }
+    }
+  }
+
+  @media (min-width: 992px) {
+    .toggle-button {
+      left: 18.5%;
+
+      &.collapsed {
+        left: 2.1%;
+      }
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .toggle-button {
+      left: 16.5%;
+
+      &.collapsed {
+        left: 2.1%;
+      }
     }
   }
 
