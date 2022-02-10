@@ -124,7 +124,7 @@ export default {
 
   @media (min-width: 768px) {
     .toggle-button {
-      left: 23%;
+      left: 24.5%;
 
       &.collapsed {
         left: 2.5%;
