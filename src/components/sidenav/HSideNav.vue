@@ -62,7 +62,7 @@ export default {
     width: 20%;
     min-width: 200px;
     border-right: 1px solid $light-body-grey;
-    transition: width 0.5s;
+    transition: width 0.6s;
 
     &.collapsed {
       width: 2%;
@@ -89,7 +89,7 @@ export default {
     width: 26px;
     top: 40px;
     left: 16.5%;
-    transition: left 0.42s;
+    transition: left 0.65s;
 
     &.collapsed {
       left: 2.1%;
