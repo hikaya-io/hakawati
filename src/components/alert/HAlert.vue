@@ -17,10 +17,10 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../../styles/theme";
 
-.h-alert {
+.h-alert::v-deep {
   .el-alert__title {
       font-size: 14px;
       line-height: 17px;
@@ -32,7 +32,7 @@ export default {
   }
 }
 
-.info-alert {
+.info-alert::v-deep {
   .el-alert__title {
     font-size: 14px;
     line-height: 17px;
