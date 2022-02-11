@@ -33,6 +33,8 @@ const options = [
   }
 ]
 
+const emptyOptions = []
+
 const extraOptions = [
   {
     label: 'Option 1 with very long label text data',
@@ -107,7 +109,9 @@ export const hSelect = () => ({
   data () {
     return {
       options,
-      selectedOption: 'option_4'
+      emptyOptions,
+      selectedOption: 'option_4',
+      blankOption: ''
     }
   },
   mounted () {
@@ -119,7 +123,7 @@ export const hSelect = () => ({
     <div>
     <p>Blank:</p>
       <h-select
-        v-model="selectedOption"
+        v-model="blankOption"
         :options="options"
         :placeholder="placeholder"
         :disabled="disabled"
@@ -130,6 +134,23 @@ export const hSelect = () => ({
       <h-select
         v-model="selectedOption"
         :options="options"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        @change="onChange"
+      />
+      <p>Filterable:</p>
+      <h-select
+        v-model="blankOption"
+        filterable
+        :options="options"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        @change="onChange"
+      />
+      <p>Empty:</p>
+      <h-select
+        v-model="blankOption"
+        :options="emptyOptions"
         :placeholder="placeholder"
         :disabled="disabled"
         @change="onChange"
