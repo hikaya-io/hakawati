@@ -89,7 +89,7 @@ export default {
     width: 26px;
     top: 40px;
     left: 16.5%;
-    transition: left 0.65s;
+    transition: left 0.6s;
 
     &.collapsed {
       left: 2.1%;
