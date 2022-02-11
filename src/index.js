@@ -168,5 +168,6 @@ export default {
   HAvatar,
   HSearch,
   HFilter,
-  HBreadcrumb
+  HBreadcrumb,
+  HSideNav
 }
