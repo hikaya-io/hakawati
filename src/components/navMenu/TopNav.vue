@@ -256,6 +256,11 @@ export default {
 .el-menu--horizontal > .el-menu-item {
   margin-left: 25px;
   margin-right: 25px;
+
+  &:hover {
+    background-color: $primary-fill;
+    transition: background-color .15s linear;
+  }
 }
 
 // style selected tab
