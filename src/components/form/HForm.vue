@@ -18,7 +18,7 @@ export default {
 <style lang="scss" scoped>
 @import "../../styles/theme";
 
-.h-form::v-deep {
+::v-deep .h-form {
   .el-form--label-top .el-form-item__label {
     float: none;
     display: inline-block;
@@ -26,4 +26,5 @@ export default {
     padding: 0 0 0 0;
   }
 }
+
 </style>
