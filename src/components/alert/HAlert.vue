@@ -20,7 +20,7 @@ export default {
 <style lang="scss" scoped>
 @import "../../styles/theme";
 
-.h-alert::v-deep {
+::v-deep .h-alert {
   .el-alert__title {
       font-size: 14px;
       line-height: 17px;
@@ -32,7 +32,7 @@ export default {
   }
 }
 
-.info-alert::v-deep {
+::v-deep .info-alert {
   .el-alert__title {
     font-size: 14px;
     line-height: 17px;
@@ -50,7 +50,9 @@ export default {
     vertical-align: text-bottom;
   }
 }
-.el-alert--info.is-light{
+
+::v-deep .el-alert--info.is-light{
     background-color: $background-color;
 }
+
 </style>
