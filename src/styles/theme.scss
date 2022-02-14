@@ -4,22 +4,21 @@
 $white: #fff;
 $black: #000;
 $blue: #4B3EF9;
-$blue-sub: #6633FF;
+$purple: #6633FF;
 $cyan: #33CCCC;
 
 // $orange: #FF8360;
 $green: #00CC66;
 $red: #FF3333;
 $yellow: #F9C80E;
-$purple: #6633CC;
+$purple-hover: #6F65FA;
 
-$blue-fill: #F0F0FF;
-$blue-sub-fill: #F0EBFA;
+$blue-fill: #F0EBFA;
+$purple-fill: #F0F0FF;
 $cyan-fill: #E6FFFC;
 $green-fill: #E5FAF0;
 $red-fill: #FFEBEB;
 $yellow-fill: #FEF9E7;
-$purple-fill: #F5EBFA;
 $cancel-click: #D6D6FF;
 
 
@@ -30,10 +29,10 @@ $body-grey: #C4C4C4;
 $background-color: #F4F5FC;
 
 // Default Variables
-$primary-color: $blue;
-$primary-fill: $blue-fill;
-$primary-color-sub: $blue-sub;
-$primary-color-sub-fill: $blue-sub-fill;
+$primary-color: $purple;
+$primary-fill: $purple-fill;
+$primary-color-sub: $blue;
+$primary-color-sub-fill: $blue-fill;
 $secondary-color: $cyan;
 $secondary-fill: $cyan-fill;
 $success-color: $green;
@@ -145,6 +144,15 @@ $dark-color: $dark-body-grey;
   font-weight: bold;
   font-size: 18px;
   line-height: 22px;
+  color: $dark-body-grey;
+}
+
+.body-4-reg {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 26px;
   color: $dark-body-grey;
 }
 
