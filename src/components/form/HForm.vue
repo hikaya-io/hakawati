@@ -15,15 +15,20 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../../styles/theme";
 
-.h-form {
+.h-form ::v-deep {
   .el-form--label-top .el-form-item__label {
     float: none;
     display: inline-block;
     text-align: left;
     padding: 0 0 0 0;
   }
+
+  .el-input.is-disabled .el-input__inner {
+    background-color: $background-color;
+  }
 }
+
 </style>
