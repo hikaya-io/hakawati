@@ -19,7 +19,6 @@
         <el-table-column
           v-for="(col, index) in shownTableColumns"
           :prop="col"
-          :label="titleCase(col)"
           :key="`thead_${index}`"
           v-bind="getColumnAttrs(col)"
         >
@@ -67,7 +66,7 @@
                     <h-switch
                       v-if="useSwitch"
                       :value="!hiddenColumns.includes(col)"
-                      :activeText="titleCase(col)"
+                      :activeText="getDropdownItemText(col)"
                       @change="hideOrShowColumn(col)"
                     >
                     </h-switch>
@@ -135,10 +134,6 @@ export default {
     refTable: {
       type: String,
       default: 'HTable'
-    },
-    columnLabels: {
-      type: Object,
-      default: () => ({})
     },
     columnAttrs: {
       type: Object,
@@ -213,9 +208,6 @@ export default {
   },
   methods: {
     titleCase (val) {
-      if (val in this.columnLabels) {
-        return this.columnLabels[val]
-      }
       return val.charAt(0).toUpperCase() + val.slice(1)
     },
     toggleSelection (rows) {
@@ -243,6 +235,12 @@ export default {
         slot: 'dropdown'
       }
     },
+    getDropdownItemText (col) {
+      if (col in this.columnAttrs && 'label' in this.columnAttrs[col]) {
+        return this.columnAttrs[col].label
+      }
+      return this.titleCase(col)
+    },
     onColumnsEdit (val) {
       if (!val && this.columnsOrderChanged) {
         const ans = confirm('Are you sure you want to reorder the columns?')
@@ -267,14 +265,15 @@ export default {
       this.editableTableData.sort(compare)
     },
     getColumnAttrs (col) {
-      if (col in this.columnAttrs) {
-        return this.columnAttrs[col]
-      }
-
-      return {
+      const attrs = {
+        label: this.titleCase(col),
         sortable: this.sortable && !this.editMode,
         width: '100px'
       }
+      if (col in this.columnAttrs) {
+        return Object.assign({}, attrs, this.columnAttrs[col])
+      }
+      return attrs
     }
   }
 }

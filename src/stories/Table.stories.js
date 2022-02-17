@@ -80,25 +80,6 @@ export const hTableWithSwitch = () => ({
   `
 })
 
-export const hTableWithColumnLabels = () => ({
-  components: {
-    HTable
-  },
-  data () {
-    return {
-      tableData: tableDataNew,
-      columnLabels: {
-        city: 'CityRRRR'
-      }
-    }
-  },
-  methods: { action: action('header click') },
-  template: `
-  <h-table :tableData="tableData" :column-labels=columnLabels @header-click="action" use-switch>
-  </h-table>
-  `
-})
-
 export const hTableWithColumnAttrs = () => ({
   components: {
     HTable
@@ -109,7 +90,8 @@ export const hTableWithColumnAttrs = () => ({
       columnAttrs: {
         city: {
           'class-name': 'city',
-          width: '400px'
+          width: '400px',
+          label: 'CityRRRR'
         }
       }
     }
