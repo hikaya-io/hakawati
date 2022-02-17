@@ -29,7 +29,13 @@
             v-bind="editColumnComponents[col]"
             @input-hidden="setLastEditedRow(scope.$index)"
             >
-            <span slot="content">{{ scope.row[col] }}</span>
+
+            <template slot="content">
+              <slot name="cell" v-bind="{index: scope.$index, col: col, value: scope.row[col]}">
+                <span>{{ scope.row[col] }}</span>
+              </slot>
+            </template>
+
             <template slot="edit-component-slot">
               <slot :name="`edit-${col}`"></slot>
             </template>
@@ -138,6 +144,12 @@ export default {
     columnAttrs: {
       type: Object,
       default: () => ({})
+    },
+    columnDefaultAttrs: {
+      type: Object,
+      default: () => ({
+        'min-width': '100px'
+      })
     }
   },
   data () {
@@ -267,13 +279,12 @@ export default {
     getColumnAttrs (col) {
       const attrs = {
         label: this.titleCase(col),
-        sortable: this.sortable && !this.editMode,
-        width: '100px'
+        sortable: this.sortable && !this.editMode
       }
       if (col in this.columnAttrs) {
-        return Object.assign({}, attrs, this.columnAttrs[col])
+        return Object.assign({}, attrs, this.columnDefaultAttrs, this.columnAttrs[col])
       }
-      return attrs
+      return Object.assign({}, attrs, this.columnDefaultAttrs)
     }
   }
 }
