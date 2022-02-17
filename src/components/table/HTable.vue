@@ -19,10 +19,8 @@
         <el-table-column
           v-for="(col, index) in shownTableColumns"
           :prop="col"
-          :label="titleCase(col)"
           :key="`thead_${index}`"
-          :sortable="sortable && !editMode"
-          width="100px"
+          v-bind="getColumnAttrs(col)"
         >
           <editable-cell
             slot-scope="scope"
@@ -68,7 +66,7 @@
                     <h-switch
                       v-if="useSwitch"
                       :value="!hiddenColumns.includes(col)"
-                      :activeText="titleCase(col)"
+                      :activeText="getDropdownItemText(col)"
                       @change="hideOrShowColumn(col)"
                     >
                     </h-switch>
@@ -136,6 +134,10 @@ export default {
     refTable: {
       type: String,
       default: 'HTable'
+    },
+    columnAttrs: {
+      type: Object,
+      default: () => ({})
     }
   },
   data () {
@@ -233,6 +235,12 @@ export default {
         slot: 'dropdown'
       }
     },
+    getDropdownItemText (col) {
+      if (col in this.columnAttrs && 'label' in this.columnAttrs[col]) {
+        return this.columnAttrs[col].label
+      }
+      return this.titleCase(col)
+    },
     onColumnsEdit (val) {
       if (!val && this.columnsOrderChanged) {
         const ans = confirm('Are you sure you want to reorder the columns?')
@@ -255,6 +263,17 @@ export default {
         return 0
       }
       this.editableTableData.sort(compare)
+    },
+    getColumnAttrs (col) {
+      const attrs = {
+        label: this.titleCase(col),
+        sortable: this.sortable && !this.editMode,
+        width: '100px'
+      }
+      if (col in this.columnAttrs) {
+        return Object.assign({}, attrs, this.columnAttrs[col])
+      }
+      return attrs
     }
   }
 }

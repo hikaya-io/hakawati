@@ -60,7 +60,6 @@ export const hEmptyTable = () => ({
     sortable
     :width="col.width"
   />
-  </el-table-column>
   </h-table>
   `
 })
@@ -78,6 +77,33 @@ export const hTableWithSwitch = () => ({
   template: `
   <h-table :tableData="tableData" @header-click="action" use-switch>
   </h-table>
+  `
+})
+
+export const hTableWithColumnAttrs = () => ({
+  components: {
+    HTable
+  },
+  data () {
+    return {
+      tableData: tableDataNew,
+      columnAttrs: {
+        city: {
+          'class-name': 'city',
+          width: '400px',
+          label: 'CityRRRR'
+        }
+      }
+    }
+  },
+  methods: { action: action('header click') },
+  template: `
+    <h-table
+      :tableData="tableData"
+      :column-attrs=columnAttrs
+      @header-click="action"
+      use-switch>
+    </h-table>
   `
 })
 
