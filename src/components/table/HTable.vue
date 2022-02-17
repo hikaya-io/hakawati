@@ -21,8 +21,7 @@
           :prop="col"
           :label="titleCase(col)"
           :key="`thead_${index}`"
-          :sortable="sortable && !editMode"
-          width="100px"
+          v-bind="getColumnAttrs(col)"
         >
           <editable-cell
             slot-scope="scope"
@@ -136,6 +135,14 @@ export default {
     refTable: {
       type: String,
       default: 'HTable'
+    },
+    columnLabels: {
+      type: Object,
+      default: () => ({})
+    },
+    columnAttrs: {
+      type: Object,
+      default: () => ({})
     }
   },
   data () {
@@ -206,6 +213,9 @@ export default {
   },
   methods: {
     titleCase (val) {
+      if (val in this.columnLabels) {
+        return this.columnLabels[val]
+      }
       return val.charAt(0).toUpperCase() + val.slice(1)
     },
     toggleSelection (rows) {
@@ -255,6 +265,16 @@ export default {
         return 0
       }
       this.editableTableData.sort(compare)
+    },
+    getColumnAttrs (col) {
+      if (col in this.columnAttrs) {
+        return this.columnAttrs[col]
+      }
+
+      return {
+        sortable: this.sortable && !this.editMode,
+        width: '100px'
+      }
     }
   }
 }
