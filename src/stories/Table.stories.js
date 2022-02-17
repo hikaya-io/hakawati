@@ -14,6 +14,7 @@ import TableWithStatus from '../components/table/TableWithStatus.vue'
 import TableWithSummaryRow from '../components/table/TableWithSummaryRow.vue'
 import { action } from '@storybook/addon-actions'
 import HSwitch from '@/components/switch/HSwitch'
+import HTag from '@/components/tag/HTag'
 
 // This is required for each story
 export default {
@@ -93,6 +94,9 @@ export const hTableWithColumnAttrs = () => ({
           width: '400px',
           label: 'CityRRRR'
         }
+      },
+      columnDefaultAttrs: {
+        'min-width': '200px'
       }
     }
   },
@@ -101,9 +105,31 @@ export const hTableWithColumnAttrs = () => ({
     <h-table
       :tableData="tableData"
       :column-attrs=columnAttrs
+      :column-default-attrs="columnDefaultAttrs"
       @header-click="action"
       use-switch>
     </h-table>
+  `
+})
+
+export const hTableWithCustomContent = () => ({
+  components: {
+    HTable,
+    HTag
+  },
+  data () {
+    return {
+      tableData: tableDataNew
+    }
+  },
+  methods: { action: action('header click') },
+  template: `
+  <h-table :tableData="tableData" @header-click="action">
+    <template v-slot:cell="scope">
+      <h-tag v-if="scope.col === 'city'">{{ scope.value }}</h-tag>
+      <span v-else>{{  scope.value }}</span>
+    </template>
+  </h-table>
   `
 })
 
