@@ -3,15 +3,16 @@
 // Color Palette
 $white: #fff;
 $black: #000;
-$blue: #4B3EF9;
 $purple: #6633FF;
+$blue-sub: #4B3EF9;
 $cyan: #33CCCC;
 
-// $orange: #FF8360;
+$blue: #3686E8;
+$orange: #ED6742;
 $green: #00CC66;
 $red: #FF3333;
 $yellow: #F9C80E;
-$purple-hover: #6F65FA;
+$purple-hover: #855CFF;
 
 $blue-fill: #F0EBFA;
 $purple-fill: #F0F0FF;
@@ -25,12 +26,13 @@ $cancel-click: #D6D6FF;
 $heading-grey: #737581;
 $dark-body-grey: #333333;
 $light-body-grey: #CCCCCC;
-$body-grey: #C4C4C4;
+$body-grey: #EFEFEF;
 $background-color: #F4F5FC;
 
 // Default Variables
 $primary-color: $purple;
 $primary-fill: $purple-fill;
+$primary-hover: $purple-hover;
 $primary-color-sub: $blue;
 $primary-color-sub-fill: $blue-fill;
 $secondary-color: $cyan;
