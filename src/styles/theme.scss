@@ -4,18 +4,18 @@
 $white: #fff;
 $black: #000;
 $purple: #6633FF;
-$blue: #4B3EF9;
-$blue-sub: #3686E8;
+$blue-sub: #4B3EF9;
 $cyan: #33CCCC;
 
+$blue: #3686E8;
 $orange: #ED6742;
 $green: #00CC66;
 $red: #FF3333;
 $red-sub: #E6395E;
 $yellow: #F9C80E;
-$purple-hover: #6F65FA;
+$purple-hover: #855CFF;
 
-$blue-fill: #F0EBFA;
+$blue-sub-fill: #F0EBFA;
 $purple-fill: #F0F0FF;
 $cyan-fill: #E6FFFC;
 $green-fill: #E5FAF0;
@@ -27,14 +27,15 @@ $cancel-click: #D6D6FF;
 $heading-grey: #737581;
 $dark-body-grey: #333333;
 $light-body-grey: #CCCCCC;
-$body-grey: #C4C4C4;
+$body-grey: #EFEFEF;
 $background-color: #F4F5FC;
 
 // Default Variables
 $primary-color: $purple;
 $primary-fill: $purple-fill;
-$primary-color-sub: $blue;
-$primary-color-sub-fill: $blue-fill;
+$primary-hover: $purple-hover;
+$primary-color-sub: $blue-sub;
+$primary-color-sub-fill: $blue-sub-fill;
 $secondary-color: $cyan;
 $secondary-fill: $cyan-fill;
 $success-color: $green;
