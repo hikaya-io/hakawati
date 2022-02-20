@@ -3,13 +3,15 @@
 // Color Palette
 $white: #fff;
 $black: #000;
-$blue: #4B3EF9;
 $purple: #6633FF;
+$blue: #4B3EF9;
+$blue-sub: #3686E8;
 $cyan: #33CCCC;
 
-// $orange: #FF8360;
+$orange: #ED6742;
 $green: #00CC66;
 $red: #FF3333;
+$red-sub: #E6395E;
 $yellow: #F9C80E;
 $purple-hover: #6F65FA;
 
@@ -320,18 +322,26 @@ $dark-color: $dark-body-grey;
 
   @if $type == 'error' {
     background-color: $red-fill;
+    border-color: $red-fill;
+    color: $red;
   }
 
   @else if $type == 'warning' {
     background-color: $yellow-fill;
+    border-color: $yellow-fill;
+    color: $yellow;
   }
 
   @else if $type == 'success' {
     background-color: $green-fill;
+    border-color: $green-fill;
+    color: $green;
   }
 
   @else {
     background-color: $background-color;
+    border-color: $background-color;
+    color: $heading-grey;
   }
 }
 
