@@ -4,13 +4,11 @@
       plain
       @click="successMessage"
     >
-      Closes automatically
     </h-button>
     <h-button
       plain
       @click="errorMessage"
     >
-      Won't close automatically
     </h-button>
   </div>
 </template>

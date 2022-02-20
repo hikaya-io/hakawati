@@ -8,23 +8,23 @@ export default { title: 'Message' }
 export const hMessage = () => ({
   components: { HMessage, HButton },
   template: `
-      <div>
-        <h-button 
-            @click="successMessage"
-            dark-text
-            plain
-        >
-            success message
-        </h-button>
-        <h-button
-            @click="errorMessage"
-            dark-text
-            plain
-        >
-            error message
-        </h-button>
-      </div>
-    `,
+    <div>
+      <h-button 
+        @click="successMessage"
+        dark-text
+        plain
+      >
+        success message
+      </h-button>
+      <h-button
+        @click="errorMessage"
+        dark-text
+        plain
+      >
+        error message
+      </h-button>
+    </div>
+  `,
   methods: {
     successMessage () {
       this.$message({
