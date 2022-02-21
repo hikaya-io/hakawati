@@ -38,11 +38,11 @@ export const hMessage = () => ({
         info message
       </h-button>
       <h-button 
-        @click="noIconMessage"
+        @click="iconMessage"
         dark-text
         plain
     >
-      no icon message
+      success message with icon
     </h-button>
     </div>
   `,
@@ -50,8 +50,9 @@ export const hMessage = () => ({
     successMessage () {
       this.$message({
         showClose: true,
-        message: 'This is a success message that automatically closes.',
-        type: 'success',
+        message: 'This is a success message that automatically closes',
+        type: '', // To remove icon, leave type blank.
+        center: true,
         customClass: 'message-success'
       })
     },
@@ -60,9 +61,10 @@ export const hMessage = () => ({
       this.$message({
         showClose: true,
         message: 'This is an error message that does not automatically close',
-        type: 'error',
-        customClass: 'message-error',
-        duration: 0 // set duration to 0 to not automatically close
+        type: '',
+        center: true,
+        duration: 0, // set duration to 0 to not automatically close
+        customClass: 'message-error'
       })
     },
 
@@ -71,6 +73,7 @@ export const hMessage = () => ({
         showClose: true,
         message: 'This is a warning message.',
         type: '',
+        center: true,
         customClass: 'message-warning'
       })
     },
@@ -79,17 +82,19 @@ export const hMessage = () => ({
       this.$message({
         showClose: true,
         message: 'This is an info message',
-        type: 'info',
+        type: '',
+        center: true,
         customClass: 'message-info'
       })
     },
 
-    noIconMessage () {
+    iconMessage () {
       this.$message({
         showClose: true,
-        message: 'This is a success message without icon',
-        type: '', // To remove icon, leave type blank.
-        customClass: 'message-info'
+        message: 'This is a success message with icon',
+        type: 'success', // To use a default icon, add the type. For custom icon, use `iconClass`.
+        center: true,
+        customClass: 'message-success'
       })
     }
   }
