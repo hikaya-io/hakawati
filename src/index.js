@@ -87,9 +87,6 @@ import HForm from './components/form/HForm.vue'
 // SideNav
 import HSideNav from '@/components/sidenav/HSideNav'
 
-// Message
-import HMessage from '../components/message/HMessage.vue'
-
 const components = [
   HButton,
   BasicCheckbox,
@@ -124,8 +121,7 @@ const components = [
   HSearch,
   HFilter,
   HBreadcrumb,
-  HSideNav,
-  HMessage
+  HSideNav
 ]
 
 const install = function (Vue) {
@@ -173,6 +169,5 @@ export default {
   HSearch,
   HFilter,
   HBreadcrumb,
-  HSideNav,
-  HMessage
+  HSideNav
 }
