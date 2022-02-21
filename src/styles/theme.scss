@@ -29,6 +29,7 @@ $dark-body-grey: #333333;
 $light-body-grey: #CCCCCC;
 $body-grey: #EFEFEF;
 $background-color: #F4F5FC;
+$border-grey: #E5E7ED;
 
 // Default Variables
 $primary-color: $purple;
@@ -45,8 +46,8 @@ $warning-fill: $yellow-fill;
 $danger-color: $red;
 $danger-fill: $red-fill;
 $info-color: $heading-grey;
-$guest-color: $purple;
-$guest-color-fill: $purple-fill;
+$guest-color: $blue-sub;
+$guest-color-fill: $blue-sub-fill;
 
 $site-content-text-color: $dark-body-grey;
 $standard-label-color: $background-color;
@@ -316,7 +317,6 @@ $dark-color: $dark-body-grey;
 
 // style message and notification components
 @mixin message($type) {
-  top: 0px !important;
   width: 100%;
   border: none;
   border-radius: 0;
@@ -324,25 +324,82 @@ $dark-color: $dark-body-grey;
   @if $type == 'error' {
     background-color: $red-fill;
     border-color: $red-fill;
-    color: $red;
+
+    .el-message__content {
+      color: $red;
+    }
+
+    .el-icon-error {
+      color: $red;
+    }
+
+    .el-icon-close::before {
+      color: $red;
+    }
   }
 
   @else if $type == 'warning' {
     background-color: $yellow-fill;
     border-color: $yellow-fill;
-    color: $yellow;
+
+    .el-message__content {
+      color: $yellow;
+    }
+
+    .el-icon-warning {
+      color: $yellow;
+    }
+
+    .el-icon-close::before {
+      color: $yellow;
+    }
   }
 
   @else if $type == 'success' {
     background-color: $green-fill;
     border-color: $green-fill;
-    color: $green;
+
+    .el-message__content {
+      color: $green;
+    }
+
+    .el-icon-success {
+      color: $green;
+    }
+
+    .el-icon-close::before {
+      color: $green;
+    }
+  }
+
+  @else if $type == 'info' {
+    background-color: $background-color;
+    border-color: $background-color;
+
+    .el-message__content {
+      color: $heading-grey;
+    }
+
+    .el-icon-info {
+      color: $heading-grey;
+    }
+
+    .el-icon-close::before {
+      color: $heading-grey;
+    }
   }
 
   @else {
     background-color: $background-color;
     border-color: $background-color;
-    color: $heading-grey;
+
+    .el-message__content {
+      color: $heading-grey;
+    }
+
+    .el-icon-close::before {
+      color: $heading-grey;
+    }
   }
 }
 
