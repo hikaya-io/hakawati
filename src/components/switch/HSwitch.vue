@@ -51,7 +51,7 @@ export default {
 
 .h-switch-custom {
   .el-switch__core {
-    width: 200px !important;
+    width: 180px !important;
     height: 37px;
     border-radius: 20px;
     &::after {
@@ -64,7 +64,7 @@ export default {
     }
   }
   &.is-checked .el-switch__core::after {
-    left: 59%;
+    left: 52%;
     margin-left: -14px;
   }
 
@@ -81,7 +81,7 @@ export default {
 
   .el-switch__label--right {
     position: absolute;
-    left: 133px;
+    left: 110px;
   }
 }
 </style>

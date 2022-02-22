@@ -89,7 +89,7 @@ export const customSwitch = () => ({
           v-model="value2"
           @change="action"
           custom-switch
-          active-text-right="120px"
+          active-text-right="100px"
           active-text-left="30px"
         >
         </h-switch>
