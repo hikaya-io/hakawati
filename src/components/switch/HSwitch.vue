@@ -76,12 +76,12 @@ export default {
   .el-switch__label--left {
     z-index: 1;
     position: absolute;
-    left: 20px;
+    left: 35px;
   }
 
   .el-switch__label--right {
     position: absolute;
-    left: 92px;
+    left: 133px;
   }
 }
 </style>
