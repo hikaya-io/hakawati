@@ -96,6 +96,33 @@ export const hMessage = () => ({
         center: true,
         customClass: 'message-success'
       })
+    },
+
+    warningMessage () {
+      this.$message({
+        showClose: true,
+        message: 'This is a warning message.',
+        type: '',
+        customClass: 'message-warning'
+      })
+    },
+
+    infoMessage () {
+      this.$message({
+        showClose: true,
+        message: 'This is an info message',
+        type: 'info',
+        customClass: 'message-info'
+      })
+    },
+
+    noIconMessage () {
+      this.$message({
+        showClose: true,
+        message: 'This is a success message without icon',
+        type: '', // To remove icon, leave type blank.
+        customClass: 'message-info'
+      })
     }
   }
 })
