@@ -14,19 +14,14 @@ export default {
   },
   props: {
     customSwitch: Boolean,
-    activeTextLeft: String
+    activeTextLeft: String,
+    activeTextRight: String
   },
   mounted () {
     /* The prop `activeTextLeft` adds the class `h-switch-right-label` to `el-switch`.
     This adds left spacing to the text label on the right */
-    if (this.activeTextLeft) {
-      const elSwitchElement = document.querySelector('.el-switch')
-      elSwitchElement.classList.add('h-switch-right-label')
-      const switchRightLabel = document.querySelectorAll('.h-switch-right-label > .el-switch__label--right')
-      for (var i = 0; i < switchRightLabel.length; i++) {
-        switchRightLabel[i].style.left = this.activeTextLeft
-      }
-    }
+    this.updateTextSpacing(this.activeTextRight, 'right')
+    this.updateTextSpacing(this.activeTextLeft, 'left')
   },
   computed: {
     switchClass () {
@@ -34,6 +29,18 @@ export default {
       return this.customSwitch
         ? { 'h-switch-custom': true }
         : null
+    }
+  },
+  methods: {
+    updateTextSpacing (activeText, direction) {
+      if (activeText) {
+        const elSwitchElement = document.querySelector('.el-switch')
+        elSwitchElement.classList.add(`h-switch-${direction}-label`)
+        const switchLabel = document.querySelectorAll(`.h-switch-${direction}-label > .el-switch__label--${direction}`)
+        for (var i = 0; i < switchLabel.length; i++) {
+          switchLabel[i].style.left = activeText
+        }
+      }
     }
   }
 }
