@@ -44,12 +44,12 @@ export default {
 
 .h-switch-custom {
   .el-switch__core {
-    width: 150px !important;
+    width: 200px !important;
     height: 37px;
     border-radius: 20px;
     &::after {
       box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
-      width: 75px;
+      width: 100px;
       height: 37px;
       border-radius: 20px;
       top: -1px;
