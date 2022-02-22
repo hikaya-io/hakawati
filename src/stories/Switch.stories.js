@@ -70,3 +70,43 @@ export const disabledSwitch = () => ({
       `,
   methods: { action: action('click') }
 })
+
+export const customSwitch = () => ({
+  components: { HSwitch },
+  data () {
+    return {
+      value1: true,
+      value2: true
+    }
+  },
+  template: `
+    <div>
+      <div>
+        <h3>Website</h3>
+        <h-switch
+          activeText="Monthly"
+          inactiveText="Yearly"
+          v-model="value2"
+          @change="action"
+          custom-switch
+          active-text-left="80px"
+        >
+        </h-switch>
+      </div>
+      <div style="margin-top: 4rem">
+        <h3>App</h3>
+        <h-switch
+          activeColor="#4B3EF9"
+          inactiveColor="#E1E1E1"
+          activeText="Edit"
+          inactiveText="View"
+          v-model="value1"
+          @change="action"
+          custom-switch
+        >
+        </h-switch>
+      </div>
+    </div>
+      `,
+  methods: { action: action('click') }
+})
