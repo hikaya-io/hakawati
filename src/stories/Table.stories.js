@@ -133,6 +133,22 @@ export const hTableWithCustomContent = () => ({
   `
 })
 
+export const hTableWithIgnoredColumns = () => ({
+  components: {
+    HTable
+  },
+  data () {
+    return {
+      tableData: tableDataNew
+    }
+  },
+  methods: { action: action('header click') },
+  template: `
+  <h-table :tableData="tableData" @header-click="action" :ignored-columns="['city']">
+  </h-table>
+  `
+})
+
 export const hTableEditEnabled = () => ({
   components: {
     HTable,
