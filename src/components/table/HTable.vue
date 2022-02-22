@@ -150,6 +150,10 @@ export default {
       default: () => ({
         'min-width': '100px'
       })
+    },
+    ignoredColumns: {
+      type: Array,
+      default: () => []
     }
   },
   data () {
@@ -171,7 +175,7 @@ export default {
       return []
     },
     shownTableColumns () {
-      return this.tableColumns.filter(val => !this.hiddenColumns.includes(val))
+      return this.tableColumns.filter(val => !this.hiddenColumns.includes(val) && !this.ignoredColumns.includes(val))
     },
     columnsOrderChanged () {
       return JSON.stringify(this.tableColumns) !== JSON.stringify(this.mutableTableColumns)
