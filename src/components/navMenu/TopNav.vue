@@ -256,17 +256,22 @@ export default {
 .el-menu--horizontal > .el-menu-item {
   margin-left: 25px;
   margin-right: 25px;
+
+  &:hover {
+    background-color: $primary-fill;
+    transition: background-color .15s linear;
+  }
 }
 
 // style selected tab
 .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
-    outline: none;
-    color: $primary-color;
+  outline: none;
+  color: $primary-color;
 }
 
 .el-menu--horizontal .el-menu-item:not(.is-disabled):focus {
-    color: $primary-color;
-    // background-color: $primary-fill;
+  color: $primary-color;
+  // background-color: $primary-fill;
 }
 
 // styling for minimized nav bar

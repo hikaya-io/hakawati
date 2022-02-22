@@ -84,7 +84,7 @@ import UploadExcel from './components/upload/UploadExcel.vue'
 // Form
 import HForm from './components/form/HForm.vue'
 
-// Import other components from here
+// SideNav
 import HSideNav from '@/components/sidenav/HSideNav'
 
 const components = [
