@@ -175,25 +175,15 @@ export default {
       return []
     },
     shownTableColumns () {
-      return this.tableColumns.filter(val => !this.hiddenColumns.includes(val) && !this.ignoredColumns.includes(val))
+      return this.tableColumns.filter(val => !this.hiddenColumns.includes(val))
     },
     columnsOrderChanged () {
       return JSON.stringify(this.tableColumns) !== JSON.stringify(this.mutableTableColumns)
     }
   },
-  watch: {
-    editableTableData: {
-      deep: true,
-      handler (val) {
-        if (this.editMode) {
-          this.$emit('row-edited', this.editableTableData[this.lastEditedRow])
-        }
-      }
-    }
-  },
   mounted () {
-    this.tableColumns = [...this.origTableColumns]
-    this.mutableTableColumns = [...this.origTableColumns]
+    this.tableColumns = [...this.origTableColumns.filter(col => !this.ignoredColumns.includes(col))]
+    this.mutableTableColumns = [...this.origTableColumns.filter(col => !this.ignoredColumns.includes(col))]
     this.editableTableData = [...this.tableData]
     const keys = Object.keys(this.columnComponents)
 
@@ -267,6 +257,7 @@ export default {
     },
     setLastEditedRow (index) {
       this.lastEditedRow = index
+      this.$emit('row-edited', { rowIndex: index, row: this.editableTableData[index] })
     },
     onSortChanged (obj) {
       function compare (a, b) {
