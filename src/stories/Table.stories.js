@@ -173,7 +173,7 @@ export const hTableEditEnabled = () => ({
   },
   methods: {
     action: action('header click'),
-    rowEdited (row) {
+    rowEdited ({ rowIndex, row }) {
       action('Row edited')
     }
   },
