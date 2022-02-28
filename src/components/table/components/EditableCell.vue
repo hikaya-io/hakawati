@@ -28,7 +28,7 @@ export default {
   inheritAttrs: false,
   props: {
     value: {
-      type: String,
+      type: [String, Number, Array],
       default: ''
     },
     showInput: {
