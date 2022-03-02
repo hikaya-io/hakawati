@@ -121,5 +121,6 @@ export default {
 
 .el-select-dropdown__item.selected {
   font-weight: normal;
+  display: flex;
 }
 </style>

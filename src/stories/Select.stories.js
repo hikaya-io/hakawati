@@ -215,7 +215,7 @@ export const multiSelect = () => ({
   },
   data () {
     return {
-      options,
+      options: extraOptions,
       selectedOption: null
     }
   },
