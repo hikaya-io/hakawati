@@ -175,7 +175,8 @@ export const customSelect = () => ({
   data () {
     return {
       options: extraOptions,
-      selectedOption: null
+      singleSelectedOption: null,
+      multiSelectedOption: null
     }
   },
   mounted () {
@@ -187,7 +188,7 @@ export const customSelect = () => ({
     <div>
       <p> Single select </p>
       <h-select
-        v-model="selectedOption"
+        v-model="singleSelectedOption"
         :options="options"
         :placeholder="placeholder"
         :disabled="disabled"
@@ -195,7 +196,7 @@ export const customSelect = () => ({
       />
       <p> Multi select </p>
       <h-select
-        v-model="selectedOption"
+        v-model="multiSelectedOption"
         :options="options"
         :placeholder="placeholder"
         :disabled="disabled"
