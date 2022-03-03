@@ -74,17 +74,17 @@ export default {
 
 .dynamic-tag {
   .el-tag {
-    margin-left: 10px;
-    font-family: $main-font-family;
-    border-radius: 20px;
+    margin-left: .5rem;
+    border-radius: 25px;
     border-color: transparent;
-    padding: 0px 15px 0px 15px;
+    padding: 0px 24px;
   }
 
   .button-new-tag {
-    margin-left: 10px;
+    margin-left: .5rem;
+    border-radius: 25px;
     height: 32px;
-    padding: 0px 15px 0px 15px;
+    padding: 0px 24px;
     font-family: $main-font-family;
   }
 

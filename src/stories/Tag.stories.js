@@ -10,25 +10,18 @@ export const hTag = () => ({
   template: `
     <div>
     <h-tag>Agriculture</h-tag>
+    <p />
     <h-tag type="success">Education</h-tag>
+    <p />
     <h-tag type="info">WASH</h-tag>
+    <p />
     <h-tag type="warning">Health</h-tag>
+    <p />
     <h-tag type="danger">Resilience</h-tag>
+    <p />
+
     </div>
   `
-})
-
-export const removableTag = () => ({
-  components: { HTag },
-  template: `
-    <div>
-    <h-tag closable>Tag 1</h-tag>
-    <h-tag closable type="success">Tag 2</h-tag>
-    <h-tag closable type="info">Tag 3</h-tag>
-    <h-tag closable type="warning">Tag 4</h-tag>
-    <h-tag closable type="danger">Tag 5</h-tag>
-    </div>
-    `
 })
 
 const dynamicTags = ['Tag 1', 'Tag 2', 'Tag 3']

@@ -76,17 +76,6 @@ export default {
     color: $dark-body-grey;
   }
 
-  .el-select-dropdown__item.hover, .el-select-dropdown__item:hover {
-    color: $primary-color;
-    background-color: transparent;
-  }
-
-  .el-select-dropdown__item.is-disabled:hover {
-    background-color: transparent;
-    color: $light-body-grey;
-    cursor: not-allowed;
-  }
-
   // style selected options
   .el-icon-close:before {
     background-color: $primary-fill;
@@ -132,7 +121,14 @@ export default {
 }
 
 .el-select-dropdown__item.hover, .el-select-dropdown__item:hover {
-    color: $primary-color;
-    background-color: transparent;
+  color: $heading-grey;
+  background-color: transparent;
 }
+
+.el-select-dropdown__item.is-disabled:hover {
+  background-color: transparent;
+  color: $light-body-grey;
+  cursor: not-allowed;
+}
+
 </style>
