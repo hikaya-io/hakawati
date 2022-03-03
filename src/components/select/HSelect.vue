@@ -130,4 +130,9 @@ export default {
     right: 14px;
   }
 }
+
+.el-select-dropdown__item.hover, .el-select-dropdown__item:hover {
+    color: $primary-color;
+    background-color: transparent;
+}
 </style>
