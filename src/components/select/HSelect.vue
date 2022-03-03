@@ -60,7 +60,7 @@ export default {
 <style lang="scss" scoped>
 @import "../../styles/theme";
 
-.h-select {
+.h-select ::v-deep {
   .el-select .el-input.is-focus .el-input__inner {
     border-color: $light-body-grey;
   }
@@ -88,11 +88,6 @@ export default {
   }
 
   // style selected options
-  .el-select-dropdown.is-multiple .el-select-dropdown__item.selected {
-    color: $primary-color;
-    background-color: transparent;
-  }
-
   .el-icon-close:before {
     background-color: $primary-fill;
     color: $heading-grey;
@@ -121,6 +116,18 @@ export default {
 
 .el-select-dropdown__item.selected {
   font-weight: normal;
-  display: flex;
+}
+
+.el-select-dropdown.is-multiple .el-select-dropdown__item {
+  padding-right: 40px;
+}
+
+.el-select-dropdown.is-multiple .el-select-dropdown__item.selected {
+  color: $primary-color;
+  background-color: transparent;
+
+  &::after {
+    right: 14px;
+  }
 }
 </style>

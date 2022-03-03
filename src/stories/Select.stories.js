@@ -185,12 +185,22 @@ export const customSelect = () => ({
   },
   template: `
     <div>
+      <p> Single select </p>
       <h-select
         v-model="selectedOption"
         :options="options"
         :placeholder="placeholder"
         :disabled="disabled"
         @change="onChange"
+      />
+      <p> Multi select </p>
+      <h-select
+        v-model="selectedOption"
+        :options="options"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        @change="onChange"
+        multiple
       />
     </div>
   `
@@ -215,7 +225,7 @@ export const multiSelect = () => ({
   },
   data () {
     return {
-      options: extraOptions,
+      options,
       selectedOption: null
     }
   },

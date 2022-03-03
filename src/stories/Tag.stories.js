@@ -9,11 +9,11 @@ export const hTag = () => ({
   components: { HTag },
   template: `
     <div>
-    <h-tag>Tag 1</h-tag>
-    <h-tag type="success">Tag 2</h-tag>
-    <h-tag type="info">Tag 3</h-tag>
-    <h-tag type="warning">Tag 4</h-tag>
-    <h-tag type="danger">Tag 5</h-tag>
+    <h-tag>Agriculture</h-tag>
+    <h-tag type="success">Education</h-tag>
+    <h-tag type="info">WASH</h-tag>
+    <h-tag type="warning">Health</h-tag>
+    <h-tag type="danger">Resilience</h-tag>
     </div>
   `
 })
