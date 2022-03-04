@@ -60,7 +60,7 @@ export default {
 <style lang="scss" scoped>
 @import "../../styles/theme";
 
-.h-select {
+.h-select ::v-deep {
   .el-select .el-input.is-focus .el-input__inner {
     border-color: $light-body-grey;
   }
@@ -76,23 +76,7 @@ export default {
     color: $dark-body-grey;
   }
 
-  .el-select-dropdown__item.hover, .el-select-dropdown__item:hover {
-    color: $primary-color;
-    background-color: transparent;
-  }
-
-  .el-select-dropdown__item.is-disabled:hover {
-    background-color: transparent;
-    color: $light-body-grey;
-    cursor: not-allowed;
-  }
-
   // style selected options
-  .el-select-dropdown.is-multiple .el-select-dropdown__item.selected {
-    color: $primary-color;
-    background-color: transparent;
-  }
-
   .el-icon-close:before {
     background-color: $primary-fill;
     color: $heading-grey;
@@ -102,6 +86,9 @@ export default {
     background-color: $primary-fill;
     border-color: transparent;
     color: $primary-color;
+  }
+  .el-select__tags {
+    overflow: hidden;
   }
 }
 
@@ -122,4 +109,29 @@ export default {
 .el-select-dropdown__item.selected {
   font-weight: normal;
 }
+
+.el-select-dropdown.is-multiple .el-select-dropdown__item {
+  padding-right: 40px;
+}
+
+.el-select-dropdown.is-multiple .el-select-dropdown__item.selected {
+  color: $primary-color;
+  background-color: transparent;
+
+  &::after {
+    right: 14px;
+  }
+}
+
+.el-select-dropdown__item.hover, .el-select-dropdown__item:hover {
+  color: $heading-grey;
+  background-color: transparent;
+}
+
+.el-select-dropdown__item.is-disabled:hover {
+  background-color: transparent;
+  color: $light-body-grey;
+  cursor: not-allowed;
+}
+
 </style>
