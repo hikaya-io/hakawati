@@ -24,9 +24,10 @@ export default {
 @import "../../styles/theme";
 
 .el-tag {
-  border-radius: 4px;
+  border-radius: 25px;
   border-color: transparent;
-  margin-bottom: 5px;;
+  text-align: center;
+  padding: 0px 24px;
 }
 
 .button-new-tag {
