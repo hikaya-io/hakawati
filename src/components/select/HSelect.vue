@@ -87,6 +87,9 @@ export default {
     border-color: transparent;
     color: $primary-color;
   }
+  .el-select__tags {
+    overflow: hidden;
+  }
 }
 
 .right-data-span{
