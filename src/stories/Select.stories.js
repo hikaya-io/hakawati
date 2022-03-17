@@ -50,7 +50,7 @@ const extraOptions = [
     label: 'Option 3',
     value: 'option_3',
     extra_data: 'option 3'
-  },
+  }
 
 ]
 
@@ -167,7 +167,7 @@ export const customSelect = () => ({
     },
     disabled: {
       default: boolean('Disabled', false)
-    },
+    }
   },
   methods: {
     onChange (selectedValue) { console.log(selectedValue) }
@@ -279,4 +279,45 @@ export const groupedSelect = () => ({
         />
       </div>
     `
+})
+
+export const hSelectWithCreate = () => ({
+  components: { HSelect },
+  props: {
+
+    disabled: {
+      default: boolean('Disabled', false)
+    },
+    placeholder: {
+      default: text('Placeholder', 'Select an option below')
+    }
+  },
+  methods: {
+    onChange (selectedValue) { console.log(selectedValue) },
+    onCreate (createdValue) { console.log(createdValue) }
+  },
+  data () {
+    return {
+      options,
+      blankOption: ''
+    }
+  },
+  mounted () {
+    for (const option of this.options) {
+      this.$set(option, 'extraAttrs', { 'data-cy': option.value })
+    }
+  },
+  template: `
+    <h-select
+      v-model="blankOption"
+      :options="options"
+      :placeholder="placeholder"
+      :disabled="disabled"
+      filterable
+      allow-create
+      multiple
+      @change="onChange"
+      @on-create="onCreate"
+    />
+  `
 })

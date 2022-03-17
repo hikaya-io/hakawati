@@ -16,6 +16,7 @@
           width="55"
           fixed
         />
+        <slot name="extra-cols-before"></slot>
         <el-table-column
           v-for="(col, index) in shownTableColumns"
           :prop="col"
@@ -27,6 +28,7 @@
             :can-edit="editMode"
             v-model="editableTableData[scope.$index][col]"
             v-bind="editColumnComponents[col]"
+            v-on="getCallables(editColumnComponents[col])"
             @input-hidden="setLastEditedRow(scope.$index)"
             >
 
@@ -43,6 +45,7 @@
         </el-table-column>
 
         <el-table-column
+          v-if="canSelectColumns"
           fixed="right"
           width="60"
         >
@@ -90,6 +93,7 @@
 
           </template>
         </el-table-column>
+        <slot name="extra-cols-after"></slot>
       </slot>
     </el-table>
   </div>
@@ -179,6 +183,14 @@ export default {
     },
     columnsOrderChanged () {
       return JSON.stringify(this.tableColumns) !== JSON.stringify(this.mutableTableColumns)
+    }
+  },
+  watch: {
+    tableData: {
+      deep: true,
+      handler (val) {
+        this.editableTableData = [...val]
+      }
     }
   },
   mounted () {
@@ -280,6 +292,15 @@ export default {
         return Object.assign({}, attrs, this.columnDefaultAttrs, this.columnAttrs[col])
       }
       return Object.assign({}, attrs, this.columnDefaultAttrs)
+    },
+    getCallables (obj) {
+      const objCallables = {}
+      Object.keys(obj).forEach(key => {
+        if (typeof obj[key] === 'function') {
+          objCallables[key] = obj[key]
+        }
+      })
+      return objCallables
     }
   }
 }
