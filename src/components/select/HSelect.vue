@@ -5,13 +5,13 @@
     v-on="$listeners"
     no-match-text="No matching data"
     no-data-text="No Data"
-    @change="$emit('change', $event)"
+    @change="checkForCreation"
     class="h-select"
   >
-    <template v-for="item in options">
+    <template v-for="(item,index) in options">
       <el-option
         v-if="'extraAttrs' in item"
-        :key="item.key"
+        :key="`idx-${index}-${item.value}-${randomString(4)}`"
         :label="item.label"
         :disabled="item.disabled"
         :value="item.value"
@@ -44,6 +44,11 @@ export default {
       default: () => []
     }
   },
+  data () {
+    return {
+      created: []
+    }
+  },
   computed: {
     selectedValue: {
       get () {
@@ -52,6 +57,24 @@ export default {
       set (val) {
         this.$emit('input', val)
       }
+    }
+  },
+  methods: {
+    checkForCreation (value) {
+      if (Array.isArray(value)) {
+        const values = this.options.map(option => option.value)
+        for (const selectedValue of value) {
+          if (!values.includes(selectedValue)) {
+            if (!this.created.includes(selectedValue)) {
+              this.$emit('on-create', selectedValue)
+              this.created.push(selectedValue)
+            }
+          }
+        }
+      }
+    },
+    randomString (length) {
+      return Math.round((Math.pow(36, length + 1) - Math.random() * Math.pow(36, length))).toString(36).slice(1)
     }
   }
 }

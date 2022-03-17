@@ -15,6 +15,8 @@ import TableWithSummaryRow from '../components/table/TableWithSummaryRow.vue'
 import { action } from '@storybook/addon-actions'
 import HSwitch from '@/components/switch/HSwitch'
 import HTag from '@/components/tag/HTag'
+import HSelect from '@/components/select/HSelect'
+import EditableCell from '@/components/table/components/EditableCell'
 
 // This is required for each story
 export default {
@@ -152,7 +154,8 @@ export const hTableWithIgnoredColumns = () => ({
 export const hTableEditEnabled = () => ({
   components: {
     HTable,
-    HSwitch
+    HSwitch,
+    HSelect
   },
   data () {
     return {
@@ -167,6 +170,19 @@ export const hTableEditEnabled = () => ({
         tag: {
           'editable-component': 'el-select',
           'close-event': 'change'
+        },
+        state: {
+          'editable-component': HSelect,
+          'close-event': 'change',
+          multiple: true,
+          filterable: true,
+          'allow-create': true,
+          options: [
+            {
+              label: 'California',
+              value: 'california'
+            }
+          ]
         }
       }
     }
