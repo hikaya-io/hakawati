@@ -16,7 +16,6 @@ import { action } from '@storybook/addon-actions'
 import HSwitch from '@/components/switch/HSwitch'
 import HTag from '@/components/tag/HTag'
 import HSelect from '@/components/select/HSelect'
-import EditableCell from '@/components/table/components/EditableCell'
 
 // This is required for each story
 export default {
