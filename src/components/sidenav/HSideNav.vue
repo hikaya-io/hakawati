@@ -2,10 +2,10 @@
   <div class="side-nav" :style="{height: height}">
     <transition>
       <div ref="navigation" :class="{navigation: true, collapsed: isCollapsed}">
-        <div v-if="!isCollapsed" class="top">
+        <div v-if="!isCollapsed" :class="{top: true, expand: !expandBottomNav}">
           <slot name="nav-top"></slot>
         </div>
-        <div v-if="!isCollapsed" class="bottom">
+        <div v-if="!isCollapsed" :class="{bottom: true, expand: expandBottomNav}">
           <slot name="nav-bottom"></slot>
         </div>
       </div>
@@ -31,6 +31,10 @@ export default {
     height: {
       type: String,
       default: '95vh'
+    },
+    expandBottomNav: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -70,9 +74,13 @@ export default {
     }
 
     .top {
-      height: 100%;
+      height: auto;
       max-height: calc(100% - 140px);
       overflow-y: scroll;
+
+      &.expand {
+        height: 100%;
+      }
     }
 
     .bottom {
@@ -80,6 +88,10 @@ export default {
       border-top: 1px solid $light-body-grey;
       width: 100%;
       min-height: 140px;
+
+      &.expand {
+        margin-top: 0;
+      }
     }
   }
 
