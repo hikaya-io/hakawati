@@ -1,47 +1,67 @@
 <template>
   <el-button
-    v-bind="$attrs"
-    v-on="$listeners"
-    :class="buttonStyle"
-    native-type="button"
+    :class="{
+      'button-style': !isPlain && !isWorkSpace,
+      'cancel-button': isPlain && !isWorkSpace,
+      'ws-button': isWorkSpace && !isPlain,
+      'body-bold': true,
+    }"
+    :type="getType"
+    :icon="getIcon"
+    :disabled="isDisabled"
+    :dark-text="isPlain"
+    :workspace-button="isWorkSpace"
+    :loading="isLoading"
   >
-    <slot></slot>
+   {{ label }}
   </el-button>
 </template>
+
 <script>
 export default {
   name: 'HButton',
-  inheritAttrs: false,
   props: {
-    darkText: {
+    label: {
+      type: String,
+      default: '',
+      required: true
+    },
+    type: {
+      type: String,
+      default: 'primary',
+      required: true
+    },
+    icon: {
+      type: String,
+      default: ''
+    },
+    isDisabled: {
+      type: Boolean,
+      default: false,
+      required: true
+    },
+    isLoading: {
       type: Boolean,
       default: false
     },
-    workspaceButton: {
+    isWorkSpace: {
+      type: Boolean,
+      default: false
+    },
+    isPlain: {
       type: Boolean,
       default: false
     }
   },
-  data: function () {
-    return {
-      buttonStyle: {
-        'body-bold': true,
-        'button-style': true
-      }
-    }
-  },
-  mounted () {
-    if (this.plain) {
-      this.buttonStyle = { 'button-style': true }
-    }
-    if (this.circle) {
-      this.buttonStyle = {}
-    }
-    if (this.workspaceButton) {
-      this.buttonStyle = { 'ws-button': true, 'body-bold': true }
-    }
-    if (this.darkText) {
-      this.buttonStyle = { 'cancel-button': true, 'body-bold': true }
+  computed: {
+    getType () {
+      let type = this.type
+      if (this.isPlain || this.isWorkSpace) type = undefined
+      return type
+    },
+    getIcon () {
+      if (this.icon) return `el-icon-${this.icon}`
+      return undefined
     }
   }
 }
