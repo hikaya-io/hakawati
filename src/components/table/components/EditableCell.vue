@@ -143,6 +143,7 @@ export default {
   min-height: 38px;
   align-items: center;
   display: flex;
+  padding-left: 5px;
 }
 
 .edit-enabled-cell {
@@ -151,7 +152,7 @@ export default {
 }
 
 .edit-enabled-cell:hover {
-  background: $light-body-grey;
+  background: $border-grey;
   padding-left: 5px;
 }
 </style>
