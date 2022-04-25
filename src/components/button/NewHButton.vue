@@ -11,12 +11,10 @@
     :disabled="isDisabled"
     :dark-text="isPlain"
     :workspace-button="isWorkSpace"
-    :loading="isLoading"
   >
    {{ label }}
   </el-button>
 </template>
-
 <script>
 export default {
   name: 'HButton',
@@ -40,10 +38,6 @@ export default {
       default: false,
       required: true
     },
-    isLoading: {
-      type: Boolean,
-      default: false
-    },
     isWorkSpace: {
       type: Boolean,
       default: false
@@ -60,8 +54,8 @@ export default {
       return type
     },
     getIcon () {
-      if (this.icon) return `el-icon-${this.icon}`
-      return undefined
+      if (this.isWorkSpace && this.icon) return `el-icon-${this.icon}`
+      return false
     }
   }
 }
