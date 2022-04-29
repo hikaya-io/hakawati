@@ -13,23 +13,23 @@
       @dragenter="handleDragover"
     >
       Drop a file here or
-      <el-button
-        :loading="loading"
+      <h-button
+        :isLoading="loading"
         style="margin-left:16px;"
-        type="primary"
-        @click="handleUpload"
-        round
-      >
-        browse files
-      </el-button>
+        label="browse files"
+        @click.native="handleUpload"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import XLSX from 'xlsx'
+import HButton from '../button/HButton'
+
 export default {
   name: 'UploadExcel',
+  components: { HButton },
   props: {
     beforeUpload: Function, // eslint-disable-line
     onSuccess: Function // eslint-disable-line

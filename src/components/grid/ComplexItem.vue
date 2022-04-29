@@ -5,7 +5,7 @@
     </div>
     <div slot="items">
       <p>{{ description }}</p>
-      <h-button type="primary" @click="$emit('button-clicked')">Click</h-button>
+      <h-button label="Click" @click.native="$emit('button-clicked')"/>
     </div>
   </h-card>
 </template>

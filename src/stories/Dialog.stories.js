@@ -26,13 +26,10 @@ export const hDialog = () => ({
   },
   template: `
   <div>
-    <h-button
-      @click="toggleVisibility"
-      size="medium"
-      type="primary"
-    >
-    Open Dialog
-    </h-button>
+    <h-button 
+      label="Open Dialog" 
+      @click.native="toggleVisibility"
+    />
     <h-dialog
       @dialogConfirmed="confirm"
       @dialogCancelled="cancel"

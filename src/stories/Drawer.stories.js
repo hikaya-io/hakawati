@@ -20,12 +20,10 @@ export const hDrawer = () => ({
   template: `
   <div>
     <h-button
-      @click="drawer = true"
-      type="primary"
+      @click.native="drawer = true"
+      label="Open drawer"
       style="margin-left: 16px;"
-    >
-      Open drawer
-    </h-button>
+    />
     <h-drawer
       :title="title"
       :visible.sync="drawer"
@@ -61,12 +59,10 @@ export const drawerWithoutTitle = () => ({
   template: `
     <div>
       <h-button
-        @click="drawer = true"
-        type="primary"
+        @click.native="drawer = true"
+        label="Open drawer"
         style="margin-left: 16px;"
-      >
-        Open drawer
-      </h-button>
+      />
       <h-drawer
         :title="title"
         :visible.sync="drawer"
@@ -101,13 +97,10 @@ export const drawerNotClosableOnClick = () => ({
   template: `
       <div>
         <h-button
-          @click="drawer=true"
-          type="primary"
+          @click.native="drawer = true"
+          label="Open drawer"
           style="margin-left: 16px;"
-        >
-          Open drawer
-        </h-button>
-
+        />
         <h-drawer
           :title="title"
           :visible.sync="drawer"
@@ -142,11 +135,9 @@ export const doubleDrawer = () => ({
   template: `
   <div>
     <h-button
-      @click="drawerRight = true"
-      type="primary"
-    >
-      Open right drawer
-    </h-button>
+      @click.native="drawerRight = true"
+      label="Open right drawer"
+    />
     <h-drawer
       :title="title"
       :visible.sync="drawerRight"
@@ -160,11 +151,9 @@ export const doubleDrawer = () => ({
     >
       <span>Hi, there!</span>
       <h-button
-        @click="drawerLeft = true"
-        type="primary"
-      >
-      Open left drawer
-      </h-button>
+        @click.native="drawerLeft = true"
+        label="Open right drawer"
+      />
     </h-drawer>
     <h-drawer
       :title="title"
@@ -197,12 +186,10 @@ export const drawerCustomOverlayColor = () => ({
   template: `
   <div>
     <h-button
-      @click="drawer = true"
-      type="primary"
+      @click.native="drawer = true"
+      label="Open drawer"
       style="margin-left: 16px;"
-    >
-      Open drawer
-    </h-button>
+    />
     <h-drawer
       :title="title"
       :visible.sync="drawer"

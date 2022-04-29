@@ -18,7 +18,7 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { HButton },
   props: Object.keys(argTypes),
-  template: '<HButton v-bind="$props"></HButton>'
+  template: '<h-button v-bind="$props"/>'
 })
 
 export const Main = Template.bind({})
