@@ -1,7 +1,15 @@
 <template>
   <div>
-    <el-button @click="resetDateFilter">reset date filter</el-button>
-    <el-button @click="clearFilter">reset all filters</el-button>
+    <div style="margin-bottom: 1rem">
+      <h-button
+        label="reset date filter"
+        @click.native="resetDateFilter"
+      />
+      <h-button
+        label="reset all filters"
+        @click.native="clearFilter"
+      />
+    </div>
     <el-table
       ref="filterTable"
       :data="tableData"
@@ -39,8 +47,11 @@
 </template>
 
 <script>
+import HButton from '../button/HButton.vue'
+
 export default {
   name: 'TableWithFilter',
+  components: { HButton },
   props: ['tableData', 'filterData'],
   mounted () {
     this.tagColumn = this.tableData[0].tag

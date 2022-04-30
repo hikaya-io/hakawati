@@ -11,28 +11,26 @@
         slot="footer"
         class="dialog-footer"
       >
-        <el-button
-          @click="handleCancel"
-          round
-        >
-        Cancel
-        </el-button>
-        <el-button
-          :type="type"
-          @click="handleConfirm"
-          round
-        >
-          {{ confirmLabel }}
-        </el-button>
+        <h-button
+          :isPlain="true"
+          @click.native="handleCancel"
+          label="Cancel"
+        />
+        <h-button
+          @click.native="handleConfirm"
+          :label="confirmLabel"
+        />
       </span>
     </el-dialog>
   </div>
 </template>
 
 <script>
+import HButton from '../button/HButton.vue'
 
 export default {
   name: 'HDialog',
+  components: { HButton },
   props: {
     title: {
       type: String,

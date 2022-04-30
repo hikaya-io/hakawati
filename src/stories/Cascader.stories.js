@@ -1,4 +1,5 @@
 import HCascader from '../components/cascader/HCascader.vue'
+import HButton from '../components/button/HButton.vue'
 
 // This is required for each story
 export default { title: 'Cascader' }
@@ -290,7 +291,7 @@ export const hCascader = () => ({
 })
 
 export const customComponent = () => ({
-  components: { HCascader },
+  components: { HCascader, HButton },
   data () {
     return {
       options,
@@ -306,7 +307,7 @@ export const customComponent = () => ({
     <div>
     <h-cascader :options="options" v-model="selected" @change="onChange">
       <template slot="custom" slot-scope="scope">
-        <el-button ref="custom" @click="scope.toggle()">Button</el-button>
+        <h-button label="Button" isPlain="true" @click.native="scope.toggle()"/>
       </template>
     </h-cascader>
     <h-cascader :options="options" style="margin-top: 20px">
