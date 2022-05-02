@@ -9,41 +9,30 @@ export const hMessage = () => ({
   template: `
     <div>
       <h-button 
-        @click="successMessage"
-        dark-text
-        plain
-        style="margin-top: 100px;"
-      >
-        success message
-      </h-button>
+        @click.native="successMessage"
+        type="success"
+        label="success message"
+      />
       <h-button
-        @click="errorMessage"
-        dark-text
-        plain
-      >
-        error message
-      </h-button>
+        @click.native="errorMessage"
+        type="danger"
+        label="error message"
+      />
       <h-button
-        @click="warningMessage"
-        dark-text
-        plain
-      >
-        warning message
-      </h-button>
+        @click.native="warningMessage"
+        type="warning"
+        label="warning message"
+      />
       <h-button
-        @click="infoMessage"
-        dark-text
-        plain
-      >
-        info message
-      </h-button>
+        @click.native="infoMessage"
+        type="info"
+        label="info message"
+      />
       <h-button 
-        @click="iconMessage"
-        dark-text
-        plain
-    >
-      success message with icon
-    </h-button>
+        @click.native="iconMessage"
+        type="success"
+        label="success message with icon"
+      />
     </div>
   `,
   methods: {
