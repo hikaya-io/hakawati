@@ -3,9 +3,6 @@ import './styles/element-variables.scss'
 import './styles/theme.scss'
 import './styles/variables.scss'
 
-// Alert
-import HAlert from './components/alert/HAlert.vue'
-
 // Avatar
 import HAvatar from './components/avatar/HAvatar.vue'
 
@@ -38,9 +35,6 @@ import HDrawer from './components/drawer/HDrawer.vue'
 
 // Dropdown
 import HDropdown from './components/dropdown/HDropdown.vue'
-
-// Filter
-import HFilter from './components/filter/HFilter.vue'
 
 // Input
 import HInput from './components/input/HInput.vue'
@@ -99,7 +93,6 @@ const components = [
   HkoboTable,
   UploadExcel,
   HDropdown,
-  HAlert,
   HSwitch,
   HCard,
   HSelect,
@@ -119,7 +112,6 @@ const components = [
   HForm,
   HAvatar,
   HSearch,
-  HFilter,
   HBreadcrumb,
   HSideNav
 ]
@@ -147,7 +139,6 @@ export default {
   HkoboTable,
   UploadExcel,
   HDropdown,
-  HAlert,
   HSwitch,
   HCard,
   HSelect,
@@ -167,7 +158,6 @@ export default {
   HForm,
   HAvatar,
   HSearch,
-  HFilter,
   HBreadcrumb,
   HSideNav
 }
