@@ -12,8 +12,10 @@
     :dark-text="isPlain"
     :workspace-button="isWorkSpace"
     :loading="isLoading"
+    :round="isCircular ? false : true"
+    :circle="isCircular"
   >
-   {{ label }}
+    {{ label }}
   </el-button>
 </template>
 
@@ -21,37 +23,14 @@
 export default {
   name: 'HButton',
   props: {
-    label: {
-      type: String,
-      default: '',
-      required: true
-    },
-    type: {
-      type: String,
-      default: 'primary',
-      required: true
-    },
-    icon: {
-      type: String,
-      default: ''
-    },
-    isDisabled: {
-      type: Boolean,
-      default: false,
-      required: true
-    },
-    isLoading: {
-      type: Boolean,
-      default: false
-    },
-    isWorkSpace: {
-      type: Boolean,
-      default: false
-    },
-    isPlain: {
-      type: Boolean,
-      default: false
-    }
+    label: { type: String },
+    type: { type: String, default: 'primary' },
+    icon: { type: String },
+    isDisabled: { type: Boolean, default: false },
+    isCircular: { type: Boolean, default: false },
+    isLoading: { type: Boolean, default: false },
+    isWorkSpace: { type: Boolean, default: false },
+    isPlain: { type: Boolean, default: false }
   },
   computed: {
     getType () {
@@ -72,13 +51,15 @@ export default {
 
 .el-button {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 25px;
-  border-color: transparent;
-  padding: 13px 33px;
   border: none;
 }
+
 .el-button.is-round {
   padding: 13px 33px;
   border-radius: 30px;
+}
+
+.el-button.is-circle span {
+  display: none;
 }
 </style>
