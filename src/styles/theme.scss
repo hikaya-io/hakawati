@@ -183,11 +183,6 @@ $dark-color: $dark-body-grey;
 .cancel-button {
   color: $heading-grey;
   font-weight: normal;
-  padding: 13px 33px;
-  font-size: 14px;
-  line-height: 17px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 25px;
   border: none;
   &:hover {
     border: none;
@@ -220,16 +215,12 @@ $dark-color: $dark-body-grey;
 }
 
 .button-style {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 25px;
   border-color: transparent;
-  padding: 13px 33px;
   color: $white;
   font-size: 14px;
   line-height: 17px;
   font-weight: normal;
   font-family: $main-font-family;
-  border: none;
 }
 
 .text-style {

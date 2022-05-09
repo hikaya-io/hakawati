@@ -22,4 +22,4 @@ const Template = (args, { argTypes }) => ({
 })
 
 export const Main = Template.bind({})
-Main.args = { type: 'primary', label: 'Button' }
+Main.args = { label: 'Button' }
