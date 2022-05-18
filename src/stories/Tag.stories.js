@@ -24,6 +24,21 @@ export const hTag = () => ({
   `
 })
 
+export const hTagPlain = () => ({
+  components: { HTag },
+  template: `
+    <div>
+    <h-tag plain size="mini">Beta</h-tag>
+    <p />
+    <h-tag plain size="small">Beta</h-tag>
+    <p />
+    <h-tag plain size="medium">Beta</h-tag>
+    <p />
+    <h-tag plain>Beta</h-tag>
+    </div>
+  `
+})
+
 const dynamicTags = ['Tag 1', 'Tag 2', 'Tag 3']
 
 export const dynamicTag = () => ({
