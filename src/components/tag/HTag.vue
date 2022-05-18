@@ -1,7 +1,8 @@
 <template>
-  <div class="h-tag">
+  <div :class="tagClass">
   <el-tag
-    :type="type"
+    v-bind="$attrs"
+    v-on="$listeners"
   >
     <slot></slot>
   </el-tag>
@@ -12,9 +13,11 @@
 export default {
   name: 'HTag',
   props: {
-    type: {
-      type: String,
-      default: ''
+    plain: Boolean
+  },
+  computed: {
+    tagClass () {
+      return !this.plain ? { 'h-tag': true } : null
     }
   }
 }
@@ -23,33 +26,27 @@ export default {
 <style lang="scss">
 @import "../../styles/theme";
 
-.el-tag {
-  border-radius: 25px;
-  border-color: transparent;
-  text-align: center;
-  padding: 0px 24px;
-}
-
-.button-new-tag {
-  border-radius: 20px;
-  border-color: transparent;
-}
-
 .h-tag {
+  .el-tag {
+    border-radius: 25px;
+    border-color: transparent;
+    text-align: center;
+    padding: 0px 24px;
+  }
   .el-tag.el-tag--success {
-      border-color: transparent;
+    border-color: transparent;
   }
 
   .el-tag.el-tag--info {
-      border-color: transparent;
+    border-color: transparent;
   }
 
   .el-tag.el-tag--warning {
-      border-color: transparent;
+    border-color: transparent;
   }
 
   .el-tag.el-tag--danger {
-      border-color: transparent;
+    border-color: transparent;
   }
 }
 </style>
