@@ -71,6 +71,7 @@ export const hDialogWithForm = () => ({
   methods: {
     confirm () {
       console.log('Confirmed')
+      this.visibility = !this.visibility
     },
     cancel () {
       console.log('Cancel')
