@@ -85,7 +85,6 @@ export default {
   methods: {
     handleConfirm () {
       this.$emit('dialogConfirmed')
-      this.handleClose()
     },
     handleCancel () {
       this.$emit('dialogCancelled')
