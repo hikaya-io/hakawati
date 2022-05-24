@@ -218,10 +218,12 @@ export default {
       }
     }
     // Remove the extra line at the bottom of the table if data is present
-    if (this.tableData.length !== 0 && elTableBefore) {
-      elTableBefore.style.setProperty('display', 'none')
-    } else {
-      elTableBefore.style.setProperty('display', 'block')
+    if (elTableBefore) {
+      if (this.tableData.length !== 0) {
+        elTableBefore.style.setProperty('display', 'none')
+      } else {
+        elTableBefore.style.setProperty('display', 'block')
+      }
     }
   },
   methods: {

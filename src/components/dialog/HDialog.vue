@@ -18,6 +18,7 @@
         />
         <h-button
           @click.native="handleConfirm"
+          :is-disabled="confirmButtonDisabledInner"
           :label="confirmLabel"
         />
       </span>
@@ -55,6 +56,15 @@ export default {
     confirmLabel: {
       type: String,
       default: 'Confirm'
+    },
+    confirmButtonDisabled: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data () {
+    return {
+      confirmButtonDisabledInner: this.confirmButtonDisabled
     }
   },
   computed: {
@@ -65,6 +75,11 @@ export default {
       set (val) {
         return val
       }
+    }
+  },
+  watch: {
+    confirmButtonDisabled (val) {
+      this.confirmButtonDisabledInner = this.confirmButtonDisabled
     }
   },
   methods: {
