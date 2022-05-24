@@ -27,8 +27,8 @@ export const hDialog = () => ({
   },
   template: `
   <div>
-    <h-button 
-      label="Open Dialog" 
+    <h-button
+      label="Open Dialog"
       @click.native="toggleVisibility"
     />
     <h-dialog
@@ -61,9 +61,9 @@ export const hDialogWithForm = () => ({
   },
   watch: {
     formData: {
+      deep: true,
       handler (val) {
-        console.log(val)
-        this.formData.input !== '' ? this.confirmButtonDisabled = false : this.confirmButtonDisabled = true
+        this.confirmButtonDisabled = !val.input
       }
     }
   },
@@ -81,8 +81,8 @@ export const hDialogWithForm = () => ({
   },
   template: `
   <div>
-    <h-button 
-      label="Open Dialog" 
+    <h-button
+      label="Open Dialog"
       @click.native="toggleVisibility"
     />
     <h-dialog
