@@ -23,6 +23,9 @@ import BasicCheckbox from './components/checkbox/BasicCheckbox.vue'
 import CheckboxGroup from './components/checkbox/CheckboxGroup.vue'
 import HCheckbox from './components/checkbox/HCheckbox.vue'
 
+// Color picker
+import HColorPicker from './components/colorPicker/HColorPicker.vue'
+
 // Datepicker
 import HDatePicker from './components/datepicker/HDatePicker.vue'
 import DateRangePicker from './components/datepicker/DateRangePicker.vue'
@@ -113,7 +116,8 @@ const components = [
   HAvatar,
   HSearch,
   HBreadcrumb,
-  HSideNav
+  HSideNav,
+  HColorPicker
 ]
 
 const install = function (Vue) {
@@ -159,5 +163,6 @@ export default {
   HAvatar,
   HSearch,
   HBreadcrumb,
-  HSideNav
+  HSideNav,
+  HColorPicker
 }
