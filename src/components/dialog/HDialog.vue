@@ -20,6 +20,7 @@
           @click.native="handleConfirm"
           :is-disabled="confirmButtonDisabledInner"
           :label="confirmLabel"
+          :type="type"
         />
       </span>
     </el-dialog>
@@ -34,10 +35,6 @@ export default {
   components: { HButton },
   props: {
     title: {
-      type: String,
-      default: ''
-    },
-    message: {
       type: String,
       default: ''
     },
