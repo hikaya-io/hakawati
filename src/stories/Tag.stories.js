@@ -2,7 +2,15 @@ import HTag from '../components/tag/HTag.vue'
 import DynamicTag from '../components/tag/DynamicTag.vue'
 
 // This is required for each story
-export default { title: 'Tag' }
+export default {
+  component: HTag,
+  title: 'Tag',
+  argTypes: {
+    customColor: {
+      control: 'color'
+    }
+  }
+}
 
 // Customize components here
 export const hTag = () => ({
@@ -23,6 +31,15 @@ export const hTag = () => ({
     </div>
   `
 })
+
+const Template = (args, { argTypes }) => ({
+  components: { HTag },
+  props: Object.keys(argTypes),
+  template: '<h-tag v-bind="$props">Custom</h-tag>'
+})
+
+export const CustomColorTag = Template.bind({})
+CustomColorTag.args = { customColor: '#ff0000' }
 
 export const hTagPlain = () => ({
   components: { HTag },
