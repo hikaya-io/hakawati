@@ -1,21 +1,26 @@
 <template>
-  <div :class="tagClass">
   <el-tag
     v-bind="$attrs"
     v-on="$listeners"
     :custom-color="customColor"
     :color="lightBackgroundColor"
+    :type="type"
+    :size="size"
+    :closable="closable"
+    :class="tagClass"
   >
-    <slot></slot>
+  <slot></slot>
   </el-tag>
-  </div>
 </template>
 
 <script>
 export default {
   name: 'HTag',
   props: {
+    type: String,
+    size: String,
     plain: Boolean,
+    closable: Boolean,
     customColor: {
       type: String,
       default: ''
@@ -72,26 +77,27 @@ export default {
 @import "../../styles/theme";
 
 .h-tag {
-  .el-tag {
+  &.el-tag {
     border-radius: 25px;
     border-color: transparent;
     text-align: center;
     padding: 0px 24px;
-  }
-  .el-tag.el-tag--success {
-    border-color: transparent;
-  }
 
-  .el-tag.el-tag--info {
-    border-color: transparent;
+    &.el-tag--success {
+      border-color: transparent;
+    }
+    &.el-tag--info {
+      border-color: transparent;
+    }
+    &.el-tag--warning {
+      border-color: transparent;
+    }
+    &.el-tag--danger {
+      border-color: transparent;
+    }
   }
-
-  .el-tag.el-tag--warning {
-    border-color: transparent;
-  }
-
-  .el-tag.el-tag--danger {
-    border-color: transparent;
-  }
+}
+.el-tag .el-tag__close:hover {
+  background-color: transparent;
 }
 </style>
