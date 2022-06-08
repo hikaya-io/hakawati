@@ -378,10 +378,18 @@ table {
 
   .sort-caret.descending {
     border-top-color: $background-color;
+    bottom: 10px;
   }
 
   .sort-caret.ascending {
     border-bottom-color: $background-color;
+    top: 1px;
+  }
+
+  .is-sortable {
+    .cell{
+      display: inline-flex;
+    }
   }
 
   .table-settings {
