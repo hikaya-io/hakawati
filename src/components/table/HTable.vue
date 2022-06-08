@@ -392,6 +392,10 @@ table {
     }
   }
 
+  .el-table__header-wrapper{
+    height: 40px;
+  }
+
   .table-settings {
     cursor: pointer;
 
