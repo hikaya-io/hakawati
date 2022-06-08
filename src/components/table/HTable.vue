@@ -396,6 +396,11 @@ table {
     height: 40px;
   }
 
+  .el-table-column--selection{
+    display: inline-flex;
+    top: 7px;
+  }
+
   .table-settings {
     cursor: pointer;
 
