@@ -378,12 +378,10 @@ table {
 
   .sort-caret.descending {
     border-top-color: $background-color;
-    bottom: 10px;
   }
 
   .sort-caret.ascending {
     border-bottom-color: $background-color;
-    top: 1px;
   }
 
   .is-sortable {
@@ -393,17 +391,17 @@ table {
   }
 
   .el-table__header-wrapper{
-    height: 40px;
+    height: 32px;
   }
-
-  .el-table-column--selection{
-    display: inline-flex;
-    top: 7px;
+  .el-table__header {
+    .cell {
+      height: 32px;
+      line-height: 32px;
+    }
   }
 
   .table-settings {
     cursor: pointer;
-
   }
 
   // styles table multiple selection
