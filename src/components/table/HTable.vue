@@ -384,9 +384,24 @@ table {
     border-bottom-color: $background-color;
   }
 
+  .is-sortable {
+    .cell{
+      display: inline-flex;
+    }
+  }
+
+  .el-table__header-wrapper{
+    height: 32px;
+  }
+  .el-table__header {
+    .cell {
+      height: 32px;
+      line-height: 32px;
+    }
+  }
+
   .table-settings {
     cursor: pointer;
-
   }
 
   // styles table multiple selection

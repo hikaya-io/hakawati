@@ -160,6 +160,11 @@ export const hTableEditEnabled = () => ({
     return {
       tableData: tableDataNew,
       editMode: false,
+      columnAttrs: {
+        address: {
+          width: '200px',
+        }
+      },
       columnComponents: {
         date: {
           'editable-component': 'el-date-picker',
@@ -200,6 +205,7 @@ export const hTableEditEnabled = () => ({
       @header-click="action"
       @row-edited="rowEdited"
       :edit-mode="editMode"
+      :column-attrs=columnAttrs
       :column-components="columnComponents">
       <template slot="edit-tag">
         <el-option value="Home" label="Home"></el-option>
