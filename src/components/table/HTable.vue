@@ -168,7 +168,8 @@ export default {
       mutableTableColumns: [],
       editableTableData: [],
       editColumnComponents: {},
-      lastEditedRow: null
+      lastEditedRow: null,
+      sortedObject: null
     }
   },
   computed: {
@@ -189,7 +190,11 @@ export default {
     tableData: {
       deep: true,
       handler (val) {
-        this.editableTableData = [...val]
+        if (this.sortedObject) {
+          this.editableTableData = [...val]
+          this.onSortChanged(this.sortedObject)
+
+        }
       }
     }
   },
@@ -274,6 +279,7 @@ export default {
       this.$emit('row-edited', { rowIndex: index, row: this.editableTableData[index] })
     },
     onSortChanged (obj) {
+      this.sortedObject = obj
       function compare (a, b) {
         if (a[obj.prop] < b[obj.prop]) {
           return obj.order === 'ascending' ? -1 : 1
