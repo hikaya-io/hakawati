@@ -2,7 +2,7 @@ import HButton from '../components/button/HButton.vue'
 
 export default {
   component: HButton,
-  title: '1.0/button',
+  title: '1.0/Button',
   argTypes: {
     type: {
       options: ['primary', 'success', 'info', 'warning', 'danger'],
