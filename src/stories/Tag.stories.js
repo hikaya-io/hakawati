@@ -29,6 +29,8 @@ const Template = (args, { argTypes }) => ({
 export const Main = Template.bind({})
 Main.args = { }
 
+// const dynamicTags = ['Tag 1', 'Tag 2', 'Tag 3']
+//
 // export const dynamicTag = () => ({
 //   components: { DynamicTag },
 //   data () {
