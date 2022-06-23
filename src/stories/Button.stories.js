@@ -11,6 +11,10 @@ export default {
     icon: {
       options: ['edit', 'share', 'delete', 'search', 'upload', 'plus', 's-tools'],
       control: { type: 'select' }
+    },
+    isWorkSpace: {
+      defaultValue: { enabled: false, hasOutline: true },
+      control: { type: 'object' }
     }
   }
 }
