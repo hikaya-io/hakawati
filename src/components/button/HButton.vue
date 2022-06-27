@@ -74,9 +74,14 @@ export default {
 }
 
 .ws-button-outline {
-  box-shadow: none !important;
-  border-width: 0.15rem !important;
+  box-shadow: none;
+  border-width: 0.15rem;
   border-color: $primary-color !important;
-  border-radius: 25px !important;
+  border-radius: 25px;
+
+  &:hover {
+    background-color: $primary-color;
+    color: $white;
+  }
 }
 </style>
