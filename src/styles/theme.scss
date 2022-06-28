@@ -183,18 +183,14 @@ $dark-color: $dark-body-grey;
 .cancel-button {
   color: $heading-grey;
   font-weight: normal;
-  border: none;
   &:hover {
-    border: none;
     color: $primary-color;
   }
   &:focus {
-    border: none;
     background-color: $white;
     color: $heading-grey;
   }
   &:active {
-    border: none;
     background-color: $cancel-click;
     color: $primary-color;
   }
@@ -205,18 +201,14 @@ $dark-color: $dark-body-grey;
   font-family: $main-font-family;
   font-weight: normal;
   &:focus {
-    border: none;
     background-color: $white;
   }
   &:active {
-    border: none;
     background-color: $cancel-click;
   }
 }
 
 .button-style {
-  border-color: transparent;
-  color: $white;
   font-size: 14px;
   line-height: 17px;
   font-weight: normal;

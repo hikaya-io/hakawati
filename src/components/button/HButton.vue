@@ -1,20 +1,20 @@
 <template>
   <el-button
     :class="{
-      'button-style': !isPlain && !checkIfWorkspace,
-      'cancel-button': isPlain && !checkIfWorkspace,
-      'ws-button': checkIfWorkspace && !isPlain,
-      'ws-button-outline': checkIfWorkspace && isWorkSpace.hasOutline && !isPlain,
-      'el-button-shadow': !(isWorkSpace.hasOutline && isWorkSpace.enabled),
-      'body-bold': true,
+      'button-style': true,
+      'button-has-no-border': !isPlain || !isWorkSpace || !hasOutline,
+      'cancel-button': isPlain,
+      'ws-button': isWorkSpace,
+      'button-has-shadow': !hasOutline,
+      'button-has-outline': hasOutline,
     }"
     :type="getType"
     :icon="getIcon"
     :disabled="isDisabled"
-    :dark-text="isPlain"
-    :workspace-button="checkIfWorkspace"
+    :plain="isPlain || hasOutline"
+    :workspace-button="isWorkSpace"
     :loading="isLoading"
-    :round="isCircular ? false : true"
+    :round="!isCircular"
     :circle="isCircular"
   >
     {{ label }}
@@ -31,26 +31,19 @@ export default {
     isDisabled: { type: Boolean, default: false },
     isCircular: { type: Boolean, default: false },
     isLoading: { type: Boolean, default: false },
-    isWorkSpace: { type: [Boolean, Object], default: false },
-    isPlain: { type: Boolean, default: false }
+    isWorkSpace: { type: Boolean, default: false },
+    isPlain: { type: Boolean, default: false },
+    hasOutline: { type: Boolean, default: false }
   },
   computed: {
     getType () {
       let type = this.type
-      if (this.isPlain || this.checkIfWorkspace) {
-        type = undefined
-      }
+      if (this.isPlain || this.isWorkSpace) type = undefined
       return type
     },
     getIcon () {
       if (this.icon) return `el-icon-${this.icon}`
       return undefined
-    },
-    checkIfWorkspace () {
-      let isWorkSpace
-      if (typeof this.isWorkSpace === 'boolean') isWorkSpace = this.isWorkSpace
-      else isWorkSpace = this.isWorkSpace.enabled
-      return isWorkSpace
     }
   }
 }
@@ -59,9 +52,14 @@ export default {
 <style lang="scss">
 @import "../../styles/theme";
 
-.el-button-shadow {
+.button-has-shadow {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: none;
+}
+
+.button-has-no-border {
+  border-color: transparent;
+  color: $white;
 }
 
 .el-button.is-round {
@@ -73,15 +71,23 @@ export default {
   display: none;
 }
 
-.ws-button-outline {
-  box-shadow: none;
+.button-has-outline {
   border-width: 0.15rem;
-  border-color: $primary-color !important;
-  border-radius: 25px;
+}
+
+.button-has-outline.ws-button {
+  border-color: $primary-color;
 
   &:hover {
-    background-color: $primary-color;
-    color: $white;
+    background-color: $cancel-click;
+  }
+}
+
+.button-has-outline.cancel-button {
+  border-color: $heading-grey;
+
+  &:hover {
+    background-color: $cancel-click;
   }
 }
 </style>
