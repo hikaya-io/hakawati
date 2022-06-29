@@ -79,15 +79,39 @@ export default {
   border-color: $primary-color;
 
   &:hover {
-    background-color: $cancel-click;
+    background-color: $primary-color;
+    color: $white;
   }
 }
 
 .button-has-outline.cancel-button {
   border-color: $heading-grey;
+  color: $heading-grey;
 
   &:hover {
-    background-color: $cancel-click;
+    background-color: $heading-grey;
+    border-color: $heading-grey;
+    color: $white;
   }
+}
+
+.el-button--primary.is-plain {
+  border-color: $primary-color;
+}
+
+.el-button--success.is-plain {
+  border-color: $green;
+}
+
+.el-button--info.is-plain {
+  border-color: $light-body-grey;
+}
+
+.el-button--danger.is-plain {
+  border-color: $red;
+}
+
+.el-button--warning.is-plain {
+  border-color: $yellow;
 }
 </style>
