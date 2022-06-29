@@ -2,17 +2,17 @@
   <el-button
     :class="{
       'button-style': true,
-      'button-has-no-border': !isPlain || !isWorkSpace || !hasOutline,
-      'cancel-button': isPlain,
-      'ws-button': isWorkSpace,
+      'button-has-no-border': !isCancel || !isSecondary || !hasOutline,
+      'cancel-button': isCancel,
+      'ws-button': isSecondary,
       'button-has-shadow': !hasOutline,
       'button-has-outline': hasOutline,
     }"
     :type="getType"
     :icon="getIcon"
     :disabled="isDisabled"
-    :plain="isPlain || hasOutline"
-    :workspace-button="isWorkSpace"
+    :plain="isCancel || hasOutline"
+    :workspace-button="isSecondary"
     :loading="isLoading"
     :round="!isCircular"
     :circle="isCircular"
@@ -31,14 +31,14 @@ export default {
     isDisabled: { type: Boolean, default: false },
     isCircular: { type: Boolean, default: false },
     isLoading: { type: Boolean, default: false },
-    isWorkSpace: { type: Boolean, default: false },
-    isPlain: { type: Boolean, default: false },
+    isSecondary: { type: Boolean, default: false },
+    isCancel: { type: Boolean, default: false },
     hasOutline: { type: Boolean, default: false }
   },
   computed: {
     getType () {
       let type = this.type
-      if (this.isPlain || this.isWorkSpace) type = undefined
+      if (this.isCancel || this.isSecondary) type = undefined
       return type
     },
     getIcon () {
