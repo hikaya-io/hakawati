@@ -22,7 +22,7 @@
     <h-button
       v-else
       class="button-new-tag"
-      :isPlain="true"
+      is-cancel
       label="+ New"
       @click.native="showInput"
     />

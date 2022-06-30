@@ -12,7 +12,7 @@
         class="dialog-footer"
       >
         <h-button
-          :isPlain="true"
+          is-cancel
           @click.native="handleCancel"
           label="Cancel"
         />
