@@ -187,24 +187,29 @@ $dark-color: $dark-body-grey;
     color: $primary-color;
   }
   &:focus {
-    background-color: $white;
-    color: $heading-grey;
+    color: $heading-grey !important;
   }
   &:active {
-    background-color: $cancel-click;
-    color: $primary-color;
+    color: $primary-color !important;
+    background-color: $primary-fill !important;
   }
 }
 
-.ws-button {
-  color: $primary-color;
+.secondary-button {
+  color: $heading-grey;
   font-family: $main-font-family;
   font-weight: normal;
+  &:hover {
+    color: $heading-grey;
+    background-color: $body-grey;
+  }
   &:focus {
+    color: $heading-grey;
     background-color: $white;
   }
   &:active {
-    background-color: $cancel-click;
+    color: $primary-color;
+    background-color: $primary-fill;
   }
 }
 
@@ -213,27 +218,6 @@ $dark-color: $dark-body-grey;
   line-height: 17px;
   font-weight: normal;
   font-family: $main-font-family;
-}
-
-.text-style {
-  border-radius: 25px;
-  color: $heading-grey;
-  font-size: 14px;
-  line-height: 17px;
-  box-shadow: none;
-
-  &:hover {
-    color: $primary-color;
-    background-color: $primary-fill;
-  }
-  &:focus {
-    color: $primary-color;
-    background-color: $white;
-  }
-  &:active {
-    border: none;
-    background-color: $cancel-click;
-  }
 }
 
 .h-border {
