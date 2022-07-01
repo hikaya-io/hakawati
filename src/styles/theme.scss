@@ -182,12 +182,13 @@ $dark-color: $dark-body-grey;
 
 .cancel-button {
   color: $heading-grey;
-  font-weight: normal;
   &:hover {
-    color: $primary-color;
+    color: $heading-grey !important;
+    background-color: $body-grey !important;
   }
   &:focus {
     color: $heading-grey !important;
+    background-color: $white;
   }
   &:active {
     color: $primary-color !important;
@@ -196,20 +197,17 @@ $dark-color: $dark-body-grey;
 }
 
 .secondary-button {
-  color: $heading-grey;
-  font-family: $main-font-family;
-  font-weight: normal;
+  color: $primary-color;
+  border-color: $primary-color;
   &:hover {
-    color: $heading-grey;
-    background-color: $body-grey;
+    background-color: $primary-fill !important;
   }
   &:focus {
-    color: $heading-grey;
     background-color: $white;
   }
   &:active {
-    color: $primary-color;
-    background-color: $primary-fill;
+    color: $white !important;
+    background-color: $primary-color !important;
   }
 }
 
