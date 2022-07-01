@@ -2,9 +2,9 @@
   <el-button
     :class="{
       'button-style': true,
-      'button-has-no-border': !isCancel || !isSecondary || !hasOutline,
+      'button-has-no-border': !isCancel || !isSecondary,
       'cancel-button': isCancel,
-      'ws-button': isSecondary,
+      'secondary-button': isSecondary,
       'button-has-shadow': !hasOutline,
       'button-has-outline': hasOutline,
     }"
@@ -58,7 +58,7 @@ export default {
 }
 
 .button-has-no-border {
-  border-color: transparent;
+  // border-color: transparent;
   color: $white;
 }
 
@@ -73,6 +73,9 @@ export default {
 
 .button-has-outline {
   border-width: 0.15rem;
+  &:active {
+    background-color: $primary-fill !important;
+  }
 }
 
 .button-has-outline.ws-button {
@@ -89,9 +92,19 @@ export default {
   color: $heading-grey;
 
   &:hover {
-    background-color: $heading-grey;
+    background-color: $body-grey;
     border-color: $heading-grey;
-    color: $white;
+    color: $heading-grey;
+  }
+  &:active {
+    background-color: $heading-grey !important;
+    border-color: $heading-grey !important;
+    color: $white !important;
+  }
+    &:focus {
+    background-color: $white;
+    border-color: $heading-grey;
+    color: $heading-grey;
   }
 }
 

@@ -307,7 +307,7 @@ export const customComponent = () => ({
     <div>
     <h-cascader :options="options" v-model="selected" @change="onChange">
       <template slot="custom" slot-scope="scope">
-        <h-button label="Button" isPlain="true" @click.native="scope.toggle()"/>
+        <h-button label="Button" is-cancel @click.native="scope.toggle()"/>
       </template>
     </h-cascader>
     <h-cascader :options="options" style="margin-top: 20px">

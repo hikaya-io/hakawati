@@ -182,29 +182,32 @@ $dark-color: $dark-body-grey;
 
 .cancel-button {
   color: $heading-grey;
-  font-weight: normal;
   &:hover {
-    color: $primary-color;
+    color: $heading-grey !important;
+    background-color: $body-grey !important;
   }
   &:focus {
+    color: $heading-grey !important;
     background-color: $white;
-    color: $heading-grey;
   }
   &:active {
-    background-color: $cancel-click;
-    color: $primary-color;
+    color: $primary-color !important;
+    background-color: $primary-fill !important;
   }
 }
 
-.ws-button {
+.secondary-button {
   color: $primary-color;
-  font-family: $main-font-family;
-  font-weight: normal;
+  border-color: $primary-color;
+  &:hover {
+    background-color: $primary-fill !important;
+  }
   &:focus {
     background-color: $white;
   }
   &:active {
-    background-color: $cancel-click;
+    color: $white !important;
+    background-color: $primary-color !important;
   }
 }
 
@@ -213,27 +216,6 @@ $dark-color: $dark-body-grey;
   line-height: 17px;
   font-weight: normal;
   font-family: $main-font-family;
-}
-
-.text-style {
-  border-radius: 25px;
-  color: $heading-grey;
-  font-size: 14px;
-  line-height: 17px;
-  box-shadow: none;
-
-  &:hover {
-    color: $primary-color;
-    background-color: $primary-fill;
-  }
-  &:focus {
-    color: $primary-color;
-    background-color: $white;
-  }
-  &:active {
-    border: none;
-    background-color: $cancel-click;
-  }
 }
 
 .h-border {
