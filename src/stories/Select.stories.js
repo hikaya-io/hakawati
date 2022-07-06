@@ -2,7 +2,7 @@ import HSelect from '../components/select/HSelect.vue'
 
 const basicOptions = [
   { label: 'Option 1', value: 'option_1' },
-  { label: 'Option 2', value: 'option_2', disabled: true },
+  { label: 'Option 2 (disabled)', value: 'option_2', disabled: true },
   { label: 'Option 3', value: 'option_3' },
   { label: 'Option 4', value: 'option_4' },
   { label: 'Option 5', value: 'option_5' }
@@ -47,9 +47,8 @@ export default {
   argTypes: {
     sampleOptionsType: {
       control: 'radio',
-      description: `These a sample select options<br>
-                      - \`groupOptions\`: For the options to be displayed in groups the \`grouped\` prop should be \`true\`
-                    `,
+      description: `To use \`groupOptions\` the \`grouped\` prop needs to be set to \`true\`. <br> Use \`extraOptions\` if you would like to add secondary text to the select options.
+      `,
       options: ['basicOptions', 'extraOptions', 'groupOptions']
     },
     values: { table: { disable: true } },
