@@ -47,6 +47,9 @@ export default {
   argTypes: {
     sampleOptionsType: {
       control: 'radio',
+      description: `These a sample select options<br>
+                      - \`groupOptions\`: For the options to be displayed in groups the \`grouped\` prop should be \`true\`
+                    `,
       options: ['basicOptions', 'extraOptions', 'groupOptions']
     },
     values: { table: { disable: true } },
