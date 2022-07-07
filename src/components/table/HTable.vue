@@ -257,6 +257,7 @@ export default {
       } else {
         this.hiddenColumns.splice(index, 1)
       }
+      this.$emit('column-hidden', { columns: this.hiddenColumns })
     },
     getDropdownMenuData () {
       return {
@@ -274,6 +275,7 @@ export default {
         const ans = confirm('Are you sure you want to reorder the columns?')
         if (ans) {
           this.tableColumns = [...this.mutableTableColumns]
+          this.$emit('columns-reordered', { orderedColumns: this.tableColumns })
         }
       }
     },
