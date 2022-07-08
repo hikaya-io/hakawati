@@ -1,4 +1,3 @@
-
 import './styles/element-variables.scss'
 import './styles/theme.scss'
 import './styles/variables.scss'
@@ -55,7 +54,6 @@ import HSearch from './components/search/HSearch.vue'
 
 // Select
 import HSelect from './components/select/HSelect.vue'
-import GroupedSelect from './components/select/GroupedSelect.vue'
 
 // Steps
 import HSteps from './components/steps/HSteps.vue'
@@ -99,7 +97,6 @@ const components = [
   HSwitch,
   HCard,
   HSelect,
-  GroupedSelect,
   HTag,
   DynamicTag,
   HCascader,
@@ -121,7 +118,7 @@ const components = [
 ]
 
 const install = function (Vue) {
-  components.forEach(component => {
+  components.forEach((component) => {
     Vue.component(component.name, component)
   })
 }
@@ -146,7 +143,6 @@ export default {
   HSwitch,
   HCard,
   HSelect,
-  GroupedSelect,
   HTag,
   DynamicTag,
   HCascader,
