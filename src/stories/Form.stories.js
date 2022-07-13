@@ -124,12 +124,13 @@ const Template = (args, { argTypes }) => ({
     />
     <h-button
     @click.native="handleCancel"
-    :isPlain="true"
+    is-cancel
     label="Cancel"
     />
     <h-button
     @click.native="resetForm('ruleForm')"
     label="Reset"
+    has-outline
     type="info"
     />
   </div>`
