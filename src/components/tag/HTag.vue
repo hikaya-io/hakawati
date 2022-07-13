@@ -76,25 +76,16 @@ export default {
 <style lang="scss">
 @import "../../styles/theme";
 
+.el-tag {
+  border-color: transparent !important;
+}
+
 .h-tag {
   &.el-tag {
     border-radius: 25px;
     border-color: transparent;
     text-align: center;
     padding: 0px 24px;
-
-    &.el-tag--success {
-      border-color: transparent;
-    }
-    &.el-tag--info {
-      border-color: transparent;
-    }
-    &.el-tag--warning {
-      border-color: transparent;
-    }
-    &.el-tag--danger {
-      border-color: transparent;
-    }
   }
 }
 .el-tag .el-tag__close:hover {

@@ -1,6 +1,6 @@
 {
   "name": "@hikaya/hakawati",
-  "version": "0.1.94",
+  "version": "0.1.95",
   "repository": {
     "type": "git",
     "url": "https://github.com/hikaya-io/hakawati.git"
@@ -21,17 +21,18 @@
   ],
   "dependencies": {
     "core-js": "^3.6.4",
+    "style-loader": "^2.0.0",
     "vue": "^2.6.11",
     "vuedraggable": "^2.24.3",
     "xlsx": "^0.15.6"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
-    "@storybook/addon-essentials": "^6.3.12",
+    "@storybook/addon-essentials": "^6.5.9",
     "@storybook/addon-knobs": "^6.3.1",
-    "@storybook/addon-links": "^6.4.22",
-    "@storybook/addon-storysource": "^6.3.12",
-    "@storybook/vue": "^6.3.12",
+    "@storybook/addon-links": "^6.5.9",
+    "@storybook/addon-storysource": "^6.5.9",
+    "@storybook/vue": "^6.5.9",
     "@vue/cli-plugin-babel": "^4.2.0",
     "@vue/cli-plugin-eslint": "^4.2.0",
     "@vue/cli-plugin-unit-jest": "^4.2.0",
