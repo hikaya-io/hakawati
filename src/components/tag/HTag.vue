@@ -2,12 +2,12 @@
   <el-tag
     v-bind="$attrs"
     v-on="$listeners"
-    :custom-color="customColor"
     :color="lightBackgroundColor"
     :type="type"
     :size="size"
     :closable="closable"
     :class="tagClass"
+    :style="customStyling"
   >
   <slot></slot>
   </el-tag>
@@ -32,8 +32,13 @@ export default {
     },
     lightBackgroundColor () {
       if (this.customColor) {
-        this.updateTextColor()
         return this.lightenColor(this.customColor, 65)
+      }
+      return null
+    },
+    customStyling () {
+      if (this.customColor) {
+        return { color: this.customColor }
       }
       return null
     }
@@ -57,16 +62,6 @@ export default {
           .toString(16)
           .slice(1)
       )
-    },
-    updateTextColor () {
-      // Added a timeout for the new class from tagClass to show up
-      setTimeout(() => {
-        const tagClass = this.customColor.slice(1)
-        const elTagArray = document.querySelectorAll(`.${tagClass}`)
-        if (elTagArray[0]) {
-          elTagArray[0].style.color = this.customColor
-        }
-      }, 1)
     }
   }
 }
