@@ -158,6 +158,14 @@ export default {
     ignoredColumns: {
       type: Array,
       default: () => []
+    },
+    savedTableColumns: {
+      type: Array,
+      default: () => []
+    },
+    savedHiddenColumns: {
+      type: Array,
+      default: () => []
     }
   },
   data () {
@@ -174,6 +182,10 @@ export default {
   },
   computed: {
     origTableColumns () {
+      if (this.savedTableColumns) {
+        return this.savedTableColumns
+      }
+
       if (this.tableData.length) {
         return Object.keys(this.tableData[0])
       }
@@ -205,6 +217,7 @@ export default {
     this.tableColumns = [...this.origTableColumns.filter(col => !this.ignoredColumns.includes(col))]
     this.mutableTableColumns = [...this.origTableColumns.filter(col => !this.ignoredColumns.includes(col))]
     this.editableTableData = [...this.tableData]
+    this.hiddenColumns = [...this.savedHiddenColumns]
     const keys = Object.keys(this.columnComponents)
 
     for (const col of this.shownTableColumns) {
