@@ -26,17 +26,14 @@ export default {
       default: ''
     }
   },
-  mounted () {
-    this.updateTextColor()
-  },
   computed: {
     tagClass () {
-      return !this.plain ? { 'h-tag': true } : null
+      return !this.plain ? ['h-tag', this.customColor.slice(1)] : null
     },
     lightBackgroundColor () {
       if (this.customColor) {
         this.updateTextColor()
-        return this.lightenColor(this.customColor, 90)
+        return this.lightenColor(this.customColor, 65)
       }
       return null
     }
@@ -62,12 +59,14 @@ export default {
       )
     },
     updateTextColor () {
-      const elTagArray = document.getElementsByClassName('el-tag')
-      for (let i = 0; i < elTagArray.length; i++) {
-        if (elTagArray[i].attributes['custom-color'].nodeValue) {
-          elTagArray[i].style.color = this.customColor
+      // Added a timeout for the new class from tagClass to show up
+      setTimeout(() => {
+        const tagClass = this.customColor.slice(1)
+        const elTagArray = document.querySelectorAll(`.${tagClass}`)
+        if (elTagArray[0]) {
+          elTagArray[0].style.color = this.customColor
         }
-      }
+      }, 1)
     }
   }
 }
