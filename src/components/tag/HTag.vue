@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     tagClass () {
-      return !this.plain ? ['h-tag', this.customColor.slice(1)] : null
+      return !this.plain ? { 'h-tag': true } : null
     },
     lightBackgroundColor () {
       if (this.customColor) {
