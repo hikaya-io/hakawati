@@ -2,12 +2,12 @@
   <el-tag
     v-bind="$attrs"
     v-on="$listeners"
-    :custom-color="customColor"
     :color="lightBackgroundColor"
     :type="type"
     :size="size"
     :closable="closable"
     :class="tagClass"
+    :style="customStyling"
   >
   <slot></slot>
   </el-tag>
@@ -26,17 +26,19 @@ export default {
       default: ''
     }
   },
-  mounted () {
-    this.updateTextColor()
-  },
   computed: {
     tagClass () {
       return !this.plain ? { 'h-tag': true } : null
     },
     lightBackgroundColor () {
       if (this.customColor) {
-        this.updateTextColor()
-        return this.lightenColor(this.customColor, 90)
+        return this.lightenColor(this.customColor, 65)
+      }
+      return null
+    },
+    customStyling () {
+      if (this.customColor) {
+        return { color: this.customColor }
       }
       return null
     }
@@ -60,14 +62,6 @@ export default {
           .toString(16)
           .slice(1)
       )
-    },
-    updateTextColor () {
-      const elTagArray = document.getElementsByClassName('el-tag')
-      for (let i = 0; i < elTagArray.length; i++) {
-        if (elTagArray[i].attributes['custom-color'].nodeValue) {
-          elTagArray[i].style.color = this.customColor
-        }
-      }
     }
   }
 }
