@@ -1,12 +1,10 @@
 <template>
   <el-select
-    v-model="created"
+    v-model="selectedValue"
     v-bind="$attrs"
-    :disabled="disabled"
-    :placeholder="placeholder"
-    :clearable="clearable"
+    v-on="$listeners"
     :multiple="multiple"
-    :collapse-tags="collapseTags && multiple"
+    :placeholder="placeholder"
     class="h-select"
     @change="checkForCreation"
   >
@@ -46,49 +44,23 @@
 export default {
   name: 'HSelect',
   props: {
-    values: { type: [String, Number, Array] },
     options: { type: Array },
-    disabled: { type: Boolean },
-    clearable: { type: Boolean },
     placeholder: { type: String, default: 'Select an option' },
     grouped: { type: Boolean, default: false },
-    multiple: { type: Boolean, default: false },
-    collapseTags: { type: Boolean, default: false }
+    multiple: { type: Boolean, default: false }
   },
   data () {
     return {
-      created: []
-    }
-  },
-  computed: {
-    selectedValue: {
-      get () {
-        return this.values
-      },
-      set (val) {
-        this.$emit('input', val)
-      }
+      selectedValue: []
     }
   },
   watch: {
     multiple (val) {
-      this.created = val ? [] : ''
+      this.selectedValue = val ? [] : ''
     }
   },
   methods: {
     checkForCreation (value) {
-      if (Array.isArray(value)) {
-        const values = this.options.map((option) => option.value)
-        for (const selectedValue of value) {
-          if (!values.includes(selectedValue)) {
-            if (!this.created.includes(selectedValue)) {
-              this.$emit('on-create', selectedValue)
-              this.created.push(selectedValue)
-            }
-          }
-        }
-      } else this.created = value
-
       this.$emit('change', value)
     },
     randomString (length) {

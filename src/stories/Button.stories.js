@@ -11,14 +11,21 @@ export default {
     icon: {
       options: ['edit', 'share', 'delete', 'search', 'upload', 'plus', 's-tools'],
       control: { type: 'select' }
-    }
+    },
+    disabled: { control: 'boolean' },
+    loading: { control: 'boolean' }
   }
 }
 
 const Template = (args, { argTypes }) => ({
   components: { HButton },
   props: Object.keys(argTypes),
-  template: '<h-button v-bind="$props"/>'
+  methods: {
+    buttonClicked () {
+      console.log('clicked')
+    }
+  },
+  template: '<h-button v-bind="$props" @click="buttonClicked"/>'
 })
 
 export const Main = Template.bind({})
