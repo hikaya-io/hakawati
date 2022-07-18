@@ -1,21 +1,20 @@
 <template>
   <el-button
+    v-bind="$attrs"
+    v-on="$listeners"
     :class="{
       'button-style': true,
-      'button-has-no-border': !isCancel || !isSecondary,
-      'cancel-button': isCancel,
-      'secondary-button': isSecondary,
-      'button-has-shadow': !hasOutline,
-      'button-has-outline': hasOutline,
+      'button-has-no-border': !cancel || !secondary,
+      'cancel-button': cancel,
+      'secondary-button': secondary,
+      'button-has-shadow': !outline,
+      'button-has-outline': outline,
     }"
     :type="getType"
     :icon="getIcon"
-    :disabled="isDisabled"
-    :plain="isCancel || hasOutline"
-    :workspace-button="isSecondary"
-    :loading="isLoading"
-    :round="!isCircular"
-    :circle="isCircular"
+    :plain="cancel || outline"
+    :round="!circular"
+    :circle="circular"
   >
     {{ label }}
   </el-button>
@@ -28,17 +27,15 @@ export default {
     label: { type: String },
     type: { type: String, default: 'primary' },
     icon: { type: String },
-    isDisabled: { type: Boolean, default: false },
-    isCircular: { type: Boolean, default: false },
-    isLoading: { type: Boolean, default: false },
-    isSecondary: { type: Boolean, default: false },
-    isCancel: { type: Boolean, default: false },
-    hasOutline: { type: Boolean, default: false }
+    circular: { type: Boolean, default: false },
+    secondary: { type: Boolean, default: false },
+    cancel: { type: Boolean, default: false },
+    outline: { type: Boolean, default: false }
   },
   computed: {
     getType () {
       let type = this.type
-      if (this.isCancel || this.isSecondary) type = undefined
+      if (this.cancel || this.secondary) type = undefined
       return type
     },
     getIcon () {
@@ -101,7 +98,7 @@ export default {
     border-color: $heading-grey !important;
     color: $white !important;
   }
-    &:focus {
+  &:focus {
     background-color: $white;
     border-color: $heading-grey;
     color: $heading-grey;

@@ -51,6 +51,9 @@ export default {
       `,
       options: ['basicOptions', 'extraOptions', 'groupOptions']
     },
+    clearable: { control: 'boolean' },
+    disabled: { control: 'boolean' },
+    collapseTags: { control: 'boolean' },
     values: { table: { disable: true } },
     options: { table: { disable: true } }
   }
@@ -60,13 +63,16 @@ const Template = (args, { argTypes }) => {
   return {
     components: { HSelect },
     props: Object.keys(argTypes),
-    methods: {
-      onChange (event) {
-        console.log(event)
+    data () {
+      return { selectedValue: '' }
+    },
+    watch: {
+      selectedValue (val) {
+        console.log(val)
       }
     },
     template:
-      '<h-select v-bind="$props" @change="onChange" :options="sampleOptions[sampleOptionsType]"/>'
+      '<h-select v-bind="$props" v-model="selectedValue" :options="sampleOptions[sampleOptionsType]"/>'
   }
 }
 
