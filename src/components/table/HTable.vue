@@ -182,7 +182,7 @@ export default {
   },
   computed: {
     origTableColumns () {
-      if (this.savedTableColumns) {
+      if (this.savedTableColumns.length) {
         return this.savedTableColumns
       }
 
