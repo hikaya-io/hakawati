@@ -44,6 +44,10 @@
 export default {
   name: 'HSelect',
   props: {
+    value: {
+      type: [String, Number, Array, Object],
+      default: null
+    },
     options: { type: Array },
     placeholder: { type: String, default: 'Select an option' },
     grouped: { type: Boolean, default: false },
@@ -51,7 +55,17 @@ export default {
   },
   data () {
     return {
-      selectedValue: []
+      created: []
+    }
+  },
+  computed: {
+    selectedValue: {
+      get () {
+        return this.value
+      },
+      set (val) {
+        this.$emit('input', val)
+      }
     }
   },
   watch: {

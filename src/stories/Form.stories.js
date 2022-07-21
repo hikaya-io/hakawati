@@ -1,5 +1,6 @@
 import HForm from '../components/form/HForm.vue'
 import HButton from '../components/button/HButton.vue'
+import HSelect from '../components/select/HSelect.vue'
 
 // This is required for each story
 export default {
@@ -14,7 +15,7 @@ export default {
 }
 
 const Template = (args, { argTypes }) => ({
-  components: { HForm, HButton },
+  components: { HForm, HButton, HSelect },
   props: Object.keys(argTypes),
   data () {
     return {
@@ -28,6 +29,7 @@ const Template = (args, { argTypes }) => ({
         resource: '',
         desc: ''
       },
+      options: [{ label: 'Zone 1', value: 'zone_1' }, { label: 'Zone 2', value: 'zone_2' }],
       rules: {
         name: [
           { required: true, message: 'Please input Activity name', trigger: 'blur' },
@@ -79,10 +81,8 @@ const Template = (args, { argTypes }) => ({
         <el-input v-model="ruleForm.name"></el-input>
       </el-form-item>
       <el-form-item label="Activity zone" prop="region">
-        <el-select v-model="ruleForm.region" placeholder="Activity zone">
-          <el-option label="Zone one" value="shanghai"></el-option>
-          <el-option label="Zone two" value="beijing"></el-option>
-        </el-select>
+        <h-select v-model="ruleForm.region" placeholder="Activity zone" :options=options>
+        </h-select>
       </el-form-item>
       <el-form-item label="Activity time" required>
         <el-col :span="11">
