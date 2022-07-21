@@ -1,30 +1,24 @@
 <template>
-  <div>
-    <el-dialog
-      :title="title"
-      :visible.sync="visible"
-      :width="width"
-      :before-close="handleClose"
-    >
-      <slot/>
-      <span
-        slot="footer"
-        class="dialog-footer"
-      >
-        <h-button
-          is-cancel
-          @click.native="handleCancel"
-          label="Cancel"
-        />
-        <h-button
-          @click.native="handleConfirm"
-          :is-disabled="confirmButtonDisabledInner"
-          :label="confirmLabel"
-          :type="type"
-        />
-      </span>
-    </el-dialog>
-  </div>
+  <el-dialog
+    v-bind="$attrs"
+    v-on="$listeners"
+    :title="title"
+    :visible.sync="visible"
+    :width="width"
+    :center="center"
+    :before-close="handleClose"
+  >
+    <slot />
+    <span slot="footer" class="dialog-footer">
+      <h-button cancel @click="handleCancel" label="Cancel" />
+      <h-button
+        @click="handleConfirm"
+        :disabled="confirmButtonDisabledInner"
+        :label="confirmLabel"
+        :type="confirmButtonType"
+      />
+    </span>
+  </el-dialog>
 </template>
 
 <script>
@@ -34,30 +28,13 @@ export default {
   name: 'HDialog',
   components: { HButton },
   props: {
-    title: {
-      type: String,
-      default: ''
-    },
-    type: {
-      type: String,
-      default: ''
-    },
-    dialogVisible: {
-      type: Boolean,
-      default: false
-    },
-    width: {
-      type: String,
-      default: '30%'
-    },
-    confirmLabel: {
-      type: String,
-      default: 'Confirm'
-    },
-    confirmButtonDisabled: {
-      type: Boolean,
-      default: false
-    }
+    title: { type: String, default: '' },
+    dialogVisible: { type: Boolean, default: false },
+    center: { type: Boolean, default: false },
+    width: { type: String, default: '40%' },
+    confirmLabel: { type: String, default: 'Confirm' },
+    confirmButtonDisabled: { type: Boolean, default: false },
+    confirmButtonType: { type: String }
   },
   data () {
     return {
@@ -76,6 +53,7 @@ export default {
   },
   watch: {
     confirmButtonDisabled (val) {
+      console.log(val)
       this.confirmButtonDisabledInner = this.confirmButtonDisabled
     }
   },
@@ -124,5 +102,4 @@ export default {
   line-height: 17px;
   padding: 15px 20px 20px 20px;
 }
-
 </style>

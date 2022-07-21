@@ -1,112 +1,129 @@
 import HDialog from '../components/dialog/HDialog.vue'
-
 import HButton from '../components/button/HButton.vue'
 import HForm from '../components/form/HForm.vue'
-// This is required for each story
+import HTable from '../components/table/HTable.vue'
+
 export default {
-  title: 'Dialog'
+  component: HDialog,
+  title: '1.0/Dialog',
+  argTypes: {
+    sampleSlots: {
+      options: ['labelSlot', 'formSlot', 'tableSlot'],
+      control: { type: 'radio' }
+    },
+    sampleWidth: { control: { type: 'range', min: 30, max: 90, step: 10 } },
+    labelSlot: { control: 'text' },
+    visible: { control: 'boolean' },
+    confirmButtonType: {
+      options: ['primary', 'success', 'info', 'warning', 'danger'],
+      control: { type: 'select' }
+    },
+    dialogVisible: { table: { disable: true } }
+  }
 }
 
-export const hDialog = () => ({
-  components: { HDialog, HButton, HForm },
-  data () {
-    return {
-      visibility: false
-    }
+const demoTableData = [
+  {
+    date: '2020-05-03',
+    name: 'Tom',
+    state: 'California',
+    city: 'Los Angeles',
+    address: 'No. 189, Grove St, Los Angeles',
+    zip: 'CA 90036',
+    tag: 'Home'
   },
-  methods: {
-    confirm () {
-      console.log('Confirmed')
-    },
-    cancel () {
-      console.log('Cancel')
-    },
-    toggleVisibility () {
-      this.visibility = !this.visibility
-    }
+  {
+    date: '2020-07-02',
+    name: 'John',
+    state: 'Andalucia',
+    city: 'Malaga',
+    address: 'No. 11, Avenida, Malaga',
+    zip: 'CA 29011',
+    tag: 'Office'
   },
-  template: `
-  <div>
-    <h-button
-      label="Open Dialog"
-      @click.native="toggleVisibility"
-    />
-    <h-dialog
-      @dialogConfirmed="confirm"
-      @dialogCancelled="cancel"
-      @dialogClosed="toggleVisibility"
-      :dialogVisible="visibility"
-      confirmLabel="Confirm"
-      width="40%"
-      title="Hikaya"
-      type="primary"
-      class="body-reg"
-    >
-    Welcome
-    </h-dialog>
-  </div>
-    `
-})
+  {
+    date: '2020-07-02',
+    name: 'John',
+    state: 'Andalucia',
+    city: 'Malaga',
+    address: 'No. 11, Avenida, Malaga',
+    zip: 'CA 29011',
+    tag: 'School'
+  }
+]
 
-export const hDialogWithForm = () => ({
-  components: { HDialog, HButton, HForm },
+const Template = (args, { argTypes }) => ({
+  components: { HDialog, HButton, HForm, HTable },
+  props: Object.keys(argTypes),
   data () {
     return {
       visibility: false,
       formData: {
-        input: ''
-      },
-      confirmButtonDisabled: true
-    }
-  },
-  watch: {
-    formData: {
-      deep: true,
-      handler (val) {
-        this.confirmButtonDisabled = !val.input
+        name: '',
+        description: '',
+        resource: ''
       }
     }
   },
-
   methods: {
-    confirm () {
+    confirmed () {
       console.log('Confirmed')
-      this.visibility = !this.visibility
     },
-    cancel () {
+    canceled () {
       console.log('Cancel')
     },
     toggleVisibility () {
       this.visibility = !this.visibility
     }
   },
+  watch: {
+    sampleWidth (val) {
+      this.width = `${val}%`
+    },
+    visible (val) {
+      this.visibility = val
+    }
+  },
   template: `
-  <div>
-    <h-button
-      label="Open Dialog"
-      @click.native="toggleVisibility"
-    />
-    <h-dialog
-      @dialogConfirmed="confirm"
-      @dialogCancelled="cancel"
-      @dialogClosed="toggleVisibility"
-      :dialogVisible="visibility"
-      :confirmButtonDisabled="confirmButtonDisabled"
-      confirmLabel="Confirm"
-      width="40%"
-      title="Hikaya"
-      type="primary"
-      class="body-reg"
-    >
-      <h-form :model="formData" >
-        <el-form-item>
-          <el-input
-            placeholder="Sample Input"
-            v-model="formData.input"
-          />
-        </el-form-item>
-      </h-form>
-    </h-dialog>
-  </div>
+      <div>
+        <h-button
+          label="Click to open dialog"
+          @click="toggleVisibility"
+        />
+        <h-dialog
+          v-bind="$props"
+          @dialogConfirmed="confirmed"
+          @dialogCancelled="canceled"
+          @dialogClosed="toggleVisibility"
+          :dialogVisible="visibility"
+        >
+        <span v-if="sampleSlots==='labelSlot'">{{labelSlot}}</span>
+        <h-form v-if="sampleSlots==='formSlot'">
+          <el-form-item label="Name" prop="name">
+            <el-input v-model="formData.name"></el-input>
+          </el-form-item>
+          <el-form-item label="Description" prop="description">
+            <el-input v-model="formData.description"></el-input>
+          </el-form-item>
+          <el-form-item label="Resources" prop="resource">
+            <el-radio-group v-model="formData.resource">
+              <el-radio label="Sponsorship"></el-radio>
+              <el-radio label="Venue"></el-radio>
+            </el-radio-group>
+          </el-form-item>
+        </h-form>
+        <h-table v-if="sampleSlots==='tableSlot'" :tableData="demoTableData"/>
+        </h-dialog>
+      </div>
     `
 })
+
+export const Main = Template.bind({})
+Main.args = {
+  labelSlot: 'Sample dialog message',
+  title: 'Hikaya Dialog',
+  sampleSlots: 'labelSlot',
+  visible: false,
+  demoTableData,
+  sampleWidth: 40
+}
