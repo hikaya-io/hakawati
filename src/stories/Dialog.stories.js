@@ -112,7 +112,7 @@ const Template = (args, { argTypes }) => ({
             </el-radio-group>
           </el-form-item>
         </h-form>
-        <h-table v-if="sampleSlots==='tableSlot'" :tableData="demoTableData" @header-click="action"/>
+        <h-table v-if="sampleSlots==='tableSlot'" :tableData="demoTableData"/>
         </h-dialog>
       </div>
     `
