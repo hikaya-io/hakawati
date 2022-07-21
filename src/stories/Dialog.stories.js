@@ -14,6 +14,10 @@ export default {
     sampleWidth: { control: { type: 'range', min: 30, max: 90, step: 10 } },
     labelSlot: { control: 'text' },
     visible: { control: 'boolean' },
+    confirmButtonType: {
+      options: ['primary', 'success', 'info', 'warning', 'danger'],
+      control: { type: 'select' }
+    },
     dialogVisible: { table: { disable: true } }
   }
 }

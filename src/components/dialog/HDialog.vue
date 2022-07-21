@@ -10,12 +10,12 @@
   >
     <slot />
     <span slot="footer" class="dialog-footer">
-      <h-button cancel @click.native="handleCancel" label="Cancel" />
+      <h-button cancel @click="handleCancel" label="Cancel" />
       <h-button
-        @click.native="handleConfirm"
+        @click="handleConfirm"
         :disabled="confirmButtonDisabledInner"
         :label="confirmLabel"
-        :type="type"
+        :type="confirmButtonType"
       />
     </span>
   </el-dialog>
@@ -33,7 +33,8 @@ export default {
     center: { type: Boolean, default: false },
     width: { type: String, default: '40%' },
     confirmLabel: { type: String, default: 'Confirm' },
-    confirmButtonDisabled: { type: Boolean, default: false }
+    confirmButtonDisabled: { type: Boolean, default: false },
+    confirmButtonType: { type: String }
   },
   data () {
     return {
