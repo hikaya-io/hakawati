@@ -10,7 +10,7 @@ on:
 
 jobs:
   lint:
-    name: Build check
+    name: Lint check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -21,9 +21,8 @@ jobs:
       - run: yarn lint
 
   build-check:
-    name: Lint check
+    name: Build check
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/develop'
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -33,6 +32,7 @@ jobs:
       - run: yarn build-lib
 
   build-publish:
+    name: Publish build to NPM registry
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
