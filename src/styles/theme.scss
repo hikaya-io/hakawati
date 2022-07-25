@@ -3,35 +3,38 @@
 // Color Palette
 $white: #fff;
 $black: #000;
-$blue: #4B3EF9;
-$blue-sub: #6633FF;
+$purple: #6633FF;
+$blue-sub: #4B3EF9;
 $cyan: #33CCCC;
 
-// $orange: #FF8360;
+$blue: #3686E8;
+$orange: #ED6742;
 $green: #00CC66;
 $red: #FF3333;
+$red-sub: #E6395E;
 $yellow: #F9C80E;
-$purple: #6633CC;
+$purple-hover: #855CFF;
 
-$blue-fill: #F0F0FF;
 $blue-sub-fill: #F0EBFA;
+$purple-fill: #F0F0FF;
 $cyan-fill: #E6FFFC;
 $green-fill: #E5FAF0;
 $red-fill: #FFEBEB;
 $yellow-fill: #FEF9E7;
-$purple-fill: #F5EBFA;
 $cancel-click: #D6D6FF;
 
 
 $heading-grey: #737581;
 $dark-body-grey: #333333;
 $light-body-grey: #CCCCCC;
-$body-grey: #C4C4C4;
+$body-grey: #EFEFEF;
 $background-color: #F4F5FC;
+$border-grey: #E5E7ED;
 
 // Default Variables
-$primary-color: $blue;
-$primary-fill: $blue-fill;
+$primary-color: $purple;
+$primary-fill: $purple-fill;
+$primary-hover: $purple-hover;
 $primary-color-sub: $blue-sub;
 $primary-color-sub-fill: $blue-sub-fill;
 $secondary-color: $cyan;
@@ -43,8 +46,8 @@ $warning-fill: $yellow-fill;
 $danger-color: $red;
 $danger-fill: $red-fill;
 $info-color: $heading-grey;
-$guest-color: $purple;
-$guest-color-fill: $purple-fill;
+$guest-color: $blue-sub;
+$guest-color-fill: $blue-sub-fill;
 
 $site-content-text-color: $dark-body-grey;
 $standard-label-color: $background-color;
@@ -148,6 +151,15 @@ $dark-color: $dark-body-grey;
   color: $dark-body-grey;
 }
 
+.body-4-reg {
+  font-family: $main-font-family;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 26px;
+  color: $dark-body-grey;
+}
+
 /* Footer - Lato R15 */
 .footer {
   font-family: $main-font-family;
@@ -170,75 +182,40 @@ $dark-color: $dark-body-grey;
 
 .cancel-button {
   color: $heading-grey;
-  font-weight: normal;
-  padding: 13px 33px;
-  font-size: 14px;
-  line-height: 17px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 25px;
-  border: none;
   &:hover {
-    border: none;
-    color: $primary-color;
+    color: $heading-grey !important;
+    background-color: $body-grey !important;
   }
   &:focus {
-    border: none;
+    color: $heading-grey !important;
     background-color: $white;
-    color: $heading-grey;
   }
   &:active {
-    border: none;
-    background-color: $cancel-click;
-    color: $primary-color;
+    color: $primary-color !important;
+    background-color: $primary-fill !important;
   }
 }
 
-.ws-button {
+.secondary-button {
   color: $primary-color;
-  font-family: $main-font-family;
-  font-weight: normal;
+  border-color: $primary-color;
+  &:hover {
+    background-color: $primary-fill !important;
+  }
   &:focus {
-    border: none;
     background-color: $white;
   }
   &:active {
-    border: none;
-    background-color: $cancel-click;
+    color: $white !important;
+    background-color: $primary-color !important;
   }
 }
 
 .button-style {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 25px;
-  border-color: transparent;
-  padding: 13px 33px;
-  color: $white;
   font-size: 14px;
   line-height: 17px;
   font-weight: normal;
   font-family: $main-font-family;
-  border: none;
-}
-
-.text-style {
-  border-radius: 25px;
-  color: $heading-grey;
-  font-size: 14px;
-  line-height: 17px;
-  box-shadow: none;
-
-  &:hover {
-    color: $primary-color;
-    background-color: $primary-fill;
-  }
-  &:focus {
-    color: $primary-color;
-    background-color: $white;
-  }
-  &:active {
-    border: none;
-    background-color: $cancel-click;
-  }
 }
 
 .h-border {
@@ -305,25 +282,89 @@ $dark-color: $dark-body-grey;
 
 // style message and notification components
 @mixin message($type) {
-  top: 0px !important;
   width: 100%;
   border: none;
   border-radius: 0;
 
   @if $type == 'error' {
     background-color: $red-fill;
+    border-color: $red-fill;
+
+    .el-message__content {
+      color: $red;
+    }
+
+    .el-icon-error {
+      color: $red;
+    }
+
+    .el-icon-close::before {
+      color: $red;
+    }
   }
 
   @else if $type == 'warning' {
     background-color: $yellow-fill;
+    border-color: $yellow-fill;
+
+    .el-message__content {
+      color: $yellow;
+    }
+
+    .el-icon-warning {
+      color: $yellow;
+    }
+
+    .el-icon-close::before {
+      color: $yellow;
+    }
   }
 
   @else if $type == 'success' {
     background-color: $green-fill;
+    border-color: $green-fill;
+
+    .el-message__content {
+      color: $green;
+    }
+
+    .el-icon-success {
+      color: $green;
+    }
+
+    .el-icon-close::before {
+      color: $green;
+    }
+  }
+
+  @else if $type == 'info' {
+    background-color: $background-color;
+    border-color: $background-color;
+
+    .el-message__content {
+      color: $heading-grey;
+    }
+
+    .el-icon-info {
+      color: $heading-grey;
+    }
+
+    .el-icon-close::before {
+      color: $heading-grey;
+    }
   }
 
   @else {
     background-color: $background-color;
+    border-color: $background-color;
+
+    .el-message__content {
+      color: $heading-grey;
+    }
+
+    .el-icon-close::before {
+      color: $heading-grey;
+    }
   }
 }
 

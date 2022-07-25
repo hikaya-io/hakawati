@@ -1,20 +1,50 @@
 <template>
-  <div class="h-tag">
   <el-tag
+    v-bind="$attrs"
+    v-on="$listeners"
     :type="type"
+    :size="size"
+    :closable="closable"
+    :class="tagClass"
+    :style="customStyling"
   >
-    <slot></slot>
+  <slot></slot>
   </el-tag>
-  </div>
 </template>
 
 <script>
 export default {
   name: 'HTag',
   props: {
-    type: {
+    type: String,
+    size: String,
+    plain: Boolean,
+    closable: Boolean,
+    customColor: {
       type: String,
       default: ''
+    }
+  },
+  computed: {
+    tagClass () {
+      return !this.plain ? { 'h-tag': true } : null
+    },
+    customStyling () {
+      if (this.customColor) {
+        const rgba = this.hexToRgba(this.customColor, 0.2)
+        return {
+          color: this.customColor,
+          backgroundColor: rgba
+        }
+      }
+      return null
+    }
+  },
+  methods: {
+    hexToRgba (hex, alpha) {
+      // Reference https://thewebdev.info/2022/05/07/how-to-convert-hex-to-rgba-with-javascript/
+      const [r, g, b] = hex.match(/\w\w/g).map((x) => parseInt(x, 16));
+      return `rgba(${r},${g},${b},${alpha})`;
     }
   }
 }
@@ -24,31 +54,18 @@ export default {
 @import "../../styles/theme";
 
 .el-tag {
-  border-radius: 4px;
-  border-color: transparent;
-  margin-bottom: 5px;;
-}
-
-.button-new-tag {
-  border-radius: 20px;
-  border-color: transparent;
+  border-color: transparent !important;
 }
 
 .h-tag {
-  .el-tag.el-tag--success {
-      border-color: transparent;
+  &.el-tag {
+    border-radius: 25px;
+    border-color: transparent;
+    text-align: center;
+    padding: 0px 24px;
   }
-
-  .el-tag.el-tag--info {
-      border-color: transparent;
-  }
-
-  .el-tag.el-tag--warning {
-      border-color: transparent;
-  }
-
-  .el-tag.el-tag--danger {
-      border-color: transparent;
-  }
+}
+.el-tag .el-tag__close:hover {
+  background-color: transparent;
 }
 </style>

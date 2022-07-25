@@ -2,46 +2,45 @@
   <el-button
     v-bind="$attrs"
     v-on="$listeners"
-    :class="buttonStyle"
-    native-type="button"
+    :class="{
+      'button-style': true,
+      'button-has-no-border': !cancel || !secondary,
+      'cancel-button': cancel,
+      'secondary-button': secondary,
+      'button-has-shadow': !outline,
+      'button-has-outline': outline,
+    }"
+    :type="getType"
+    :icon="getIcon"
+    :plain="cancel || outline"
+    :round="!circular"
+    :circle="circular"
   >
-    <slot></slot>
+    {{ label }}
   </el-button>
 </template>
+
 <script>
 export default {
   name: 'HButton',
-  inheritAttrs: false,
   props: {
-    darkText: {
-      type: Boolean,
-      default: false
+    label: { type: String },
+    type: { type: String, default: 'primary' },
+    icon: { type: String },
+    circular: { type: Boolean, default: false },
+    secondary: { type: Boolean, default: false },
+    cancel: { type: Boolean, default: false },
+    outline: { type: Boolean, default: false }
+  },
+  computed: {
+    getType () {
+      let type = this.type
+      if (this.cancel || this.secondary) type = undefined
+      return type
     },
-    workspaceButton: {
-      type: Boolean,
-      default: false
-    }
-  },
-  data: function () {
-    return {
-      buttonStyle: {
-        'body-bold': true,
-        'button-style': true
-      }
-    }
-  },
-  mounted () {
-    if (this.plain) {
-      this.buttonStyle = { 'button-style': true }
-    }
-    if (this.circle) {
-      this.buttonStyle = {}
-    }
-    if (this.workspaceButton) {
-      this.buttonStyle = { 'ws-button': true, 'body-bold': true }
-    }
-    if (this.darkText) {
-      this.buttonStyle = { 'cancel-button': true, 'body-bold': true }
+    getIcon () {
+      if (this.icon) return `el-icon-${this.icon}`
+      return undefined
     }
   }
 }
@@ -50,15 +49,79 @@ export default {
 <style lang="scss">
 @import "../../styles/theme";
 
-.el-button {
+.button-has-shadow {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 25px;
-  border-color: transparent;
-  padding: 13px 33px;
   border: none;
 }
+
+.button-has-no-border {
+  // border-color: transparent;
+  color: $white;
+}
+
 .el-button.is-round {
   padding: 13px 33px;
   border-radius: 30px;
+}
+
+.el-button.is-circle span {
+  display: none;
+}
+
+.button-has-outline {
+  border-width: 0.15rem;
+  &:active {
+    background-color: $primary-fill !important;
+  }
+}
+
+.button-has-outline.ws-button {
+  border-color: $primary-color;
+
+  &:hover {
+    background-color: $primary-color;
+    color: $white;
+  }
+}
+
+.button-has-outline.cancel-button {
+  border-color: $heading-grey;
+  color: $heading-grey;
+
+  &:hover {
+    background-color: $body-grey;
+    border-color: $heading-grey;
+    color: $heading-grey;
+  }
+  &:active {
+    background-color: $heading-grey !important;
+    border-color: $heading-grey !important;
+    color: $white !important;
+  }
+  &:focus {
+    background-color: $white;
+    border-color: $heading-grey;
+    color: $heading-grey;
+  }
+}
+
+.el-button--primary.is-plain {
+  border-color: $primary-color;
+}
+
+.el-button--success.is-plain {
+  border-color: $green;
+}
+
+.el-button--info.is-plain {
+  border-color: $light-body-grey;
+}
+
+.el-button--danger.is-plain {
+  border-color: $red;
+}
+
+.el-button--warning.is-plain {
+  border-color: $yellow;
 }
 </style>

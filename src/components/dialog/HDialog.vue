@@ -1,62 +1,44 @@
 <template>
-  <div>
-    <el-dialog
-      :title="title"
-      :visible.sync="visible"
-      :width="width"
-      :before-close="handleClose"
-    >
-      <slot/>
-      <span
-        slot="footer"
-        class="dialog-footer"
-      >
-        <el-button
-          @click="handleCancel"
-          round
-        >
-        Cancel
-        </el-button>
-        <el-button
-          :type="type"
-          @click="handleConfirm"
-          round
-        >
-          {{ confirmLabel }}
-        </el-button>
-      </span>
-    </el-dialog>
-  </div>
+  <el-dialog
+    v-bind="$attrs"
+    v-on="$listeners"
+    :title="title"
+    :visible.sync="visible"
+    :width="width"
+    :center="center"
+    :before-close="handleClose"
+  >
+    <slot />
+    <span slot="footer" class="dialog-footer">
+      <h-button cancel @click="handleCancel" label="Cancel" />
+      <h-button
+        @click="handleConfirm"
+        :disabled="confirmButtonDisabledInner"
+        :label="confirmLabel"
+        :type="confirmButtonType"
+      />
+    </span>
+  </el-dialog>
 </template>
 
 <script>
+import HButton from '../button/HButton.vue'
 
 export default {
   name: 'HDialog',
+  components: { HButton },
   props: {
-    title: {
-      type: String,
-      default: ''
-    },
-    message: {
-      type: String,
-      default: ''
-    },
-    type: {
-      type: String,
-      default: ''
-    },
-    dialogVisible: {
-      type: Boolean,
-      default: false
-    },
-    width: {
-      type: String,
-      default: '30%'
-    },
-    confirmLabel: {
-      type: String,
-      default: 'Confirm'
+    title: { type: String, default: '' },
+    dialogVisible: { type: Boolean, default: false },
+    center: { type: Boolean, default: false },
+    width: { type: String, default: '40%' },
+    confirmLabel: { type: String, default: 'Confirm' },
+    confirmButtonDisabled: { type: Boolean, default: false },
+    confirmButtonType: { type: String }
+  },
+  data () {
+    return {
+      confirmButtonDisabledInner: this.confirmButtonDisabled
     }
   },
   computed: {
@@ -69,10 +51,15 @@ export default {
       }
     }
   },
+  watch: {
+    confirmButtonDisabled (val) {
+      console.log(val)
+      this.confirmButtonDisabledInner = this.confirmButtonDisabled
+    }
+  },
   methods: {
     handleConfirm () {
       this.$emit('dialogConfirmed')
-      this.handleClose()
     },
     handleCancel () {
       this.$emit('dialogCancelled')
@@ -115,5 +102,4 @@ export default {
   line-height: 17px;
   padding: 15px 20px 20px 20px;
 }
-
 </style>

@@ -19,20 +19,22 @@
       @blur="handleInputConfirm"
     >
     </el-input>
-    <el-button
+    <h-button
       v-else
       class="button-new-tag"
-      size="small"
-      @click="showInput"
-    >
-      + New
-    </el-button>
+      is-cancel
+      label="+ New"
+      @click.native="showInput"
+    />
   </div>
 </template>
 
 <script>
+import HButton from '../button/HButton.vue'
+
 export default {
   name: 'DynamicTag',
+  components: { HButton },
   props: {
     dynamicTags: {
       type: Array,
@@ -74,17 +76,17 @@ export default {
 
 .dynamic-tag {
   .el-tag {
-    margin-left: 10px;
-    font-family: $main-font-family;
-    border-radius: 20px;
+    margin-left: .5rem;
+    border-radius: 25px;
     border-color: transparent;
-    padding: 0px 15px 0px 15px;
+    padding: 0px 24px;
   }
 
   .button-new-tag {
-    margin-left: 10px;
+    margin-left: .5rem;
+    border-radius: 25px;
     height: 32px;
-    padding: 0px 15px 0px 15px;
+    padding: 0px 24px;
     font-family: $main-font-family;
   }
 

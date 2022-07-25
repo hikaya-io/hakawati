@@ -20,15 +20,24 @@
       </el-table-column>
     </el-table>
     <div style="margin-top: 20px">
-      <el-button @click="toggleSelection([tableData[1]])">Toggle selection status of the second row</el-button>
-      <el-button @click="toggleSelection()">Clear selection</el-button>
+      <h-button
+        label="Toggle selection status of the second row"
+        @click.native="toggleSelection([tableData[1]])"
+      />
+      <h-button
+        label="Clear selection"
+       @click.native="toggleSelection()"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import HButton from '../button/HButton.vue'
+
 export default {
   name: 'TableWithMultipleSelect',
+  components: { HButton },
   props: ['tableData'],
   data () {
     return {

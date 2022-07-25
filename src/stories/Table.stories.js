@@ -14,6 +14,8 @@ import TableWithStatus from '../components/table/TableWithStatus.vue'
 import TableWithSummaryRow from '../components/table/TableWithSummaryRow.vue'
 import { action } from '@storybook/addon-actions'
 import HSwitch from '@/components/switch/HSwitch'
+import HTag from '@/components/tag/HTag'
+import HSelect from '@/components/select/HSelect'
 
 // This is required for each story
 export default {
@@ -36,6 +38,34 @@ export const hTable = () => ({
   `
 })
 
+export const hEmptyTable = () => ({
+  components: {
+    HTable
+  },
+  data () {
+    return {
+      tableData: [],
+      tableColumns: [{ label: 'Date', width: 125 },
+        { label: 'Name', width: 125 },
+        { label: 'State', width: 125 },
+        { label: 'City', width: 125 },
+        { label: 'Address', width: 125 }]
+    }
+  },
+  methods: { action: action('header click') },
+  template: `
+  <h-table :tableData="tableData" empty-text="No data" @header-click="action">
+  <el-table-column
+    v-for="(col, colIndex) in tableColumns"
+    :key="colIndex"
+    :label="col.label"
+    sortable
+    :width="col.width"
+  />
+  </h-table>
+  `
+})
+
 export const hTableWithSwitch = () => ({
   components: {
     HTable
@@ -52,15 +82,89 @@ export const hTableWithSwitch = () => ({
   `
 })
 
+export const hTableWithColumnAttrs = () => ({
+  components: {
+    HTable
+  },
+  data () {
+    return {
+      tableData: tableDataNew,
+      columnAttrs: {
+        city: {
+          'class-name': 'city',
+          width: '400px',
+          label: 'CityRRRR'
+        }
+      },
+      columnDefaultAttrs: {
+        'min-width': '200px'
+      }
+    }
+  },
+  methods: { action: action('header click') },
+  template: `
+    <h-table
+      :tableData="tableData"
+      :column-attrs=columnAttrs
+      :column-default-attrs="columnDefaultAttrs"
+      @header-click="action"
+      use-switch>
+    </h-table>
+  `
+})
+
+export const hTableWithCustomContent = () => ({
+  components: {
+    HTable,
+    HTag
+  },
+  data () {
+    return {
+      tableData: tableDataNew
+    }
+  },
+  methods: { action: action('header click') },
+  template: `
+  <h-table :tableData="tableData" @header-click="action">
+    <template v-slot:cell="scope">
+      <h-tag v-if="scope.col === 'city'">{{ scope.value }}</h-tag>
+      <span v-else>{{  scope.value }}</span>
+    </template>
+  </h-table>
+  `
+})
+
+export const hTableWithIgnoredColumns = () => ({
+  components: {
+    HTable
+  },
+  data () {
+    return {
+      tableData: tableDataNew
+    }
+  },
+  methods: { action: action('header click') },
+  template: `
+  <h-table :tableData="tableData" @header-click="action" :ignored-columns="['city']">
+  </h-table>
+  `
+})
+
 export const hTableEditEnabled = () => ({
   components: {
     HTable,
-    HSwitch
+    HSwitch,
+    HSelect
   },
   data () {
     return {
       tableData: tableDataNew,
       editMode: false,
+      columnAttrs: {
+        address: {
+          width: '200px',
+        }
+      },
       columnComponents: {
         date: {
           'editable-component': 'el-date-picker',
@@ -70,13 +174,26 @@ export const hTableEditEnabled = () => ({
         tag: {
           'editable-component': 'el-select',
           'close-event': 'change'
+        },
+        state: {
+          'editable-component': HSelect,
+          'close-event': 'change',
+          multiple: true,
+          filterable: true,
+          'allow-create': true,
+          options: [
+            {
+              label: 'California',
+              value: 'california'
+            }
+          ]
         }
       }
     }
   },
   methods: {
     action: action('header click'),
-    rowEdited (row) {
+    rowEdited ({ rowIndex, row }) {
       action('Row edited')
     }
   },
@@ -88,6 +205,7 @@ export const hTableEditEnabled = () => ({
       @header-click="action"
       @row-edited="rowEdited"
       :edit-mode="editMode"
+      :column-attrs=columnAttrs
       :column-components="columnComponents">
       <template slot="edit-tag">
         <el-option value="Home" label="Home"></el-option>
@@ -346,66 +464,49 @@ const tableDataNew = [{
   n: 'Home'
 },
 {
-  date: '2020-07-02',
-  name: 'John',
-  state: 'Andalucia',
-  city: 'Malaga',
-  address: 'No. 11, Avenida, Malaga',
-  zip: 'CA 29011',
-  tag: 'School'
-},
-{
-  date: '2020-05-03',
-  name: 'Tom',
+  date: '2020-05-04',
+  name: 'ZaK',
   state: 'California',
-  city: 'Los Angeles',
-  address: 'No. 189, Grove St, Los Angeles',
+  city: 'San Diego',
+  address: 'No. 189, Grove St, San Diego',
   zip: 'CA 90036',
-  tag: 'Home'
+  tag: 'Home',
+  a: '2020-05-04',
+  b: 'Zak',
+  c: 'California',
+  d: 'San Diego',
+  e: 'No. 189, Grove St, San Diego',
+  f: 'CA 90036',
+  g: 'Home',
+  h: '2020-05-04',
+  i: 'Zak',
+  j: 'California',
+  k: 'San Diego',
+  l: 'No. 189, Grove St,San Diego',
+  m: 'CA 90036',
+  n: 'Home'
 },
 {
-  date: '2020-07-02',
-  name: 'John',
-  state: 'Andalucia',
-  city: 'Malaga',
-  address: 'No. 11, Avenida, Malaga',
-  zip: 'CA 29011',
-  tag: 'Office'
-},
-{
-  date: '2020-07-02',
-  name: 'John',
-  state: 'Andalucia',
-  city: 'Malaga',
-  address: 'No. 11, Avenida, Malaga',
-  zip: 'CA 29011',
-  tag: 'School'
-},
-{
-  date: '2020-05-03',
-  name: 'Tom',
+  date: '2020-05-06',
+  name: 'Ben',
   state: 'California',
-  city: 'Los Angeles',
-  address: 'No. 189, Grove St, Los Angeles',
+  city: 'San Jose',
+  address: 'No. 189, Grove St, San Jose',
   zip: 'CA 90036',
-  tag: 'Home'
-},
-{
-  date: '2020-07-02',
-  name: 'John',
-  state: 'Andalucia',
-  city: 'Malaga',
-  address: 'No. 11, Avenida, Malaga',
-  zip: 'CA 29011',
-  tag: 'Office'
-},
-{
-  date: '2020-07-02',
-  name: 'John',
-  state: 'Andalucia',
-  city: 'Malaga',
-  address: 'No. 11, Avenida, Malaga',
-  zip: 'CA 29011',
-  tag: 'School'
+  tag: 'Home',
+  a: '2020-05-06',
+  b: 'Ben',
+  c: 'California',
+  d: 'San Jose',
+  e: 'No. 189, Grove St, San Jose',
+  f: 'CA 90036',
+  g: 'Home',
+  h: '2020-05-06',
+  i: 'Ben',
+  j: 'California',
+  k: 'San Jose',
+  l: 'No. 189, Grove St, San Jose',
+  m: 'CA 90036',
+  n: 'Home'
 }
 ]

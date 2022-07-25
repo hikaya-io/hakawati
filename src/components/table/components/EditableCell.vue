@@ -28,7 +28,7 @@ export default {
   inheritAttrs: false,
   props: {
     value: {
-      type: String,
+      type: [String, Number, Array],
       default: ''
     },
     showInput: {
@@ -36,7 +36,7 @@ export default {
       default: false
     },
     editableComponent: {
-      type: String,
+      type: [String, Object],
       default: 'el-input'
     },
     componentProps: {
@@ -55,7 +55,8 @@ export default {
   data () {
     return {
       editMode: false,
-      focusTriggered: false
+      focusTriggered: false,
+      dropDownVisible: false
     }
   },
   computed: {
@@ -70,6 +71,14 @@ export default {
     listeners () {
       return {
         [this.closeEvent]: this.onInputExit, ...this.$listeners
+      }
+    },
+    componentName () {
+      if (typeof this.editableComponent === 'string') {
+        return this.editableComponent
+      } else {
+        // Is an object
+        return this.editableComponent.name
       }
     }
   },
@@ -88,11 +97,19 @@ export default {
           const inputRef = this.$refs.input
           if (inputRef && inputRef.focus) {
             inputRef.focus()
-            // Workaround for el-select
-            if (this.editableComponent === 'el-select') {
-              if (!this.focusTriggered) {
-                this.focusTriggered = true
+          }
+
+          // Workaround for el-select/h-select
+          if (this.componentName === 'el-select' || this.componentName === 'HSelect' || this.componentName === 'h-select') {
+            if (!this.focusTriggered) {
+              this.focusTriggered = true
+
+              if (inputRef.toggleMenu) {
                 inputRef.toggleMenu()
+              }
+
+              if (inputRef.$attrs['allow-create']) {
+                (inputRef.$children[0].$refs.input || inputRef.$children[0].$refs.reference).focus()
               }
             }
           }
@@ -105,7 +122,7 @@ export default {
     },
     onDropdownHidden (val) {
       // Workaround for el-select components
-      if (this.editableComponent === 'el-select') {
+      if (this.componentName === 'el-select' || this.componentName === 'HSelect' || this.componentName === 'h-select') {
         if (!val) {
           this.editMode = false
           this.$emit('input-hidden')
@@ -126,6 +143,7 @@ export default {
   min-height: 38px;
   align-items: center;
   display: flex;
+  padding-left: 5px;
 }
 
 .edit-enabled-cell {
@@ -134,7 +152,7 @@ export default {
 }
 
 .edit-enabled-cell:hover {
-  background: $light-body-grey;
+  background: $border-grey;
   padding-left: 5px;
 }
 </style>

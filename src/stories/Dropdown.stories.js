@@ -13,11 +13,9 @@ export const hDropdown = () => ({
   <h-dropdown>
     <div slot="title">
       <h-button
-        class="el-dropdown-link"
-        type="primary"
-      >
-      More options<i class="el-icon-arrow-down el-icon--right"></i>
-      </h-button>
+        label="More options"
+        icon="arrow-down"
+      />
     </div>
     <template slot="items">
         <el-dropdown-item>Edit</el-dropdown-item>

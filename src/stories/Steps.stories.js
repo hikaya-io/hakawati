@@ -43,11 +43,9 @@ export const layerSteps = () => ({
     <br>
         <h-button
             style="margin-top: 12px;"
-            type="primary"
-            @click="next"
-        >
-        Next step
-        </h-button>
+            label="Next step"
+            @click.native="next"
+        />
     </div>
     `
 })
@@ -87,11 +85,9 @@ export const LayerStepsV1 = () => ({
     <br>
         <h-button
             style="margin-top: 12px;"
-            type="primary"
-            @click="next"
-        >
-        Next step
-        </h-button>
+            label="Next step"
+            @click.native="next"
+        />
     </div>
     `
 })
@@ -148,10 +144,10 @@ export const basicSteps = () => ({
     <br>
         <h-button
             style="margin-top: 12px;"
-            type="primary"
-            @click="next"
-        >
-        Next step
+            label="Next step"
+            @click.native="next"
+        />
+        
         </h-button>
     </div>`
 })
@@ -217,11 +213,9 @@ export const stepsWithDescription = () => ({
         />
         <h-button
             style="margin-top: 12px;"
-            type="primary"
-            @click="next"
-        >
-        Next step
-        </h-button>
+            label="Next step"
+            @click.native="next"
+        />
     </div>
     `
 })

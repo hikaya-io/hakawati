@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-table
-      ref="HTable"
+      :ref="refTable"
       v-loading.fullscreen.lock="loading"
       v-bind="$attrs"
       v-on="$listeners"
@@ -16,22 +16,28 @@
           width="55"
           fixed
         />
+        <slot name="extra-cols-before"></slot>
         <el-table-column
           v-for="(col, index) in shownTableColumns"
           :prop="col"
-          :label="titleCase(col)"
           :key="`thead_${index}`"
-          :sortable="sortable && !editMode"
-          width="100px"
+          v-bind="getColumnAttrs(col)"
         >
           <editable-cell
             slot-scope="scope"
             :can-edit="editMode"
             v-model="editableTableData[scope.$index][col]"
             v-bind="editColumnComponents[col]"
+            v-on="getCallables(editColumnComponents[col])"
             @input-hidden="setLastEditedRow(scope.$index)"
             >
-            <span slot="content">{{ scope.row[col] }}</span>
+
+            <template slot="content">
+              <slot name="cell" v-bind="{index: scope.$index, col: col, value: scope.row[col]}">
+                <span>{{ scope.row[col] }}</span>
+              </slot>
+            </template>
+
             <template slot="edit-component-slot">
               <slot :name="`edit-${col}`"></slot>
             </template>
@@ -39,6 +45,7 @@
         </el-table-column>
 
         <el-table-column
+          v-if="canSelectColumns"
           fixed="right"
           width="60"
         >
@@ -68,7 +75,7 @@
                     <h-switch
                       v-if="useSwitch"
                       :value="!hiddenColumns.includes(col)"
-                      :activeText="titleCase(col)"
+                      :activeText="getDropdownItemText(col)"
                       @change="hideOrShowColumn(col)"
                     >
                     </h-switch>
@@ -86,6 +93,7 @@
 
           </template>
         </el-table-column>
+        <slot name="extra-cols-after"></slot>
       </slot>
     </el-table>
   </div>
@@ -132,6 +140,32 @@ export default {
     columnComponents: {
       type: Object,
       default: () => ({})
+    },
+    refTable: {
+      type: String,
+      default: 'HTable'
+    },
+    columnAttrs: {
+      type: Object,
+      default: () => ({})
+    },
+    columnDefaultAttrs: {
+      type: Object,
+      default: () => ({
+        'min-width': '100px'
+      })
+    },
+    ignoredColumns: {
+      type: Array,
+      default: () => []
+    },
+    savedTableColumns: {
+      type: Array,
+      default: () => []
+    },
+    savedHiddenColumns: {
+      type: Array,
+      default: () => []
     }
   },
   data () {
@@ -142,11 +176,16 @@ export default {
       mutableTableColumns: [],
       editableTableData: [],
       editColumnComponents: {},
-      lastEditedRow: null
+      lastEditedRow: null,
+      sortedObject: null
     }
   },
   computed: {
     origTableColumns () {
+      if (this.savedTableColumns.length) {
+        return this.savedTableColumns
+      }
+
       if (this.tableData.length) {
         return Object.keys(this.tableData[0])
       }
@@ -160,19 +199,25 @@ export default {
     }
   },
   watch: {
-    editableTableData: {
+    tableData: {
       deep: true,
       handler (val) {
-        if (this.editMode) {
-          this.$emit('row-edited', this.editableTableData[this.lastEditedRow])
+        if (this.sortedObject) {
+          if (!this.editMode) {
+            this.editableTableData = [...val]
+            this.onSortChanged(this.sortedObject)
+          }
+        } else {
+          this.editableTableData = [...val]
         }
       }
     }
   },
   mounted () {
-    this.tableColumns = [...this.origTableColumns]
-    this.mutableTableColumns = [...this.origTableColumns]
+    this.tableColumns = [...this.origTableColumns.filter(col => !this.ignoredColumns.includes(col))]
+    this.mutableTableColumns = [...this.origTableColumns.filter(col => !this.ignoredColumns.includes(col))]
     this.editableTableData = [...this.tableData]
+    this.hiddenColumns = [...this.savedHiddenColumns]
     const keys = Object.keys(this.columnComponents)
 
     for (const col of this.shownTableColumns) {
@@ -180,6 +225,25 @@ export default {
         this.$set(this.editColumnComponents, col, this.columnComponents[col])
       } else {
         this.$set(this.editColumnComponents, col, { 'editable-component': 'el-input' })
+      }
+    }
+
+    // https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/setProperty
+    // Fetch all stylesheets
+    const stylesheet = document.styleSheets[3]
+    let elTableBefore
+    // Find stylesheet with el-table::before class
+    for (let i = 0; i < stylesheet.cssRules.length; i++) {
+      if (stylesheet.cssRules[i].selectorText === '.el-table::before') {
+        elTableBefore = stylesheet.cssRules[i]
+      }
+    }
+    // Remove the extra line at the bottom of the table if data is present
+    if (elTableBefore) {
+      if (this.tableData.length !== 0) {
+        elTableBefore.style.setProperty('display', 'none')
+      } else {
+        elTableBefore.style.setProperty('display', 'block')
       }
     }
   },
@@ -206,24 +270,35 @@ export default {
       } else {
         this.hiddenColumns.splice(index, 1)
       }
+      this.$emit('column-hidden', { columns: this.hiddenColumns })
     },
     getDropdownMenuData () {
       return {
         slot: 'dropdown'
       }
     },
+    getDropdownItemText (col) {
+      if (col in this.columnAttrs && 'label' in this.columnAttrs[col]) {
+        return this.columnAttrs[col].label
+      }
+      return this.titleCase(col)
+    },
     onColumnsEdit (val) {
       if (!val && this.columnsOrderChanged) {
         const ans = confirm('Are you sure you want to reorder the columns?')
         if (ans) {
           this.tableColumns = [...this.mutableTableColumns]
+          this.$emit('columns-reordered', { orderedColumns: this.tableColumns })
         }
       }
     },
     setLastEditedRow (index) {
       this.lastEditedRow = index
+      this.$emit('row-edited', { rowIndex: index, row: this.editableTableData[index] })
     },
     onSortChanged (obj) {
+      this.sortedObject = obj.order ? obj : null
+
       function compare (a, b) {
         if (a[obj.prop] < b[obj.prop]) {
           return obj.order === 'ascending' ? -1 : 1
@@ -234,6 +309,25 @@ export default {
         return 0
       }
       this.editableTableData.sort(compare)
+    },
+    getColumnAttrs (col) {
+      const attrs = {
+        label: this.titleCase(col),
+        sortable: this.sortable && !this.editMode
+      }
+      if (col in this.columnAttrs) {
+        return Object.assign({}, attrs, this.columnDefaultAttrs, this.columnAttrs[col])
+      }
+      return Object.assign({}, attrs, this.columnDefaultAttrs)
+    },
+    getCallables (obj) {
+      const objCallables = {}
+      Object.keys(obj).forEach(key => {
+        if (typeof obj[key] === 'function') {
+          objCallables[key] = obj[key]
+        }
+      })
+      return objCallables
     }
   }
 }
@@ -274,7 +368,7 @@ table {
     border: none;
   }
 
-  .el-table__row {
+  &__row {
     border: 2px solid $background-color;
     box-sizing: border-box;
     border-radius: 6px;
@@ -315,9 +409,24 @@ table {
     border-bottom-color: $background-color;
   }
 
+  .is-sortable {
+    .cell{
+      display: inline-flex;
+    }
+  }
+
+  .el-table__header-wrapper{
+    height: 32px;
+  }
+  .el-table__header {
+    .cell {
+      height: 32px;
+      line-height: 32px;
+    }
+  }
+
   .table-settings {
     cursor: pointer;
-
   }
 
   // styles table multiple selection
@@ -347,8 +456,16 @@ table {
     border-color: $primary-color;
   }
 
-  .el-table--group::after, .el-table--border::after, .el-table::before{
+  &--group::after,
+  &--border::after {
     background-color: transparent;
+  }
+
+  // Add spacing between table rows
+  &__header,
+  &__body,
+  &__footer {
+    border-spacing: 0 2px;
   }
 }
 

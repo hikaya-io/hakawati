@@ -1,10 +1,6 @@
-
 import './styles/element-variables.scss'
 import './styles/theme.scss'
 import './styles/variables.scss'
-
-// Alert
-import HAlert from './components/alert/HAlert.vue'
 
 // Avatar
 import HAvatar from './components/avatar/HAvatar.vue'
@@ -26,6 +22,9 @@ import BasicCheckbox from './components/checkbox/BasicCheckbox.vue'
 import CheckboxGroup from './components/checkbox/CheckboxGroup.vue'
 import HCheckbox from './components/checkbox/HCheckbox.vue'
 
+// Color picker
+import HColorPicker from './components/colorPicker/HColorPicker.vue'
+
 // Datepicker
 import HDatePicker from './components/datepicker/HDatePicker.vue'
 import DateRangePicker from './components/datepicker/DateRangePicker.vue'
@@ -38,9 +37,6 @@ import HDrawer from './components/drawer/HDrawer.vue'
 
 // Dropdown
 import HDropdown from './components/dropdown/HDropdown.vue'
-
-// Filter
-import HFilter from './components/filter/HFilter.vue'
 
 // Input
 import HInput from './components/input/HInput.vue'
@@ -58,7 +54,6 @@ import HSearch from './components/search/HSearch.vue'
 
 // Select
 import HSelect from './components/select/HSelect.vue'
-import GroupedSelect from './components/select/GroupedSelect.vue'
 
 // Steps
 import HSteps from './components/steps/HSteps.vue'
@@ -84,7 +79,8 @@ import UploadExcel from './components/upload/UploadExcel.vue'
 // Form
 import HForm from './components/form/HForm.vue'
 
-// Import other components from here
+// SideNav
+import HSideNav from '@/components/sidenav/HSideNav'
 
 const components = [
   HButton,
@@ -98,11 +94,9 @@ const components = [
   HkoboTable,
   UploadExcel,
   HDropdown,
-  HAlert,
   HSwitch,
   HCard,
   HSelect,
-  GroupedSelect,
   HTag,
   DynamicTag,
   HCascader,
@@ -118,12 +112,13 @@ const components = [
   HForm,
   HAvatar,
   HSearch,
-  HFilter,
-  HBreadcrumb
+  HBreadcrumb,
+  HSideNav,
+  HColorPicker
 ]
 
 const install = function (Vue) {
-  components.forEach(component => {
+  components.forEach((component) => {
     Vue.component(component.name, component)
   })
 }
@@ -145,11 +140,9 @@ export default {
   HkoboTable,
   UploadExcel,
   HDropdown,
-  HAlert,
   HSwitch,
   HCard,
   HSelect,
-  GroupedSelect,
   HTag,
   DynamicTag,
   HCascader,
@@ -165,6 +158,7 @@ export default {
   HForm,
   HAvatar,
   HSearch,
-  HFilter,
-  HBreadcrumb
+  HBreadcrumb,
+  HSideNav,
+  HColorPicker
 }
