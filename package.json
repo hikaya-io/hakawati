@@ -5,6 +5,9 @@
     "type": "git",
     "url": "https://github.com/hikaya-io/hakawati.git"
   },
+  "engines" : { 
+    "node" : "<=14.20.0"
+  },
   "main": "./dist/hakawati.umd.js",
   "scripts": {
     "serve": "vue-cli-service serve",
