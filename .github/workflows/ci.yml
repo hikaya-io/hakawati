@@ -10,35 +10,35 @@ on:
 
 jobs:
   lint:
+    name: Lint check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - run: yarn install
+      - run: yarn lint
+
+  build-check:
     name: Build check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
-      - run: yarn install
-      - run: yarn lint
-
-  build-check:
-    name: Lint check
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/develop'
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
+          node-version: '14.x'
       - run: yarn install
       - run: yarn build-lib
 
   build-publish:
+    name: Publish build to NPM registry
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 14
           registry-url: https://registry.npmjs.org/
       - run: |
           if [[ $GITHUB_EVENT_NAME != "pull_request" ]]; then
