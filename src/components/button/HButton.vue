@@ -13,8 +13,8 @@
     :type="getType"
     :icon="getIcon"
     :plain="cancel || outline"
-    :round="!circular"
-    :circle="circular"
+    :round="!circle"
+    :circle="circle"
   >
     {{ label }}
   </el-button>
@@ -27,7 +27,7 @@ export default {
     label: { type: String },
     type: { type: String, default: 'primary' },
     icon: { type: String },
-    circular: { type: Boolean, default: false },
+    circle: { type: Boolean, default: false },
     secondary: { type: Boolean, default: false },
     cancel: { type: Boolean, default: false },
     outline: { type: Boolean, default: false }
@@ -55,7 +55,6 @@ export default {
 }
 
 .button-has-no-border {
-  // border-color: transparent;
   color: $white;
 }
 
@@ -66,6 +65,10 @@ export default {
 
 .el-button.is-circle span {
   display: none;
+}
+
+.el-button.is-circle {
+  line-height: 14px;
 }
 
 .button-has-outline {
