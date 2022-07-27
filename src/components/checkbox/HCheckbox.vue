@@ -1,81 +1,57 @@
 <template>
-  <el-checkbox-button
-    v-bind="$attrs"
-    v-on="$listeners"
-    :border="false"
-    :true-label="text"
-    :class="checkboxStyle"
-    false-label=""
-  >
-    {{ text }}
-  </el-checkbox-button>
+  <div>
+    <el-checkbox
+      v-if="type === 'basic'"
+      class="basic-checkbox body-reg"
+      v-model="checked"
+      v-bind="$attrs"
+      v-on="$listeners"
+    >
+      {{ label }}
+    </el-checkbox>
+    <el-checkbox-group v-else-if="type === 'grouped'" v-model="checkList">
+      <el-checkbox
+        v-for="{ label, disabled } in options"
+        :label="label"
+        :key="label"
+        :disabled="disabled"
+      />
+    </el-checkbox-group>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'HCheckbox',
   props: {
-    text: {
+    label: {
       type: String,
       default: ''
     },
-    plainCheckbox: {
-      type: Boolean,
-      default: false
+    type: {
+      type: String,
+      default: 'basic'
     },
-    primaryCheckbox: {
-      type: Boolean,
-      default: false
-    },
-    secondaryCheckbox: {
-      type: Boolean,
-      default: false
+    options: {
+      type: Array,
+      default: () => []
     }
   },
-  data: function () {
+  data () {
     return {
-      checkboxStyle: {}
-    }
-  },
-  mounted () {
-    if (this.plainCheckbox) {
-      this.checkboxStyle = { 'button-pill': true, 'body-reg': true, 'plain-pill': true }
-    }
-    if (this.primaryCheckbox) {
-      this.checkboxStyle = { 'button-pill': true, 'body-reg': true, 'primary-pill': true }
-    }
-    if (this.secondaryCheckbox) {
-      this.checkboxStyle = { 'button-pill': true, 'body-reg': true, 'secondary-pill': true }
+      checked: false,
+      checkList: []
     }
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../../styles/theme";
 
-.el-checkbox-button:first-child .el-checkbox-button__inner {
-  border-color: transparent;
+::v-deep .basic-checkbox {
+  .el-checkbox__inner {
+    color: $dark-body-grey;
+  }
 }
-
-.el-checkbox-button.is-focus .el-checkbox-button__inner {
-  border-color: transparent;
-}
-
-.el-checkbox-button .el-checkbox-button__inner {
-  border-color: transparent;
-}
-
-.el-checkbox__inner::after {
-  color: $primary-fill;
-}
-
-.el-checkbox__input.is-focus .el-checkbox__inner {
-  border-color: $light-body-grey !important;
-}
-
-.el-checkbox__input.is-checked .el-checkbox__inner {
-  border-color: $primary-color !important;
-}
-
 </style>
