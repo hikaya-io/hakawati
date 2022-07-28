@@ -20,7 +20,7 @@
         <el-table-column
           v-for="(col, index) in shownTableColumns"
           :prop="col"
-          :key="`thead_${index}`"
+          :key="`thead_${col + index.toString()}`"
           v-bind="getColumnAttrs(col)"
         >
           <editable-cell
