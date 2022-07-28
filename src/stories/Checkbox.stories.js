@@ -5,7 +5,7 @@ export default {
   title: '1.0/Checkbox',
   argTypes: {
     type: {
-      options: ['basic', 'grouped'],
+      options: ['basic', 'button', 'grouped'],
       control: { type: 'radio' }
     },
     disabled: {
@@ -25,23 +25,21 @@ const Template = (args, { argTypes }) => {
   return {
     components: { HCheckbox },
     props: Object.keys(argTypes),
+    computed: {
+      getLabel () {
+        return `${this.type} checkbox`
+      }
+    },
     template: `
-        <div>
-            <h-checkbox 
-                v-if="type==='basic'"
-                :type="type"
-                :label=label
-                :disabled=disabled
-            />
-            <h-checkbox 
-                v-else
-                :type="type"
-                :options="groupedOptions" 
-            />
-        </div>
+      <h-checkbox 
+          :type="type"
+          :label="getLabel"
+          :disabled="disabled"
+          :options="groupedOptions" 
+      />
     `
   }
 }
 
 export const Main = Template.bind({})
-Main.args = { type: 'basic', label: 'Basic checkbox', groupedOptions }
+Main.args = { type: 'basic', label: 'basic checkbox', groupedOptions }

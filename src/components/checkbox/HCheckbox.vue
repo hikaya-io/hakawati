@@ -9,7 +9,23 @@
     >
       {{ label }}
     </el-checkbox>
-    <el-checkbox-group v-else-if="type === 'grouped'" v-model="checkList">
+    <el-checkbox-button
+      v-else-if="type === 'button'"
+      class="button-pill body-reg plain-pill"
+      v-model="checked"
+      v-bind="$attrs"
+      v-on="$listeners"
+      :true-label="label"
+    >
+      {{ label }}
+    </el-checkbox-button>
+    <el-checkbox-group
+      v-else-if="type === 'grouped'"
+      v-model="checkList"
+      v-bind="$attrs"
+      v-on="$listeners"
+      :disabled="disabled"
+    >
       <el-checkbox
         v-for="{ label, disabled } in options"
         :label="label"
@@ -40,7 +56,8 @@ export default {
   data () {
     return {
       checked: false,
-      checkList: []
+      checkList: [],
+      buttonStyle: {}
     }
   }
 }
@@ -49,7 +66,7 @@ export default {
 <style lang="scss" scoped>
 @import "../../styles/theme";
 
-::v-deep .basic-checkbox {
+.basic-checkbox {
   .el-checkbox__inner {
     color: $dark-body-grey;
   }
