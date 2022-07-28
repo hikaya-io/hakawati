@@ -8,7 +8,10 @@ export default {
       options: ['basic', 'grouped'],
       control: { type: 'radio' }
     },
-    disabled: { control: 'boolean', description: 'Used to disable a basic checkbox' }
+    disabled: {
+      control: 'boolean',
+      description: 'Used to disable a basic checkbox'
+    }
   }
 }
 
@@ -27,7 +30,7 @@ const Template = (args, { argTypes }) => {
             <h-checkbox 
                 v-if="type==='basic'"
                 :type="type"
-                label='Basic checkbox' 
+                :label=label
                 :disabled=disabled
             />
             <h-checkbox 
@@ -41,4 +44,4 @@ const Template = (args, { argTypes }) => {
 }
 
 export const Main = Template.bind({})
-Main.args = { type: 'basic', groupedOptions }
+Main.args = { type: 'basic', label: 'Basic checkbox', groupedOptions }
