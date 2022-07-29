@@ -25,6 +25,7 @@
       v-bind="$attrs"
       v-on="$listeners"
       :disabled="disabled"
+      class="basic-checkbox body-reg"
     >
       <el-checkbox
         v-for="{ label, disabled } in options"
@@ -66,9 +67,28 @@ export default {
 <style lang="scss" scoped>
 @import "../../styles/theme";
 
-.basic-checkbox {
+::v-deep .basic-checkbox {
   .el-checkbox__inner {
     color: $dark-body-grey;
   }
+
+  .el-checkbox__input.is-checked .el-checkbox__inner {
+    border-color: $primary-color;
+    background-color: $primary-fill;
+  }
+
+  .el-checkbox__inner::after {
+    border-color: $primary-color;
+  }
 }
+
+::v-deep .el-checkbox__input.is-focus .el-checkbox__inner {
+  border-color: $light-body-grey;
+}
+
+::v-deep .el-checkbox-button:first-child .el-checkbox-button__inner {
+  border-color: transparent;
+  border-left: none;
+}
+
 </style>
