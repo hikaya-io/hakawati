@@ -1,90 +1,41 @@
 import HButton from '../components/button/HButton.vue'
 
-// This is required for each story
-export default { title: 'Message' }
-
-// Customize components here. For instance, here's my-button component with a text of "with text"
-export const hMessage = () => ({
-  components: { HButton },
-  template: `
-    <div>
-      <h-button 
-        @click.native="successMessage"
-        type="success"
-        label="success message"
-      />
-      <h-button
-        @click.native="errorMessage"
-        type="danger"
-        label="error message"
-      />
-      <h-button
-        @click.native="warningMessage"
-        type="warning"
-        label="warning message"
-      />
-      <h-button
-        @click.native="infoMessage"
-        type="info"
-        label="info message"
-      />
-      <h-button 
-        @click.native="iconMessage"
-        type="success"
-        label="success message with icon"
-      />
-    </div>
-  `,
-  methods: {
-    successMessage () {
-      this.$message({
-        showClose: true,
-        message: 'This is a success message that automatically closes',
-        type: '', // To remove icon, leave type blank.
-        center: true,
-        customClass: 'message-success'
-      })
+export default {
+  title: '1.0/Message',
+  argTypes: {
+    type: {
+      options: ['success', 'info', 'warning', 'error'],
+      control: { type: 'radio' }
     },
-
-    errorMessage () {
-      this.$message({
-        showClose: true,
-        message: 'This is an error message that does not automatically close',
-        type: '',
-        center: true,
-        duration: 0, // set duration to 0 to not automatically close
-        customClass: 'message-error'
-      })
-    },
-
-    warningMessage () {
-      this.$message({
-        showClose: true,
-        message: 'This is a warning message.',
-        type: '',
-        center: true,
-        customClass: 'message-warning'
-      })
-    },
-
-    infoMessage () {
-      this.$message({
-        showClose: true,
-        message: 'This is an info message',
-        type: '',
-        center: true,
-        customClass: 'message-info'
-      })
-    },
-
-    iconMessage () {
-      this.$message({
-        showClose: true,
-        message: 'This is a success message with icon',
-        type: 'success', // To use a default icon, add the type. For custom icon, use `iconClass`.
-        center: true,
-        customClass: 'message-success'
-      })
-    }
+    duration: { control: { type: 'range', min: 0, max: 3000, step: 3000 } },
+    showIcon: { control: 'boolean' },
+    showClose: { control: 'boolean' }
   }
-})
+}
+
+const Template = (args, { argTypes }) => {
+  return {
+    components: { HButton },
+    props: Object.keys(argTypes),
+    methods: {
+      showMessage () {
+        this.$message({
+          showClose: this.showClose,
+          message: `Shows ${this.type} message notification.`,
+          type: this.showIcon ? this.type : '',
+          duration: this.duration,
+          center: true,
+          customClass: `message-${this.type}`
+        })
+      }
+    },
+    template: `<h-button 
+        @click="showMessage"
+        :type="type === 'error'? 'danger': type"
+        label="show message"
+      />`
+  }
+}
+
+export const Main = Template.bind({})
+Main.args = { type: 'success', duration: 0, showClose: true }

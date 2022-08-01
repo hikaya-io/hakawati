@@ -18,8 +18,6 @@ import HCard from './components/card/HCard.vue'
 import HCascader from './components/cascader/HCascader.vue'
 
 // Checkbox
-import BasicCheckbox from './components/checkbox/BasicCheckbox.vue'
-import CheckboxGroup from './components/checkbox/CheckboxGroup.vue'
 import HCheckbox from './components/checkbox/HCheckbox.vue'
 
 // Color picker
@@ -84,8 +82,6 @@ import HSideNav from '@/components/sidenav/HSideNav'
 
 const components = [
   HButton,
-  BasicCheckbox,
-  CheckboxGroup,
   HCheckbox,
   HInput,
   TopNav,
@@ -130,8 +126,6 @@ if (typeof window !== 'undefined' && window.Vue) {
 export default {
   install,
   HButton,
-  BasicCheckbox,
-  CheckboxGroup,
   HCheckbox,
   HInput,
   TopNav,
