@@ -322,11 +322,13 @@ export default {
     },
     getCallables (obj) {
       const objCallables = {}
-      Object.keys(obj).forEach(key => {
-        if (typeof obj[key] === 'function') {
-          objCallables[key] = obj[key]
-        }
-      })
+      if (obj) {
+        Object.keys(obj).forEach(key => {
+          if (typeof obj[key] === 'function') {
+            objCallables[key] = obj[key]
+          }
+        })
+      }
       return objCallables
     }
   }
