@@ -217,6 +217,22 @@ export const hTableEditEnabled = () => ({
   `
 })
 
+export const hTableWithFiltersEnabled = () => ({
+  components: {
+    HTable
+  },
+  data () {
+    return {
+      tableData: tableDataNew
+    }
+  },
+  methods: { action: action('header click') },
+  template: `
+  <h-table :tableData="tableData" enable-filters>
+  </h-table>
+  `
+})
+
 export const oldTable = () => ({
   components: {
     OldTable

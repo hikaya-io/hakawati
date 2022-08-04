@@ -129,6 +129,14 @@ export default {
       type: Boolean,
       default: true
     },
+    enableFilters: {
+      type: Boolean,
+      default: false
+    },
+    filterableColumns: {
+      type: Array,
+      default: () => []
+    },
     useSwitch: {
       type: Boolean,
       default: false
@@ -315,6 +323,19 @@ export default {
         label: this.titleCase(col),
         sortable: this.sortable && !this.editMode
       }
+      if (this.enableFilters) {
+        if (this.filterableColumns.length) {
+          if (this.filterableColumns.find(col)) {
+            attrs['filter-placement'] = 'bottom-end'
+            attrs.filters = [...new Set(this.tableData.map(item => item[col]))].map(val => ({ text: val, value: val }))
+            attrs['filter-method'] = this.filterHandler
+          }
+        } else {
+          attrs['filter-placement'] = 'bottom-end'
+          attrs.filters = [...new Set(this.tableData.map(item => item[col]))].map(val => ({ text: val, value: val }))
+          attrs['filter-method'] = this.filterHandler
+        }
+      }
       if (col in this.columnAttrs) {
         return Object.assign({}, attrs, this.columnDefaultAttrs, this.columnAttrs[col])
       }
@@ -330,6 +351,10 @@ export default {
         })
       }
       return objCallables
+    },
+    filterHandler (value, row, column) {
+      const property = column.property
+      return row[property] === value
     }
   }
 }
