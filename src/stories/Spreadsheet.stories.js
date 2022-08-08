@@ -19,7 +19,7 @@ export const hSpreadsheet = () => ({
   template: `
     <div>
     <h1>Spreadsheet</h1>
-    <h-spreadsheet :data="tableData" style="height: 500px;" />
+    <h-spreadsheet :data="tableData" style="min-height: 300px;" enable-filters sortable />
     </div>
 
   `
