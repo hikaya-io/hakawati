@@ -6,6 +6,7 @@
       ghost-class="drop-placeholder"
       chosen-class="chosen-item"
       drag-class="dragging-item"
+      @end="onDragEnd"
     >
       <el-table
         v-for="col in mutableColumns"
@@ -87,23 +88,24 @@ export default {
       default: () => []
     }
   },
-  computed: {
-    columns: function () {
-      if (this.data.length) {
-        return Object.keys(this.data[0])
-      }
-      return []
-    }
-  },
+  computed: {},
   data () {
     return {
+      columns: [],
       mutableColumns: []
     }
   },
   mounted () {
+    this.columns = [...this.getColumns()]
     this.mutableColumns = [...this.columns]
   },
   methods: {
+    getColumns () {
+      if (this.data.length) {
+        return Object.keys(this.data[0])
+      }
+      return []
+    },
     titleCase (val) {
       return val.charAt(0).toUpperCase() + val.slice(1)
     },
@@ -156,6 +158,10 @@ export default {
     filterHandler (value, row, column) {
       const property = column.property
       return row[property] === value
+    },
+    onDragEnd (event) {
+      this.columns = [...this.mutableColumns]
+      this.$emit('columns-reordered', { orderedColumns: this.columns })
     }
   }
 }
