@@ -43,8 +43,8 @@ export default {
   methods: {
     hexToRgba (hex, alpha) {
       // Reference https://thewebdev.info/2022/05/07/how-to-convert-hex-to-rgba-with-javascript/
-      const [r, g, b] = hex.match(/\w\w/g).map((x) => parseInt(x, 16));
-      return `rgba(${r},${g},${b},${alpha})`;
+      const [r, g, b] = hex.match(/\w\w/g).map((x) => parseInt(x, 16))
+      return `rgba(${r},${g},${b},${alpha})`
     }
   }
 }

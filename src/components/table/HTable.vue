@@ -20,7 +20,7 @@
         <el-table-column
           v-for="(col, index) in shownTableColumns"
           :prop="col"
-          :key="`thead_${index}`"
+          :key="`thead_${col + index.toString()}`"
           v-bind="getColumnAttrs(col)"
         >
           <editable-cell
@@ -128,6 +128,14 @@ export default {
     sortable: {
       type: Boolean,
       default: true
+    },
+    enableFilters: {
+      type: Boolean,
+      default: false
+    },
+    filterableColumns: {
+      type: Array,
+      default: () => []
     },
     useSwitch: {
       type: Boolean,
@@ -315,6 +323,19 @@ export default {
         label: this.titleCase(col),
         sortable: this.sortable && !this.editMode
       }
+      if (this.enableFilters) {
+        if (this.filterableColumns.length) {
+          if (this.filterableColumns.find(col)) {
+            attrs['filter-placement'] = 'bottom-end'
+            attrs.filters = [...new Set(this.tableData.map(item => item[col]))].map(val => ({ text: val, value: val }))
+            attrs['filter-method'] = this.filterHandler
+          }
+        } else {
+          attrs['filter-placement'] = 'bottom-end'
+          attrs.filters = [...new Set(this.tableData.map(item => item[col]))].map(val => ({ text: val, value: val }))
+          attrs['filter-method'] = this.filterHandler
+        }
+      }
       if (col in this.columnAttrs) {
         return Object.assign({}, attrs, this.columnDefaultAttrs, this.columnAttrs[col])
       }
@@ -322,12 +343,18 @@ export default {
     },
     getCallables (obj) {
       const objCallables = {}
-      Object.keys(obj).forEach(key => {
-        if (typeof obj[key] === 'function') {
-          objCallables[key] = obj[key]
-        }
-      })
+      if (obj) {
+        Object.keys(obj).forEach(key => {
+          if (typeof obj[key] === 'function') {
+            objCallables[key] = obj[key]
+          }
+        })
+      }
       return objCallables
+    },
+    filterHandler (value, row, column) {
+      const property = column.property
+      return row[property] === value
     }
   }
 }

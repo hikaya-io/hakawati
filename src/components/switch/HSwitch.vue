@@ -2,6 +2,8 @@
   <el-switch
     v-bind="$attrs"
     v-on="$listeners"
+    :active-text="activeText"
+    :inactive-text="inactiveText"
     :class="switchClass"
   />
 </template>
@@ -13,34 +15,31 @@ export default {
     return {}
   },
   props: {
-    customSwitch: Boolean,
-    activeTextLeft: String,
-    activeTextRight: String
-  },
-  mounted () {
-    /* The prop `activeTextLeft` adds the class `h-switch-right-label` to `el-switch`.
-    This adds left spacing to the text label on the right */
-    this.updateTextSpacing(this.activeTextRight, 'right')
-    this.updateTextSpacing(this.activeTextLeft, 'left')
+    secondary: { type: Boolean, default: false },
+    activeText: { type: String },
+    inactiveText: { type: String }
   },
   computed: {
     switchClass () {
-      // The `custom-switch` will add custom styling to the switch
-      return this.customSwitch
-        ? { 'h-switch-custom': true }
-        : null
-    }
-  },
-  methods: {
-    updateTextSpacing (activeText, direction) {
-      if (activeText) {
-        const elSwitchElement = document.querySelector('.el-switch')
-        elSwitchElement.classList.add(`h-switch-${direction}-label`)
-        const switchLabel = document.querySelectorAll(`.h-switch-${direction}-label > .el-switch__label--${direction}`)
-        for (var i = 0; i < switchLabel.length; i++) {
-          switchLabel[i].style.left = activeText
+      if (this.secondary) {
+        if (this.activeText && this.inactiveText) {
+          ['right', 'left'].forEach((direction) => {
+            const elSwitchElement = document.querySelector('.el-switch')
+            elSwitchElement.classList.add(`h-switch-${direction}-label`)
+            const switchLabel = document.querySelectorAll(
+              `.h-switch-${direction}-label > .el-switch__label--${direction}`
+            )
+            const leftMargin = (90 - switchLabel[0].clientWidth) / 2
+            switchLabel[0].style.left =
+              direction === 'right'
+                ? `${leftMargin + 80}px`
+                : `${leftMargin}px`
+          })
         }
+
+        return { 'h-switch-secondary': true }
       }
+      return null
     }
   }
 }
@@ -49,7 +48,7 @@ export default {
 <style lang="scss">
 @import "../../styles/theme";
 
-.h-switch-custom {
+.h-switch-secondary {
   .el-switch__core {
     width: 180px !important;
     height: 37px;
@@ -76,12 +75,12 @@ export default {
   .el-switch__label--left {
     z-index: 1;
     position: absolute;
-    left: 35px;
+    left: 30px;
   }
 
   .el-switch__label--right {
     position: absolute;
-    left: 110px;
+    left: 100px;
   }
 }
 </style>
