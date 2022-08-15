@@ -119,16 +119,28 @@ export default {
       }
       if (activeFilters) {
         const filteredDataByCol = {}
-        const cols = Object.keys(data)
         const filteredCols = Object.keys(this.filters)
-        const filteredRowIndices = new Set()
+        let filteredRowIndices = new Set()
+        let minFilteredRowCount = 10000 // Random large value
+
         for (const col of filteredCols) {
+          let filteredRowCount = 0
+          const rowIndices = new Set()
           data[col].forEach((row, index) => {
             if (this.filters[col].indexOf(row[col]) !== -1) {
-              filteredRowIndices.add(index)
+              rowIndices.add(index)
+              filteredRowCount++
             }
           })
+          // Only indices from the column with the least rows
+          // should be used to filter
+          if (filteredRowCount < minFilteredRowCount) {
+            minFilteredRowCount = filteredRowCount
+            filteredRowIndices = rowIndices
+          }
         }
+
+        const cols = Object.keys(data)
 
         for (const col of cols) {
           filteredDataByCol[col] = data[col]
@@ -210,7 +222,11 @@ export default {
     },
     onFilterChange (filters) {
       Object.keys(filters).forEach(key => {
-        this.$set(this.filters, this.columnIds2Props[key], filters[key])
+        if (filters[key].length) {
+          this.$set(this.filters, this.columnIds2Props[key], filters[key])
+        } else {
+          this.$delete(this.filters, this.columnIds2Props[key])
+        }
       })
     }
   }
