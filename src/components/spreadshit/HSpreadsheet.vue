@@ -11,10 +11,11 @@
       <el-table
         v-for="col in mutableColumns"
         :key="col"
-        :data="getColumnData(col)"
+        :data="getColumnDataWithFilters[col]"
         :header-cell-class-name="headerClassName"
         style="min-width: 150px"
         border
+        @filter-change="onFilterChange"
       >
         <el-table-column
           :prop="col"
@@ -88,11 +89,63 @@ export default {
       default: () => []
     }
   },
-  computed: {},
+  computed: {
+    getColumnData () {
+      if (!this.data.length) {
+        return {}
+      }
+      const cols = Object.keys(this.data[0])
+      const dataByCol = {}
+      for (const col of cols) {
+        const data = []
+        this.data.forEach(row => {
+          const newRow = {}
+          newRow[`${col}`] = row[col]
+          data.push(newRow)
+        })
+        dataByCol[col] = data
+      }
+
+      return dataByCol
+    },
+    getColumnDataWithFilters () {
+      const data = this.getColumnData
+      let activeFilters = false
+      for (const val of Object.values(this.filters)) {
+        if (val.length) {
+          activeFilters = true
+          break
+        }
+      }
+      if (activeFilters) {
+        const filteredDataByCol = {}
+        const cols = Object.keys(data)
+        const filteredCols = Object.keys(this.filters)
+        const filteredRowIndices = new Set()
+        for (const col of filteredCols) {
+          data[col].forEach((row, index) => {
+            if (this.filters[col].indexOf(row[col]) !== -1) {
+              filteredRowIndices.add(index)
+            }
+          })
+        }
+
+        for (const col of cols) {
+          filteredDataByCol[col] = data[col]
+            .filter((row, index) => filteredRowIndices.has(index))
+        }
+        return filteredDataByCol
+      } else {
+        return data
+      }
+    }
+  },
   data () {
     return {
       columns: [],
-      mutableColumns: []
+      mutableColumns: [],
+      columnIds2Props: {},
+      filters: {}
     }
   },
   mounted () {
@@ -108,15 +161,6 @@ export default {
     },
     titleCase (val) {
       return val.charAt(0).toUpperCase() + val.slice(1)
-    },
-    getColumnData (col) {
-      const data = []
-      this.data.forEach(row => {
-        const newRow = {}
-        newRow[`${col}`] = row[col]
-        data.push(newRow)
-      })
-      return data
     },
     isLastColumn (col) {
       if (!this.columns.length) {
@@ -156,12 +200,18 @@ export default {
       return Object.assign({}, attrs, this.columnDefaultAttrs)
     },
     filterHandler (value, row, column) {
-      const property = column.property
-      return row[property] === value
+      this.$set(this.columnIds2Props, column.id, column.property)
+      return true
+      // return row[property] === value
     },
     onDragEnd (event) {
       this.columns = [...this.mutableColumns]
       this.$emit('columns-reordered', { orderedColumns: this.columns })
+    },
+    onFilterChange (filters) {
+      Object.keys(filters).forEach(key => {
+        this.$set(this.filters, this.columnIds2Props[key], filters[key])
+      })
     }
   }
 }
