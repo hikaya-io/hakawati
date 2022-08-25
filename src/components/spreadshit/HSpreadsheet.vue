@@ -16,11 +16,12 @@
         style="min-width: 150px"
         border
         @filter-change="onFilterChange"
+        @sort-change="onSortChange"
       >
         <el-table-column
           :prop="col"
           :label="col"
-          v-bind="getColumnAttrs(col)">
+          v-bind="getColumnAttrs[col]">
           <template slot="header">
             <div class="header-content">
               <span>{{ col }}</span>
@@ -90,15 +91,32 @@ export default {
     }
   },
   computed: {
+    sortableData () {
+      if (this.sortKey) {
+        const dataCopy = [...this.data]
+        const reverse = this.sortOrder === 'ascending' ? 1 : -1
+        dataCopy.sort((a, b) => {
+          if (a[this.sortKey] < b[this.sortKey]) {
+            return -1 * reverse
+          }
+          if (a[this.sortKey] > b[this.sortKey]) {
+            return 1 * reverse
+          }
+          return 0
+        })
+        return dataCopy
+      }
+      return this.data
+    },
     getColumnData () {
-      if (!this.data.length) {
+      if (!this.sortableData.length) {
         return {}
       }
-      const cols = Object.keys(this.data[0])
+      const cols = Object.keys(this.sortableData[0])
       const dataByCol = {}
       for (const col of cols) {
         const data = []
-        this.data.forEach(row => {
+        this.sortableData.forEach(row => {
           const newRow = {}
           newRow[`${col}`] = row[col]
           data.push(newRow)
@@ -108,7 +126,7 @@ export default {
 
       return dataByCol
     },
-    getColumnDataWithFilters () {
+    filteredRowIndices () {
       const data = this.getColumnData
       let activeFilters = false
       for (const val of Object.values(this.filters)) {
@@ -118,7 +136,6 @@ export default {
         }
       }
       if (activeFilters) {
-        const filteredDataByCol = {}
         const filteredCols = Object.keys(this.filters)
         let filteredRowIndices = new Set()
         let minFilteredRowCount = 10000 // Random large value
@@ -139,17 +156,73 @@ export default {
             filteredRowIndices = rowIndices
           }
         }
+        return filteredRowIndices
+      } else {
+        return new Set()
+      }
+    },
+    getColumnDataWithFilters () {
+      const data = this.getColumnData
+
+      if (this.filteredRowIndices.size) {
+        const filteredDataByCol = {}
 
         const cols = Object.keys(data)
 
         for (const col of cols) {
           filteredDataByCol[col] = data[col]
-            .filter((row, index) => filteredRowIndices.has(index))
+            .filter((row, index) => this.filteredRowIndices.has(index))
         }
         return filteredDataByCol
       } else {
         return data
       }
+    },
+    getColumnAttrs () {
+      if (!this.sortableData.length) {
+        return {}
+      }
+      const cols = Object.keys(this.sortableData[0])
+      const attrsPerCol = {}
+      for (const col of cols) {
+        const attrs = {
+          label: this.titleCase(col),
+          sortable: this.sortable && !this.editMode
+        }
+        if (this.enableFilters) {
+          if (this.filterableColumns.length) {
+            if (this.filterableColumns.find(col)) {
+              attrs['filter-placement'] = 'bottom-end'
+              if (this.filteredRowIndices.size) {
+                attrs.filters = [...new Set(this.data.map(item => item[col]))]
+                  .filter((val, index) => this.filteredRowIndices.has(index))
+                  .map(val => ({ text: val, value: val }))
+              } else {
+                attrs.filters = [...new Set(this.data.map(item => item[col]))].map(val => ({ text: val, value: val }))
+              }
+
+              attrs['filter-method'] = this.filterHandler
+            }
+          } else {
+            attrs['filter-placement'] = 'bottom-end'
+            if (col in this.filters && this.filters[col].length) {
+              attrs.filters = [...new Set(this.data.map(item => item[col]))]
+                .filter((val, index) => this.filteredRowIndices.has(index))
+                .map(val => ({ text: val, value: val }))
+            } else {
+              attrs.filters = [...new Set(this.data.map(item => item[col]))].map(val => ({ text: val, value: val }))
+            }
+
+            attrs['filter-method'] = this.filterHandler
+          }
+        }
+        if (col in this.columnAttrs) {
+          attrsPerCol[col] = Object.assign({}, attrs, this.columnDefaultAttrs, this.columnAttrs[col])
+        }
+        attrsPerCol[col] = Object.assign({}, attrs, this.columnDefaultAttrs)
+      }
+
+      return attrsPerCol
     }
   },
   data () {
@@ -157,7 +230,9 @@ export default {
       columns: [],
       mutableColumns: [],
       columnIds2Props: {},
-      filters: {}
+      filters: {},
+      sortKey: null,
+      sortOrder: null
     }
   },
   mounted () {
@@ -188,29 +263,6 @@ export default {
     addColHeaderClassName ({ row, column, rowIndex, columnIndex }) {
       return 'add-column-header'
     },
-    getColumnAttrs (col) {
-      const attrs = {
-        label: this.titleCase(col),
-        sortable: this.sortable && !this.editMode
-      }
-      if (this.enableFilters) {
-        if (this.filterableColumns.length) {
-          if (this.filterableColumns.find(col)) {
-            attrs['filter-placement'] = 'bottom-end'
-            attrs.filters = [...new Set(this.data.map(item => item[col]))].map(val => ({ text: val, value: val }))
-            attrs['filter-method'] = this.filterHandler
-          }
-        } else {
-          attrs['filter-placement'] = 'bottom-end'
-          attrs.filters = [...new Set(this.data.map(item => item[col]))].map(val => ({ text: val, value: val }))
-          attrs['filter-method'] = this.filterHandler
-        }
-      }
-      if (col in this.columnAttrs) {
-        return Object.assign({}, attrs, this.columnDefaultAttrs, this.columnAttrs[col])
-      }
-      return Object.assign({}, attrs, this.columnDefaultAttrs)
-    },
     filterHandler (value, row, column) {
       this.$set(this.columnIds2Props, column.id, column.property)
       return true
@@ -228,6 +280,15 @@ export default {
           this.$delete(this.filters, this.columnIds2Props[key])
         }
       })
+    },
+    onSortChange ({ column, prop, order }) {
+      if (order !== null) {
+        this.sortKey = prop
+        this.sortOrder = order
+      } else {
+        this.sortKey = null
+        this.sortOrder = null
+      }
     }
   }
 }
