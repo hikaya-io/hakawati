@@ -1,6 +1,6 @@
 // This is required for each story
 import { action } from '@storybook/addon-actions'
-import HSpreadsheet from '@/components/spreadshit/HSpreadsheet'
+import HSpreadsheet from '@/components/spreadsheet/HSpreadsheet'
 
 export default {
   title: 'Spreadsheet'
