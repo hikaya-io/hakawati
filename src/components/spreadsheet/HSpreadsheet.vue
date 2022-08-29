@@ -9,7 +9,7 @@
       @end="onDragEnd"
     >
       <el-table
-        v-for="col in mutableColumns"
+        v-for="col in shownTableColumns"
         :key="col"
         :data="getColumnDataWithFilters[col]"
         :header-cell-class-name="headerClassName"
@@ -28,36 +28,72 @@
               <i class="el-icon-caret-bottom" />
             </div>
           </template>
+          <editable-cell
+            slot-scope="scope"
+            :can-edit="editMode"
+            v-model="editableData[scope.$index][col]"
+          >
+            <template slot="content">
+              <slot name="cell" v-bind="{index: scope.$index, col: col, value: scope.row[col]}">
+                <span>{{ scope.row[col] }}</span>
+              </slot>
+            </template>
+
+            <template slot="edit-component-slot">
+              <slot :name="`edit-${col}`"></slot>
+            </template>
+          </editable-cell>
         </el-table-column>
       </el-table>
     </draggable>
 
-    <el-table
-      class="is-last-col"
-      :header-cell-class-name="addColHeaderClassName"
-      border
-      style="min-width: 150px"
-    >
-      <el-table-column
-        prop="col"
-        label="Add Column"
-        max-width="300" >
-        <template slot="header">
-          <div>
-            <i class="el-icon-plus" />
-            <span>Add Column</span>
-          </div>
-        </template>
-      </el-table-column>
-    </el-table>
+    <el-dropdown trigger="click" :hide-on-click="false" @command="toggleColumnVisibility">
+      <el-table
+        class="is-last-col el-dropdown-link"
+        :header-cell-class-name="addColHeaderClassName"
+        border
+        style="min-width: 150px"
+      >
+        <el-table-column
+          prop="col"
+          label="Add Column"
+          max-width="300" >
+          <template slot="header">
+            <div>
+              <i class="el-icon-plus" />
+              <span>Add Column</span>
+            </div>
+          </template>
+        </el-table-column>
+      </el-table>
+      <el-dropdown-menu>
+        <span class="header">VISIBLE FIELDS</span>
+        <el-dropdown-item
+          v-for="col in visibleColumns" :key="col"
+          class="column-item"
+          :command="col"
+        >
+          {{ titleCase(col) }}
+        </el-dropdown-item>
+        <span class="header">HIDDEN FIELDS</span>
+        <el-dropdown-item
+          v-for="col in hiddenColumns" :key="col"
+          class="column-item"
+          :command="col"
+        >
+          {{ titleCase(col) }}
+        </el-dropdown-item>
+      </el-dropdown-menu>
+    </el-dropdown>
   </div>
 </template>
 <script>
 import draggable from 'vuedraggable'
+import EditableCell from '../table/components/EditableCell'
 
 export default {
   name: 'HSpreadsheet',
-  components: { draggable },
+  components: { draggable, EditableCell },
   props: {
     data: {
       type: Array,
@@ -86,6 +122,14 @@ export default {
       default: false
     },
     filterableColumns: {
+      type: Array,
+      default: () => []
+    },
+    savedTableColumns: {
+      type: Array,
+      default: () => []
+    },
+    savedHiddenColumns: {
       type: Array,
       default: () => []
     }
@@ -223,6 +267,19 @@ export default {
       }
 
       return attrsPerCol
+    },
+    origTableColumns () {
+      if (this.savedTableColumns.length) {
+        return this.savedTableColumns
+      }
+
+      if (this.data.length) {
+        return Object.keys(this.data[0])
+      }
+      return []
+    },
+    shownTableColumns () {
+      return this.mutableColumns.filter(val => this.visibleColumns.includes(val))
     }
   },
   data () {
@@ -232,12 +289,27 @@ export default {
       columnIds2Props: {},
       filters: {},
       sortKey: null,
-      sortOrder: null
+      sortOrder: null,
+      editableData: [],
+      editColumnComponents: {},
+      visibleColumns: [],
+      hiddenColumns: []
+    }
+  },
+  watch: {
+    data: {
+      deep: true,
+      handler (val) {
+        this.editableData = [...this.sortableData]
+      }
     }
   },
   mounted () {
     this.columns = [...this.getColumns()]
     this.mutableColumns = [...this.columns]
+    this.editableData = [...this.sortableData]
+    this.visibleColumns = [...this.origTableColumns]
+    this.hiddenColumns = [...this.savedHiddenColumns]
   },
   methods: {
     getColumns () {
@@ -288,6 +360,19 @@ export default {
       } else {
         this.sortKey = null
         this.sortOrder = null
+      }
+    },
+    toggleColumnVisibility (col) {
+      let index = this.visibleColumns.indexOf(col)
+      if (index === -1) {
+        index = this.hiddenColumns.indexOf(col)
+        this.hiddenColumns.splice(index, 1)
+        this.visibleColumns.push(col)
+        this.$emit('column-shown', { columns: this.visibleColumns })
+      } else {
+        this.visibleColumns.splice(index, 1)
+        this.hiddenColumns.push(col)
+        this.$emit('column-hidden', { columns: this.hiddenColumns })
       }
     }
   }
@@ -349,5 +434,26 @@ export default {
     }
   }
 
+}
+
+.el-dropdown-menu {
+  max-height: 300px;
+  width: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  .header {
+    margin-left: 32px;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+  }
+
+  ::v-deep .el-dropdown-menu__item.column-item {
+    margin-right: 32px;
+  }
 }
 </style>
