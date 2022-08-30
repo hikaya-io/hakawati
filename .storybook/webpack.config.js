@@ -10,7 +10,16 @@ module.exports = ({config}) => {
         options: {
           includePaths: [path.resolve(__dirname, '@/styles/')]
         }
-      }
+      },
+      {
+        loader: 'postcss-loader',
+        options: {
+          sourceMap: true,
+          config: {
+            path: './.storybook/',
+          },
+        },
+      },
     ],
   });
   // setup URL Alias

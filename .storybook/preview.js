@@ -5,7 +5,7 @@ import Vue from 'vue';
 import ElementUI from 'element-ui';
 import locale from 'element-ui/lib/locale/lang/en'
 import '@/styles/element-variables.scss'
-
+import '../src/styles/main.css' // This makes Tailwind globally available in Vue components
 
 // Install Vue plugins.
 Vue.use(ElementUI, { locale });
