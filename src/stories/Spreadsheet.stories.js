@@ -1,14 +1,15 @@
 // This is required for each story
 import { action } from '@storybook/addon-actions'
+import HSpreadsheet2 from '@/components/spreadsheet/HSpreadsheet2'
 import HSpreadsheet from '@/components/spreadsheet/HSpreadsheet'
 
 export default {
   title: 'Spreadsheet'
 }
 
-export const hSpreadsheet = () => ({
+export const hSpreadsheet2 = () => ({
   components: {
-    HSpreadsheet
+    HSpreadsheet2
   },
   data () {
     return {
@@ -19,7 +20,59 @@ export const hSpreadsheet = () => ({
   template: `
     <div>
     <h1>Spreadsheet</h1>
-    <h-spreadsheet :data="tableData" style="min-height: 300px;" enable-filters sortable />
+    <h-spreadsheet2 :data="tableData" style="min-height: 300px;" enable-filters sortable />
+    </div>
+
+  `
+})
+
+export const hSpreadsheet = () => ({
+  components: {
+    HSpreadsheet
+  },
+  data () {
+    return {
+      headers: [
+        {
+          headerName: 'A',
+          headerKey: 'a',
+          style: {
+            width: '200px',
+            minWidth: '200px',
+            color: '#000'
+          }
+        }
+      ],
+      values: [
+        {
+          a: {
+            type: 'img',
+            value: 'https://via.placeholder.com/350x150'
+          }
+        }
+      ],
+      style: {
+        height: '400px',
+        overflow: 'visible',
+        fontSize: '12px'
+      }
+    }
+  },
+  methods: { action: action('header click') },
+  template: `
+    <div>
+    <h1>Spreadsheet</h1>
+    <h-spreadsheet
+      :parent-scroll-element="{}"
+      :select-position="{}"
+      :loading="false"
+      :disable-sort-thead="[]"
+      :submenu-thead="[]"
+      :style-wrap-vue-table="style"
+      :custom-options="{}"
+      :value="values"
+      :headers="headers"
+    />
     </div>
 
   `

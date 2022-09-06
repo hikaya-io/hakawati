@@ -1,459 +1,526 @@
 <template>
-  <div class="spreadsheet">
-    <draggable
-      tag="div"
-      :list="mutableColumns"
-      ghost-class="drop-placeholder"
-      chosen-class="chosen-item"
-      drag-class="dragging-item"
-      @end="onDragEnd"
-    >
-      <el-table
-        v-for="col in shownTableColumns"
-        :key="col"
-        :data="getColumnDataWithFilters[col]"
-        :header-cell-class-name="headerClassName"
-        style="min-width: 150px"
-        border
-        @filter-change="onFilterChange"
-        @sort-change="onSortChange"
-      >
-        <el-table-column
-          :prop="col"
-          :label="col"
-          v-bind="getColumnAttrs[col]">
-          <template slot="header">
-            <div class="header-content">
-              <span>{{ col }}</span>
-              <i class="el-icon-caret-bottom" />
-            </div>
-          </template>
-          <editable-cell
-            slot-scope="scope"
-            :can-edit="editMode"
-            v-model="editableData[scope.$index][col]"
-          >
-            <template slot="content">
-              <slot name="cell" v-bind="{index: scope.$index, col: col, value: scope.row[col]}">
-                <span>{{ scope.row[col] }}</span>
-              </slot>
-            </template>
+  <div
+    :ref="`${customTable}-vueTable`"
+    :style="styleWrapVueTable"
+    class="vue-spreadsheet"
+    @scroll="scrollFunction"
+  >
+    <slot name="header"></slot>
 
-            <template slot="edit-component-slot">
-              <slot :name="`edit-${col}`"></slot>
-            </template>
-          </editable-cell>
-        </el-table-column>
-      </el-table>
-    </draggable>
-
-    <el-dropdown trigger="click" :hide-on-click="false" @command="toggleColumnVisibility">
-      <el-table
-        class="is-last-col el-dropdown-link"
-        :header-cell-class-name="addColHeaderClassName"
-        border
-        style="min-width: 150px"
+    <table class="vue_table" oncontextmenu="return false;" :ref="`${customTable}-table`">
+      <vue-thead
+        :ref="`${customTable}-vueThead`"
+        :disable-sort-thead="disableSortThead"
+        :header-top="headerTop"
+        :headers="headers"
+        :sort-header="customOptions.sortHeader"
+        :submenu-status-thead="submenuStatusThead"
+        :submenu-thead="submenuThead"
+        :tbody-index="customOptions.tbodyIndex"
+        :tbody-checkbox="customOptions.tbodyCheckbox"
+        :thead-highlight="highlight.thead"
+        :current-table="customTable"
+        @handle-up-drag-size-header="handleUpDragSizeHeader"
+        @handle-up-drag-to-fill="handleUpDragToFill"
+        @submenu-enable="enableSubmenu"
+        @thead-checked-all-callback="callbackCheckedAll"
+        @thead-submenu-click-callback="callbackSubmenuThead"
+        @thead-td-context-menu="handleTheadContextMenu"
+        @thead-td-sort="callbackSort"
       >
-        <el-table-column
-          prop="col"
-          label="Add Column"
-          max-width="300" >
-          <template slot="header">
-            <div>
-              <i class="el-icon-plus" />
-              <span>Add Column</span>
-            </div>
-          </template>
-        </el-table-column>
-      </el-table>
-      <el-dropdown-menu>
-        <span class="header">VISIBLE FIELDS</span>
-        <el-dropdown-item
-          v-for="col in visibleColumns" :key="col"
-          class="column-item"
-          :command="col"
-        >
-          {{ titleCase(col) }}
-        </el-dropdown-item>
-        <span class="header">HIDDEN FIELDS</span>
-        <el-dropdown-item
-          v-for="col in hiddenColumns" :key="col"
-          class="column-item"
-          :command="col"
-        >
-          {{ titleCase(col) }}
-        </el-dropdown-item>
-      </el-dropdown-menu>
-    </el-dropdown>
+      </vue-thead>
+
+      <slot name="loader" v-if="loading"></slot>
+
+      <vue-tbody
+        v-if="!loading"
+        :ref="`${customTable}-vueTbody`"
+        :tbody-data="value"
+        :headers="headers"
+        :tbody-checkbox="customOptions.tbodyCheckbox"
+        :tbody-index="customOptions.tbodyIndex"
+        :trad="customOptions.trad || {}"
+        :disable-cells="disableCells"
+        :submenu-tbody="submenuTbody"
+        :filtered-list="filteredList"
+        :submenu-status-tbody="submenuStatusTbody"
+        :tbody-highlight="highlight.tbody"
+        :current-table="customTable"
+        @handle-to-calculate-position="calculPosition"
+        @handle-to-open-select="enableSelect"
+        @submenu-enable="enableSubmenu"
+        @tbody-checked-row="checkedRow"
+        @tbody-down-dragtofill="handleDownDragToFill"
+        @tbody-handle-search-input-select="handleSearchInputSelect"
+        @tbody-handle-set-oldvalue="setOldValueOnInputSelect"
+        @tbody-input-change="handleTbodyInputChange"
+        @tbody-input-keydown="handleTbodyInputKeydown"
+        @tbody-move-dragtofill="handleMoveDragToFill"
+        @tbody-select-change="handleTbodySelectChange"
+        @tbody-select-multiple-cell="handleSelectMultipleCell"
+        @tbody-submenu-click-callback="callbackSubmenuTbody"
+        @tbody-td-click="handleTbodyTdClick"
+        @tbody-td-context-menu="handleTBodyContextMenu"
+        @tbody-td-double-click="handleTbodyTdDoubleClick"
+        @tbody-up-dragtofill="handleUpDragToFill"
+      >
+      </vue-tbody>
+    </table>
   </div>
 </template>
-<script>
-import draggable from 'vuedraggable'
-import EditableCell from '../table/components/EditableCell'
+
+<script type="text/javascript">
+import { copyPaste } from './mixins/copyPaste'
+import { dragToFill } from './mixins/dragToFill'
+import { callback } from './mixins/callback'
+import { handleTBody } from './mixins/handleTBody'
+import { handleTHead } from './mixins/handleTHead'
+import { moveOnTable } from './mixins/moveOnTable'
+import { scrollOnTable } from './mixins/scrollOnTable'
+import { undo } from './mixins/undo'
+
+import Fuse from 'fuse.js'
+import VueThead from './components/Thead.vue'
+import VueTbody from './components/TBody/TBody.vue'
+
+const lodashClonedeep = require('lodash.clonedeep')
 
 export default {
   name: 'HSpreadsheet',
-  components: { draggable, EditableCell },
-  props: {
-    data: {
-      type: Array,
-      default: () => []
-    },
-    columnAttrs: {
-      type: Object,
-      default: () => ({})
-    },
-    columnDefaultAttrs: {
-      type: Object,
-      default: () => ({
-        'max-width': '300'
-      })
-    },
-    editMode: {
-      type: Boolean,
-      default: false
-    },
-    sortable: {
-      type: Boolean,
-      default: true
-    },
-    enableFilters: {
-      type: Boolean,
-      default: false
-    },
-    filterableColumns: {
-      type: Array,
-      default: () => []
-    },
-    savedTableColumns: {
-      type: Array,
-      default: () => []
-    },
-    savedHiddenColumns: {
-      type: Array,
-      default: () => []
-    }
+  components: {
+    VueThead,
+    VueTbody
   },
-  computed: {
-    sortableData () {
-      if (this.sortKey) {
-        const dataCopy = [...this.data]
-        const reverse = this.sortOrder === 'ascending' ? 1 : -1
-        dataCopy.sort((a, b) => {
-          if (a[this.sortKey] < b[this.sortKey]) {
-            return -1 * reverse
-          }
-          if (a[this.sortKey] > b[this.sortKey]) {
-            return 1 * reverse
-          }
-          return 0
-        })
-        return dataCopy
-      }
-      return this.data
+  mixins: [
+    callback,
+    copyPaste,
+    dragToFill,
+    handleTBody,
+    handleTHead,
+    moveOnTable,
+    scrollOnTable,
+    undo
+  ],
+  props: {
+    headers: {
+      type: Array,
+      required: true
     },
-    getColumnData () {
-      if (!this.sortableData.length) {
-        return {}
-      }
-      const cols = Object.keys(this.sortableData[0])
-      const dataByCol = {}
-      for (const col of cols) {
-        const data = []
-        this.sortableData.forEach(row => {
-          const newRow = {}
-          newRow[`${col}`] = row[col]
-          data.push(newRow)
-        })
-        dataByCol[col] = data
-      }
-
-      return dataByCol
+    value: {
+      type: Array,
+      required: true
     },
-    filteredRowIndices () {
-      const data = this.getColumnData
-      let activeFilters = false
-      for (const val of Object.values(this.filters)) {
-        if (val.length) {
-          activeFilters = true
-          break
-        }
-      }
-      if (activeFilters) {
-        const filteredCols = Object.keys(this.filters)
-        let filteredRowIndices = new Set()
-        let minFilteredRowCount = 10000 // Random large value
-
-        for (const col of filteredCols) {
-          let filteredRowCount = 0
-          const rowIndices = new Set()
-          data[col].forEach((row, index) => {
-            if (this.filters[col].indexOf(row[col]) !== -1) {
-              rowIndices.add(index)
-              filteredRowCount++
-            }
-          })
-          // Only indices from the column with the least rows
-          // should be used to filter
-          if (filteredRowCount < minFilteredRowCount) {
-            minFilteredRowCount = filteredRowCount
-            filteredRowIndices = rowIndices
-          }
-        }
-        return filteredRowIndices
-      } else {
-        return new Set()
-      }
+    customOptions: {
+      type: Object,
+      required: true
     },
-    getColumnDataWithFilters () {
-      const data = this.getColumnData
-
-      if (this.filteredRowIndices.size) {
-        const filteredDataByCol = {}
-
-        const cols = Object.keys(data)
-
-        for (const col of cols) {
-          filteredDataByCol[col] = data[col]
-            .filter((row, index) => this.filteredRowIndices.has(index))
-        }
-        return filteredDataByCol
-      } else {
-        return data
-      }
+    styleWrapVueTable: {
+      type: Object,
+      required: true
     },
-    getColumnAttrs () {
-      if (!this.sortableData.length) {
-        return {}
-      }
-      const cols = Object.keys(this.sortableData[0])
-      const attrsPerCol = {}
-      for (const col of cols) {
-        const attrs = {
-          label: this.titleCase(col),
-          sortable: this.sortable && !this.editMode
-        }
-        if (this.enableFilters) {
-          if (this.filterableColumns.length) {
-            if (this.filterableColumns.find(col)) {
-              attrs['filter-placement'] = 'bottom-end'
-              if (this.filteredRowIndices.size) {
-                attrs.filters = [...new Set(this.data.map(item => item[col]))]
-                  .filter((val, index) => this.filteredRowIndices.has(index))
-                  .map(val => ({ text: val, value: val }))
-              } else {
-                attrs.filters = [...new Set(this.data.map(item => item[col]))].map(val => ({ text: val, value: val }))
-              }
-
-              attrs['filter-method'] = this.filterHandler
-            }
-          } else {
-            attrs['filter-placement'] = 'bottom-end'
-            if (col in this.filters && this.filters[col].length) {
-              attrs.filters = [...new Set(this.data.map(item => item[col]))]
-                .filter((val, index) => this.filteredRowIndices.has(index))
-                .map(val => ({ text: val, value: val }))
-            } else {
-              attrs.filters = [...new Set(this.data.map(item => item[col]))].map(val => ({ text: val, value: val }))
-            }
-
-            attrs['filter-method'] = this.filterHandler
-          }
-        }
-        if (col in this.columnAttrs) {
-          attrsPerCol[col] = Object.assign({}, attrs, this.columnDefaultAttrs, this.columnAttrs[col])
-        }
-        attrsPerCol[col] = Object.assign({}, attrs, this.columnDefaultAttrs)
-      }
-
-      return attrsPerCol
+    submenuThead: {
+      type: Array,
+      required: true
     },
-    origTableColumns () {
-      if (this.savedTableColumns.length) {
-        return this.savedTableColumns
-      }
-
-      if (this.data.length) {
-        return Object.keys(this.data[0])
-      }
-      return []
+    disableSortThead: {
+      type: Array,
+      required: true
     },
-    shownTableColumns () {
-      return this.mutableColumns.filter(val => this.visibleColumns.includes(val))
+    loading: {
+      type: Boolean,
+      required: true
+    },
+    selectPosition: {
+      type: Object,
+      required: true
+    },
+    parentScrollElement: {
+      type: Object,
+      required: true
+    },
+    disableCells: {
+      type: Array,
+      default: () => []
+    },
+    submenuTbody: {
+      type: Array,
+      default: () => []
     }
   },
   data () {
     return {
-      columns: [],
-      mutableColumns: [],
-      columnIds2Props: {},
-      filters: {},
-      sortKey: null,
-      sortOrder: null,
-      editableData: [],
-      editColumnComponents: {},
-      visibleColumns: [],
-      hiddenColumns: []
+      customTable: 0,
+      highlight: {
+        tbody: [],
+        thead: []
+      },
+      incrementOption: null,
+      lastSelectOpen: null,
+      scrollDocument: null,
+      scrollToSelectTimeout: null,
+      selectedCell: null,
+      selectedMultipleCell: false,
+      selectedMultipleCellActive: false,
+      setFirstCell: false,
+      submenuStatusTbody: false,
+      submenuStatusThead: false
+    }
+  },
+  computed: {
+    checkedRows () {
+      return this.value.filter((x) => x.checked)
+    },
+    colHeaderWidths () {
+      return this.headers.map((x) => parseInt(x.style.width, 10))
+    },
+    filteredList () {
+      if (this.lastSelectOpen) {
+        const { selectOptions } = this.lastSelectOpen.col
+        const { searchValue } = this.lastSelectOpen || ''
+        const fuseSearch = new Fuse(selectOptions, this.customOptions.fuseOptions)
+
+        if (searchValue && searchValue.length > 1) {
+          return fuseSearch.search(searchValue)
+        }
+
+        return this.sorter(selectOptions)
+      }
+
+      return []
+    },
+    headerKeys () {
+      return this.headers.map((header) => header.headerKey)
     }
   },
   watch: {
-    data: {
-      deep: true,
-      handler (val) {
-        this.editableData = [...this.sortableData]
-      }
+    value () {
+      this.createdCell()
+    },
+    headers () {
+      this.createdCell()
     }
   },
+  created () {
+    this.customTable = Date.now()
+  },
   mounted () {
-    this.columns = [...this.getColumns()]
-    this.mutableColumns = [...this.columns]
-    this.editableData = [...this.sortableData]
-    this.visibleColumns = [...this.origTableColumns]
-    this.hiddenColumns = [...this.savedHiddenColumns]
+    this.createdCell()
+    // set property of triangle bg comment
+    this.setPropertyStyleOfComment()
   },
   methods: {
-    getColumns () {
-      if (this.data.length) {
-        return Object.keys(this.data[0])
-      }
-      return []
+    activeSelectSearch (event, rowIndex, colIndex) {
+      this.calculPosition(event, rowIndex, colIndex, 'dropdown')
     },
-    titleCase (val) {
-      return val.charAt(0).toUpperCase() + val.slice(1)
-    },
-    isLastColumn (col) {
-      if (!this.columns.length) {
-        return false
+    calculPosition (event, rowIndex, colIndex, header) {
+      // If we calculPosition for dropdown, but there is no dropdown to render.
+      if (header === 'dropdown' && !this.value[rowIndex][this.headers[colIndex].headerKey].search) {
+        return
       }
 
-      return this.columns[this.columns.length - 1] === col
-    },
-    headerClassName ({ row, column, rowIndex, columnIndex }) {
-      return 'header'
-    },
+      const cellHeight = 40
+      // stock scrollLeft / scrollTop position of parent
+      const { scrollLeft } = this.$refs[`${this.customTable}-vueTable`]
+      const { scrollTop } = this.$refs[`${this.customTable}-vueTable`]
+      // get offsetTop of firstCell
+      const firstCellOffsetTop = this.$refs[`${this.customTable}-vueTbody`].$refs[
+        `td-${this.customTable}-0-0`
+      ][0].offsetTop
+      // stock $el
+      const el = this.$refs[`${this.customTable}-vueTbody`].$refs[
+        `td-${this.customTable}-${colIndex}-${rowIndex}`
+      ][0]
+      // stock height Of VueTable
+      const realHeightTable = this.$refs[`${this.customTable}-vueTable`].offsetHeight
+      // stock size / offsetTop / offsetLeft of the element
+      const width = el.offsetWidth
+      let top = el.offsetTop - scrollTop + cellHeight - this.parentScrollElement.positionTop
+      let left = el.offsetLeft - scrollLeft
 
-    addColHeaderClassName ({ row, column, rowIndex, columnIndex }) {
-      return 'add-column-header'
+      if (this.selectPosition) {
+        top += this.selectPosition.top
+        left += this.selectPosition.left
+      }
+
+      // subtracted top of scroll top document
+      if (this.scrollDocument) {
+        top =
+          el.offsetTop -
+          scrollTop +
+          cellHeight -
+          this.parentScrollElement.positionTop -
+          this.scrollDocument
+      }
+
+      // set size / top position / left position
+      const currentSelect = this.$refs[`${this.customTable}-vueTbody`].$refs[
+        `vsSelect-${this.customTable}-${colIndex}-${rowIndex}`
+      ][0].$refs[`dropdown-${this.customTable}-${colIndex}-${rowIndex}`]
+      const contextMenu = this.$refs[`${this.customTable}-vueTbody`].$refs[
+        `contextMenu-${this.customTable}-${colIndex}-${rowIndex}`
+      ][0]
+      const currentSelection = currentSelect || contextMenu
+
+      if (currentSelection) {
+        currentSelection.style.setProperty('--selectWidth', `${width}px`)
+        currentSelection.style.setProperty('--selectLeft', `${left}px`)
+
+        this.$nextTick(() => {
+          // stock dynamic height of dropdown
+          const heightOfAbsoluteItem = currentSelection.offsetHeight || 180
+          // stock cell(40) + dynamic height of dropdown
+          const heightOfCellDropdown = cellHeight + heightOfAbsoluteItem
+
+          if (realHeightTable + firstCellOffsetTop < el.offsetTop + 250) {
+            // Set on top of cell
+            currentSelection.style.setProperty('--selectTop', `${top - heightOfCellDropdown}px`)
+          } else {
+            // Set on bottom of cell
+            currentSelection.style.setProperty('--selectTop', `${top}px`)
+          }
+        })
+      }
     },
-    filterHandler (value, row, column) {
-      this.$set(this.columnIds2Props, column.id, column.property)
-      return true
-      // return row[property] === value
+    checkedRow (row) {
+      this.$emit('tbody-checked-row', row)
+      this.$refs[`${this.customTable}-vueThead`].checkedAll = false
     },
-    onDragEnd (event) {
-      this.columns = [...this.mutableColumns]
-      this.$emit('columns-reordered', { orderedColumns: this.columns })
-    },
-    onFilterChange (filters) {
-      Object.keys(filters).forEach(key => {
-        if (filters[key].length) {
-          this.$set(this.filters, this.columnIds2Props[key], filters[key])
-        } else {
-          this.$delete(this.filters, this.columnIds2Props[key])
+    createdCell () {
+      // create cell if isn't exist
+      this.value.forEach((tbody, rowIndex) => {
+        if (this.customOptions.tbodyCheckbox && !tbody.vuetable_checked) {
+          this.$set(this.value[rowIndex], 'vuetable_checked', false)
         }
+
+        this.headerKeys.forEach((header) => {
+          if (!tbody[header]) {
+            const data = lodashClonedeep(this.customOptions.newData)
+
+            this.$set(this.value[rowIndex], header, data)
+          } else if (!tbody[header].type && 'value' in tbody[header]) {
+            const data = lodashClonedeep(this.customOptions.newData)
+            const copyTbody = lodashClonedeep(tbody[header])
+
+            copyTbody.type = data.type
+            this.$set(this.value[rowIndex], header, copyTbody)
+          }
+
+          const copy = lodashClonedeep(this.value[rowIndex][header])
+
+          if (
+            !this.value[rowIndex][header].duplicate ||
+            (this.value[rowIndex][header].duplicate &&
+              this.value[rowIndex][header].duplicate === copy)
+          ) {
+            this.$set(this.value[rowIndex][header], 'duplicate', copy)
+          }
+        })
       })
     },
-    onSortChange ({ column, prop, order }) {
-      if (order !== null) {
-        this.sortKey = prop
-        this.sortOrder = order
+    enableSubmenu (target) {
+      if (target === 'thead') {
+        this.submenuStatusThead = true
+        this.submenuStatusTbody = false
+      } else if (target === 'tbody') {
+        this.submenuStatusThead = false
+        this.submenuStatusTbody = true
       } else {
-        this.sortKey = null
-        this.sortOrder = null
+        this.submenuStatusThead = false
+        this.submenuStatusTbody = false
       }
     },
-    toggleColumnVisibility (col) {
-      let index = this.visibleColumns.indexOf(col)
-      if (index === -1) {
-        index = this.hiddenColumns.indexOf(col)
-        this.hiddenColumns.splice(index, 1)
-        this.visibleColumns.push(col)
-        this.$emit('column-shown', { columns: this.visibleColumns })
+    enableSelect (event, header, col, rowIndex, colIndex) {
+      const currentElement = this.value[rowIndex][header]
+
+      if (!col.search) {
+        this.removeClass(['search', 'show'])
+        this.lastSelectOpen = {
+          col,
+          colIndex,
+          event,
+          header,
+          rowIndex
+        }
+
+        this.$set(currentElement, 'search', true)
+        this.$set(currentElement, 'show', true)
+
+        this.$nextTick(() => {
+          this.$refs[`${this.customTable}-vueTbody`].$refs[
+            `vsSelect-${this.customTable}-${colIndex}-${rowIndex}`
+          ][0].$refs[`input-${this.customTable}-${colIndex}-${rowIndex}`].focus()
+          this.calculPosition(event, rowIndex, colIndex, 'dropdown')
+
+          if (currentElement.value !== '') {
+            this.showDropdown(colIndex, rowIndex)
+            const index = currentElement.selectOptions
+              .map((x) => x.value)
+              .indexOf(currentElement.value)
+
+            this.incrementOption = index
+          } else {
+            this.incrementOption = 0
+          }
+        })
       } else {
-        this.visibleColumns.splice(index, 1)
-        this.hiddenColumns.push(col)
-        this.$emit('column-hidden', { columns: this.hiddenColumns })
+        this.$set(currentElement, 'search', false)
+        this.$set(currentElement, 'show', false)
+        this.lastSelectOpen = null
+      }
+    },
+    highlightTdAndThead (rowIndex, colIndex) {
+      this.highlight.tbody = []
+      this.highlight.thead = []
+
+      this.highlight.tbody = [
+        ...this.range(
+          Math.min(this.selectedCell.row, rowIndex),
+          Math.max(this.selectedCell.row, rowIndex)
+        )
+      ]
+      this.highlight.thead = [
+        ...this.range(
+          Math.min(this.selectedCell.col, colIndex),
+          Math.max(this.selectedCell.col, colIndex)
+        )
+      ]
+    },
+    range (start, end) {
+      return new Array(end - start + 1).fill(undefined).map((_, i) => i + start)
+    },
+    removeClass (params) {
+      if (params.includes('selected')) {
+        this.selectedMultipleCellActive = false
+      }
+
+      params.forEach((param) => {
+        this.value.forEach((data, index) => {
+          Object.keys(data).forEach((key) => {
+            if (
+              this.value[index] &&
+              this.value[index][key] &&
+              this.value[index][key][param] === true
+            ) {
+              this.$set(this.value[index][key], param, false)
+            }
+          })
+
+          if (param === 'rectangleSelection') {
+            this.setFirstCell = false
+          }
+        })
+      })
+    },
+    showDropdown (colIndex, rowIndex) {
+      const dropdown = this.$refs[`${this.customTable}-vueTbody`].$refs[
+        `vsSelect-${this.customTable}-${colIndex}-${rowIndex}`
+      ][0].$refs[`dropdown-${this.customTable}-${colIndex}-${rowIndex}`]
+
+      // clear timeout
+      if (dropdown) {
+        if (!this.scrollToSelectTimeout === null) {
+          clearTimeout(this.scrollToSelectTimeout)
+        }
+
+        // set scrollTop on select
+        this.scrollToSelectTimeout = setTimeout(() => {
+          dropdown.scrollTop = 45 * this.incrementOption
+          this.scrollToSelectTimeout = null
+        }, 100)
+      }
+    },
+    setPropertyStyleOfComment () {
+      if (this.styleWrapVueTable.comment?.borderColor) {
+        this.$refs[`${this.customTable}-vueTable`].style.setProperty(
+          '--borderCommentColor',
+          this.styleWrapVueTable.comment.borderColor
+        )
+      }
+
+      if (this.styleWrapVueTable.comment?.borderSize) {
+        this.$refs[`${this.customTable}-vueTable`].style.setProperty(
+          '--borderCommentSize',
+          this.styleWrapVueTable.comment.borderSize
+        )
+      }
+
+      if (this.styleWrapVueTable.comment?.widthBox) {
+        this.$refs[`${this.customTable}-vueTable`].style.setProperty(
+          '--boxCommentWidth',
+          this.styleWrapVueTable.comment.widthBox
+        )
+      }
+
+      if (this.styleWrapVueTable.comment?.heightBox) {
+        this.$refs[`${this.customTable}-vueTable`].style.setProperty(
+          '--BoxCommentHeight',
+          this.styleWrapVueTable.comment.heightBox
+        )
+      }
+    },
+    sorter (options) {
+      return options.sort((a, b) => {
+        const productA = a.value
+        const productB = b.value
+
+        if (productA === undefined && productB) return 1
+        if (productA && productB === undefined) return -1
+        if (productA < productB) return -1
+        if (productA > productB) return 1
+
+        return 0
+      })
+    },
+    setOldValueOnInputSelect (col, rowIndex, header, colIndex, type) {
+      const column = col
+
+      column.show = false
+      this.$set(this.value[rowIndex][header], 'value', this.value[rowIndex][header].value)
+
+      if (type === 'select') {
+        column.search = false
       }
     }
   }
 }
 </script>
-<style lang="scss" scoped>
-@import "../../styles/theme";
 
-.spreadsheet {
-  overflow-x: scroll;
+<style>
+:root {
+  /* select style */
+  --selectLeft: 0;
+  --selectTop: 0;
+  --selectWidth: 0;
+
+  /* bg of comment triangle */
+  --borderCommentColor: #696969;
+  --borderCommentSize: 8px;
+  --boxCommentWidth: 120px;
+  --BoxCommentHeight: 80px;
+
+  /* rectangle style */
+  --rectangleBottom: 0;
+  --rectangleHeight: 40px;
+  --rectangleLeft: 0;
+  --rectangleRight: 0;
+  --rectangleTop: 0;
+  --rectangleWidth: 100%;
+
+  /* drag Header */
+  --dragHeaderHeight: 100%;
 }
-
-.spreadsheet, .spreadsheet > div {
-  display: flex;
-  align-items: start;
-  padding-bottom: 20px;
-
-  ::v-deep .el-table {
-    margin-right: 30px;
-    border-radius: 6px;
-
-    .is-sortable {
-      .cell{
-        display: inline-flex;
-        justify-content: space-between;
-      }
-    }
-
-    &.is-last-col {
-      margin-right: 0;
-      cursor: pointer;
-
-      .el-table__body-wrapper {
-        display: None;
-      }
-
-      .el-icon-plus {
-        margin-right: 10px;
-        font-weight: 500;
-      }
-    }
-
-    .header {
-      background: $background-color;
-    }
-
-    .add-column-header {
-      background: $body-grey;
-    }
-
-    .header-content {
-      display: flex;
-      align-items: center;
-      flex-grow: 1;
-
-      .el-icon-caret-bottom {
-        cursor: pointer;
-      }
-    }
-  }
-
+.vue-spreadsheet table {
+  table-layout: fixed;
+  margin: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
-
-.el-dropdown-menu {
-  max-height: 300px;
-  width: 200px;
-  overflow-y: auto;
-  overflow-x: hidden;
-
-  .header {
-    margin-left: 32px;
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 14px;
-    text-align: center;
-  }
-
-  ::v-deep .el-dropdown-menu__item.column-item {
-    margin-right: 32px;
-  }
+.vue-spreadsheet table th {
+  color: #000;
+  font-weight: normal;
+}
+.vue-spreadsheet table td,
+.vue-spreadsheet table th {
+  margin: 0;
 }
 </style>
