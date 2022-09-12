@@ -6,7 +6,7 @@ export default {
   title: '1.0/Input',
   argTypes: {
     type: {
-      options: ['text', 'textarea', 'date', 'file'],
+      options: ['text', 'textarea', 'date'],
       control: { type: 'select' }
     },
     size: {
