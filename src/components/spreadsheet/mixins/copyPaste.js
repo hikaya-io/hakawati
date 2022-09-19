@@ -35,7 +35,7 @@ export const copyPaste = {
       return cell.disabled
     },
     copyStoreData (params) {
-      const value = lodashClonedeep(this.value)
+      const value = lodashClonedeep(this.data)
 
       this.removeClass(['stateCopy'])
 
@@ -69,7 +69,7 @@ export const copyPaste = {
         let storeData = {}
 
         if (params === 'copy') {
-          this.$set(this.value[rowMin][header], 'stateCopy', true)
+          this.$set(this.data[rowMin][header], 'stateCopy', true)
           this.removeClass(['rectangleSelection'])
           this.cleanPropertyOnCell('copy')
         }
@@ -97,7 +97,7 @@ export const copyPaste = {
       } else {
         if (params === 'copy' && this.selectedCell) {
           this.cleanPropertyOnCell('copy')
-          this.$set(this.value[this.selectedCell.row][this.selectedCell.header], 'stateCopy', true)
+          this.$set(this.data[this.selectedCell.row][this.selectedCell.header], 'stateCopy', true)
         } else {
           this.storeCopyDatas = []
         }
@@ -114,8 +114,8 @@ export const copyPaste = {
       }
     },
     pasteReplaceData () {
-      const maxRow = this.value.length
-      const cell = this.value[this.selectedCell.row][this.selectedCell.header]
+      const maxRow = this.data.length
+      const cell = this.data[this.selectedCell.row][this.selectedCell.header]
 
       this.cleanPropertyOnCell('paste')
 
@@ -133,7 +133,7 @@ export const copyPaste = {
         // Keep reference of previous cell object
         copiedData.duplicate = cell
         copiedData.active = true
-        this.value[this.selectedCell.row][this.selectedCell.header] = copiedData
+        this.data[this.selectedCell.row][this.selectedCell.header] = copiedData
         // callback changeData
         this.$emit('tbody-paste-data', this.selectedCell.row, this.selectedCell.header, copiedData)
         this.changeData(this.selectedCell.row, this.selectedCell.header)
@@ -192,15 +192,15 @@ export const copyPaste = {
 
           if (this.eventDrag) {
             // Drag To Fill
-            const { duplicate } = this.value[rowMin][header]
+            const { duplicate } = this.data[rowMin][header]
 
             if (newCopyData[0][header]) {
               newCopyData[0][header].duplicate = duplicate
-              this.value[rowMin][header] = newCopyData[0][header] // multiple cell
+              this.data[rowMin][header] = newCopyData[0][header] // multiple cell
               this.$emit('tbody-paste-data', rowMin, header, newCopyData[0][header])
             } else {
               newCopyData[0].duplicate = duplicate;
-              [this.value[rowMin][header]] = newCopyData // one cell
+              [this.data[rowMin][header]] = newCopyData // one cell
               this.$emit('tbody-paste-data', rowMin, header, newCopyData)
             }
 
@@ -264,9 +264,9 @@ export const copyPaste = {
             } else if (cellToCells) {
               if (this.selectedCoordCells.colStart === this.selectedCoordCells.colEnd) {
                 currentHeader = this.selectedCell.header
-                newCopyData[0].duplicate = this.value[rowMin][currentHeader].duplicate;
+                newCopyData[0].duplicate = this.data[rowMin][currentHeader].duplicate;
 
-                [this.value[rowMin][currentHeader]] = newCopyData
+                [this.data[rowMin][currentHeader]] = newCopyData
                 this.$emit('tbody-paste-data', rowMin, currentHeader, newCopyData[0])
                 this.changeData(rowMin, currentHeader)
               } else {
@@ -284,8 +284,8 @@ export const copyPaste = {
             // ▭▭▭ => ▭ / ▭▭▭
             // ▭▭▭ =>     ▭▭▭
             if (rowsColsToRowsCols) {
-              if (this.value[incrementRow][currentHeader]) {
-                newCopyData[row][header].duplicate = this.value[incrementRow][
+              if (this.data[incrementRow][currentHeader]) {
+                newCopyData[row][header].duplicate = this.data[incrementRow][
                   currentHeader
                 ].duplicate
               }
@@ -300,9 +300,9 @@ export const copyPaste = {
             }
 
             // add active / selected status on firstCell
-            this.value[this.selectedCell.row][this.selectedCell.header].selected = true
-            this.value[this.selectedCell.row][this.selectedCell.header].rectangleSelection = true
-            this.value[this.selectedCell.row][this.selectedCell.header].active = true
+            this.data[this.selectedCell.row][this.selectedCell.header].selected = true
+            this.data[this.selectedCell.row][this.selectedCell.header].rectangleSelection = true
+            this.data[this.selectedCell.row][this.selectedCell.header].active = true
           }
 
           colMin += 1
@@ -361,9 +361,9 @@ export const copyPaste = {
         copyData = newCopyData[col]
       }
 
-      copyData.duplicate = this.value[incrementRow][currentHeader]
+      copyData.duplicate = this.data[incrementRow][currentHeader]
 
-      this.value[incrementRow][currentHeader] = copyData
+      this.data[incrementRow][currentHeader] = copyData
       this.$emit('tbody-paste-data', incrementRow, currentHeader, copyData)
       this.changeData(incrementRow, currentHeader)
     },
@@ -375,7 +375,7 @@ export const copyPaste = {
 
       while (rowMin <= rowMax) {
         const header = this.headerKeys[colMin]
-        const cell = this.value[rowMin][header]
+        const cell = this.data[rowMin][header]
 
         // disable on disabled cell
         if (params === 'removeValue' && !this.disabledEvent(cell, header) && !!cell.value) {

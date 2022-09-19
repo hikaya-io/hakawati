@@ -9,7 +9,7 @@ export const handleTBody = {
   methods: {
     bindClassActiveOnTd (header, rowIndex, colIndex) {
       this.removeClass(['active', 'show'])
-      this.value[rowIndex][header].active = true
+      this.data[rowIndex][header].active = true
       // stock oldTdActive in object
       this.oldTdActive = {
         key: header,
@@ -48,7 +48,7 @@ export const handleTBody = {
       this.enableSubmenu()
 
       if (this.oldTdShow && this.oldTdShow.col !== colIndex) {
-        this.value[this.oldTdShow.row][this.oldTdShow.key].show = false
+        this.data[this.oldTdShow.row][this.oldTdShow.key].show = false
       }
 
       if (type === 'select' && column.handleSearch) {
@@ -78,7 +78,7 @@ export const handleTBody = {
 
         // active class
         if (event.keyCode !== 8) {
-          const currentData = this.value[rowIndex][header]
+          const currentData = this.data[rowIndex][header]
 
           this.$set(currentData, 'search', true)
           this.$set(currentData, 'show', true)
@@ -113,7 +113,7 @@ export const handleTBody = {
     },
     handleTbodyInputChange (event, header, rowIndex, colIndex) {
       // remove class show on input when it change
-      if (this.oldTdShow) this.value[this.oldTdShow.row][this.oldTdShow.key].show = false
+      if (this.oldTdShow) this.data[this.oldTdShow.row][this.oldTdShow.key].show = false
       this.enableSubmenu()
 
       // callback
@@ -128,11 +128,11 @@ export const handleTBody = {
 
       // stock oldTdShow in object
       if (this.oldTdShow) {
-        this.value[this.oldTdShow.row][this.oldTdShow.key].show = false
+        this.data[this.oldTdShow.row][this.oldTdShow.key].show = false
       }
 
       // add class show on element
-      this.$set(this.value[rowIndex][header], 'show', true)
+      this.$set(this.data[rowIndex][header], 'show', true)
       event.currentTarget.lastElementChild.focus()
 
       this.oldTdShow = {

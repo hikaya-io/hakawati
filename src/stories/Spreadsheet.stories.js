@@ -34,8 +34,26 @@ export const hSpreadsheet = () => ({
     return {
       headers: [
         {
-          headerName: 'A',
-          headerKey: 'a',
+          headerName: 'Text',
+          headerKey: 'text',
+          style: {
+            width: '200px',
+            minWidth: '200px',
+            color: '#000'
+          }
+        },
+        {
+          headerName: 'Integer',
+          headerKey: 'integer',
+          style: {
+            width: '200px',
+            minWidth: '200px',
+            color: '#000'
+          }
+        },
+        {
+          headerName: 'Decimal',
+          headerKey: 'decimal',
           style: {
             width: '200px',
             minWidth: '200px',
@@ -45,9 +63,17 @@ export const hSpreadsheet = () => ({
       ],
       values: [
         {
-          a: {
-            type: 'img',
-            value: 'https://via.placeholder.com/350x150'
+          text: {
+            type: 'text',
+            value: 'Some random text'
+          },
+          integer: {
+            type: 'integer',
+            value: 123
+          },
+          decimal: {
+            type: 'decimal',
+            value: 123.56
           }
         }
       ],
@@ -70,7 +96,7 @@ export const hSpreadsheet = () => ({
       :submenu-thead="[]"
       :style-wrap-vue-table="style"
       :custom-options="{}"
-      :value="values"
+      :data="values"
       :headers="headers"
     />
     </div>

@@ -166,7 +166,7 @@
             </template>
 
             <!-- If Input -->
-            <template v-if="row[header].type === 'input'">
+            <template v-if="['text', 'integer', 'decimal'].includes(row[header].type)">
               <span :ref="`span-${currentTable}-${colIndex}-${rowIndex}`">
                 {{ row[header].value }}
               </span>

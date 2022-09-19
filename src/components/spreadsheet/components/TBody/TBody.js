@@ -175,7 +175,7 @@ export default {
         submenuFunction
       )
     },
-    autorizeOnlyNumericValue (e) {
+    authorizeOnlyNumericValue (e) {
       const k = e.which
 
       if (k !== 8 && k !== 13 && k !== 27 && e.key !== '0' && !Number(e.key)) return true
@@ -183,7 +183,7 @@ export default {
       return false
     },
     inputHandleKeydow (event, header, rowIndex, colIndex) {
-      if (this.tbodyData[rowIndex][header].numeric && this.autorizeOnlyNumericValue(event)) {
+      if (this.tbodyData[rowIndex][header].numeric && this.authorizeOnlyNumericValue(event)) {
         event.preventDefault()
       }
 

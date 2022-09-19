@@ -5,7 +5,7 @@ export const callback = {
       this.$emit('tbody-all-checked-row', isChecked)
 
       if (this.customOptions.tbodyCheckbox) {
-        this.value.forEach((data) => {
+        this.data.forEach((data) => {
           this.$set(data, 'vuetable_checked', isChecked)
         })
       }
