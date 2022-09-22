@@ -2,7 +2,7 @@
  
 Thanks for checking out **Hakawati**, a collection of UI components for Vue. Hakawati is an open source project currently maintained by the team at [Hikaya](https://hikaya.io/team). All contributors are welcome to submit issues and make pull requests to the repository.
  
-If you'd like to contribute, start by searching through the [issues](https://github.com/hikaya-io/hakawati/issues) and [pull requests](https://github.com/hikaya-io/hakawati/pulls) to see whether someone else has raised a similar idea or question. If you see none, feel free to create an issue and ask for guidance on where to start.
+If you'd like to contribute, start by searching through the [issues](https://github.com/hikaya-io/hakawati/issues) and [pull requests](https://github.com/hikaya-io/hakawati/pulls) to see whether someone else has raised a similar idea or question. To get started with a simple issue, you can checkout the issues labelled `good first issue`. If you see none, feel free to create an issue and ask for guidance on where to start.
 
 - If you find an issue you would like to work on, feel free to write a comment on the issue and ask to be assigned.
 - If you don't find one you would like to work on, create an issue, assign a label and @mention one of the maintainers to let them know about the issue.
