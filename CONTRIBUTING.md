@@ -67,7 +67,11 @@ Here are some guidelines for making Pull Requests:
   - The bug/feature/enhancement in question is fully addressed
   - PRs will use a predefined template. In the PR body, the following questions should be addressed:
     - **Descriptive Title:** Add the issue number followed by a brief description of the ticket e.g., `ACT-001: Adds project status`
-    - **What issue(s) does this PR resolve?** Type the following to automatically link the issue to this PR: `Resolves _[Github Issue #](https://example.com/ABCD-XXXX)_`
+    - **What issue(s) does this PR resolve?** *List all the issues resolved by this PR*
+      - [ ] Issue 1
+      
+      Type the following to automatically link the issue to this PR: `Resolves _[Github Issue #](https://example.com/ABCD-XXXX)_`
+      
       > If this PR is still a `work in progress`, add the label = `WIP`.
     - **Considerations and implementation** Describe your approach you took to solve the issue and mention any issues that others should pay attention to.
     - **How to test** List the steps for others to test your changes.

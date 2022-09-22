@@ -1,5 +1,8 @@
 ## What issue(s) does this PR resolve?
 
+*List all the issues resolved by this PR*
+  - [ ] Issue 1
+
 *Type the following to automatically link the issue to this PR:* `Resolves [add Github Issue #](https://example.com/ABCD-XXXX)`
 
 > If this PR is still a `work in progress`, add the label = `WIP`.
@@ -11,7 +14,8 @@
 ### How to test
 
 *List the steps for others to test your changes.*
-  - [ ] Test 1
+  1. Log in as ...
+  2. Click on ...
 
 ### Test(s) added 
 
