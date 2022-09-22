@@ -1,5 +1,3 @@
-_UPDATED: 20220921_
-
 # How to contribute
  
 Thanks for checking out **Hakawati**, a collection of UI components for Vue. Hakawati is an open source project currently maintained by the team at [Hikaya](https://hikaya.io/team). All contributors are welcome to submit issues and make pull requests to the repository.
@@ -73,7 +71,7 @@ Here are some guidelines for making Pull Requests:
       > If this PR is still a `work in progress`, add the label = `WIP`.
     - **Considerations and implementation** Describe your approach you took to solve the issue and mention any issues that others should pay attention to.
     - **How to test** List the steps for others to test your changes.
-      - [ ] Test 1
+      - [ ] Step 1
     - **Test(s) added** List the tests you've added or need to be added:
       - [ ] Test 1
     - **Mentions?** @mention the people you'd like to review this PR
