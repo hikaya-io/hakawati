@@ -2,24 +2,24 @@
  
 Thanks for checking out **Hakawati**, a collection of UI components for Vue. Hakawati is an open source project currently maintained by the team at [Hikaya](https://hikaya.io/team). All contributors are welcome to submit issues and make pull requests to the repository.
  
-If you'd like to contribute, start by searching through the [issues](https://github.com/hikaya-io/hakawati/issues) and [pull requests](https://github.com/hikaya-io/hakawati/pulls) to see whether someone else has raised a similar idea or question. If you see none, feel free create an issue and ask for guidance on where to start.
+If you'd like to contribute, start by searching through the [issues](https://github.com/hikaya-io/hakawati/issues) and [pull requests](https://github.com/hikaya-io/hakawati/pulls) to see whether someone else has raised a similar idea or question. If you see none, feel free to create an issue and ask for guidance on where to start.
 
-- If you find an issue you would like to work on, feel free to write a comment on the issue and asked to be assigned.
+- If you find an issue you would like to work on, feel free to write a comment on the issue and ask to be assigned.
 - If you don't find one you would like to work on, create an issue, assign a label and @mention one of the maintainers to let them know about the issue.
 
 ## Contribution review process
  
-This repo is currently maintained by the team at [Hikaya](https://hikaya.io/team/), who have `maintainer` access. They will likely review your contribution. If you haven't heard from anyone in 5 days, feel free to bump the thread or @-mention a maintainer to review your contribution.
+This repo is currently maintained by the team at [Hikaya](https://hikaya.io/team/), who have `maintainer` access. They will likely review your contribution. If you haven't heard from anyone in 5 days, feel free to bump the thread or @mention a maintainer to review your contribution.
 
 ## Community
  
-Discussions about Hakwati take place in the `Issues` as well as in [Discussions](https://github.com/hikaya-io/hakawati/discussions). Anybody is welcome to join these conversations.
+Discussions about Hakawati take place in the `Issues` as well as in [Discussions](https://github.com/hikaya-io/hakawati/discussions). Anybody is welcome to join these conversations.
 
 # How we manage our code
 
 **Source control:** Git
 
-**Source code:** This project is stored in [GitHub](https://github.com/hikaya-io/hakawati).
+**Source code:** This project is stored in [GitHub](https://github.com/hikaya-io/hakawati)
 
 **Branches:**
 
@@ -31,13 +31,12 @@ We use 3 types of branches in all our repositories :
 
 > **Note:**
 > * All pull requests should be based off of the `develop` branch.
-> * All branch names should follow the issue number such as: ACT-001. The numbering should follow the auto-generated GitHub issue number.
 
 ## Commits
 
-We use Github to track **Issues** and **Pull Requests** for all our work. When making commits, please ensure that you have create a separate branch off of the `develop` branch before you begin making changes to the source code. 
+We use Github to track **Issues** and **Pull Requests** for all our work. When making commits, please ensure that you have created a separate branch off of the `develop` branch before you begin making changes to the source code.
 
-Feel free to make commits as often as possible to your branch. If the issue you are working on has been open for a few days, consider pulling in the latest changes to keep in up to date with the `develop` branch before you create a Pull Request. This will help you avoid merge conflicts when raising your Pull Request.
+Feel free to make commits as often as possible to your branch. If the issue you are working on has been open for a few days, consider rebasing your branch to `develop` branch get the latest changes before you create a Pull Request. This will help you avoid merge conflicts when raising your Pull Request.
 
 ### Commit message format
 To ensure commit messages are readable when going through project history, we use a common commit message format. The message format by [Angular](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines) is very comprehensive and we find it useful to follow.
@@ -63,17 +62,17 @@ Here are some guidelines for making Pull Requests:
 - The PR must be reviewed by at least **1 developer** other than the author.
 - PR Checkpoints:
   - Check that the application still functions locally as before
-  - All set checks passes
-  - The bug/feature/enhancement in question is fully addressed
+  - All set checks pass
+  - The bug/feature/enhancement in question is fully addressed and satisfies the issue acceptance criteria
   - PRs will use a predefined template. In the PR body, the following questions should be addressed:
-    - **Descriptive Title:** Add the issue number followed by a brief description of the ticket e.g., `ACT-001: Adds project status`
+    - **Descriptive Title:** Add the issue number followed by a brief description of the ticket e.g., `HAK-001: Adds project status`
     - **What issue(s) does this PR resolve?** *List all the issues resolved by this PR*
       - [ ] Issue 1
       
       Type the following to automatically link the issue to this PR: `Resolves _[Github Issue #](https://example.com/ABCD-XXXX)_`
       
       > If this PR is still a `work in progress`, add the label = `WIP`.
-    - **Considerations and implementation** Describe your approach you took to solve the issue and mention any issues that others should pay attention to.
+    - **Considerations and implementation** Describe the approach you took to solve the issue and mention any issues that others should pay attention to.
     - **How to test** List the steps for others to test your changes.
       - [ ] Step 1
     - **Test(s) added** List the tests you've added or need to be added:
@@ -82,7 +81,7 @@ Here are some guidelines for making Pull Requests:
 
 ## Deployments
 
-We are currently using a mix of **GitHub Actions** for simple build checks and deployments to our environments. 
+We are currently using a mix of **GitHub Actions** for simple build checks and deployments to our environments.
 
 We use `CodeCov` to provide reports on test coverage for each Pull Request against the main branches. Over time, our aim is to increase test coverage including unit tests, integration tests, end-to-end tests, and automatic deployments to development process.
 
