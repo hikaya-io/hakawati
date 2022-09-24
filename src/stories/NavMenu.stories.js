@@ -1,6 +1,6 @@
 import TopNav from '../components/navMenu/TopNav.vue'
 import CollapseNav from '../components/navMenu/CollapseNav.vue'
-import BasicCheckbox from '../components/checkbox/BasicCheckbox.vue'
+import HCheckbox from '../components/checkbox/HCheckbox.vue'
 
 // This is required for each story
 export default { title: 'Nav Menu' }
@@ -36,7 +36,7 @@ export const topNav = () => ({
 })
 
 export const collapseNav = () => ({
-  components: { CollapseNav, BasicCheckbox },
+  components: { CollapseNav, HCheckbox },
   template: `
   <collapse-nav default-active='1'>
     <template v-slot:header>Layers</template>
@@ -53,14 +53,11 @@ export const collapseNav = () => ({
           content='Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer1Layer 1Layer 1Layer 1 r 1Layer 1Layer 1Layer 1Layer 1Layer1Layer 1Layer 1Layer 1'
           placement='top-end'
         >
-          <basic-checkbox class='body-reg'>
-            Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer
-            1Layer 1Layer 1Layer 1
-          </basic-checkbox>
+          <h-checkbox type="basic" label="Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1" />
         </el-tooltip>
       </el-menu-item>
       <el-menu-item index='1-2'>
-        <basic-checkbox class='body-reg'>Layer 2</basic-checkbox>
+        <h-checkbox type="basic" label="Layer 2"></h-checkbox>
       </el-menu-item>
       <el-menu-item index='1-3'>
         <el-tooltip
@@ -69,14 +66,11 @@ export const collapseNav = () => ({
           content='Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer1Layer 1Layer 1Layer 1 r 1Layer 1Layer 1Layer 1Layer 1Layer1Layer 1Layer 1Layer 1'
           placement='top-end'
         >
-          <basic-checkbox class='body-reg'>
-            Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer
-            1Layer 1Layer 1Layer 1
-          </basic-checkbox>
+          <h-checkbox type="basic" label="Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1Layer 1" />
         </el-tooltip>
       </el-menu-item>
       <el-menu-item index='1-4'>
-        <basic-checkbox class='body-reg'>Layer 2</basic-checkbox>
+        <h-checkbox type="basic" label="Layer 2"></h-checkbox>
       </el-menu-item>
     </el-submenu>
     <el-submenu index='2'>
@@ -96,10 +90,10 @@ export const collapseNav = () => ({
         </div>
       </template>
       <el-menu-item index='2-1'>
-        <basic-checkbox class='body-reg'>Layer 1</basic-checkbox>
+        <h-checkbox type="basic" label="Layer 1"></h-checkbox>
       </el-menu-item>
       <el-menu-item index='2-2'>
-        <basic-checkbox class='body-reg'>Layer 2</basic-checkbox>
+        <h-checkbox type="basic" label="Layer 2"></h-checkbox>
       </el-menu-item>
     </el-submenu>
     <el-submenu index='3'>
@@ -119,10 +113,10 @@ export const collapseNav = () => ({
         </div>
       </template>
       <el-menu-item index='3-1'>
-        <basic-checkbox class='body-reg'>Layer 1</basic-checkbox>
+        <h-checkbox type="basic" label="Layer 1"></h-checkbox>
       </el-menu-item>
       <el-menu-item index='3-2'>
-        <basic-checkbox class='body-reg'>Layer 2</basic-checkbox>
+        <h-checkbox type="basic" label="Layer 2"></h-checkbox>
       </el-menu-item>
     </el-submenu>
     <el-submenu index='4'>
@@ -142,22 +136,22 @@ export const collapseNav = () => ({
         </div>
       </template>
       <el-menu-item index='4-1'>
-        <basic-checkbox class='body-reg'>Layer 1</basic-checkbox>
+        <h-checkbox type="basic" label="Layer 1"></h-checkbox>
       </el-menu-item>
       <el-menu-item index='4-2'>
-        <basic-checkbox class='body-reg'>Layer 2</basic-checkbox>
+        <h-checkbox type="basic" label="Layer 2"></h-checkbox>
       </el-menu-item>
       <el-menu-item index='4-3'>
-        <basic-checkbox class='body-reg'>Layer 1</basic-checkbox>
+        <h-checkbox type="basic" label="Layer 1"></h-checkbox>
       </el-menu-item>
       <el-menu-item index='4-4'>
-        <basic-checkbox class='body-reg'>Layer 2</basic-checkbox>
+        <h-checkbox type="basic" label="Layer 2"></h-checkbox>
       </el-menu-item>
       <el-menu-item index='4-5'>
-        <basic-checkbox class='body-reg'>Layer 1</basic-checkbox>
+        <h-checkbox type="basic" label="Layer 1"></h-checkbox>
       </el-menu-item>
       <el-menu-item index='4-6'>
-        <basic-checkbox class='body-reg'>Layer 2</basic-checkbox>
+        <h-checkbox type="basic" label="Layer 2"></h-checkbox>
       </el-menu-item>
     </el-submenu>
   </collapse-nav>

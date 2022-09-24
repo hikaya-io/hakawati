@@ -1,113 +1,46 @@
 import HSwitch from '../components/switch/HSwitch.vue'
 
-import { action } from '@storybook/addon-actions'
+export default {
+  component: HSwitch,
+  title: '1.0/Switch',
+  argTypes: {
+    disabled: { control: 'boolean' },
+    activeColor: { control: 'color' },
+    inactiveColor: { control: 'color' },
+    activeText: { control: 'text' },
+    inactiveText: { control: 'text' }
+  }
+}
 
-// This is required for each story
-export default { title: 'Switch' }
+const Template = (args, { argTypes }) => {
+  return {
+    components: { HSwitch },
+    props: Object.keys(argTypes),
+    data () {
+      return {
+        active: false
+      }
+    },
+    methods: {
+      action (val) {
+        console.log(val)
+      }
+    },
 
-// Customize components here. For instance, here's my-button component with a text of "with text"
-export const hSwitch = () => ({
-  components: { HSwitch },
-  data () {
-    return {
-      value: true
-    }
-  },
-  template: `
-    <div>
-      <h-switch
-        activeColor="#4B3EF9"
-        inactiveColor="#E1E1E1"
-        v-model="value"
-        @change="action"
-      >
-      </h-switch>
-    </div>
-    `,
-  methods: { action: action('click') }
-})
+    template: `
+    <h-switch
+      v-model="active"
+      :disabled="disabled"
+      :active-color="activeColor"
+      :inactive-color="inactiveColor"
+      :active-text="activeText"
+      :inactive-text="inactiveText"
+      :secondary="secondary"
+      @change="action"
+    />
+  `
+  }
+}
 
-export const textSwitch = () => ({
-  components: { HSwitch },
-  data () {
-    return {
-      value: true
-    }
-  },
-  template: `
-      <div>
-        <h-switch
-          activeColor="#4B3EF9"
-          inactiveColor="#E1E1E1"
-          activeText="Activate user"
-          inactiveText="Deactivate user"
-          v-model="value"
-          @change="action"
-        >
-        </h-switch>
-      </div>
-      `,
-  methods: { action: action('click') }
-})
-
-export const disabledSwitch = () => ({
-  components: { HSwitch },
-  data () {
-    return {
-      value: true
-    }
-  },
-  template: `
-      <div>
-        <h-switch
-          activeColor="#4B3EF9"
-          inactiveColor="#E1E1E1"
-          v-model="value"
-          disabled
-        >
-        </h-switch>
-      </div>
-      `,
-  methods: { action: action('click') }
-})
-
-export const customSwitch = () => ({
-  components: { HSwitch },
-  data () {
-    return {
-      value1: true,
-      value2: true
-    }
-  },
-  template: `
-    <div>
-      <div>
-        <h3>Website</h3>
-        <h-switch
-          activeText="Monthly"
-          inactiveText="Yearly"
-          v-model="value2"
-          @change="action"
-          custom-switch
-          active-text-right="100px"
-          active-text-left="30px"
-        >
-        </h-switch>
-      </div>
-      <div style="margin-top: 4rem">
-        <h3>App</h3>
-        <h-switch
-          activeColor="#4B3EF9"
-          inactiveColor="#E1E1E1"
-          activeText="Edit"
-          inactiveText="View"
-          v-model="value1"
-          @change="action"
-          custom-switch
-        >
-        </h-switch>
-      </div>
-    </div>
-      `,
-  methods: { action: action('click') }
-})
+export const Main = Template.bind({})
+Main.args = { activeText: 'Monthly', inactiveText: 'Yearly' }

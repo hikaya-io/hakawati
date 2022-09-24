@@ -20,7 +20,7 @@
         <el-table-column
           v-for="(col, index) in shownTableColumns"
           :prop="col"
-          :key="`thead_${index}`"
+          :key="`thead_${col + index.toString()}`"
           v-bind="getColumnAttrs(col)"
         >
           <editable-cell
@@ -129,6 +129,14 @@ export default {
       type: Boolean,
       default: true
     },
+    enableFilters: {
+      type: Boolean,
+      default: false
+    },
+    filterableColumns: {
+      type: Array,
+      default: () => []
+    },
     useSwitch: {
       type: Boolean,
       default: false
@@ -158,6 +166,14 @@ export default {
     ignoredColumns: {
       type: Array,
       default: () => []
+    },
+    savedTableColumns: {
+      type: Array,
+      default: () => []
+    },
+    savedHiddenColumns: {
+      type: Array,
+      default: () => []
     }
   },
   data () {
@@ -174,6 +190,10 @@ export default {
   },
   computed: {
     origTableColumns () {
+      if (this.savedTableColumns.length) {
+        return this.savedTableColumns
+      }
+
       if (this.tableData.length) {
         return Object.keys(this.tableData[0])
       }
@@ -205,6 +225,7 @@ export default {
     this.tableColumns = [...this.origTableColumns.filter(col => !this.ignoredColumns.includes(col))]
     this.mutableTableColumns = [...this.origTableColumns.filter(col => !this.ignoredColumns.includes(col))]
     this.editableTableData = [...this.tableData]
+    this.hiddenColumns = [...this.savedHiddenColumns]
     const keys = Object.keys(this.columnComponents)
 
     for (const col of this.shownTableColumns) {
@@ -257,6 +278,7 @@ export default {
       } else {
         this.hiddenColumns.splice(index, 1)
       }
+      this.$emit('column-hidden', { columns: this.hiddenColumns })
     },
     getDropdownMenuData () {
       return {
@@ -274,6 +296,7 @@ export default {
         const ans = confirm('Are you sure you want to reorder the columns?')
         if (ans) {
           this.tableColumns = [...this.mutableTableColumns]
+          this.$emit('columns-reordered', { orderedColumns: this.tableColumns })
         }
       }
     },
@@ -300,6 +323,19 @@ export default {
         label: this.titleCase(col),
         sortable: this.sortable && !this.editMode
       }
+      if (this.enableFilters) {
+        if (this.filterableColumns.length) {
+          if (this.filterableColumns.find(col)) {
+            attrs['filter-placement'] = 'bottom-end'
+            attrs.filters = [...new Set(this.tableData.map(item => item[col]))].map(val => ({ text: val, value: val }))
+            attrs['filter-method'] = this.filterHandler
+          }
+        } else {
+          attrs['filter-placement'] = 'bottom-end'
+          attrs.filters = [...new Set(this.tableData.map(item => item[col]))].map(val => ({ text: val, value: val }))
+          attrs['filter-method'] = this.filterHandler
+        }
+      }
       if (col in this.columnAttrs) {
         return Object.assign({}, attrs, this.columnDefaultAttrs, this.columnAttrs[col])
       }
@@ -307,12 +343,18 @@ export default {
     },
     getCallables (obj) {
       const objCallables = {}
-      Object.keys(obj).forEach(key => {
-        if (typeof obj[key] === 'function') {
-          objCallables[key] = obj[key]
-        }
-      })
+      if (obj) {
+        Object.keys(obj).forEach(key => {
+          if (typeof obj[key] === 'function') {
+            objCallables[key] = obj[key]
+          }
+        })
+      }
       return objCallables
+    },
+    filterHandler (value, row, column) {
+      const property = column.property
+      return row[property] === value
     }
   }
 }

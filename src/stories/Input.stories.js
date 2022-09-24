@@ -1,202 +1,46 @@
 import HInput from '../components/input/HInput.vue'
 
-import HForm from '../components/form/HForm.vue'
-
 // This is required for each story
-export default { title: 'Input' }
+export default {
+  component: HInput,
+  title: '1.0/Input',
+  argTypes: {
+    type: {
+      options: ['text', 'textarea', 'date'],
+      control: { type: 'select' }
+    },
+    size: {
+      options: ['medium', 'small', 'mini'],
+      control: { type: 'select' }
+    },
+    placeholder: { control: 'text' },
+    disabled: { control: 'boolean' },
+    clearable: { control: 'boolean' },
+    showPassword: { control: 'boolean' },
+    rows: { control: 'number'},
+    suffixIcon: {
+      options: ['el-icon-date', 'el-icon-edit', 'el-icon-delete'],
+      control: { type: 'select' }
+    },
+    prefixIcon: {
+      options: ['el-icon-search'],
+      control: { type: 'select' }
+    },
+    maxlength: { control: 'number' },
+    showWordLimit: { control: 'boolean' }
+  }
+}
 
-// Customize components here
-export const hInput = () => ({
-  components: { HForm, HInput },
-  data () {
-    return {
-      form: {
-        input: ''
-      }
-    }
-  },
+const Template = (args, { argTypes }) => ({
+  components: { HInput },
+  props: Object.keys(argTypes),
   template: `
-    <h-form
-      ref="form"
-      :model="form"
-    >
-      <h-input
-        v-model="form.input"
-        placeholder="Input here"
-      />
-    </h-form>
+  <div>
+    <p>Input label</p>
+    <h-input v-bind="$props"><template slot="prepend">Http://</template></h-input>
+  </div>
   `
 })
 
-export const disabledInput = () => ({
-  components: { HForm, HInput },
-  data () {
-    return {
-      form: {
-        input: ''
-      }
-    }
-  },
-  template: `
-    <h-form
-      ref="form"
-      :model="form"
-    >
-      <h-input
-        v-model="form.input"
-        placeholder="Input here"
-        disabled
-      />
-    </h-form>
-  `
-})
-
-export const clearInput = () => ({
-  components: { HForm, HInput },
-  data () {
-    return {
-      form: {
-        input: ''
-      }
-    }
-  },
-  template: `
-    <h-form
-      ref="form"
-      :model="form"
-    >
-      <h-input
-        v-model="form.input"
-        clearable
-      />
-    </h-form>
-  `
-})
-
-export const inputPasswordBox = () => ({
-  components: { HForm, HInput },
-  data () {
-    return {
-      form: {
-        input: ''
-      }
-    }
-  },
-  template: `
-    <h-form
-      ref="form"
-      :model="form"
-    >
-      <h-input
-        v-model="form.input"
-        placeholder="Enter password"
-        show-password
-      />
-    </h-form>
-  `
-})
-
-export const inputTextArea = () => ({
-  components: { HForm, HInput },
-  data () {
-    return {
-      form: {
-        textArea: ''
-      }
-    }
-  },
-  template: `
-    <h-form
-      ref="form"
-      :model="form"
-    >
-      <h-input
-        v-model="form.textArea"
-        placeholder="Text area with 4 rows"
-        type="textarea"
-        rows="4"
-      />
-    </h-form>
-  `
-})
-
-export const inputLength = () => ({
-  components: { HForm, HInput },
-  data () {
-    return {
-      form: {
-        textArea: ''
-      }
-    }
-  },
-  template: `
-    <h-form
-      ref="form"
-      :model="form"
-    >
-      <h-input
-        v-model="form.textArea"
-        maxlength="250"
-        placeholder="Text area input with limit with 4 rows"
-        type="textarea"
-        rows="4"
-        show-word-limit
-      />
-    </h-form>
-  `
-})
-
-export const hLabelInput = () => ({
-  components: { HForm, HInput },
-  data () {
-    return {
-      form: {
-        input: ''
-      }
-    }
-  },
-  template: `
-    <div>
-      <h-form
-        ref="form"
-        :model="form"
-        label-position="top"
-        labelWidth="120px"
-      >
-        <h-input
-          placeholder="Input here"
-          label="Label Input"
-          v-model="form.input"
-        />
-      </h-form>
-
-      <h-form
-        ref="form"
-        :model="form"
-        label-position="left"
-        labelWidth="120px"
-      >
-        <h-input
-          placeholder="Input here"
-          label="Required Input"
-          v-model="form.input"
-          required
-        />
-      </h-form>
-
-      <h-form
-        ref="form"
-        :model="form"
-        label-position="left"
-        labelWidth="120px"
-      >
-        <h-input
-          placeholder="Input here"
-          label="Disabled Input"
-          v-model="form.input"
-          disabled
-        />
-      </h-form>
-    </div>
-  `
-})
+export const Main = Template.bind({})
+Main.args = { }

@@ -1,4 +1,3 @@
-
 import './styles/element-variables.scss'
 import './styles/theme.scss'
 import './styles/variables.scss'
@@ -19,8 +18,6 @@ import HCard from './components/card/HCard.vue'
 import HCascader from './components/cascader/HCascader.vue'
 
 // Checkbox
-import BasicCheckbox from './components/checkbox/BasicCheckbox.vue'
-import CheckboxGroup from './components/checkbox/CheckboxGroup.vue'
 import HCheckbox from './components/checkbox/HCheckbox.vue'
 
 // Color picker
@@ -55,7 +52,6 @@ import HSearch from './components/search/HSearch.vue'
 
 // Select
 import HSelect from './components/select/HSelect.vue'
-import GroupedSelect from './components/select/GroupedSelect.vue'
 
 // Steps
 import HSteps from './components/steps/HSteps.vue'
@@ -86,8 +82,6 @@ import HSideNav from '@/components/sidenav/HSideNav'
 
 const components = [
   HButton,
-  BasicCheckbox,
-  CheckboxGroup,
   HCheckbox,
   HInput,
   TopNav,
@@ -99,7 +93,6 @@ const components = [
   HSwitch,
   HCard,
   HSelect,
-  GroupedSelect,
   HTag,
   DynamicTag,
   HCascader,
@@ -121,7 +114,7 @@ const components = [
 ]
 
 const install = function (Vue) {
-  components.forEach(component => {
+  components.forEach((component) => {
     Vue.component(component.name, component)
   })
 }
@@ -133,8 +126,6 @@ if (typeof window !== 'undefined' && window.Vue) {
 export default {
   install,
   HButton,
-  BasicCheckbox,
-  CheckboxGroup,
   HCheckbox,
   HInput,
   TopNav,
@@ -146,7 +137,6 @@ export default {
   HSwitch,
   HCard,
   HSelect,
-  GroupedSelect,
   HTag,
   DynamicTag,
   HCascader,

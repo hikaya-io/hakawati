@@ -3,30 +3,39 @@
     v-model="selectedValue"
     v-bind="$attrs"
     v-on="$listeners"
-    no-match-text="No matching data"
-    no-data-text="No Data"
-    @change="checkForCreation"
+    :multiple="multiple"
+    :placeholder="placeholder"
     class="h-select"
+    @change="checkForCreation"
   >
-    <template v-for="(item,index) in options">
-      <el-option
-        v-if="'extraAttrs' in item"
-        :key="`idx-${index}-${item.value}-${randomString(4)}`"
-        :label="item.label"
-        :disabled="item.disabled"
-        :value="item.value"
-        v-bind="item.extraAttrs"
+    <template v-if="grouped">
+      <el-option-group
+        v-for="(group, index) in options"
+        :key="`id-${index}-${group.label}-${randomString(4)}`"
+        :label="group.label"
       >
-        <span class="left-data-span">{{ item.label }}</span>
-        <span v-if="item.extra_data" class="right-data-span">{{ item.extra_data }}</span>
-      </el-option>
+        <el-option
+          v-for="(option, index) in group.options"
+          :key="`id-${index}-${option.value}-${randomString(4)}`"
+          :label="option.label"
+          :disabled="option.disabled"
+          :value="option.value"
+        />
+      </el-option-group>
+    </template>
+    <template v-else>
       <el-option
-        v-else
-        :key="item.key"
-        :label="item.label"
-        :disabled="item.disabled"
-        :value="item.value"
-      />
+        v-for="(option, index) in options"
+        :key="`id-${index}-${option.value}-${randomString(4)}`"
+        :label="option.label"
+        :value="option.value"
+        :disabled="option.disabled"
+      >
+        <span class="left-data-span"> {{ option.label }} </span>
+        <span v-if="option.extra_data" class="right-data-span">
+          {{ option.extra_data }}
+        </span>
+      </el-option>
     </template>
   </el-select>
 </template>
@@ -36,13 +45,13 @@ export default {
   name: 'HSelect',
   props: {
     value: {
-      type: [String, Number, Array],
+      type: [String, Number, Array, Object],
       default: null
     },
-    options: {
-      type: Array,
-      default: () => []
-    }
+    options: { type: Array },
+    placeholder: { type: String, default: 'Select an option' },
+    grouped: { type: Boolean, default: false },
+    multiple: { type: Boolean, default: false }
   },
   data () {
     return {
@@ -59,22 +68,21 @@ export default {
       }
     }
   },
+  watch: {
+    multiple (val) {
+      this.selectedValue = val ? [] : ''
+    }
+  },
   methods: {
     checkForCreation (value) {
-      if (Array.isArray(value)) {
-        const values = this.options.map(option => option.value)
-        for (const selectedValue of value) {
-          if (!values.includes(selectedValue)) {
-            if (!this.created.includes(selectedValue)) {
-              this.$emit('on-create', selectedValue)
-              this.created.push(selectedValue)
-            }
-          }
-        }
-      }
+      this.$emit('change', value)
     },
     randomString (length) {
-      return Math.round((Math.pow(36, length + 1) - Math.random() * Math.pow(36, length))).toString(36).slice(1)
+      return Math.round(
+        Math.pow(36, length + 1) - Math.random() * Math.pow(36, length)
+      )
+        .toString(36)
+        .slice(1)
     }
   }
 }
@@ -99,7 +107,6 @@ export default {
     color: $dark-body-grey;
   }
 
-  // style selected options
   .el-icon-close:before {
     background-color: $primary-fill;
     color: $heading-grey;
@@ -115,22 +122,18 @@ export default {
   }
 }
 
-.right-data-span{
+.right-data-span {
   float: right;
   color: $light-body-grey;
   font-size: 14px;
   font-style: italic;
 }
 
-.left-data-span{
+.left-data-span {
   float: left;
   width: 80%;
   text-overflow: ellipsis;
   overflow: hidden;
-}
-
-.el-select-dropdown__item.selected {
-  font-weight: normal;
 }
 
 .el-select-dropdown.is-multiple .el-select-dropdown__item {
@@ -146,15 +149,47 @@ export default {
   }
 }
 
-.el-select-dropdown__item.hover, .el-select-dropdown__item:hover {
-  color: $heading-grey;
-  background-color: transparent;
-}
-
 .el-select-dropdown__item.is-disabled:hover {
   background-color: transparent;
   color: $light-body-grey;
   cursor: not-allowed;
 }
 
+::v-deep li.el-select-group__title {
+  font-family: $main-font-family;
+  font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  color: $heading-grey;
+  margin: 10px 12px 0px 12px;
+  padding-left: 8px;
+  line-height: 14px;
+  text-transform: uppercase;
+  font-family: Lato;
+}
+
+::v-deep .el-select-dropdown__item.selected {
+  color: $primary-color;
+  font-weight: normal;
+  font-style: normal !important;
+
+  &:focus:active {
+    color: $primary-color;
+  }
+}
+
+::v-deep .el-select-dropdown__item.hover,
+.el-select-dropdown__item:hover {
+  color: $primary-color;
+  background-color: transparent;
+}
+
+// removes section separator between select groups
+.el-select-group__wrap:not(:last-of-type) {
+  padding-bottom: 0;
+
+  &::after {
+    background: transparent;
+  }
+}
 </style>

@@ -3,33 +3,32 @@
 // Color Palette
 $white: #fff;
 $black: #000;
-$purple: #6633FF;
-$blue-sub: #4B3EF9;
-$cyan: #33CCCC;
+$purple: #6633ff;
+$blue-sub: #4b3ef9;
+$cyan: #33cccc;
 
-$blue: #3686E8;
-$orange: #ED6742;
-$green: #00CC66;
-$red: #FF3333;
-$red-sub: #E6395E;
-$yellow: #F9C80E;
-$purple-hover: #855CFF;
+$blue: #3686e8;
+$orange: #ed6742;
+$green: #00cc66;
+$red: #ff3333;
+$red-sub: #e6395e;
+$yellow: #f9c80e;
+$purple-hover: #855cff;
 
-$blue-sub-fill: #F0EBFA;
-$purple-fill: #F0F0FF;
-$cyan-fill: #E6FFFC;
-$green-fill: #E5FAF0;
-$red-fill: #FFEBEB;
-$yellow-fill: #FEF9E7;
-$cancel-click: #D6D6FF;
-
+$blue-sub-fill: #f0ebfa;
+$purple-fill: #f0f0ff;
+$cyan-fill: #e6fffc;
+$green-fill: #e5faf0;
+$red-fill: #ffebeb;
+$yellow-fill: #fef9e7;
+$cancel-click: #d6d6ff;
 
 $heading-grey: #737581;
 $dark-body-grey: #333333;
-$light-body-grey: #CCCCCC;
-$body-grey: #EFEFEF;
-$background-color: #F4F5FC;
-$border-grey: #E5E7ED;
+$light-body-grey: #cccccc;
+$body-grey: #efefef;
+$background-color: #f4f5fc;
+$border-grey: #e5e7ed;
 
 // Default Variables
 $primary-color: $purple;
@@ -60,352 +59,314 @@ $primary-background-color: $background-color;
 $light-color: $light-body-grey;
 $dark-color: $dark-body-grey;
 
-
 /* Title - Lato B48 */
 .title {
-  font-family: $main-font-family;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 36px;
-  line-height: 43px;
-  color: $dark-body-grey;
+    font-family: $main-font-family;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 43px;
+    color: $dark-body-grey;
 }
 
 /* Heading - Lato B36 */
 .heading {
-  font-family: $main-font-family;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 22px;
-  line-height: 26px;
-  color: $dark-body-grey;
+    font-family: $main-font-family;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 26px;
+    color: $dark-body-grey;
 }
 
 /* Heading 2 - Lato B30 */
 .heading-2 {
-  font-family: $main-font-family;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 28px;
-  line-height: 32px;
-  color: $dark-body-grey;
+    font-family: $main-font-family;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 32px;
+    color: $dark-body-grey;
 }
 
 /* Body Reg - Lato R14 */
 .body-reg {
-  font-family: $main-font-family;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 17px;
-  color: $dark-body-grey;
+    font-family: $main-font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: $dark-body-grey;
 }
 
 /* Body Bold - Lato B14 */
 .body-bold {
-  font-family: $main-font-family;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 17px;
-  color: $dark-body-grey;
+    font-family: $main-font-family;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    color: $dark-body-grey;
 }
 
 /* Body 2 Reg - Lato R18 */
 .body-2-reg {
-  font-family: $main-font-family;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 19px;
-  color: $dark-body-grey;
+    font-family: $main-font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: $dark-body-grey;
 }
 
 /* Body 2 Bold - Lato B18 */
 .body-2-bold {
-  font-family: $main-font-family;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 19px;
-  color: $dark-body-grey;
+    font-family: $main-font-family;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    color: $dark-body-grey;
 }
 
 /* Body 3 Reg - Lato R22 */
 .body-3-reg {
-  font-family: $main-font-family;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-  color: $dark-body-grey;
+    font-family: $main-font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: $dark-body-grey;
 }
 
 /* Body 3 Bold - Lato B22 */
 .body-3-bold {
-  font-family: $main-font-family;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 22px;
-  color: $dark-body-grey;
+    font-family: $main-font-family;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: $dark-body-grey;
 }
 
 .body-4-reg {
-  font-family: $main-font-family;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 22px;
-  line-height: 26px;
-  color: $dark-body-grey;
+    font-family: $main-font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 26px;
+    color: $dark-body-grey;
 }
 
 /* Footer - Lato R15 */
 .footer {
-  font-family: $main-font-family;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 15px;
-  line-height: 18px;
-  color: $dark-body-grey;
+    font-family: $main-font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 18px;
+    color: $dark-body-grey;
 }
 
 /* Info - Lato R12 */
 .info {
-  font-family: $main-font-family;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 14px;
-  color: $info-color;
+    font-family: $main-font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    color: $info-color;
 }
 
 .cancel-button {
-  color: $heading-grey;
-  font-weight: normal;
-  border: none;
-  &:hover {
-    border: none;
-    color: $primary-color;
-  }
-  &:focus {
-    border: none;
-    background-color: $white;
     color: $heading-grey;
-  }
-  &:active {
-    border: none;
-    background-color: $cancel-click;
-    color: $primary-color;
-  }
+    &:hover {
+        color: $heading-grey !important;
+        background-color: $body-grey !important;
+    }
+    &:focus {
+        color: $heading-grey !important;
+        background-color: $white;
+    }
+    &:active {
+        color: $primary-color !important;
+        background-color: $primary-fill !important;
+    }
 }
 
-.ws-button {
-  color: $primary-color;
-  font-family: $main-font-family;
-  font-weight: normal;
-  &:focus {
-    border: none;
-    background-color: $white;
-  }
-  &:active {
-    border: none;
-    background-color: $cancel-click;
-  }
+.secondary-button {
+    color: $primary-color;
+    border-color: $primary-color;
+    &:hover {
+        background-color: $primary-fill !important;
+    }
+    &:focus {
+        background-color: $white;
+    }
+    &:active {
+        color: $white !important;
+        background-color: $primary-color !important;
+    }
 }
 
 .button-style {
-  border-color: transparent;
-  color: $white;
-  font-size: 14px;
-  line-height: 17px;
-  font-weight: normal;
-  font-family: $main-font-family;
-}
-
-.text-style {
-  border-radius: 25px;
-  color: $heading-grey;
-  font-size: 14px;
-  line-height: 17px;
-  box-shadow: none;
-
-  &:hover {
-    color: $primary-color;
-    background-color: $primary-fill;
-  }
-  &:focus {
-    color: $primary-color;
-    background-color: $white;
-  }
-  &:active {
-    border: none;
-    background-color: $cancel-click;
-  }
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: normal;
+    font-family: $main-font-family;
 }
 
 .h-border {
-  border-radius: 5px;
+    border-radius: 5px;
 }
 
 .card-shadow {
-  background: $white;
-  box-shadow: 0px 0px 17px rgba(115, 117, 129, 0.25);
+    background: $white;
+    box-shadow: 0px 0px 17px rgba(115, 117, 129, 0.25);
 }
 
 .dropdown-shadow {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 0px 0px 6px 6px;
-  border-color: transparent;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 0px 6px 6px;
+    border-color: transparent;
 }
 
 .button-pill {
-  width: 110px;
-  border-radius: 25px;
+    width: 110px;
+    border-radius: 25px;
 }
 
 .plain-pill {
+    .el-checkbox-button__inner {
+        border-radius: 25px !important;
+        border-color: transparent;
+    }
 
-  .el-checkbox-button__inner {
-    border-radius: 25px;
-    border-color: transparent;
-  }
-
-  &.is-checked .el-checkbox-button__inner {
-    background-color: $primary-fill;
-    color: $primary-color;
-    border-color: transparent;
-    border-left: transparent;
-    -webkit-box-shadow: -1px 0 0 0 transparent;
-  }
+    &.is-checked .el-checkbox-button__inner {
+        background-color: $primary-fill;
+        color: $primary-color;
+        border-color: transparent;
+        border-left: transparent;
+        -webkit-box-shadow: -1px 0 0 0 transparent;
+    }
 }
 
 .primary-pill {
-
-  .el-checkbox-button__inner {
-    border-radius: 25px !important;
-    border-color: transparent;
-  }
+    .el-checkbox-button__inner {
+        border-radius: 25px !important;
+        border-color: transparent;
+    }
 }
 
 .secondary-pill {
+    .el-checkbox-button__inner {
+        border-radius: 25px !important;
+        border-color: transparent;
+        background-color: $secondary-fill;
+        color: $secondary-color;
+        -webkit-box-shadow: -1px 0 0 0 transparent;
+    }
 
-  .el-checkbox-button__inner {
-    border-radius: 25px !important;
-    border-color: transparent;
-    background-color: $secondary-fill;
-    color: $secondary-color;
-    -webkit-box-shadow: -1px 0 0 0 transparent;
-  }
-
-  &.is-checked .el-checkbox-button__inner {
-    background-color: $secondary-color;
-    color: $secondary-fill;
-    border-color: transparent;
-    -webkit-box-shadow: -1px 0 0 0 $secondary-color;
-  }
+    &.is-checked .el-checkbox-button__inner {
+        background-color: $secondary-color;
+        color: $secondary-fill;
+        border-color: transparent;
+        -webkit-box-shadow: -1px 0 0 0 $secondary-color;
+    }
 }
 
 // style message and notification components
 @mixin message($type) {
-  width: 100%;
-  border: none;
-  border-radius: 0;
+    width: 100%;
+    border: none;
+    border-radius: 0;
 
-  @if $type == 'error' {
-    background-color: $red-fill;
-    border-color: $red-fill;
+    @if $type == 'error' {
+        background-color: $red-fill;
+        border-color: $red-fill;
 
-    .el-message__content {
-      color: $red;
+        .el-message__content {
+            color: $red;
+        }
+
+        .el-icon-error {
+            color: $red;
+        }
+
+        .el-icon-close::before {
+            color: $red;
+        }
+    } @else if $type == 'warning' {
+        background-color: $yellow-fill;
+        border-color: $yellow-fill;
+
+        .el-message__content {
+            color: $yellow;
+        }
+
+        .el-icon-warning {
+            color: $yellow;
+        }
+
+        .el-icon-close::before {
+            color: $yellow;
+        }
+    } @else if $type == 'success' {
+        background-color: $green-fill;
+        border-color: $green-fill;
+
+        .el-message__content {
+            color: $green;
+        }
+
+        .el-icon-success {
+            color: $green;
+        }
+
+        .el-icon-close::before {
+            color: $green;
+        }
+    } @else if $type == 'info' {
+        background-color: $background-color;
+        border-color: $background-color;
+
+        .el-message__content {
+            color: $heading-grey;
+        }
+
+        .el-icon-info {
+            color: $heading-grey;
+        }
+
+        .el-icon-close::before {
+            color: $heading-grey;
+        }
+    } @else {
+        background-color: $background-color;
+        border-color: $background-color;
+
+        .el-message__content {
+            color: $heading-grey;
+        }
+
+        .el-icon-close::before {
+            color: $heading-grey;
+        }
     }
-
-    .el-icon-error {
-      color: $red;
-    }
-
-    .el-icon-close::before {
-      color: $red;
-    }
-  }
-
-  @else if $type == 'warning' {
-    background-color: $yellow-fill;
-    border-color: $yellow-fill;
-
-    .el-message__content {
-      color: $yellow;
-    }
-
-    .el-icon-warning {
-      color: $yellow;
-    }
-
-    .el-icon-close::before {
-      color: $yellow;
-    }
-  }
-
-  @else if $type == 'success' {
-    background-color: $green-fill;
-    border-color: $green-fill;
-
-    .el-message__content {
-      color: $green;
-    }
-
-    .el-icon-success {
-      color: $green;
-    }
-
-    .el-icon-close::before {
-      color: $green;
-    }
-  }
-
-  @else if $type == 'info' {
-    background-color: $background-color;
-    border-color: $background-color;
-
-    .el-message__content {
-      color: $heading-grey;
-    }
-
-    .el-icon-info {
-      color: $heading-grey;
-    }
-
-    .el-icon-close::before {
-      color: $heading-grey;
-    }
-  }
-
-  @else {
-    background-color: $background-color;
-    border-color: $background-color;
-
-    .el-message__content {
-      color: $heading-grey;
-    }
-
-    .el-icon-close::before {
-      color: $heading-grey;
-    }
-  }
 }
 
 .message-error {
-  @include message(error);
+    @include message(error);
 }
 
 .message-warning {
-  @include message(warning);
+    @include message(warning);
 }
 
 .message-success {
-  @include message(success);
+    @include message(success);
 }
 
 .message-info {
-  @include message(info);
+    @include message(info);
 }
