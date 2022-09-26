@@ -46,7 +46,7 @@
         :submenu-status-tbody="submenuStatusTbody"
         :tbody-highlight="highlight.tbody"
         :current-table="customTable"
-        @handle-to-calculate-position="calculPosition"
+        @handle-to-calculate-position="calculatePosition"
         @handle-to-open-select="enableSelect"
         @submenu-enable="enableSubmenu"
         @tbody-checked-row="checkedRow"
@@ -210,10 +210,10 @@ export default {
   },
   methods: {
     activeSelectSearch (event, rowIndex, colIndex) {
-      this.calculPosition(event, rowIndex, colIndex, 'dropdown')
+      this.calculatePosition(event, rowIndex, colIndex, 'dropdown')
     },
-    calculPosition (event, rowIndex, colIndex, header) {
-      // If we calculPosition for dropdown, but there is no dropdown to render.
+    calculatePosition (event, rowIndex, colIndex, header) {
+      // If we calculatePosition for dropdown, but there is no dropdown to render.
       if (header === 'dropdown' && !this.data[rowIndex][this.headers[colIndex].headerKey].search) {
         return
       }
@@ -349,7 +349,7 @@ export default {
           this.$refs[`${this.customTable}-vueTbody`].$refs[
             `vsSelect-${this.customTable}-${colIndex}-${rowIndex}`
           ][0].$refs[`input-${this.customTable}-${colIndex}-${rowIndex}`].focus()
-          this.calculPosition(event, rowIndex, colIndex, 'dropdown')
+          this.calculatePosition(event, rowIndex, colIndex, 'dropdown')
 
           if (currentElement.value !== '') {
             this.showDropdown(colIndex, rowIndex)
@@ -477,7 +477,7 @@ export default {
       column.show = false
       this.$set(this.data[rowIndex][header], 'value', this.data[rowIndex][header].value)
 
-      if (type === 'select') {
+      if (type === 'category') {
         column.search = false
       }
     }

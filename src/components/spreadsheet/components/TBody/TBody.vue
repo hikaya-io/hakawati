@@ -181,20 +181,22 @@
             </template>
 
             <!-- If Select -->
-            <v-select
-              :value="row"
-              :ref="`vsSelect-${currentTable}-${colIndex}-${rowIndex}`"
-              :colIndex="colIndex"
-              :currentTable="currentTable"
-              :disabledEvent="disabledEvent"
-              :filteredList="filteredList"
-              :header="header"
-              :rowIndex="rowIndex"
-              :trad="trad"
-              @tbody-handle-to-open-select="tbodyOpenSelect"
-              @tbody-handle-select-change="tbodySelectChange"
-              @tbody-handle-search-input-select="tbodySearchInputSelect"
-            />
+            <template v-if="row[header].type === 'category'">
+              <v-select
+                :value="row"
+                :ref="`vsSelect-${currentTable}-${colIndex}-${rowIndex}`"
+                :colIndex="colIndex"
+                :currentTable="currentTable"
+                :disabledEvent="disabledEvent"
+                :filteredList="filteredList"
+                :header="header"
+                :rowIndex="rowIndex"
+                :trad="trad"
+                @tbody-handle-to-open-select="tbodyOpenSelect"
+                @tbody-handle-select-change="tbodySelectChange"
+                @tbody-handle-search-input-select="tbodySearchInputSelect"
+              />
+            </template>
           </td>
         </template>
       </tr>

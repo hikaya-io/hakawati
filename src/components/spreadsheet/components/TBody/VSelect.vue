@@ -1,5 +1,5 @@
 <template>
-  <div v-if="value[header] && value[header].type === 'select'">
+  <div v-if="value[header] && value[header].type === 'category'">
     <span :ref="`span-${currentTable}-${colIndex}-${rowIndex}`">{{ value[header].value }}</span>
 
     <!-- Select with custom dropdown -->

@@ -59,6 +59,15 @@ export const hSpreadsheet = () => ({
             minWidth: '200px',
             color: '#000'
           }
+        },
+        {
+          headerName: 'Category',
+          headerKey: 'category',
+          style: {
+            width: '200px',
+            minWidth: '200px',
+            color: '#000'
+          }
         }
       ],
       values: [
@@ -74,6 +83,24 @@ export const hSpreadsheet = () => ({
           decimal: {
             type: 'decimal',
             value: 123.56
+          },
+          category: {
+            type: 'category',
+            selectOptions: [
+              {
+                value: 'one',
+                label: 'One'
+              },
+              {
+                value: 'two',
+                label: 'Two'
+              },
+              {
+                value: 'three',
+                label: 'Three'
+              }
+            ],
+            value: 'Two'
           }
         }
       ],

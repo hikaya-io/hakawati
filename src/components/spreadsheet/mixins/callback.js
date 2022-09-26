@@ -29,7 +29,7 @@ export const callback = {
       }
     },
     callbackSubmenuTbody (event, header, rowIndex, colIndex, type, submenuFunction) {
-      this.calculPosition(event, rowIndex, colIndex, 'submenu')
+      this.calculatePosition(event, rowIndex, colIndex, 'submenu')
       this.$emit(
         `tbody-submenu-click-${submenuFunction}`,
         event,

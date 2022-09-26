@@ -16,14 +16,14 @@ export const scrollOnTable = {
       this.affixHeader(event, 'vueTable')
 
       if (this.lastSelectOpen) {
-        this.calculPosition(
+        this.calculatePosition(
           this.lastSelectOpen.event,
           this.lastSelectOpen.rowIndex,
           this.lastSelectOpen.colIndex,
           'dropdown'
         )
       } else if (this.lastSubmenuOpen) {
-        this.calculPosition(
+        this.calculatePosition(
           this.lastSubmenuOpen.event,
           this.lastSubmenuOpen.rowIndex,
           this.lastSubmenuOpen.colIndex,
@@ -35,14 +35,14 @@ export const scrollOnTable = {
       this.affixHeader(event, 'document')
 
       if (this.lastSelectOpen) {
-        this.calculPosition(
+        this.calculatePosition(
           event,
           this.lastSelectOpen.rowIndex,
           this.lastSelectOpen.colIndex,
           'dropdown'
         )
       } else if (this.lastSubmenuOpen) {
-        this.calculPosition(
+        this.calculatePosition(
           event,
           this.lastSubmenuOpen.rowIndex,
           this.lastSubmenuOpen.colIndex,

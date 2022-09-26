@@ -81,7 +81,7 @@
                     {{ sub.value }}
                   </button>
                 </template>
-                <template v-if="sub.type === 'select'">
+                <template v-if="sub.type === 'category'">
                   <div
                     class="menu_option"
                     :key="index"

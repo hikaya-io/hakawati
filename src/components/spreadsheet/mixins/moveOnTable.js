@@ -130,7 +130,7 @@ export const moveOnTable = {
               if (decrementHeader) {
                 this.$set(this.data[rowIndex][decrementHeader], 'active', true)
 
-                if (dataType === 'select') {
+                if (dataType === 'category') {
                   this.activeSelectSearch(event, rowIndex, colIndex, decrementHeader)
                 }
 
@@ -138,7 +138,7 @@ export const moveOnTable = {
               } else {
                 this.$set(this.data[rowIndex][header], 'active', true)
 
-                if (dataType === 'select') {
+                if (dataType === 'category') {
                   this.activeSelectSearch(event, rowIndex, colIndex, header)
                 }
 
@@ -151,7 +151,7 @@ export const moveOnTable = {
               if (rowIndex !== 0) {
                 this.$set(this.data[rowIndex - 1][header], 'active', true)
 
-                if (dataType === 'select') {
+                if (dataType === 'category') {
                   this.activeSelectSearch(event, rowIndex - 1, colIndex, header)
                 }
 
@@ -159,7 +159,7 @@ export const moveOnTable = {
               } else {
                 this.$set(this.data[rowIndex][header], 'active', true)
 
-                if (dataType === 'select') {
+                if (dataType === 'category') {
                   this.activeSelectSearch(event, rowIndex, colIndex, header)
                 }
 
@@ -174,7 +174,7 @@ export const moveOnTable = {
               if (incrementHeader) {
                 this.$set(this.data[rowIndex][incrementHeader], 'active', true)
 
-                if (dataType === 'select') {
+                if (dataType === 'category') {
                   this.activeSelectSearch(event, rowIndex, colIndex, incrementHeader)
                 }
 
@@ -182,7 +182,7 @@ export const moveOnTable = {
               } else {
                 this.$set(this.data[rowIndex][header], 'active', true)
 
-                if (dataType === 'select') {
+                if (dataType === 'category') {
                   this.activeSelectSearch(event, rowIndex, colIndex, header)
                 }
 
@@ -195,7 +195,7 @@ export const moveOnTable = {
               if (rowIndex + 1 !== rowMax) {
                 this.$set(this.data[rowIndex + 1][header], 'active', true)
 
-                if (dataType === 'select') {
+                if (dataType === 'category') {
                   this.activeSelectSearch(event, rowIndex + 1, colIndex, header)
                 }
 
@@ -203,7 +203,7 @@ export const moveOnTable = {
               } else {
                 this.$set(this.data[rowIndex][header], 'active', true)
 
-                if (dataType === 'select') {
+                if (dataType === 'category') {
                   this.activeSelectSearch(event, rowIndex, colIndex, header)
                 }
 
