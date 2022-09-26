@@ -175,16 +175,37 @@ export default {
         submenuFunction
       )
     },
-    authorizeOnlyNumericValue (e) {
+    authorizeIntegerValueOnly (e) {
       const k = e.which
 
       if (k !== 8 && k !== 13 && k !== 27 && e.key !== '0' && !Number(e.key)) return true
 
       return false
     },
-    inputHandleKeydow (event, header, rowIndex, colIndex) {
-      if (this.tbodyData[rowIndex][header].numeric && this.authorizeOnlyNumericValue(event)) {
-        event.preventDefault()
+    authorizeDecimalValueOnly (e) {
+      const k = e.which
+
+      if (k !== 8 && k !== 13 && k !== 27 && e.key !== '0' && (e.key !== '.' && !Number(e.key))) return true
+
+      return false
+    },
+    inputHandleKeydown (event, header, rowIndex, colIndex, el) {
+      console.log(el)
+      if (this.tbodyData[rowIndex][header].type === 'integer') {
+        if (this.authorizeIntegerValueOnly(event)) {
+          event.preventDefault()
+        }
+      }
+
+      if (this.tbodyData[rowIndex][header].type === 'decimal') {
+        if (this.authorizeDecimalValueOnly(event)) {
+          event.preventDefault()
+        }
+
+        // Prevent multiple decimals
+        if (event.key === '.' && String(this.tbodyData[rowIndex][header].value).indexOf('.') !== -1) {
+          event.preventDefault()
+        }
       }
 
       this.$emit('tbody-input-keydown', event, header, rowIndex, colIndex)

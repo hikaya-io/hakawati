@@ -172,7 +172,7 @@
               </span>
               <textarea
                 v-model="row[header].value"
-                @keydown="inputHandleKeydow($event, header, rowIndex, colIndex)"
+                @keydown="inputHandleKeydown($event, header, rowIndex, colIndex, this)"
                 @change="inputHandleChange($event, header, rowIndex, colIndex)"
                 @keyup.esc="escKeyup(row[header], rowIndex, header, colIndex, row[header].type)"
                 :ref="`textarea-${currentTable}-${colIndex}-${rowIndex}`"
