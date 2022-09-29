@@ -87,6 +87,27 @@
                       {{ titleCase(col) }}
                     </el-checkbox>
                   </el-dropdown-item>
+                  <el-dropdown-item disabled divided>
+                    Hidden Columns
+                  </el-dropdown-item>
+                  <el-dropdown-item
+                    v-for="col in hiddenColumns" :key="col"
+                    class="column-item" disabled>
+                    <h-switch
+                      v-if="useSwitch"
+                      :value="!hiddenColumns.includes(col)"
+                      :activeText="getDropdownItemText(col)"
+                      @change="hideOrShowColumn(col)"
+                    >
+                    </h-switch>
+                    <el-checkbox
+                      v-else
+                      :checked="!hiddenColumns.includes(col)"
+                      @change="hideOrShowColumn(col)"
+                    >
+                      {{ titleCase(col) }}
+                    </el-checkbox>
+                  </el-dropdown-item>
                 </draggable>
               </el-dropdown>
             </div>
@@ -203,7 +224,7 @@ export default {
       return this.tableColumns.filter(val => !this.hiddenColumns.includes(val))
     },
     columnsOrderChanged () {
-      return JSON.stringify(this.tableColumns) !== JSON.stringify(this.mutableTableColumns)
+      return JSON.stringify(this.shownTableColumns) !== JSON.stringify(this.mutableTableColumns)
     }
   },
   watch: {
@@ -219,11 +240,17 @@ export default {
           this.editableTableData = [...val]
         }
       }
+    },
+
+    hiddenColumns: {
+      handler (val) {
+        this.mutableTableColumns = [...this.origTableColumns.filter(col => !this.ignoredColumns.includes(col) && !this.hiddenColumns.includes(col))]
+      }
     }
   },
   mounted () {
     this.tableColumns = [...this.origTableColumns.filter(col => !this.ignoredColumns.includes(col))]
-    this.mutableTableColumns = [...this.origTableColumns.filter(col => !this.ignoredColumns.includes(col))]
+    this.mutableTableColumns = [...this.origTableColumns.filter(col => !this.ignoredColumns.includes(col) && !this.hiddenColumns.includes(col))]
     this.editableTableData = [...this.tableData]
     this.hiddenColumns = [...this.savedHiddenColumns]
     const keys = Object.keys(this.columnComponents)
