@@ -47,7 +47,7 @@
             @click.shift.exact="
               handleSelectMultipleCell($event, header, rowIndex, colIndex, row[header].type)
             "
-            @contextmenu="handleContextMenuTd($event, header, rowIndex, colIndex, row[header].type)"
+
             @click.exact="
               handleClickTd($event, row[header], header, rowIndex, colIndex, row[header].type)
             "
@@ -166,9 +166,9 @@
             </template>
 
             <!-- If Input -->
-            <template v-if="['text', 'integer', 'decimal'].includes(row[header].type)">
+            <template v-if="['text', 'integer', 'decimal', 'percentage'].includes(row[header].type)">
               <span :ref="`span-${currentTable}-${colIndex}-${rowIndex}`">
-                {{ row[header].value }}
+                {{ formatValue(row[header].type, row[header].value) }}
               </span>
               <textarea
                 v-model="row[header].value"

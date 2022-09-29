@@ -157,9 +157,9 @@ export default {
     handleContextMenuTd (event, header, rowIndex, colIndex, type) {
       this.submenuEnableCol = colIndex
       this.submenuEnableRow = rowIndex
-      this.$emit('submenu-enable', 'tbody')
-      this.$emit('tbody-td-context-menu', event, header, rowIndex, colIndex, type)
-      this.$emit('handle-to-calculate-position', event, rowIndex, colIndex, 'contextMenu')
+      // this.$emit('submenu-enable', 'tbody')
+      // this.$emit('tbody-td-context-menu', event, header, rowIndex, colIndex, type)
+      // this.$emit('handle-to-calculate-position', event, rowIndex, colIndex, 'contextMenu')
     },
     inputHandleChange (event, header, rowIndex, colIndex) {
       this.$emit('tbody-input-change', event, header, rowIndex, colIndex)
@@ -209,6 +209,16 @@ export default {
       }
 
       this.$emit('tbody-input-keydown', event, header, rowIndex, colIndex)
+    },
+    formatValue (type, value) {
+      if (type === 'decimal') {
+        const num = Number(value)
+        return num.toFixed(2)
+      }
+      if (type === 'percentage') {
+        return `${value}%`
+      }
+      return value
     }
   }
 }

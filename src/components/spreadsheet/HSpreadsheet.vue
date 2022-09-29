@@ -7,7 +7,7 @@
   >
     <slot name="header"></slot>
 
-    <table class="vue_table" oncontextmenu="return false;" :ref="`${customTable}-table`">
+    <table class="vue_table" :ref="`${customTable}-table`">
       <vue-thead
         :ref="`${customTable}-vueThead`"
         :disable-sort-thead="disableSortThead"

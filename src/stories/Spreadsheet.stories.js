@@ -61,6 +61,24 @@ export const hSpreadsheet = () => ({
           }
         },
         {
+          headerName: 'Decimal Formatted',
+          headerKey: 'decimal_formatted',
+          style: {
+            width: '200px',
+            minWidth: '200px',
+            color: '#000'
+          }
+        },
+        {
+          headerName: 'Percentage',
+          headerKey: 'percentage',
+          style: {
+            width: '200px',
+            minWidth: '200px',
+            color: '#000'
+          }
+        },
+        {
           headerName: 'Category',
           headerKey: 'category',
           style: {
@@ -83,6 +101,14 @@ export const hSpreadsheet = () => ({
           decimal: {
             type: 'decimal',
             value: 123.56
+          },
+          decimal_formatted: {
+            type: 'decimal',
+            value: 127
+          },
+          percentage: {
+            type: 'percentage',
+            value: 4
           },
           category: {
             type: 'category',
