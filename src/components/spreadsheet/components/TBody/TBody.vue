@@ -180,6 +180,20 @@
               </textarea>
             </template>
 
+            <template v-if="row[header].type === 'date'">
+              <span :ref="`span-${currentTable}-${colIndex}-${rowIndex}`">
+                {{ formatValue(row[header].type, row[header].value) }}
+              </span>
+              <input
+                v-model="row[header].value"
+                type="date"
+                @keydown="inputHandleKeydown($event, header, rowIndex, colIndex, this)"
+                @change="inputHandleChange($event, header, rowIndex, colIndex)"
+                @keyup.esc="escKeyup(row[header], rowIndex, header, colIndex, row[header].type)"
+                :ref="`textarea-${currentTable}-${colIndex}-${rowIndex}`"
+              />
+            </template>
+
             <!-- If Select -->
             <template v-if="row[header].type === 'category'">
               <v-select

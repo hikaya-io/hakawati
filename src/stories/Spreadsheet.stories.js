@@ -79,6 +79,15 @@ export const hSpreadsheet = () => ({
           }
         },
         {
+          headerName: 'Date',
+          headerKey: 'date',
+          style: {
+            width: '200px',
+            minWidth: '200px',
+            color: '#000'
+          }
+        },
+        {
           headerName: 'Category',
           headerKey: 'category',
           style: {
@@ -109,6 +118,10 @@ export const hSpreadsheet = () => ({
           percentage: {
             type: 'percentage',
             value: 4
+          },
+          date: {
+            type: 'date',
+            value: null
           },
           category: {
             type: 'category',
