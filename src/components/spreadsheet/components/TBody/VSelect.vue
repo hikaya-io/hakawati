@@ -1,6 +1,6 @@
 <template>
   <div v-if="value[header] && value[header].type === 'category'">
-    <span :ref="`span-${currentTable}-${colIndex}-${rowIndex}`">{{ value[header].value }}</span>
+    <span :ref="`span-${currentTable}-${colIndex}-${rowIndex}`">{{ getLabelFromValue(value[header].value, value[header].selectOptions ) }}</span>
 
     <!-- Select with custom dropdown -->
     <template v-if="value[header].handleSearch">
@@ -39,11 +39,11 @@
       </div>
     </template>
 
-    <!-- Defaut user-agent select -->
+    <!-- Default user-agent select -->
     <template v-else>
       <select
         :value="value[header].value"
-        @change="selectHandleChange($event, header, value[header], option, rowIndex, colIndex)"
+        @change="selectHandleChange($event, header, value[header], getOptionFromValue($event.target.value, value[header].selectOptions), rowIndex, colIndex)"
       >
         <option
           v-for="(option, index) in value[header].selectOptions"
@@ -134,6 +134,22 @@ export default {
           colIndex
         )
       }
+    },
+    getOptionFromValue (selectedValue, options) {
+      for (const option of options) {
+        if (option.value === selectedValue) {
+          return option
+        }
+      }
+      return null
+    },
+    getLabelFromValue (value, options) {
+      for (const option of options) {
+        if (option.value === value) {
+          return option.label
+        }
+      }
+      return value
     }
   }
 }

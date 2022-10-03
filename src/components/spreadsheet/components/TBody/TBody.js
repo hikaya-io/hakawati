@@ -190,7 +190,6 @@ export default {
       return false
     },
     inputHandleKeydown (event, header, rowIndex, colIndex, el) {
-      console.log(el)
       if (this.tbodyData[rowIndex][header].type === 'integer') {
         if (this.authorizeIntegerValueOnly(event)) {
           event.preventDefault()
