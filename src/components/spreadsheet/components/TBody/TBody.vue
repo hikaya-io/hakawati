@@ -41,22 +41,22 @@
             :data-header="header"
             :data-col-index="colIndex"
             :data-row-index="rowIndex"
-            :data-type="row[header].type"
-            @mouseover.stop="handleHoverTooltip(header, rowIndex, colIndex, row[header].type)"
+            :data-type="headersAsObj[header].type"
+            @mouseover.stop="handleHoverTooltip(header, rowIndex, colIndex, headersAsObj[header].type)"
             @mouseout.stop="handleOutTooltip"
             @click.shift.exact="
-              handleSelectMultipleCell($event, header, rowIndex, colIndex, row[header].type)
+              handleSelectMultipleCell($event, header, rowIndex, colIndex, headersAsObj[header].type)
             "
 
             @click.exact="
-              handleClickTd($event, row[header], header, rowIndex, colIndex, row[header].type)
+              handleClickTd($event, row[header], header, rowIndex, colIndex, headersAsObj[header].type)
             "
             @dblclick="
-              handleDoubleClickTd($event, header, row[header], rowIndex, colIndex, row[header].type)
+              handleDoubleClickTd($event, header, row[header], rowIndex, colIndex, headersAsObj[header].type)
             "
             @mousemove="handleMoveDragToFill($event, header, row[header], rowIndex, colIndex)"
             @mouseup="
-              handleUpDragToFill($event, header, row[header], rowIndex, colIndex, row[header].type)
+              handleUpDragToFill($event, header, row[header], rowIndex, colIndex, headersAsObj[header].type)
             "
             :class="{
               active_td: row[header].active,
@@ -78,7 +78,7 @@
                   row[header].value !== '' &&
                   !row[header].search &&
                   !row[header].active &&
-                  row[header].type !== 'img' &&
+                  headersAsObj[header].type !== 'img' &&
                   !row[header].selected &&
                   vuetableTooltip[rowIndex] === header
                 "
@@ -119,7 +119,7 @@
                   row[header],
                   rowIndex,
                   colIndex,
-                  row[header].type
+                  headersAsObj[header].type
                 )
               "
             ></button>
@@ -146,7 +146,7 @@
                           header,
                           rowIndex,
                           colIndex,
-                          row[header].type,
+                          headersAsObj[header].type,
                           submenu.function
                         )
                       "
@@ -159,45 +159,45 @@
             </div>
 
             <!-- If Img -->
-            <template v-if="row[header].type === 'img'">
+            <template v-if="headersAsObj[header].type === 'img'">
               <span>
                 <img :src="row[header].value" :title="row[header].value" />
               </span>
             </template>
 
             <!-- If Input -->
-            <template v-if="['text', 'integer', 'decimal', 'percentage'].includes(row[header].type)">
+            <template v-if="['text', 'integer', 'decimal', 'percentage'].includes(headersAsObj[header].type)">
               <span :ref="`span-${currentTable}-${colIndex}-${rowIndex}`">
-                {{ formatValue(row[header].type, row[header].value) }}
+                {{ formatValue(headersAsObj[header].type, row[header].value) }}
               </span>
               <textarea
                 v-model="row[header].value"
                 @keydown="inputHandleKeydown($event, header, rowIndex, colIndex, this)"
                 @change="inputHandleChange($event, header, rowIndex, colIndex)"
-                @keyup.esc="escKeyup(row[header], rowIndex, header, colIndex, row[header].type)"
+                @keyup.esc="escKeyup(row[header], rowIndex, header, colIndex, headersAsObj[header].type)"
                 :ref="`textarea-${currentTable}-${colIndex}-${rowIndex}`"
               >
               </textarea>
             </template>
 
-            <template v-if="row[header].type === 'date'">
+            <template v-if="headersAsObj[header].type === 'date'">
               <span :ref="`span-${currentTable}-${colIndex}-${rowIndex}`">
-                {{ formatValue(row[header].type, row[header].value) }}
+                {{ formatValue(headersAsObj[header].type, row[header].value) }}
               </span>
               <input
                 v-model="row[header].value"
                 type="date"
                 @keydown="inputHandleKeydown($event, header, rowIndex, colIndex, this)"
                 @change="inputHandleChange($event, header, rowIndex, colIndex)"
-                @keyup.esc="escKeyup(row[header], rowIndex, header, colIndex, row[header].type)"
+                @keyup.esc="escKeyup(row[header], rowIndex, header, colIndex, headersAsObj[header].type)"
                 :ref="`textarea-${currentTable}-${colIndex}-${rowIndex}`"
               />
             </template>
 
             <!-- If Select -->
-            <template v-if="row[header].type === 'category'">
+            <template v-if="headersAsObj[header].type === 'category'">
               <v-select
-                :value="row"
+                :value="Object.assign({}, row, {[header]: {...row[header], selectOptions: headersAsObj[header].selectOptions}})"
                 :ref="`vsSelect-${currentTable}-${colIndex}-${rowIndex}`"
                 :colIndex="colIndex"
                 :currentTable="currentTable"

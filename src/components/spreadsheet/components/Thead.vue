@@ -23,7 +23,10 @@
           :key="header.headerKey"
           :style="[header.style, (header.style.top = headerTop > 0 ? headerTop + 'px' : 'auto')]"
         >
-          <span>{{ header.headerName }}</span>
+          <div>
+            <span class="title">{{ header.headerName }}</span>
+            <span class="type">{{ header.type }}</span>
+          </div>
 
           <template
             v-if="
@@ -307,46 +310,73 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.th {
-  height: 45px;
-  line-height: 2;
-  position: relative;
-  background: #e7ecf5;
-  z-index: 15;
-  text-align: left;
-  padding: 2px 5px;
-  box-sizing: border-box;
-  border-right: 0;
-  border-top: 0;
-  border-right: 1px solid white;
-  transition: width ease 0.5s, background ease 0.5s;
-  &.dragged .resize {
-    opacity: 1;
-    position: fixed;
-    top: auto;
-    &:after {
+.thead {
+  .th {
+    height: 45px;
+    line-height: 2;
+    position: relative;
+    background: #EFEFEF;
+    z-index: 15;
+    text-align: left;
+    padding: 7px 12px;
+    box-sizing: border-box;
+    border: 2px solid #E5E7ED;
+    transition: width ease 0.5s, background ease 0.5s;
+    &.dragged .resize {
       opacity: 1;
-      visibility: visible;
+      position: fixed;
+      top: auto;
+      &:after {
+        opacity: 1;
+        visibility: visible;
+      }
     }
-  }
-  &.disabled {
-    pointer-events: none;
+    &.disabled {
+      pointer-events: none;
+      span {
+        background: #cccccc;
+        opacity: 0.5;
+      }
+    }
+    &.highlight_spreadsheet {
+      background: #d5ddec;
+    }
     span {
-      background: #cccccc;
-      opacity: 0.5;
+      display: block;
+      width: calc(100% - 30px);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .title {
+      color: #737581;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 16.6px;
+    }
+    .type {
+      color: #C4C4C4;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
     }
   }
-  &.highlight_spreadsheet {
-    background: #d5ddec;
-  }
-  span {
-    display: block;
-    width: calc(100% - 30px);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+
+  .index {
+    min-width: 55px;
+    padding: 0;
+    text-align: center;
+    border-bottom: 2px solid #E5E7ED;
+    border-top: 2px solid #E5E7ED;
+    background: #EFEFEF;
+    //border-top: 1px solid #e6ecf6;
+    //border-bottom: 1px solid #e6ecf6;
+    //border-right: 1px solid #e6ecf6;
+    box-sizing: border-box;
   }
 }
+
 .resize {
   position: absolute;
   top: 0;
@@ -519,15 +549,7 @@ export default {
   }
 }
 
-.index {
-  width: 20px;
-  padding: 0;
-  text-align: center;
-  border-top: 1px solid #e6ecf6;
-  border-bottom: 1px solid #e6ecf6;
-  border-right: 1px solid #e6ecf6;
-  box-sizing: border-box;
-}
+
 
 .fade-enter-active,
 .fade-leave-active {

@@ -144,6 +144,7 @@ export default {
       return null
     },
     getLabelFromValue (value, options) {
+      options = options || []
       for (const option of options) {
         if (option.value === value) {
           return option.label

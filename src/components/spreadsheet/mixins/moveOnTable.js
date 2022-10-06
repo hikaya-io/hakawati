@@ -430,7 +430,7 @@ export const moveOnTable = {
     handleTbodySelectChange (event, header, col, option, rowIndex, colIndex) {
       const currentData = this.data[rowIndex][header]
 
-      currentData.selectOptions.forEach((selectOption) => {
+      col.selectOptions.forEach((selectOption) => {
         const sOption = selectOption
 
         sOption.active = false
@@ -438,7 +438,7 @@ export const moveOnTable = {
 
       const value = option.value || option.item.value
 
-      currentData.selectOptions.find((x) => x.value === value).active = true
+      col.selectOptions.find((x) => x.value === value).active = true
 
       this.$set(currentData, 'search', false)
       this.$set(currentData, 'show', false)

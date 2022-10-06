@@ -64,6 +64,9 @@ export default {
   computed: {
     headerKeys () {
       return this.headers.map((x) => x.headerKey)
+    },
+    headersAsObj () {
+      return Object.assign({}, ...(this.headers.map(item => ({ [item.headerKey]: item }))))
     }
   },
   methods: {

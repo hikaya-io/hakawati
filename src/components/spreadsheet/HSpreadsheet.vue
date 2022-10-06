@@ -16,7 +16,7 @@
         :sort-header="customOptions.sortHeader"
         :submenu-status-thead="submenuStatusThead"
         :submenu-thead="submenuThead"
-        :tbody-index="customOptions.tbodyIndex"
+        :tbody-index="true"
         :tbody-checkbox="customOptions.tbodyCheckbox"
         :thead-highlight="highlight.thead"
         :current-table="customTable"
@@ -38,7 +38,7 @@
         :tbody-data="data"
         :headers="headers"
         :tbody-checkbox="customOptions.tbodyCheckbox"
-        :tbody-index="customOptions.tbodyIndex"
+        :tbody-index="true"
         :trad="customOptions.trad || {}"
         :disable-cells="disableCells"
         :submenu-tbody="submenuTbody"
@@ -66,6 +66,7 @@
       >
       </vue-tbody>
     </table>
+    <button class="add_new_row" @click="addNewRow">+</button>
   </div>
 </template>
 
@@ -480,6 +481,16 @@ export default {
       if (type === 'category') {
         column.search = false
       }
+    },
+    addNewRow () {
+      const row = {}
+      this.headers.forEach(header => {
+        row[header.headerKey] = {
+          type: header.type,
+          value: null
+        }
+      })
+      this.$emit('on-new-row', row)
     }
   }
 }
@@ -512,8 +523,10 @@ export default {
 .vue-spreadsheet table {
   table-layout: fixed;
   margin: 0;
-  border-collapse: collapse;
   border-spacing: 0;
+  border-left: 2px solid #E5E7ED;
+  border-right: 2px solid #E5E7ED;
+  border-bottom: 2px solid #E5E7ED;
 }
 .vue-spreadsheet table th {
   color: #000;
@@ -522,5 +535,21 @@ export default {
 .vue-spreadsheet table td,
 .vue-spreadsheet table th {
   margin: 0;
+}
+.vue-spreadsheet .add_new_row {
+  cursor: pointer;
+  width: 58px;
+  height: 48px;
+  padding: 0;
+  background: white;
+  box-sizing: border-box;
+  border-top: none;
+  border-bottom: 2px solid #E5E7ED;
+  border-left: 2px solid #E5E7ED;
+  border-right: 2px solid #E5E7ED;
+}
+
+.vue-spreadsheet .add_new_row:hover {
+  background: #d5ddec;
 }
 </style>

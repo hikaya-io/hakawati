@@ -56,6 +56,9 @@ export const scrollOnTable = {
         this.$refs[`${this.customTable}-table`] &&
         this.$refs[`${this.customTable}-table`].offsetTop
       ) {
+        if (!document.querySelector(`${this.parentScrollElement.attribute}`)) {
+          return
+        }
         this.scrollDocument = document.querySelector(
           `${this.parentScrollElement.attribute}`
         ).scrollTop

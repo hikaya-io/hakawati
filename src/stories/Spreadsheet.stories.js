@@ -36,64 +36,78 @@ export const hSpreadsheet = () => ({
         {
           headerName: 'Text',
           headerKey: 'text',
+          type: 'text',
           style: {
             width: '200px',
-            minWidth: '200px',
-            color: '#000'
+            minWidth: '200px'
           }
         },
         {
           headerName: 'Integer',
           headerKey: 'integer',
+          type: 'integer',
           style: {
             width: '200px',
-            minWidth: '200px',
-            color: '#000'
+            minWidth: '200px'
           }
         },
         {
           headerName: 'Decimal',
           headerKey: 'decimal',
+          type: 'decimal',
           style: {
             width: '200px',
-            minWidth: '200px',
-            color: '#000'
+            minWidth: '200px'
           }
         },
         {
           headerName: 'Decimal Formatted',
           headerKey: 'decimal_formatted',
+          type: 'decimal',
           style: {
             width: '200px',
-            minWidth: '200px',
-            color: '#000'
+            minWidth: '200px'
           }
         },
         {
           headerName: 'Percentage',
           headerKey: 'percentage',
+          type: 'percentage',
           style: {
             width: '200px',
-            minWidth: '200px',
-            color: '#000'
+            minWidth: '200px'
           }
         },
         {
           headerName: 'Date',
           headerKey: 'date',
+          type: 'date',
           style: {
             width: '200px',
-            minWidth: '200px',
-            color: '#000'
+            minWidth: '200px'
           }
         },
         {
           headerName: 'Category',
           headerKey: 'category',
+          type: 'category',
+          selectOptions: [
+            {
+              value: 'one',
+              label: 'One'
+            },
+            {
+              value: 'two',
+              label: 'Two'
+            },
+            {
+              value: 'three',
+              label: 'Three'
+            }
+          ],
           style: {
             width: '200px',
-            minWidth: '200px',
-            color: '#000'
+            minWidth: '200px'
           }
         }
       ],
@@ -125,21 +139,37 @@ export const hSpreadsheet = () => ({
           },
           category: {
             type: 'category',
-            selectOptions: [
-              {
-                value: 'one',
-                label: 'One'
-              },
-              {
-                value: 'two',
-                label: 'Two'
-              },
-              {
-                value: 'three',
-                label: 'Three'
-              }
-            ],
-            value: 'Two'
+            value: 'two'
+          }
+        },
+        {
+          text: {
+            type: 'text',
+            value: 'Some random text'
+          },
+          integer: {
+            type: 'integer',
+            value: 123
+          },
+          decimal: {
+            type: 'decimal',
+            value: 123.56
+          },
+          decimal_formatted: {
+            type: 'decimal',
+            value: 127
+          },
+          percentage: {
+            type: 'percentage',
+            value: 4
+          },
+          date: {
+            type: 'date',
+            value: null
+          },
+          category: {
+            type: 'category',
+            value: 'three'
           }
         }
       ],
@@ -164,6 +194,7 @@ export const hSpreadsheet = () => ({
       :custom-options="{}"
       :data="values"
       :headers="headers"
+      @on-new-row="(row) => values.push(row)"
     />
     </div>
 
