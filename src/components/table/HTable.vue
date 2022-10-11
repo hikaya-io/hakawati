@@ -69,7 +69,7 @@
                   drag-class="dragging-item"
                 >
                   <el-dropdown-item
-                    v-for="col in mutableTableColumns" :key="col"
+                    v-for="col in shownTableColumns" :key="col"
                     class="column-item"
                   >
                     <h-switch
@@ -92,7 +92,7 @@
                   </el-dropdown-item>
                   <el-dropdown-item
                     v-for="col in hiddenColumns" :key="col"
-                    class="column-item" disabled>
+                    class="column-item">
                     <h-switch
                       v-if="useSwitch"
                       :value="!hiddenColumns.includes(col)"
@@ -244,13 +244,13 @@ export default {
 
     hiddenColumns: {
       handler (val) {
-        this.mutableTableColumns = [...this.origTableColumns.filter(col => !this.ignoredColumns.includes(col) && !this.hiddenColumns.includes(col))]
+        this.mutableTableColumns = [...this.origTableColumns.filter(col => !this.ignoredColumns.includes(col))]
       }
     }
   },
   mounted () {
     this.tableColumns = [...this.origTableColumns.filter(col => !this.ignoredColumns.includes(col))]
-    this.mutableTableColumns = [...this.origTableColumns.filter(col => !this.ignoredColumns.includes(col) && !this.hiddenColumns.includes(col))]
+    this.mutableTableColumns = [...this.origTableColumns.filter(col => !this.ignoredColumns.includes(col))]
     this.editableTableData = [...this.tableData]
     this.hiddenColumns = [...this.savedHiddenColumns]
     const keys = Object.keys(this.columnComponents)
@@ -284,7 +284,9 @@ export default {
   },
   methods: {
     titleCase (val) {
-      return val.charAt(0).toUpperCase() + val.slice(1)
+      if (val) {
+        return val.charAt(0).toUpperCase() + val.slice(1)
+      }
     },
     toggleSelection (rows) {
       if (rows) {
