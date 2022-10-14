@@ -23,9 +23,14 @@
           :key="header.headerKey"
           :style="[header.style, (header.style.top = headerTop > 0 ? headerTop + 'px' : 'auto')]"
         >
-          <div>
-            <span class="title">{{ header.headerName }}</span>
-            <span class="type">{{ header.type }}</span>
+          <div class="header-content">
+            <div class="text">
+              <span class="title">{{ header.headerName }}</span>
+              <span class="type">{{ header.type }}</span>
+            </div>
+            <div class="options-container">
+              <i class="el-icon-caret-bottom"></i>
+            </div>
           </div>
 
           <template
@@ -348,19 +353,42 @@ export default {
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    .title {
-      color: #737581;
-      font-size: 14px;
-      font-weight: 700;
-      line-height: 16.6px;
+    .header-content {
+      display: flex;
+      align-items: center;
+
+      .text {
+        flex-grow: 1;
+
+        .title {
+          color: #737581;
+          font-size: 14px;
+          font-weight: 700;
+          line-height: 16.6px;
+        }
+        .type {
+          color: #C4C4C4;
+          font-style: italic;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 17px;
+        }
+      }
+
+      .options-container {
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        background: #C4C4C4;
+        border-radius: 4px;
+
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
-    .type {
-      color: #C4C4C4;
-      font-style: italic;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 17px;
-    }
+
   }
 
   .index {
