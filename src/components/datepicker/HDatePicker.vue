@@ -1,40 +1,15 @@
 <template>
   <el-date-picker
-    v-model="selectedDate"
-    :type="type"
-    :size="size"
-    :format="format"
-    :placeholder="placeholder"
+    type="date"
+    v-bind="$attrs"
+    v-on="$listeners"
     class="h-date-picker"
   />
 </template>
 
 <script>
 export default {
-  name: 'HDatePicker',
-  props: {
-    type: {
-      type: String,
-      default: 'date'
-    },
-    size: {
-      type: String,
-      default: ''
-    },
-    format: {
-      type: String,
-      default: 'yyyy-MM-dd'
-    },
-    placeholder: {
-      type: String,
-      default: ''
-    }
-  },
-  data () {
-    return {
-      selectedDate: ''
-    }
-  }
+  name: 'HDatePicker'
 }
 </script>
 

@@ -1,9 +1,13 @@
 import VSelect from './VSelect.vue'
+import HSelect from '@/components/select/HSelect'
+import HDatePicker from '@/components/datepicker/HDatePicker'
 
 export default {
   name: 'vue-tbody',
   components: {
-    VSelect
+    VSelect,
+    HSelect,
+    HDatePicker
   },
   props: {
     tbodyHighlight: {
@@ -63,6 +67,9 @@ export default {
   },
   computed: {
     headerKeys () {
+      if (!this.headers) {
+        return []
+      }
       return this.headers.map((x) => x.headerKey)
     },
     headersAsObj () {
@@ -154,6 +161,9 @@ export default {
     },
     handleDoubleClickTd (event, header, col, rowIndex, colIndex) {
       if (!this.disabledEvent(col, header)) {
+        if (this.headersAsObj[header].type === 'date') {
+          this.$refs[`datepicker-${this.currentTable}-${colIndex}-${rowIndex}`][0].$children[0].focus()
+        }
         this.$emit('tbody-td-double-click', event, header, col, rowIndex, colIndex)
       }
     },
@@ -221,6 +231,15 @@ export default {
         return `${value}%`
       }
       return value
-    }
+    },
+    getLabelFromValue (value, options) {
+      options = options || []
+      for (const option of options) {
+        if (option.value === value) {
+          return option.label
+        }
+      }
+      return value
+    },
   }
 }

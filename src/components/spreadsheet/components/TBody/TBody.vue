@@ -184,31 +184,25 @@
               <span :ref="`span-${currentTable}-${colIndex}-${rowIndex}`">
                 {{ formatValue(headersAsObj[header].type, row[header].value) }}
               </span>
-              <input
+              <h-date-picker
                 v-model="row[header].value"
-                type="date"
-                @keydown="inputHandleKeydown($event, header, rowIndex, colIndex, this)"
-                @change="inputHandleChange($event, header, rowIndex, colIndex)"
-                @keyup.esc="escKeyup(row[header], rowIndex, header, colIndex, headersAsObj[header].type)"
-                :ref="`textarea-${currentTable}-${colIndex}-${rowIndex}`"
+                format="yyyy-MM-dd"
+                value-format="yyyy-MM-dd"
+                :ref="`datepicker-${currentTable}-${colIndex}-${rowIndex}`"
               />
             </template>
 
             <!-- If Select -->
             <template v-if="headersAsObj[header].type === 'category'">
-              <v-select
-                :value="Object.assign({}, row, {[header]: {...row[header], selectOptions: headersAsObj[header].selectOptions}})"
+              <span :ref="`span-${currentTable}-${colIndex}-${rowIndex}`">
+                {{ getLabelFromValue(row[header].value, headersAsObj[header].selectOptions) }}
+              </span>
+              <h-select
                 :ref="`vsSelect-${currentTable}-${colIndex}-${rowIndex}`"
-                :colIndex="colIndex"
-                :currentTable="currentTable"
-                :disabledEvent="disabledEvent"
-                :filteredList="filteredList"
-                :header="header"
-                :rowIndex="rowIndex"
-                :trad="trad"
-                @tbody-handle-to-open-select="tbodyOpenSelect"
-                @tbody-handle-select-change="tbodySelectChange"
-                @tbody-handle-search-input-select="tbodySearchInputSelect"
+                v-model="row[header].value"
+                :options="headersAsObj[header].selectOptions"
+                @change="inputHandleChange($event, header, rowIndex, colIndex)"
+                @keyup.esc="escKeyup(row[header], rowIndex, header, colIndex, headersAsObj[header].type)"
               />
             </template>
           </td>

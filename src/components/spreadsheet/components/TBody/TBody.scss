@@ -121,6 +121,8 @@
     }
     &.show {
       textarea,
+      .h-select,
+      .h-date-picker,
       select {
         opacity: 1;
         z-index: 13;
@@ -135,17 +137,19 @@
         z-index: 20;
         resize: none;
       }
-      span {
+      span:not(.el-input__prefix) {
         opacity: 0;
       }
     }
     textarea,
     select,
+    .h-select,
+    .h-date-picker,
     .dropdown {
       opacity: 0;
     }
     textarea,
-    span,
+    span:not(.el-input__prefix),
     select,
     .dropdown {
       position: absolute;
@@ -166,7 +170,7 @@
     select {
       z-index: 5;
     }
-    span {
+    span:not(.el-input__prefix) {
       width: 100%;
       font-size: 14px;
       z-index: 10;
