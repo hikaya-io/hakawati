@@ -240,6 +240,6 @@ export default {
         }
       }
       return value
-    },
+    }
   }
 }
