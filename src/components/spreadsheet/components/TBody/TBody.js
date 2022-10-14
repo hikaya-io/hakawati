@@ -230,6 +230,9 @@ export default {
       if (type === 'percentage') {
         return `${value}%`
       }
+      if (type === 'boolean') {
+        return `${value}`.toUpperCase()
+      }
       return value
     },
     getLabelFromValue (value, options) {

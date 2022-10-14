@@ -167,7 +167,7 @@
 
             <!-- If Input -->
             <template v-if="['text', 'integer', 'decimal', 'percentage'].includes(headersAsObj[header].type)">
-              <span :ref="`span-${currentTable}-${colIndex}-${rowIndex}`">
+              <span class="display-text" :ref="`span-${currentTable}-${colIndex}-${rowIndex}`">
                 {{ formatValue(headersAsObj[header].type, row[header].value) }}
               </span>
               <textarea
@@ -181,7 +181,7 @@
             </template>
 
             <template v-if="headersAsObj[header].type === 'date'">
-              <span :ref="`span-${currentTable}-${colIndex}-${rowIndex}`">
+              <span class="display-text" :ref="`span-${currentTable}-${colIndex}-${rowIndex}`">
                 {{ formatValue(headersAsObj[header].type, row[header].value) }}
               </span>
               <h-date-picker
@@ -194,7 +194,7 @@
 
             <!-- If Select -->
             <template v-if="headersAsObj[header].type === 'category'">
-              <span :ref="`span-${currentTable}-${colIndex}-${rowIndex}`">
+              <span class="display-text" :ref="`span-${currentTable}-${colIndex}-${rowIndex}`">
                 {{ getLabelFromValue(row[header].value, headersAsObj[header].selectOptions) }}
               </span>
               <h-select
@@ -204,6 +204,19 @@
                 @change="inputHandleChange($event, header, rowIndex, colIndex)"
                 @keyup.esc="escKeyup(row[header], rowIndex, header, colIndex, headersAsObj[header].type)"
               />
+            </template>
+
+            <template v-if="headersAsObj[header].type === 'boolean'">
+              <span class="display-text" :ref="`span-${currentTable}-${colIndex}-${rowIndex}`">
+                {{ formatValue(headersAsObj[header].type, row[header].value) }}
+              </span>
+              <div class="h-checkbox">
+                <el-checkbox
+                  class=""
+                  v-model="row[header].value"
+                  :ref="`checkbox-${currentTable}-${colIndex}-${rowIndex}`"
+                />
+              </div>
             </template>
           </td>
         </template>

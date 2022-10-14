@@ -123,6 +123,7 @@
       textarea,
       .h-select,
       .h-date-picker,
+      .el-checkbox,
       select {
         opacity: 1;
         z-index: 13;
@@ -137,7 +138,7 @@
         z-index: 20;
         resize: none;
       }
-      span:not(.el-input__prefix) {
+      .display-text {
         opacity: 0;
       }
     }
@@ -145,11 +146,12 @@
     select,
     .h-select,
     .h-date-picker,
+    .el-checkbox,
     .dropdown {
       opacity: 0;
     }
     textarea,
-    span:not(.el-input__prefix),
+    .display-text,
     select,
     .dropdown {
       position: absolute;
@@ -170,7 +172,10 @@
     select {
       z-index: 5;
     }
-    span:not(.el-input__prefix) {
+    .h-checkbox {
+      padding-left: 10px;
+    }
+    .display-text {
       width: 100%;
       font-size: 14px;
       z-index: 10;

@@ -114,6 +114,15 @@ const headers = [
       width: '200px',
       minWidth: '200px'
     }
+  },
+  {
+    headerName: 'Boolean',
+    headerKey: 'boolean',
+    type: 'boolean',
+    style: {
+      width: '200px',
+      minWidth: '200px'
+    }
   }
 ]
 
@@ -146,6 +155,10 @@ const values = [
     category: {
       type: 'category',
       value: 'two'
+    },
+    boolean: {
+      type: 'boolean',
+      value: true
     }
   },
   {
@@ -176,8 +189,13 @@ const values = [
     category: {
       type: 'category',
       value: 'three'
+    },
+    boolean: {
+      type: 'boolean',
+      value: false
     }
   }
 ]
+
 export const Main = Template.bind({})
 Main.args = { label: 'Spreadsheet' }
