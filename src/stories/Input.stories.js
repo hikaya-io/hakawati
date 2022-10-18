@@ -17,7 +17,7 @@ export default {
     disabled: { control: 'boolean' },
     clearable: { control: 'boolean' },
     showPassword: { control: 'boolean' },
-    rows: { control: 'number'},
+    rows: { control: 'number' },
     suffixIcon: {
       options: ['el-icon-date', 'el-icon-edit', 'el-icon-delete'],
       control: { type: 'select' }

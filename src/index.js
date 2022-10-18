@@ -80,6 +80,9 @@ import HForm from './components/form/HForm.vue'
 // SideNav
 import HSideNav from '@/components/sidenav/HSideNav'
 
+// Spreadsheet
+import HSpreadsheet from '@/components/spreadsheet/HSpreadsheet'
+
 const components = [
   HButton,
   HCheckbox,
@@ -110,7 +113,8 @@ const components = [
   HSearch,
   HBreadcrumb,
   HSideNav,
-  HColorPicker
+  HColorPicker,
+  HSpreadsheet
 ]
 
 const install = function (Vue) {
@@ -154,5 +158,6 @@ export default {
   HSearch,
   HBreadcrumb,
   HSideNav,
-  HColorPicker
+  HColorPicker,
+  HSpreadsheet
 }

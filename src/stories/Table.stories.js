@@ -162,7 +162,7 @@ export const hTableEditEnabled = () => ({
       editMode: false,
       columnAttrs: {
         address: {
-          width: '200px',
+          width: '200px'
         }
       },
       columnComponents: {
