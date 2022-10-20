@@ -60,16 +60,85 @@
                 <span class="el-dropdown-link">
                   <i class="el-icon-s-operation table-settings"/>
                 </span>
-                <draggable
+                <el-dropdown-menu slot="dropdown">
+                  <el-dropdown-item disabled> Visible Columns</el-dropdown-item>
+                  <el-dropdown-item>
+                    <draggable
+                      :list="mutableTableColumns"
+                      ghost-class="drop-placeholder"
+                      chosen-class="chosen-item"
+                      drag-class="dragging-item"
+                      :move="checkMove"
+                      group="columns"
+                    >
+                      <div
+                        v-for="col in mutableTableColumns" :key="col"
+                        class="column-item"
+                      >
+                        <h-switch
+                          v-if="useSwitch"
+                          :value="!hiddenColumns.includes(col)"
+                          :activeText="getDropdownItemText(col)"
+                          @change="hideOrShowColumn(col)"
+                        >
+                        </h-switch>
+                        <el-checkbox
+                          v-else
+                          :checked="!hiddenColumns.includes(col)"
+                          @change="hideOrShowColumn(col)"
+                        >
+                          {{ titleCase(col) }}
+                        </el-checkbox>
+                      </div>
+                    </draggable>
+                  </el-dropdown-item>
+                  <el-dropdown-item disabled divided>
+                    Hidden Columns
+                  </el-dropdown-item>
+                  <el-dropdown-item>
+                    <draggable
+                      :list="hiddenColumns"
+                      ghost-class="drop-placeholder"
+                      chosen-class="chosen-item"
+                      drag-class="dragging-item"
+                      :move="checkMove"
+                      group="columns"
+                    >
+                      <div
+                        v-for="col in hiddenColumns" :key="col"
+                        class="column-item"
+                      >
+                        <h-switch
+                          v-if="useSwitch"
+                          :value="!hiddenColumns.includes(col)"
+                          :activeText="getDropdownItemText(col)"
+                          @change="hideOrShowColumn(col)"
+                        >
+                        </h-switch>
+                        <el-checkbox
+                          v-else
+                          :checked="!hiddenColumns.includes(col)"
+                          @change="hideOrShowColumn(col)"
+                        >
+                          {{ titleCase(col) }}
+                        </el-checkbox>
+                      </div>
+                    </draggable>
+                  </el-dropdown-item>
+                </el-dropdown-menu>
+                <!-- <draggable
                   tag="el-dropdown-menu"
                   :list="mutableTableColumns"
                   :component-data="getDropdownMenuData()"
+                  group="columns"
                   ghost-class="drop-placeholder"
                   chosen-class="chosen-item"
                   drag-class="dragging-item"
+                  :move="checkMove"
                 >
+                  <span slot="header">Visible Columns</span>
                   <el-dropdown-item
-                    v-for="col in shownTableColumns" :key="col"
+                    v-for="col in mutableTableColumns.filter(col => shownTableColumns.includes(col))" :key="col"
                     class="column-item"
                   >
                     <h-switch
@@ -91,7 +160,7 @@
                     Hidden Columns
                   </el-dropdown-item>
                   <el-dropdown-item
-                    v-for="col in hiddenColumns" :key="col"
+                    v-for="col in mutableTableColumns.filter(col => hiddenColumns.includes(col))" :key="col"
                     class="column-item">
                     <h-switch
                       v-if="useSwitch"
@@ -108,7 +177,7 @@
                       {{ titleCase(col) }}
                     </el-checkbox>
                   </el-dropdown-item>
-                </draggable>
+                </draggable> -->
               </el-dropdown>
             </div>
 
@@ -240,17 +309,11 @@ export default {
           this.editableTableData = [...val]
         }
       }
-    },
-
-    hiddenColumns: {
-      handler (val) {
-        this.mutableTableColumns = [...this.origTableColumns.filter(col => !this.ignoredColumns.includes(col))]
-      }
     }
   },
   mounted () {
     this.tableColumns = [...this.origTableColumns.filter(col => !this.ignoredColumns.includes(col))]
-    this.mutableTableColumns = [...this.origTableColumns.filter(col => !this.ignoredColumns.includes(col))]
+    this.mutableTableColumns = [...this.shownTableColumns]
     this.editableTableData = [...this.tableData]
     this.hiddenColumns = [...this.savedHiddenColumns]
     const keys = Object.keys(this.columnComponents)
@@ -304,8 +367,11 @@ export default {
       const index = this.hiddenColumns.indexOf(col)
       if (index === -1) {
         this.hiddenColumns.push(col)
+        console.log('here')
+        this.mutableTableColumns = this.mutableTableColumns.filter(column => column !== col)
       } else {
         this.hiddenColumns.splice(index, 1)
+        this.mutableTableColumns.push(col)
       }
       this.$emit('column-hidden', { columns: this.hiddenColumns })
     },
@@ -384,6 +450,13 @@ export default {
     filterHandler (value, row, column) {
       const property = column.property
       return row[property] === value
+    },
+    checkMove (e) {
+      console.log(e)
+      console.log(e.draggedContext)
+      console.log('Future index: ' + e.draggedContext.futureIndex)
+      // e.draggedContext.element = 'n'
+      console.log(e.draggedContext)
     }
   }
 }
