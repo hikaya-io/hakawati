@@ -62,13 +62,12 @@
                 </span>
                 <el-dropdown-menu slot="dropdown">
                   <el-dropdown-item disabled> Visible Columns</el-dropdown-item>
-                  <el-dropdown-item>
+                  <el-dropdown-item class="clear-background">
                     <draggable
                       :list="mutableTableColumns"
                       ghost-class="drop-placeholder"
                       chosen-class="chosen-item"
                       drag-class="dragging-item"
-                      :move="checkMove"
                       group="columns"
                     >
                       <div
@@ -95,13 +94,12 @@
                   <el-dropdown-item disabled divided>
                     Hidden Columns
                   </el-dropdown-item>
-                  <el-dropdown-item>
+                  <el-dropdown-item class="clear-background">
                     <draggable
                       :list="hiddenColumns"
                       ghost-class="drop-placeholder"
                       chosen-class="chosen-item"
                       drag-class="dragging-item"
-                      :move="checkMove"
                       group="columns"
                     >
                       <div
@@ -126,58 +124,6 @@
                     </draggable>
                   </el-dropdown-item>
                 </el-dropdown-menu>
-                <!-- <draggable
-                  tag="el-dropdown-menu"
-                  :list="mutableTableColumns"
-                  :component-data="getDropdownMenuData()"
-                  group="columns"
-                  ghost-class="drop-placeholder"
-                  chosen-class="chosen-item"
-                  drag-class="dragging-item"
-                  :move="checkMove"
-                >
-                  <span slot="header">Visible Columns</span>
-                  <el-dropdown-item
-                    v-for="col in mutableTableColumns.filter(col => shownTableColumns.includes(col))" :key="col"
-                    class="column-item"
-                  >
-                    <h-switch
-                      v-if="useSwitch"
-                      :value="!hiddenColumns.includes(col)"
-                      :activeText="getDropdownItemText(col)"
-                      @change="hideOrShowColumn(col)"
-                    >
-                    </h-switch>
-                    <el-checkbox
-                      v-else
-                      :checked="!hiddenColumns.includes(col)"
-                      @change="hideOrShowColumn(col)"
-                    >
-                      {{ titleCase(col) }}
-                    </el-checkbox>
-                  </el-dropdown-item>
-                  <el-dropdown-item disabled divided>
-                    Hidden Columns
-                  </el-dropdown-item>
-                  <el-dropdown-item
-                    v-for="col in mutableTableColumns.filter(col => hiddenColumns.includes(col))" :key="col"
-                    class="column-item">
-                    <h-switch
-                      v-if="useSwitch"
-                      :value="!hiddenColumns.includes(col)"
-                      :activeText="getDropdownItemText(col)"
-                      @change="hideOrShowColumn(col)"
-                    >
-                    </h-switch>
-                    <el-checkbox
-                      v-else
-                      :checked="!hiddenColumns.includes(col)"
-                      @change="hideOrShowColumn(col)"
-                    >
-                      {{ titleCase(col) }}
-                    </el-checkbox>
-                  </el-dropdown-item>
-                </draggable> -->
               </el-dropdown>
             </div>
 
@@ -367,7 +313,6 @@ export default {
       const index = this.hiddenColumns.indexOf(col)
       if (index === -1) {
         this.hiddenColumns.push(col)
-        console.log('here')
         this.mutableTableColumns = this.mutableTableColumns.filter(column => column !== col)
       } else {
         this.hiddenColumns.splice(index, 1)
@@ -450,13 +395,6 @@ export default {
     filterHandler (value, row, column) {
       const property = column.property
       return row[property] === value
-    },
-    checkMove (e) {
-      console.log(e)
-      console.log(e.draggedContext)
-      console.log('Future index: ' + e.draggedContext.futureIndex)
-      // e.draggedContext.element = 'n'
-      console.log(e.draggedContext)
     }
   }
 }
@@ -605,10 +543,17 @@ table {
   overflow-x: hidden;
 }
 
+.el-dropdown-menu__item {
+  background: #ffff;
+}
+
 .chosen-item {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: $body-grey;
 }
 
+.clear-background:hover {
+  background: #ffff;
+}
 </style>
