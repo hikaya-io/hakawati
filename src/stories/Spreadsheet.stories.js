@@ -129,69 +129,53 @@ const headers = [
 const values = [
   {
     text: {
-      type: 'text',
       value: 'Some random text'
     },
     integer: {
-      type: 'integer',
       value: 123
     },
     decimal: {
-      type: 'decimal',
       value: 123.56
     },
     decimal_formatted: {
-      type: 'decimal',
       value: 127
     },
     percentage: {
-      type: 'percentage',
       value: 4
     },
     date: {
-      type: 'date',
       value: null
     },
     category: {
-      type: 'category',
       value: 'two'
     },
     boolean: {
-      type: 'boolean',
       value: true
     }
   },
   {
     text: {
-      type: 'text',
       value: 'Some random text'
     },
     integer: {
-      type: 'integer',
       value: 123
     },
     decimal: {
-      type: 'decimal',
       value: 123.56
     },
     decimal_formatted: {
-      type: 'decimal',
       value: 127
     },
     percentage: {
-      type: 'percentage',
       value: 4
     },
     date: {
-      type: 'date',
       value: null
     },
     category: {
-      type: 'category',
       value: 'three'
     },
     boolean: {
-      type: 'boolean',
       value: false
     }
   }
