@@ -203,13 +203,13 @@ export default {
       return false
     },
     inputHandleKeydown (event, header, rowIndex, colIndex, el) {
-      if (this.tbodyData[rowIndex][header].type === 'integer') {
+      if (this.headersAsObj[header].type === 'integer') {
         if (this.authorizeIntegerValueOnly(event)) {
           event.preventDefault()
         }
       }
 
-      if (this.tbodyData[rowIndex][header].type === 'decimal') {
+      if (this.headersAsObj[header].type === 'decimal') {
         if (this.authorizeDecimalValueOnly(event)) {
           event.preventDefault()
         }

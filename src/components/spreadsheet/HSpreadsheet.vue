@@ -294,18 +294,6 @@ export default {
         }
 
         this.headerKeys.forEach((header) => {
-          if (!tbody[header]) {
-            const data = lodashClonedeep(this.customOptions.newData)
-
-            this.$set(this.data[rowIndex], header, data)
-          } else if (!tbody[header].type && 'value' in tbody[header]) {
-            const data = lodashClonedeep(this.customOptions.newData)
-            const copyTbody = lodashClonedeep(tbody[header])
-
-            copyTbody.type = data.type
-            this.$set(this.data[rowIndex], header, copyTbody)
-          }
-
           const copy = lodashClonedeep(this.data[rowIndex][header])
 
           if (
