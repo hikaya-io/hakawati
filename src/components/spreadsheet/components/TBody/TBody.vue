@@ -30,8 +30,16 @@
           class="index"
           :class="{ highlight_spreadsheet: tbodyHighlight.includes(rowIndex) }"
           :key="`td-${currentTable}-index-${rowIndex}`"
+          @mouseover="addToVisibleCheckboxes(rowIndex)"
+          @mouseleave="removeFromVisibleCheckboxes(rowIndex)"
         >
-          {{ rowIndex + 1 }}
+          <span v-if="!selectedRows[rowIndex] && !visibleRowCheckboxes.includes(rowIndex)">
+            {{ rowIndex + 1 }}
+          </span>
+          <el-checkbox
+            v-if="selectedRows[rowIndex] || visibleRowCheckboxes.includes(rowIndex)"
+            v-model="selectedRows[rowIndex]"
+          />
         </td>
 
         <template v-for="(header, colIndex) in headerKeys">
@@ -58,6 +66,7 @@
             @mouseup="
               handleUpDragToFill($event, header, row[header], rowIndex, colIndex, headersAsObj[header].type)
             "
+            @contextmenu.prevent="handleContextMenuTd($event, header, rowIndex, colIndex, row[header].type)"
             :class="{
               active_td: row[header].active,
               show: row[header].show,

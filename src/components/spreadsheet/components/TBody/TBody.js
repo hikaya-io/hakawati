@@ -62,7 +62,9 @@ export default {
       submenuEnableCol: null,
       submenuEnableRow: null,
       vuetableTooltip: {},
-      vueTableComment: {}
+      vueTableComment: {},
+      selectedRows: [],
+      visibleRowCheckboxes: []
     }
   },
   computed: {
@@ -75,6 +77,17 @@ export default {
     headersAsObj () {
       return Object.assign({}, ...(this.headers.map(item => ({ [item.headerKey]: item }))))
     }
+  },
+  mounted () {
+    this.selectedRows = new Array(this.tbodyData.length).fill(false)
+    this.$parent.$on('on-new-row', ({ row, index, before }) => {
+      this.selectedRows = new Array(this.tbodyData.length).fill(false)
+      this.visibleRowCheckboxes = []
+    })
+    this.$parent.$on('on-remove-row', ({ row, index }) => {
+      this.selectedRows = new Array(this.tbodyData.length).fill(false)
+      this.visibleRowCheckboxes = []
+    })
   },
   methods: {
     checkedRow (row) {
@@ -170,6 +183,19 @@ export default {
     handleContextMenuTd (event, header, rowIndex, colIndex, type) {
       this.submenuEnableCol = colIndex
       this.submenuEnableRow = rowIndex
+
+      const indices = []
+      this.selectedRows.forEach((val, index) => {
+        if (val) {
+          indices.push(index)
+        }
+      })
+      if (indices.includes(rowIndex)) {
+        this.$parent.$refs['bulk-row-menu'].open(event, { indices })
+      } else {
+        this.$parent.$refs['row-menu'].open(event, { header, rowIndex, colIndex, type })
+      }
+
       // this.$emit('submenu-enable', 'tbody')
       // this.$emit('tbody-td-context-menu', event, header, rowIndex, colIndex, type)
       // this.$emit('handle-to-calculate-position', event, rowIndex, colIndex, 'contextMenu')
@@ -243,6 +269,17 @@ export default {
         }
       }
       return value
+    },
+    addToVisibleCheckboxes (index) {
+      if (!this.visibleRowCheckboxes.includes(index)) {
+        this.visibleRowCheckboxes.push(index)
+      }
+    },
+    removeFromVisibleCheckboxes (rowIndex) {
+      const index = this.visibleRowCheckboxes.indexOf(rowIndex)
+      if (index !== -1) {
+        this.visibleRowCheckboxes.splice(index, 1)
+      }
     }
   }
 }

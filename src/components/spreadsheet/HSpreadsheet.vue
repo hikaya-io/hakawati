@@ -7,6 +7,27 @@
   >
     <slot name="header"></slot>
 
+    <context-menu ref="row-menu">
+      <template v-slot="{ contextData }">
+        <div class="row-context-menu">
+          <p class="body-reg" @click="addNewRow($event, contextData.rowIndex, true)"><i class="el-icon-top" /> Insert record above</p>
+          <p class="body-reg" @click="addNewRow($event, contextData.rowIndex)"> <i class="el-icon-bottom" /> Insert record below</p>
+          <el-divider />
+          <p class="body-reg" ><i class="el-icon-copy-document" /> Duplicate record</p>
+          <p class="body-reg" ><i class="el-icon-rank" /> Expand record</p>
+          <el-divider />
+          <p class="red body-reg" @click="removeRow($event, contextData.rowIndex)"><i class="el-icon-delete-solid" /> Delete record</p>
+        </div>
+      </template>
+    </context-menu>
+    <context-menu ref="bulk-row-menu">
+      <template v-slot="{ contextData }">
+        <div class="row-context-menu">
+          <p class="red body-reg" @click="removeMultipleRows($event, contextData.indices)"><i class="el-icon-delete-solid" /> Delete all selected records</p>
+        </div>
+      </template>
+    </context-menu>
+
     <table class="vue_table" :ref="`${customTable}-table`">
       <vue-thead
         :ref="`${customTable}-vueThead`"
@@ -83,12 +104,14 @@ import { undo } from './mixins/undo'
 import Fuse from 'fuse.js'
 import VueThead from './components/Thead.vue'
 import VueTbody from './components/TBody/TBody.vue'
+import ContextMenu from '@/components/spreadsheet/components/contextmenu/ContextMenu'
 
 const lodashClonedeep = require('lodash.clonedeep')
 
 export default {
   name: 'HSpreadsheet',
   components: {
+    ContextMenu,
     VueThead,
     VueTbody
   },
@@ -254,9 +277,7 @@ export default {
       }
 
       // set size / top position / left position
-      const currentSelect = this.$refs[`${this.customTable}-vueTbody`].$refs[
-        `vsSelect-${this.customTable}-${colIndex}-${rowIndex}`
-      ][0].$refs[`dropdown-${this.customTable}-${colIndex}-${rowIndex}`]
+      const currentSelect = undefined
       const contextMenu = this.$refs[`${this.customTable}-vueTbody`].$refs[
         `contextMenu-${this.customTable}-${colIndex}-${rowIndex}`
       ][0]
@@ -470,7 +491,9 @@ export default {
         column.search = false
       }
     },
-    addNewRow () {
+    addNewRow (event, index = -1, before = false) {
+      // Close row context menu
+      this.$refs['row-menu'].close()
       const row = {}
       this.headers.forEach(header => {
         row[header.headerKey] = {
@@ -478,13 +501,36 @@ export default {
           value: null
         }
       })
-      this.$emit('on-new-row', row)
+      if (index === -1) {
+        this.data.push(row)
+      } else {
+        if (before) {
+          this.data.splice(index, 0, row)
+        } else {
+          this.data.splice(index + 1, 0, row)
+        }
+      }
+      this.$emit('on-new-row', { row, index: index, before: before })
+    },
+    removeRow ($event, index) {
+      this.$refs['row-menu'].close()
+      this.$emit('on-remove-row', { row: this.data[index], index })
+      this.data.splice(index, 1)
+    },
+    removeMultipleRows ($event, indices) {
+      this.$refs['bulk-row-menu'].close()
+      this.$emit('on-bulk-remove', { indices })
+      indices.sort(function (a, b) { return b - a }).forEach((index) => {
+        this.data.splice(index, 1)
+      })
     }
   }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import "../../styles/theme";
+
 :root {
   /* select style */
   --selectLeft: 0;
@@ -508,36 +554,67 @@ export default {
   /* drag Header */
   --dragHeaderHeight: 100%;
 }
-.vue-spreadsheet table {
-  table-layout: fixed;
-  margin: 0;
-  border-spacing: 0;
-  border-left: 2px solid #E5E7ED;
-  border-right: 2px solid #E5E7ED;
-  border-bottom: 2px solid #E5E7ED;
-}
-.vue-spreadsheet table th {
-  color: #000;
-  font-weight: normal;
-}
-.vue-spreadsheet table td,
-.vue-spreadsheet table th {
-  margin: 0;
-}
-.vue-spreadsheet .add_new_row {
-  cursor: pointer;
-  width: 58px;
-  height: 48px;
-  padding: 0;
-  background: white;
-  box-sizing: border-box;
-  border-top: none;
-  border-bottom: 2px solid #E5E7ED;
-  border-left: 2px solid #E5E7ED;
-  border-right: 2px solid #E5E7ED;
-}
+.vue-spreadsheet {
+  table {
+    table-layout: fixed;
+    margin: 0;
+    border-spacing: 0;
+    border-left: 2px solid #E5E7ED;
+    border-right: 2px solid #E5E7ED;
+    border-bottom: 2px solid #E5E7ED;
 
-.vue-spreadsheet .add_new_row:hover {
-  background: #d5ddec;
+    th {
+      color: #000;
+      font-weight: normal;
+    }
+
+    td, th {
+      margin: 0;
+    }
+  }
+
+  .add_new_row {
+    cursor: pointer;
+    width: 58px;
+    height: 48px;
+    padding: 0;
+    background: white;
+    box-sizing: border-box;
+    border-top: none;
+    border-bottom: 2px solid #E5E7ED;
+    border-left: 2px solid #E5E7ED;
+    border-right: 2px solid #E5E7ED;
+
+    &:hover {
+      background: #d5ddec;
+    }
+  }
+
+  .row-context-menu {
+    width: 215px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 24px 8px;
+
+    p {
+      cursor: pointer;
+      padding: 4px;
+      margin-top: 8px;
+      margin-bottom: 8px;
+
+      &:hover {
+        background: $purple-fill;
+        border-radius: 4px;
+      }
+    }
+
+    .red {
+      color: $red;
+    }
+
+    .el-divider {
+      margin: 0;
+    }
+  }
 }
 </style>
