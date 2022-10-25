@@ -96,17 +96,23 @@ export default {
   }
 
   .toggle-button {
-    position: absolute;
-    height: 26px;
-    width: 26px;
+    position: sticky;
+    height: 25px;
+    width: 25px;
     top: 40px;
     left: 16.5%;
     transition: left 0.6s;
+    border-left: none;
+    border-radius: 0px 25px 25px 0px;
 
     &.collapsed {
       left: 2.1%;
     }
   }
+
+  ::v-deep .el-button--mini.is-circle {
+      padding: 5px;
+    }
 
   @media (max-width: 576px) {
     .navigation {

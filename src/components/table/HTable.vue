@@ -61,7 +61,7 @@
                   <i class="el-icon-s-operation table-settings"/>
                 </span>
                 <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item disabled> Visible Columns</el-dropdown-item>
+                  <el-dropdown-item class="info" disabled> VISIBLE FIELDS</el-dropdown-item>
                   <el-dropdown-item class="clear-background">
                     <draggable
                       :list="mutableTableColumns"
@@ -81,18 +81,17 @@
                           @change="hideOrShowColumn(col)"
                         >
                         </h-switch>
-                        <el-checkbox
+                        <h-checkbox
                           v-else
                           :checked="!hiddenColumns.includes(col)"
                           @change="hideOrShowColumn(col)"
-                        >
-                          {{ titleCase(col) }}
-                        </el-checkbox>
+                          :label="col"
+                        />
                       </div>
                     </draggable>
                   </el-dropdown-item>
-                  <el-dropdown-item disabled divided>
-                    Hidden Columns
+                  <el-dropdown-item class="info" disabled divided>
+                    HIDDEN FIELDS
                   </el-dropdown-item>
                   <el-dropdown-item class="clear-background">
                     <draggable
@@ -113,13 +112,12 @@
                           @change="hideOrShowColumn(col)"
                         >
                         </h-switch>
-                        <el-checkbox
+                        <h-checkbox
                           v-else
                           :checked="!hiddenColumns.includes(col)"
                           @change="hideOrShowColumn(col)"
-                        >
-                          {{ titleCase(col) }}
-                        </el-checkbox>
+                          :label="col"
+                        />
                       </div>
                     </draggable>
                   </el-dropdown-item>
@@ -139,11 +137,12 @@
 <script>
 import draggable from 'vuedraggable'
 import HSwitch from '@/components/switch/HSwitch'
+import HCheckbox from '@/components/checkbox/HCheckbox'
 import EditableCell from './components/EditableCell'
 
 export default {
   name: 'HTable',
-  components: { HSwitch, draggable, EditableCell },
+  components: { HSwitch, HCheckbox, draggable, EditableCell },
   props: {
     tableData: {
       type: Array,
@@ -545,6 +544,12 @@ table {
 
 .el-dropdown-menu__item {
   background: #ffff;
+}
+
+.el-dropdown-menu {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: none;
 }
 
 .chosen-item {
