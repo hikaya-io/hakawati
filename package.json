@@ -26,8 +26,10 @@
     "core-js": "^3.6.4",
     "fuse.js": "^6.6.2",
     "lodash.clonedeep": "^4.5.0",
+    "popper.js": "^1.16.1",
     "style-loader": "^2.0.0",
     "vue": "^2.6.11",
+    "vue-click-outside": "^1.1.0",
     "vuedraggable": "^2.24.3",
     "xlsx": "^0.15.6"
   },

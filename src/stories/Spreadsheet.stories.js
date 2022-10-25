@@ -20,6 +20,11 @@ const Template = () => ({
       }
     }
   },
+  methods: {
+    onNewRow (obj) {
+      console.log(`New row added at ${obj.index}`)
+    }
+  },
   template: `
     <h-spreadsheet
       v-bind="$props"
@@ -32,7 +37,7 @@ const Template = () => ({
       :custom-options="{}"
       :data="values"
       :headers="headers"
-      @on-new-row="(row) => values.push(row)"
+      @on-new-row="onNewRow"
     />
   `
 })
