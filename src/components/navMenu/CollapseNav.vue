@@ -157,6 +157,8 @@ export default {
     height: 65px;
     width: 25px;
     border-radius: 0 20px 20px 0;
+    border: none;
+    box-shadow: 2px 2px 2.5px -1px rgba(0, 0, 0, 0.25)
   }
   .collapse-toggle.el-button--default.el-button--mini.is-circle.btn-not-collapse{
     right: -25px;
@@ -165,6 +167,7 @@ export default {
     height: 65px;
     width: 25px;
     border-radius: 0 20px 20px 0;
+    border: none;
   }
   .el-icon-arrow-right.button-arrow{
     font-size: 1rem;

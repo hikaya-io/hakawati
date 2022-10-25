@@ -60,34 +60,68 @@
                 <span class="el-dropdown-link">
                   <i class="el-icon-s-operation table-settings"/>
                 </span>
-                <draggable
-                  tag="el-dropdown-menu"
-                  :list="mutableTableColumns"
-                  :component-data="getDropdownMenuData()"
-                  ghost-class="drop-placeholder"
-                  chosen-class="chosen-item"
-                  drag-class="dragging-item"
-                >
-                  <el-dropdown-item
-                    v-for="col in mutableTableColumns" :key="col"
-                    class="column-item"
-                  >
-                    <h-switch
-                      v-if="useSwitch"
-                      :value="!hiddenColumns.includes(col)"
-                      :activeText="getDropdownItemText(col)"
-                      @change="hideOrShowColumn(col)"
+                <el-dropdown-menu slot="dropdown">
+                  <el-dropdown-item class="info" disabled> VISIBLE FIELDS</el-dropdown-item>
+                  <el-dropdown-item class="clear-background">
+                    <draggable
+                      :list="mutableTableColumns"
+                      ghost-class="drop-placeholder"
+                      chosen-class="chosen-item"
+                      drag-class="dragging-item"
+                      group="columns"
                     >
-                    </h-switch>
-                    <el-checkbox
-                      v-else
-                      :checked="!hiddenColumns.includes(col)"
-                      @change="hideOrShowColumn(col)"
-                    >
-                      {{ titleCase(col) }}
-                    </el-checkbox>
+                      <div
+                        v-for="col in mutableTableColumns" :key="col"
+                        class="column-item"
+                      >
+                        <h-switch
+                          v-if="useSwitch"
+                          :value="!hiddenColumns.includes(col)"
+                          :activeText="getDropdownItemText(col)"
+                          @change="hideOrShowColumn(col)"
+                        >
+                        </h-switch>
+                        <h-checkbox
+                          v-else
+                          :checked="!hiddenColumns.includes(col)"
+                          @change="hideOrShowColumn(col)"
+                          :label="col"
+                        />
+                      </div>
+                    </draggable>
                   </el-dropdown-item>
-                </draggable>
+                  <el-dropdown-item class="info" disabled divided>
+                    HIDDEN FIELDS
+                  </el-dropdown-item>
+                  <el-dropdown-item class="clear-background">
+                    <draggable
+                      :list="hiddenColumns"
+                      ghost-class="drop-placeholder"
+                      chosen-class="chosen-item"
+                      drag-class="dragging-item"
+                      group="columns"
+                    >
+                      <div
+                        v-for="col in hiddenColumns" :key="col"
+                        class="column-item"
+                      >
+                        <h-switch
+                          v-if="useSwitch"
+                          :value="!hiddenColumns.includes(col)"
+                          :activeText="getDropdownItemText(col)"
+                          @change="hideOrShowColumn(col)"
+                        >
+                        </h-switch>
+                        <h-checkbox
+                          v-else
+                          :checked="!hiddenColumns.includes(col)"
+                          @change="hideOrShowColumn(col)"
+                          :label="col"
+                        />
+                      </div>
+                    </draggable>
+                  </el-dropdown-item>
+                </el-dropdown-menu>
               </el-dropdown>
             </div>
 
@@ -103,11 +137,12 @@
 <script>
 import draggable from 'vuedraggable'
 import HSwitch from '@/components/switch/HSwitch'
+import HCheckbox from '@/components/checkbox/HCheckbox'
 import EditableCell from './components/EditableCell'
 
 export default {
   name: 'HTable',
-  components: { HSwitch, draggable, EditableCell },
+  components: { HSwitch, HCheckbox, draggable, EditableCell },
   props: {
     tableData: {
       type: Array,
@@ -203,7 +238,7 @@ export default {
       return this.tableColumns.filter(val => !this.hiddenColumns.includes(val))
     },
     columnsOrderChanged () {
-      return JSON.stringify(this.tableColumns) !== JSON.stringify(this.mutableTableColumns)
+      return JSON.stringify(this.shownTableColumns) !== JSON.stringify(this.mutableTableColumns)
     }
   },
   watch: {
@@ -223,7 +258,7 @@ export default {
   },
   mounted () {
     this.tableColumns = [...this.origTableColumns.filter(col => !this.ignoredColumns.includes(col))]
-    this.mutableTableColumns = [...this.origTableColumns.filter(col => !this.ignoredColumns.includes(col))]
+    this.mutableTableColumns = [...this.shownTableColumns]
     this.editableTableData = [...this.tableData]
     this.hiddenColumns = [...this.savedHiddenColumns]
     const keys = Object.keys(this.columnComponents)
@@ -257,7 +292,9 @@ export default {
   },
   methods: {
     titleCase (val) {
-      return val.charAt(0).toUpperCase() + val.slice(1)
+      if (val) {
+        return val.charAt(0).toUpperCase() + val.slice(1)
+      }
     },
     toggleSelection (rows) {
       if (rows) {
@@ -275,8 +312,10 @@ export default {
       const index = this.hiddenColumns.indexOf(col)
       if (index === -1) {
         this.hiddenColumns.push(col)
+        this.mutableTableColumns = this.mutableTableColumns.filter(column => column !== col)
       } else {
         this.hiddenColumns.splice(index, 1)
+        this.mutableTableColumns.push(col)
       }
       this.$emit('column-hidden', { columns: this.hiddenColumns })
     },
@@ -503,10 +542,23 @@ table {
   overflow-x: hidden;
 }
 
+.el-dropdown-menu__item {
+  background: #ffff;
+}
+
+.el-dropdown-menu {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: none;
+}
+
 .chosen-item {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: $body-grey;
 }
 
+.clear-background:hover {
+  background: #ffff;
+}
 </style>
