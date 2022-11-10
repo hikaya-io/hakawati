@@ -1,7 +1,7 @@
 <template>
   <div class="h-input">
     <el-input
-      v-model="input"
+      v-model="inputValue"
       v-bind="$attrs"
       v-on="$listeners"
     >
@@ -13,9 +13,20 @@
 <script>
 export default {
   name: 'HInput',
-  data () {
-    return {
-      input: ''
+  props: {
+    value: {
+      type: [String, Number],
+      default: null
+    }
+  },
+  computed: {
+    inputValue: {
+      get () {
+        return this.value
+      },
+      set (val) {
+        this.$emit('input', val)
+      }
     }
   }
 }
