@@ -163,16 +163,16 @@ const values = [
       value: 'Some random text'
     },
     integer: {
-      value: 123
+      value: 456
     },
     decimal: {
-      value: 123.56
+      value: 456.56
     },
     decimal_formatted: {
-      value: 127
+      value: 129
     },
     percentage: {
-      value: 4
+      value: 7
     },
     date: {
       value: null

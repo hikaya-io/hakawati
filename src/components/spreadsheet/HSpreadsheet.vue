@@ -9,12 +9,12 @@
 
     <context-menu ref="row-menu">
       <template v-slot="{ contextData }">
-        <div class="row-context-menu">
+        <div class="context-menu-data">
           <p class="body-reg" @click="addNewRow($event, contextData.rowIndex, true)"><i class="el-icon-top" /> Insert record above</p>
           <p class="body-reg" @click="addNewRow($event, contextData.rowIndex)"> <i class="el-icon-bottom" /> Insert record below</p>
           <el-divider />
-          <p class="body-reg" ><i class="el-icon-copy-document" /> Duplicate record</p>
-          <p class="body-reg" ><i class="el-icon-rank" /> Expand record</p>
+          <p class="body-reg disabled" ><i class="el-icon-copy-document" /> Duplicate record</p>
+          <p class="body-reg disabled" ><i class="el-icon-rank" /> Expand record</p>
           <el-divider />
           <p class="red body-reg" @click="removeRow($event, contextData.rowIndex)"><i class="el-icon-delete-solid" /> Delete record</p>
         </div>
@@ -22,8 +22,18 @@
     </context-menu>
     <context-menu ref="bulk-row-menu">
       <template v-slot="{ contextData }">
-        <div class="row-context-menu">
+        <div class="context-menu-data">
           <p class="red body-reg" @click="removeMultipleRows($event, contextData.indices)"><i class="el-icon-delete-solid" /> Delete all selected records</p>
+        </div>
+      </template>
+    </context-menu>
+    <context-menu ref="header-menu">
+      <template v-slot="{ contextData }">
+        <div class="context-menu-data">
+          <p :class="{'body-reg': true, active: contextData && contextData.header && contextData.header.activeSort === 'A'}" @click="handleSort($event, contextData.header, contextData.colIndex)"><i class="el-icon-sort-down" /> Sort A > Z</p>
+          <p :class="{'body-reg': true, active: contextData && contextData.header && contextData.header.activeSort === 'Z'}" @click="handleSort($event, contextData.header, contextData.colIndex, false)"><i class="el-icon-sort-up" /> Sort Z > A</p>
+          <el-divider />
+          <p class="body-reg"><i class="el-icon-view" /> Hide field</p>
         </div>
       </template>
     </context-menu>
@@ -523,6 +533,35 @@ export default {
       indices.sort(function (a, b) { return b - a }).forEach((index) => {
         this.data.splice(index, 1)
       })
+    },
+    handleSort (event, header, colIndex, asc = true) {
+      function compare (a, b) {
+        if (a[header.headerKey].value < b[header.headerKey].value) {
+          return asc ? -1 : 1
+        }
+        if (a[header.headerKey].value > b[header.headerKey].value) {
+          return asc ? 1 : -1
+        }
+        return 0
+      }
+
+      this.$refs['header-menu'].close()
+
+      // Clear previous sort
+      this.headers.forEach(headerObj => {
+        if ('activeSort' in headerObj) {
+          this.$delete(headerObj, 'activeSort')
+        }
+      })
+
+      if (asc) {
+        this.$set(this.headers[colIndex], 'activeSort', 'A')
+      } else {
+        this.$set(this.headers[colIndex], 'activeSort', 'Z')
+      }
+
+      // do sorting
+      this.data.sort(compare)
     }
   }
 }
@@ -590,7 +629,7 @@ export default {
     }
   }
 
-  .row-context-menu {
+  .context-menu-data {
     width: 215px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
@@ -603,6 +642,18 @@ export default {
       margin-bottom: 8px;
 
       &:hover {
+        background: $purple-fill;
+        border-radius: 4px;
+      }
+
+      &.disabled, &.disabled:hover {
+        color: $light-body-grey;
+        background: white;
+        cursor: not-allowed;
+      }
+
+      &.active {
+        color: $primary-color;
         background: $purple-fill;
         border-radius: 4px;
       }

@@ -22,13 +22,14 @@
           :ref="'th-' + colIndex"
           :key="header.headerKey"
           :style="[header.style, (header.style.top = headerTop > 0 ? headerTop + 'px' : 'auto')]"
+          @contextmenu.prevent="handleContextMenuTd($event, header, colIndex)"
         >
           <div class="header-content">
             <div class="text">
               <span class="title">{{ header.headerName }}</span>
               <span class="type">{{ header.type }}</span>
             </div>
-            <div class="options-container">
+            <div class="options-container" @click.exact="handleToggleClick($event, header, colIndex)">
               <i class="el-icon-caret-bottom"></i>
             </div>
           </div>
@@ -287,14 +288,12 @@ export default {
     },
     handleContextMenuTd (event, header, colIndex) {
       this.submenuEnableCol = colIndex
-
-      if (this.submenuStatusThead === true) {
-        this.$emit('submenu-enable', 'tbody')
-      } else {
-        this.$emit('submenu-enable', 'thead')
-      }
-
-      this.$emit('thead-td-context-menu', event, header, colIndex)
+      this.$parent.$refs['header-menu'].open(event, { header, colIndex })
+    },
+    handleToggleClick (event, header, colIndex) {
+      console.log('ttt')
+      console.log(event)
+      this.$parent.$refs['header-menu'].open(event, { header, colIndex })
     },
     handleClickSubmenu (event, header, colIndex, submenuFunction, selectOptions) {
       if (selectOptions) {

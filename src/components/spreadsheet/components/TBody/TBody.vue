@@ -5,26 +5,9 @@
         class="table_row"
         :key="`row${rowIndex}`"
         :class="{
-          checked_row:
-            'vuetable_checked' in tbodyData[rowIndex] &&
-            tbodyData[rowIndex].vuetable_checked === true,
+          checked_row: selectedRows[rowIndex]
         }"
       >
-        <td
-          v-if="tbodyCheckbox && 'vuetable_checked' in tbodyData[rowIndex]"
-          :class="{ highlight_spreadsheet: tbodyHighlight.includes(rowIndex) }"
-          :key="`checkbox-${currentTable}-${rowIndex}`"
-          class="vs_checkbox index"
-        >
-          <input
-            type="checkbox"
-            :id="`checkbox-${currentTable}-${rowIndex}`"
-            @change="checkedRow(tbodyData[rowIndex])"
-            v-model="tbodyData[rowIndex].vuetable_checked"
-          />
-          <label :for="`checkbox-${currentTable}-${rowIndex}`"></label>
-        </td>
-
         <td
           v-if="tbodyIndex"
           class="index"
@@ -32,6 +15,7 @@
           :key="`td-${currentTable}-index-${rowIndex}`"
           @mouseover="addToVisibleCheckboxes(rowIndex)"
           @mouseleave="removeFromVisibleCheckboxes(rowIndex)"
+          @contextmenu.prevent="handleContextMenuTd($event, null, rowIndex, -1, null)"
         >
           <span v-if="!selectedRows[rowIndex] && !visibleRowCheckboxes.includes(rowIndex)">
             {{ rowIndex + 1 }}
@@ -39,6 +23,7 @@
           <el-checkbox
             v-if="selectedRows[rowIndex] || visibleRowCheckboxes.includes(rowIndex)"
             v-model="selectedRows[rowIndex]"
+            @change="checkedRow(tbodyData[rowIndex])"
           />
         </td>
 
@@ -66,7 +51,7 @@
             @mouseup="
               handleUpDragToFill($event, header, row[header], rowIndex, colIndex, headersAsObj[header].type)
             "
-            @contextmenu.prevent="handleContextMenuTd($event, header, rowIndex, colIndex, row[header].type)"
+            @contextmenu.prevent="handleContextMenuTd($event, row[header], header, rowIndex, colIndex, row[header].type)"
             :class="{
               active_td: row[header].active,
               show: row[header].show,
