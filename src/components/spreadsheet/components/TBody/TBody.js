@@ -180,7 +180,7 @@ export default {
         this.$emit('tbody-td-double-click', event, header, col, rowIndex, colIndex)
       }
     },
-    handleContextMenuTd (event, header, rowIndex, colIndex, type) {
+    handleContextMenuTd (event, col, header, rowIndex, colIndex, type) {
       this.submenuEnableCol = colIndex
       this.submenuEnableRow = rowIndex
 
@@ -190,10 +190,11 @@ export default {
           indices.push(index)
         }
       })
-      if (indices.includes(rowIndex)) {
+      if (indices.length > 1) {
         this.$parent.$refs['bulk-row-menu'].open(event, { indices })
       } else {
         this.$parent.$refs['row-menu'].open(event, { header, rowIndex, colIndex, type })
+        this.$emit('tbody-td-click', event, col, header, rowIndex, colIndex, type)
       }
 
       // this.$emit('submenu-enable', 'tbody')

@@ -108,6 +108,33 @@ export default {
     &.collapsed {
       left: 2.1%;
     }
+
+    &:hover:active {
+      background-color: $blue-sub-fill;
+      border-color: $primary-color;
+      color: $primary-color;
+
+      ::v-deep .el-icon-arrow-left:before {
+        color: $primary-color;
+      }
+
+      ::v-deep .el-icon-arrow-right:before {
+        color: $primary-color;
+      }
+    }
+
+    &:focus {
+      background-color: transparent;
+      border-color: $light-body-grey;
+
+      ::v-deep .el-icon-arrow-left:before {
+        color: $heading-grey;
+      }
+
+      ::v-deep .el-icon-arrow-right:before {
+        color: $heading-grey;
+      }
+    }
   }
 
   ::v-deep .el-button--mini.is-circle {

@@ -345,7 +345,7 @@ export const copyPaste = {
     },
     cleanProperty (element) {
       element.style.setProperty('--rectangleWidth', '100%')
-      element.style.setProperty('--rectangleHeight', '40px')
+      element.style.setProperty('--rectangleHeight', '41px')
       element.style.setProperty('--rectangleTop', 0)
       element.style.setProperty('--rectangleBottom', 0)
     },
@@ -422,11 +422,11 @@ export const copyPaste = {
 
       // Defined height of rectangle
       if ((rowMin === 0 && rowMax === 0) || (rowMin === 0 && rowMax > 0)) {
-        height = 40 * (rowMin + 1)
+        height = 41 * (rowMin + 1)
       } else if (this.selectedCoordCells.rowEnd > this.selectedCoordCells.rowStart) {
-        height = 40 * (this.selectedCoordCells.rowEnd - this.selectedCoordCells.rowStart + 1)
+        height = 41 * (this.selectedCoordCells.rowEnd - this.selectedCoordCells.rowStart + 1)
       } else {
-        height = 40 * (this.selectedCoordCells.rowStart - this.selectedCoordCells.rowEnd + 1)
+        height = 41 * (this.selectedCoordCells.rowStart - this.selectedCoordCells.rowEnd + 1)
       }
 
       if (this.$refs[`${this.customTable}-vueTbody`]?.$refs) {
@@ -441,8 +441,8 @@ export const copyPaste = {
         }
       }
 
-      this.rectangleSelectedCell.style.setProperty('--rectangleWidth', `${width + 1}%`)
-      this.rectangleSelectedCell.style.setProperty('--rectangleHeight', `${height}px`)
+      this.rectangleSelectedCell.style.setProperty('--rectangleWidth', `${width}%`)
+      this.rectangleSelectedCell.style.setProperty('--rectangleHeight', `${height + (2 * rowMin)}px`)
 
       // Position bottom/top of rectangle if rowStart >= rowEnd
       if (this.selectedCoordCells.rowStart >= this.selectedCoordCells.rowEnd) {

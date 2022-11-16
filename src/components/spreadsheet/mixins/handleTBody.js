@@ -51,7 +51,7 @@ export const handleTBody = {
         this.data[this.oldTdShow.row][this.oldTdShow.key].show = false
       }
 
-      if (type === 'categort' && column.handleSearch) {
+      if (type === 'category' && column.handleSearch) {
         this.activeSelectSearch(event, rowIndex, colIndex, header)
       }
     },
