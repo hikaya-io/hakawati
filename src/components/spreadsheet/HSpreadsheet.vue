@@ -584,7 +584,7 @@ export default {
 
   /* rectangle style */
   --rectangleBottom: 0;
-  --rectangleHeight: 40px;
+  --rectangleHeight: 41px;
   --rectangleLeft: 0;
   --rectangleRight: 0;
   --rectangleTop: 0;
@@ -598,9 +598,9 @@ export default {
     table-layout: fixed;
     margin: 0;
     border-spacing: 0;
-    border-left: 2px solid #E5E7ED;
-    border-right: 2px solid #E5E7ED;
-    border-bottom: 2px solid #E5E7ED;
+    border-left: 2px solid $border-grey;
+    border-right: 2px solid $border-grey;
+    border-bottom: 2px solid $border-grey;
 
     th {
       color: #000;
@@ -620,12 +620,12 @@ export default {
     background: white;
     box-sizing: border-box;
     border-top: none;
-    border-bottom: 2px solid #E5E7ED;
-    border-left: 2px solid #E5E7ED;
-    border-right: 2px solid #E5E7ED;
+    border-bottom: 2px solid $border-grey;
+    border-left: 2px solid $border-grey;
+    border-right: 2px solid $border-grey;
 
     &:hover {
-      background: #d5ddec;
+      background: $body-grey;
     }
   }
 
@@ -633,17 +633,21 @@ export default {
     width: 215px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    padding: 24px 8px;
+    padding: 12px 12px;
 
     p {
       cursor: pointer;
-      padding: 4px;
-      margin-top: 8px;
-      margin-bottom: 8px;
+      padding: 12px 8px;
+      margin-top: 0px;
+      margin-bottom: 0px;
 
       &:hover {
-        background: $purple-fill;
+        background: $background-color;
         border-radius: 4px;
+      }
+
+      &:active {
+        color: $primary-color;
       }
 
       &.disabled, &.disabled:hover {
@@ -661,10 +665,16 @@ export default {
 
     .red {
       color: $red;
+
+      &:active {
+        color: $red;
+        opacity: 0.7;
+      }
     }
 
     .el-divider {
-      margin: 0;
+      margin-top: 8px;
+      margin-bottom: 8px;
     }
   }
 }

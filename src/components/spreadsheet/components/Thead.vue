@@ -314,17 +314,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../../styles/theme";
 .thead {
   .th {
     height: 45px;
     line-height: 2;
     position: relative;
-    background: #EFEFEF;
+    background: $body-grey;
     z-index: 15;
     text-align: left;
     padding: 7px 12px;
     box-sizing: border-box;
-    border: 2px solid #E5E7ED;
+    border: 1px solid $border-grey;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
     transition: width ease 0.5s, background ease 0.5s;
     &.dragged .resize {
       opacity: 1;
@@ -338,12 +341,12 @@ export default {
     &.disabled {
       pointer-events: none;
       span {
-        background: #cccccc;
+        background: $light-body-grey;
         opacity: 0.5;
       }
     }
     &.highlight_spreadsheet {
-      background: #d5ddec;
+      background: $body-grey;
     }
     span {
       display: block;
@@ -360,13 +363,13 @@ export default {
         flex-grow: 1;
 
         .title {
-          color: #737581;
+          color: $dark-body-grey;
           font-size: 14px;
           font-weight: 700;
           line-height: 16.6px;
         }
         .type {
-          color: #C4C4C4;
+          color: $heading-grey;
           font-style: italic;
           font-weight: 400;
           font-size: 14px;
@@ -380,7 +383,7 @@ export default {
         cursor: pointer;
         background: #C4C4C4;
         border-radius: 4px;
-
+        border: 1px solid $border-grey;
         color: white;
         display: flex;
         justify-content: center;
@@ -394,12 +397,9 @@ export default {
     min-width: 55px;
     padding: 0;
     text-align: center;
-    border-bottom: 2px solid #E5E7ED;
-    border-top: 2px solid #E5E7ED;
-    background: #EFEFEF;
-    //border-top: 1px solid #e6ecf6;
-    //border-bottom: 1px solid #e6ecf6;
-    //border-right: 1px solid #e6ecf6;
+    border-bottom: 2px solid $border-grey;
+    border-top: 2px solid $border-grey;
+    background: $body-grey;
     box-sizing: border-box;
   }
 }
