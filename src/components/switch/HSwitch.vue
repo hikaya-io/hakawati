@@ -25,15 +25,19 @@ export default {
         if (this.activeText && this.inactiveText) {
           ['right', 'left'].forEach((direction) => {
             const elSwitchElement = document.querySelector('.el-switch')
-            elSwitchElement.classList.add(`h-switch-${direction}-label`)
+            if (elSwitchElement) {
+              elSwitchElement.classList.add(`h-switch-${direction}-label`)
+            }
             const switchLabel = document.querySelectorAll(
               `.h-switch-${direction}-label > .el-switch__label--${direction}`
             )
-            const leftMargin = (90 - switchLabel[0].clientWidth) / 2
-            switchLabel[0].style.left =
+            if (switchLabel[0]) {
+              const leftMargin = (90 - switchLabel[0].clientWidth) / 2
+              switchLabel[0].style.left =
               direction === 'right'
                 ? `${leftMargin + 80}px`
                 : `${leftMargin}px`
+            }
           })
         }
 

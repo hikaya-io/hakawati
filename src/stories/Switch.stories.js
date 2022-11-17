@@ -35,7 +35,7 @@ const Template = (args, { argTypes }) => {
       :inactive-color="inactiveColor"
       :active-text="activeText"
       :inactive-text="inactiveText"
-      :secondary="secondary"
+      :secondary="true"
       @change="action"
     />
   `
