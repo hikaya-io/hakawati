@@ -28,6 +28,10 @@ export const handleTBody = {
     handleTbodyTdClick (event, col, header, rowIndex, colIndex, type) {
       const column = col
 
+      if (column == null) {
+        return
+      }
+
       if (this.selectedMultipleCell) {
         this.selectedMultipleCell = false
       }

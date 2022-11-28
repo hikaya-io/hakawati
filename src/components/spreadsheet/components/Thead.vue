@@ -1,6 +1,6 @@
 <template>
   <thead class="thead" @mouseup="handleUpDragToFill($event)">
-    <tr>
+    <draggable v-model="mutableHeaders" tag="tr" filter=".index" group="headers">
       <th class="index" v-if="tbodyCheckbox">
         <input
           type="checkbox"
@@ -11,8 +11,9 @@
         <label :for="`checkbox-all-${currentTable}`"></label>
       </th>
       <th v-if="tbodyIndex" class="index" key="th-index"></th>
-      <template v-for="(header, colIndex) in headers">
+      <template v-for="(header, colIndex) in mutableHeaders" >
         <th
+          v-if="header"
           class="th"
           :class="{
             disabled: header.disabled,
@@ -137,13 +138,18 @@
           ></button>
         </th>
       </template>
-    </tr>
+    </draggable>
   </thead>
 </template>
 
 <script type="text/javascript">
+import draggable from 'vuedraggable'
+
 export default {
   name: 'vue-thead',
+  components: {
+    draggable
+  },
   props: {
     theadHighlight: {
       type: Array,
@@ -193,11 +199,26 @@ export default {
       eventDrag: false,
       newSize: '',
       submenuEnableCol: null,
-      vueTableHeight: 0
+      vueTableHeight: 0,
+      mutableHeaders: []
+    }
+  },
+  watch: {
+    headers: {
+      handler (val) {
+        console.log('iiii')
+        this.mutableHeaders = [...val]
+      },
+      deep: true
+    },
+    mutableHeaders (val) {
+      console.log(val)
     }
   },
   mounted () {
     window.addEventListener('mousemove', this.handleMoveChangeSize)
+
+    this.mutableHeaders = [...this.headers]
   },
   methods: {
     checkedAllRow () {
@@ -291,8 +312,6 @@ export default {
       this.$parent.$refs['header-menu'].open(event, { header, colIndex })
     },
     handleToggleClick (event, header, colIndex) {
-      console.log('ttt')
-      console.log(event)
       this.$parent.$refs['header-menu'].open(event, { header, colIndex })
     },
     handleClickSubmenu (event, header, colIndex, submenuFunction, selectOptions) {

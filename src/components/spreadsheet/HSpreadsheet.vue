@@ -205,7 +205,7 @@ export default {
       return this.data.filter((x) => x.checked)
     },
     colHeaderWidths () {
-      return this.headers.map((x) => parseInt(x.style.width, 10))
+      return this.headers.filter((x) => x !== undefined).map((x) => parseInt(x.style.width, 10))
     },
     filteredList () {
       if (this.lastSelectOpen) {
@@ -223,7 +223,7 @@ export default {
       return []
     },
     headerKeys () {
-      return this.headers.map((header) => header.headerKey)
+      return this.headers.filter((header) => header !== undefined).map((header) => header.headerKey)
     }
   },
   watch: {

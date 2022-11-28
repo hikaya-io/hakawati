@@ -72,10 +72,11 @@ export default {
       if (!this.headers) {
         return []
       }
-      return this.headers.map((x) => x.headerKey)
+      console.log(this.headers)
+      return this.headers.filter((x) => x !== undefined).map((x) => x.headerKey)
     },
     headersAsObj () {
-      return Object.assign({}, ...(this.headers.map(item => ({ [item.headerKey]: item }))))
+      return Object.assign({}, ...(this.headers.filter((item) => item !== undefined).map(item => ({ [item.headerKey]: item }))))
     }
   },
   mounted () {
