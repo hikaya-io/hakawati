@@ -770,7 +770,7 @@ export default {
 }
 
 .el-dropdown-menu {
-  padding: 32px 14px 32px 24px;
+  padding: 14px 24px 14px 24px;
   width: 300px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
@@ -792,6 +792,10 @@ export default {
     &.visible {
       color: $primary-color;
 
+      &:hover {
+        color: $primary-hover;
+      }
+
       .type {
         color: $light-body-grey;
       }
@@ -799,6 +803,10 @@ export default {
 
     &.hidden {
       color: black;
+
+      &:hover {
+        color: $primary-color;
+      }
 
       .type {
         color: $light-body-grey;
@@ -810,8 +818,13 @@ export default {
     color: $heading-grey;
     font-weight: 600;
     font-size: 12px;
-    line-height: 14px;
+    line-height: 36px;
     text-transform: uppercase;
+  }
+
+  .el-divider--horizontal {
+    margin-top: 12px;
+    margin-bottom: 12px;
   }
 }
 </style>
