@@ -663,7 +663,9 @@ export default {
 
   .toolbar{
     height: 45px;
-    border: 2px solid $border-grey;
+    border-top: 2px solid $border-grey;
+    border-left: 2px solid $border-grey;
+    border-right: 2px solid $border-grey;
     background: $body-grey;
     max-width: 100%;
     display: flex;
@@ -677,6 +679,13 @@ export default {
       font-weight: 600;
       font-size: 12px;
       line-height: 14px;
+
+      &:hover {
+        color: $primary-color !important;
+      }
+      &:focus {
+        color: $primary-color !important;
+      }
     }
 
     .hidden-title {
