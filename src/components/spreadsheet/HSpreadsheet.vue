@@ -39,7 +39,11 @@
     </context-menu>
 
     <div class="toolbar">
-      <el-dropdown trigger="click" @command="onToggleHeaderVisibility">
+      <el-dropdown
+        trigger="click"
+        :hide-on-click="false"
+        @command="onToggleHeaderVisibility"
+      >
         <div
           :class="{
           'body-reg': hiddenColumns.length > 0,
@@ -58,7 +62,11 @@
             class="visible"
             :command="header.headerKey"
           >
-            <span>{{  header.headerName }}</span>
+            <div>
+              <i class="el-icon-check" />
+              <span>{{  header.headerName }}</span>
+            </div>
+
             <span class="type">{{ header.type }}</span>
           </el-dropdown-item>
           <el-divider />
