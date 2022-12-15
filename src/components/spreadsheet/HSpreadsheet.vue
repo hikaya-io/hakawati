@@ -33,17 +33,63 @@
           <p :class="{'body-reg': true, active: contextData && contextData.header && contextData.header.activeSort === 'A'}" @click="handleSort($event, contextData.header, contextData.colIndex)"><i class="el-icon-sort-down" /> Sort A > Z</p>
           <p :class="{'body-reg': true, active: contextData && contextData.header && contextData.header.activeSort === 'Z'}" @click="handleSort($event, contextData.header, contextData.colIndex, false)"><i class="el-icon-sort-up" /> Sort Z > A</p>
           <el-divider />
-          <p class="body-reg"><i class="el-icon-view" /> Hide field</p>
+          <p class="body-reg" @click="hideColumn($event, contextData.header, contextData.colIndex)"><i class="el-icon-view" /> Hide field</p>
         </div>
       </template>
     </context-menu>
+
+    <div class="toolbar">
+      <el-dropdown
+        trigger="click"
+        :hide-on-click="false"
+        @command="onToggleHeaderVisibility"
+      >
+        <div
+          :class="{
+          'body-reg': hiddenColumns.length > 0,
+          'body-bold': hiddenColumns.length === 0,
+          'el-dropdown-link': true,
+          'hidden-title': hiddenColumns.length > 0,
+          'visible-title': hiddenColumns.length === 0
+        }">
+          {{ hiddenColumns.length === 0 ? 'Hide fields' : `${hiddenColumns.length} hidden field` }}{{ hiddenColumns.length > 1 ? 's' : '' }}
+        </div>
+        <el-dropdown-menu slot="dropdown">
+          <span class="title">Visible Fields</span>
+          <el-dropdown-item
+            v-for="header in visibleHeaders"
+            :key="header.headerKey"
+            class="visible"
+            :command="header.headerKey"
+          >
+            <div>
+              <i class="el-icon-check" />
+              <span>{{  header.headerName }}</span>
+            </div>
+
+            <span class="type">{{ header.type }}</span>
+          </el-dropdown-item>
+          <el-divider />
+          <span class="title">Hidden Fields</span>
+          <el-dropdown-item
+            v-for="header in hiddenHeaders"
+            :key="header.headerKey"
+            class="hidden"
+            :command="header.headerKey"
+          >
+            <span>{{  header.headerName }}</span>
+            <span class="type">{{ header.type }}</span>
+          </el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+    </div>
 
     <table class="vue_table" :ref="`${customTable}-table`">
       <vue-thead
         :ref="`${customTable}-vueThead`"
         :disable-sort-thead="disableSortThead"
         :header-top="headerTop"
-        :headers="headers"
+        :headers="visibleHeaders"
         :sort-header="customOptions.sortHeader"
         :submenu-status-thead="submenuStatusThead"
         :submenu-thead="submenuThead"
@@ -67,7 +113,7 @@
         v-if="!loading"
         :ref="`${customTable}-vueTbody`"
         :tbody-data="data"
-        :headers="headers"
+        :headers="visibleHeaders"
         :tbody-checkbox="customOptions.tbodyCheckbox"
         :tbody-index="true"
         :trad="customOptions.trad || {}"
@@ -197,7 +243,8 @@ export default {
       selectedMultipleCellActive: false,
       setFirstCell: false,
       submenuStatusTbody: false,
-      submenuStatusThead: false
+      submenuStatusThead: false,
+      hiddenColumns: []
     }
   },
   computed: {
@@ -205,7 +252,7 @@ export default {
       return this.data.filter((x) => x.checked)
     },
     colHeaderWidths () {
-      return this.headers.map((x) => parseInt(x.style.width, 10))
+      return this.visibleHeaders.map((x) => parseInt(x.style.width, 10))
     },
     filteredList () {
       if (this.lastSelectOpen) {
@@ -223,14 +270,20 @@ export default {
       return []
     },
     headerKeys () {
-      return this.headers.map((header) => header.headerKey)
+      return this.visibleHeaders.map((header) => header.headerKey)
+    },
+    visibleHeaders () {
+      return this.headers.filter((header) => !this.hiddenColumns.includes(header.headerKey))
+    },
+    hiddenHeaders () {
+      return this.headers.filter((header) => this.hiddenColumns.includes(header.headerKey))
     }
   },
   watch: {
     data () {
       this.createdCell()
     },
-    headers () {
+    visibleHeaders () {
       this.createdCell()
     }
   },
@@ -248,7 +301,7 @@ export default {
     },
     calculatePosition (event, rowIndex, colIndex, header) {
       // If we calculatePosition for dropdown, but there is no dropdown to render.
-      if (header === 'dropdown' && !this.data[rowIndex][this.headers[colIndex].headerKey].search) {
+      if (header === 'dropdown' && !this.data[rowIndex][this.visibleHeaders[colIndex].headerKey].search) {
         return
       }
 
@@ -505,7 +558,7 @@ export default {
       // Close row context menu
       this.$refs['row-menu'].close()
       const row = {}
-      this.headers.forEach(header => {
+      this.visibleHeaders.forEach(header => {
         row[header.headerKey] = {
           type: header.type,
           value: null
@@ -548,20 +601,31 @@ export default {
       this.$refs['header-menu'].close()
 
       // Clear previous sort
-      this.headers.forEach(headerObj => {
+      this.visibleHeaders.forEach(headerObj => {
         if ('activeSort' in headerObj) {
           this.$delete(headerObj, 'activeSort')
         }
       })
 
       if (asc) {
-        this.$set(this.headers[colIndex], 'activeSort', 'A')
+        this.$set(this.visibleHeaders[colIndex], 'activeSort', 'A')
       } else {
-        this.$set(this.headers[colIndex], 'activeSort', 'Z')
+        this.$set(this.visibleHeaders[colIndex], 'activeSort', 'Z')
       }
 
       // do sorting
       this.data.sort(compare)
+    },
+    hideColumn (event, header, colIndex) {
+      this.$refs['header-menu'].close()
+      this.hiddenColumns.push(header.headerKey)
+    },
+    onToggleHeaderVisibility (key) {
+      if (this.hiddenColumns.includes(key)) {
+        this.hiddenColumns.splice(this.hiddenColumns.indexOf(key), 1)
+      } else {
+        this.hiddenColumns.push(key)
+      }
     }
   }
 }
@@ -594,6 +658,48 @@ export default {
   --dragHeaderHeight: 100%;
 }
 .vue-spreadsheet {
+  overflow-x: hidden;
+  max-width: 100%;
+
+  .toolbar{
+    height: 45px;
+    border-top: 2px solid $border-grey;
+    border-left: 2px solid $border-grey;
+    border-right: 2px solid $border-grey;
+    background: $body-grey;
+    max-width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-left: 36px;
+    padding-right: 36px;
+    .visible-title {
+      color: $heading-grey;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 14px;
+
+      &:hover {
+        color: $primary-color !important;
+      }
+      &:focus {
+        color: $primary-color !important;
+      }
+    }
+
+    .hidden-title {
+      color: $primary-color;
+      background: $primary-fill;
+      padding: 6px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+
   table {
     table-layout: fixed;
     margin: 0;
@@ -601,6 +707,7 @@ export default {
     border-left: 2px solid $border-grey;
     border-right: 2px solid $border-grey;
     border-bottom: 2px solid $border-grey;
+    overflow-x: scroll;
 
     th {
       color: #000;
@@ -676,6 +783,65 @@ export default {
       margin-top: 8px;
       margin-bottom: 8px;
     }
+  }
+}
+
+.el-dropdown-menu {
+  padding: 14px 24px 14px 24px;
+  width: 300px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+
+  .el-dropdown-menu__item {
+    padding: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 13px;
+    border-radius: 2px;
+    display: flex;
+    justify-content: space-between;
+
+    &:hover {
+      background: none;
+    }
+
+    &.visible {
+      color: $primary-color;
+
+      &:hover {
+        color: $primary-hover;
+      }
+
+      .type {
+        color: $light-body-grey;
+      }
+    }
+
+    &.hidden {
+      color: black;
+
+      &:hover {
+        color: $primary-color;
+      }
+
+      .type {
+        color: $light-body-grey;
+      }
+    }
+  }
+
+  .title {
+    color: $heading-grey;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 36px;
+    text-transform: uppercase;
+  }
+
+  .el-divider--horizontal {
+    margin-top: 12px;
+    margin-bottom: 12px;
   }
 }
 </style>

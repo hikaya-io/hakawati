@@ -397,6 +397,7 @@ export default {
     min-width: 55px;
     padding: 0;
     text-align: center;
+    border-left: 0px;
     border-bottom: 2px solid $border-grey;
     border-top: 2px solid $border-grey;
     background: $body-grey;
