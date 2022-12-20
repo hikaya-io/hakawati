@@ -29,7 +29,7 @@
               <span class="title">{{ header.headerName }}</span>
               <span class="type">{{ header.type }}</span>
             </div>
-            <div class="options-container" @click.exact="handleToggleClick($event, header, colIndex)">
+            <div class="options-container" @click="handleToggleClick($event, header, colIndex)">
               <i class="el-icon-caret-bottom"></i>
             </div>
           </div>
@@ -287,12 +287,10 @@ export default {
       this.$emit('thead-td-sort', event, header, colIndex)
     },
     handleContextMenuTd (event, header, colIndex) {
-      this.submenuEnableCol = colIndex
       this.$parent.$refs['header-menu'].open(event, { header, colIndex })
     },
     handleToggleClick (event, header, colIndex) {
-      console.log('ttt')
-      console.log(event)
+      event.stopPropagation()
       this.$parent.$refs['header-menu'].open(event, { header, colIndex })
     },
     handleClickSubmenu (event, header, colIndex, submenuFunction, selectOptions) {
