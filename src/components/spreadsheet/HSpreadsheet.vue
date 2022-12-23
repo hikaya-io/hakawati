@@ -659,7 +659,7 @@ export default {
 }
 .vue-spreadsheet {
   overflow-x: hidden;
-  max-width: 100%;
+  width: max-content;
 
   .toolbar{
     height: 45px;
@@ -667,12 +667,17 @@ export default {
     border-left: 2px solid $border-grey;
     border-right: 2px solid $border-grey;
     background: $body-grey;
-    max-width: 100%;
+    position: relative;
     display: flex;
     justify-content: end;
     align-items: center;
     padding-left: 36px;
     padding-right: 36px;
+    .el-dropdown {
+      position: sticky;
+      right: 36px;
+    }
+
     .visible-title {
       color: $heading-grey;
       cursor: pointer;
@@ -707,7 +712,6 @@ export default {
     border-left: 2px solid $border-grey;
     border-right: 2px solid $border-grey;
     border-bottom: 2px solid $border-grey;
-    overflow-x: scroll;
 
     th {
       color: #000;
