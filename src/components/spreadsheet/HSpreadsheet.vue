@@ -10,11 +10,12 @@
     <context-menu ref="row-menu">
       <template v-slot="{ contextData }">
         <div class="context-menu-data">
+          <p :class="{'body-reg': true,  'disabled':disabledAddResult }"  @click="addResult($event, contextData.rowIndex)"><i class="el-icon-s-data" />  Add Results</p>
           <p class="body-reg" @click="addNewRow($event, contextData.rowIndex, true)"><i class="el-icon-top" /> Insert record above</p>
           <p class="body-reg" @click="addNewRow($event, contextData.rowIndex)"> <i class="el-icon-bottom" /> Insert record below</p>
           <el-divider />
           <p class="body-reg disabled" ><i class="el-icon-copy-document" /> Duplicate record</p>
-          <p class="body-reg disabled" ><i class="el-icon-rank" /> Expand record</p>
+          <p :class="{'body-reg': true,  'disabled':disabledExpandRow }"   @click="expandRow($event, contextData.rowIndex)"><i class="el-icon-rank" /> Expand record</p>
           <el-divider />
           <p class="red body-reg" @click="removeRow($event, contextData.rowIndex)"><i class="el-icon-delete-solid" /> Delete record</p>
         </div>
@@ -225,6 +226,16 @@ export default {
     submenuTbody: {
       type: Array,
       default: () => []
+    },
+    disabledAddResult: {
+      type: Boolean,
+      required: false,
+      default: true
+    },
+    disabledExpandRow: {
+      type: Boolean,
+      required: false,
+      default: true
     }
   },
   data () {
@@ -579,6 +590,12 @@ export default {
       this.$refs['row-menu'].close()
       this.$emit('on-remove-row', { row: this.data[index], index })
       this.data.splice(index, 1)
+    },
+    addResult ($event, index) {
+      this.$emit('on-add-result', { row: this.data[index], index })
+    },
+    expandRow ($event, index) {
+      this.$emit('on-expand-row', { row: this.data[index], index })
     },
     removeMultipleRows ($event, indices) {
       this.$refs['bulk-row-menu'].close()
