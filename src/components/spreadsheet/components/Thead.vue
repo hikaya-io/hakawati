@@ -407,9 +407,9 @@ export default {
   position: absolute;
   top: 0;
   right: 0;
-  height: 43px;
-  background: #7d8ba5;
-  width: 5px;
+  height: 48px;
+  background: $heading-grey;
+  width: 2px;
   padding: 0;
   border: 0;
   cursor: col-resize;
@@ -427,7 +427,7 @@ export default {
     position: absolute;
     top: 0;
     right: 0;
-    border: 1px dashed #7d8ba5;
+    border: 2px dashed $heading-grey;
     opacity: 0;
     visibility: hidden;
   }
