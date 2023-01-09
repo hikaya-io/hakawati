@@ -10,7 +10,7 @@
     <context-menu ref="row-menu">
       <template v-slot="{ contextData }">
         <div class="context-menu-data">
-          <p :class="{'body-reg': true,  'disabled':disabledAddResult }"  @click="addResult($event, contextData.rowIndex)"><i class="el-icon-s-data" />  Add Results</p>
+          <p class='body-reg' v-if="enableAddResult"  @click="addResult($event, contextData.rowIndex)"><i class="el-icon-s-data" />  Add Results</p>
           <p class="body-reg" @click="addNewRow($event, contextData.rowIndex, true)"><i class="el-icon-top" /> Insert record above</p>
           <p class="body-reg" @click="addNewRow($event, contextData.rowIndex)"> <i class="el-icon-bottom" /> Insert record below</p>
           <el-divider />
@@ -227,10 +227,10 @@ export default {
       type: Array,
       default: () => []
     },
-    disabledAddResult: {
+    enableAddResult: {
       type: Boolean,
       required: false,
-      default: true
+      default: false
     },
     disabledExpandRow: {
       type: Boolean,
