@@ -2,6 +2,7 @@ import HTable from '../components/table/HTable.vue'
 import { action } from '@storybook/addon-actions'
 import HTag from '@/components/tag/HTag'
 import HSelect from '@/components/select/HSelect'
+import HSwitch from '@/components/switch/HSwitch'
 
 const tableDataNew = [{
   date: '2020-05-03',
@@ -10,6 +11,7 @@ const tableDataNew = [{
   city: 'Los Angeles',
   address: 'No. 189, Grove St, Los Angeles',
   zip: 'CA 90036',
+  boolean: true,
   tag: 'Home',
   a: '2020-05-03',
   b: 'Tom',
@@ -24,8 +26,7 @@ const tableDataNew = [{
   k: 'Los Angeles',
   l: 'No. 189, Grove St, Los Angeles',
   m: 'CA 90036',
-  n: 'Home',
-  o: true
+  n: 'Home'
 },
 {
   date: '2020-05-04',
@@ -34,6 +35,7 @@ const tableDataNew = [{
   city: 'San Diego',
   address: 'No. 189, Grove St, San Diego',
   zip: 'CA 90036',
+  boolean: false,
   tag: 'Home',
   a: '2020-05-04',
   b: 'Zak',
@@ -48,8 +50,7 @@ const tableDataNew = [{
   k: 'San Diego',
   l: 'No. 189, Grove St,San Diego',
   m: 'CA 90036',
-  n: 'Home',
-  o: false
+  n: 'Home'
 },
 {
   date: '2020-05-06',
@@ -58,6 +59,7 @@ const tableDataNew = [{
   city: 'San Jose',
   address: 'No. 189, Grove St, San Jose',
   zip: 'CA 90036',
+  boolean: false,
   tag: 'Home',
   a: '2020-05-06',
   b: 'Ben',
@@ -72,8 +74,7 @@ const tableDataNew = [{
   k: 'San Jose',
   l: 'No. 189, Grove St, San Jose',
   m: 'CA 90036',
-  n: 'Home',
-  o: false
+  n: 'Home'
 }
 ]
 
@@ -90,10 +91,11 @@ export default {
 
 const Template = (args, { argTypes }) => {
   return {
-    components: { HTable, HTag },
+    components: { HTable, HTag, HSwitch },
     props: Object.keys(argTypes),
     data () {
       return {
+        editMode: false
         // tableData: args.tableData
       }
     },
@@ -103,7 +105,9 @@ const Template = (args, { argTypes }) => {
       }
     },
     template: `
-      <h-table  v-bind="$props" @row-edited="onRowEdited">
+      <div>
+      <h-switch v-model="editMode" activeText="Edit" inactiveText="View"></h-switch>
+      <h-table  v-bind="$props" @row-edited="onRowEdited" :edit-mode="editMode">
         <template v-slot:cell="scope">
           <h-tag v-if="scope.col === 'city'">{{ scope.value }}</h-tag>
           <span v-else>{{  scope.value }}</span>
@@ -114,6 +118,7 @@ const Template = (args, { argTypes }) => {
           <el-option value="Office" label="Office"></el-option>
         </template>
       </h-table>
+      </div>
     `
   }
 }
