@@ -11,6 +11,7 @@
     :is="editableComponent"
     ref="input"
     @focus="onFieldClick"
+    @change="onInputExit"
     @visible-change="onDropdownHidden"
     @keyup.enter.native="onInputExit"
     v-on="listeners"
@@ -28,7 +29,7 @@ export default {
   inheritAttrs: false,
   props: {
     value: {
-      type: [String, Number, Array],
+      type: [String, Number, Array, Boolean],
       default: ''
     },
     showInput: {
@@ -95,7 +96,7 @@ export default {
         this.editMode = true
         this.$nextTick(() => {
           const inputRef = this.$refs.input
-          if (inputRef && inputRef.focus) {
+          if (inputRef && inputRef.focus && typeof inputRef.focus === 'function') {
             inputRef.focus()
           }
 
