@@ -85,14 +85,14 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../../styles/theme";
 @import "../../styles/variables";
 
 .top-nav {
   .big-menu {
     // style nav bar and border
-    .el-menu-item {
+    ::v-deep .el-menu-item {
       font-family: $main-font-family;
       font-style: normal;
       font-weight: normal;
@@ -105,30 +105,30 @@ export default {
       border-radius: 30px;
     }
 
-    .el-menu--horizontal > .el-submenu .el-submenu__title {
+    ::v-deep .el-menu--horizontal > .el-submenu .el-submenu__title {
       font-size: 16px;
       color: $heading-grey;
       border-radius: 30px;
     }
 
     // style selected submenu
-    .el-menu--popup {
+    ::v-deep .el-menu--popup {
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       border-radius: 0px 0px 6px 6px;
       border-color: transparent;
     }
 
-    .el-menu--horizontal .el-menu .el-menu-item.is-active, .el-menu--horizontal .el-menu .el-submenu.is-active > .el-submenu__title {
+    ::v-deep .el-menu--horizontal .el-menu .el-menu-item.is-active, .el-menu--horizontal .el-menu .el-submenu.is-active > .el-submenu__title {
       color: $primary-color;
     }
 
-    .el-menu.el-menu--horizontal {
+    ::v-deep .el-menu.el-menu--horizontal {
       border-bottom: transparent;
       padding: 5px 20px 5px 20px;
       vertical-align: text-bottom;
     }
 
-    .el-menu--horizontal > .el-submenu.is-active .el-submenu__title {
+    ::v-deep .el-menu--horizontal > .el-submenu.is-active .el-submenu__title {
       border-bottom: transparent;
       color: $primary-color;
       // background-color: $primary-fill;
@@ -157,17 +157,17 @@ export default {
     }
 
     // style selected tab
-    .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
+    ::v-deep .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
       border-radius: 30px;
       text-align: center;
     }
 
-    .el-menu--horizontal .el-menu-item:not(.is-disabled):focus {
+    ::v-deep .el-menu--horizontal .el-menu-item:not(.is-disabled):focus {
       border-radius: 30px;
       text-align: center;
     }
 
-    .el-menu--horizontal > .el-menu-item.is-active {
+    ::v-deep .el-menu--horizontal > .el-menu-item.is-active {
       border-bottom: transparent;
       color: $primary-color;
       // background-color: $primary-fill;
@@ -205,7 +205,7 @@ export default {
     width: 252px;
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
 
-    .el-menu {
+    ::v-deep .el-menu {
       height: 100%;
       overflow-y: scroll;
 
@@ -213,9 +213,14 @@ export default {
         color: $primary-color;
         background-color: $background-color;
       }
+
+      &-item {
+        text-decoration: none;
+        display: block;
+      }
     }
 
-    .el-submenu__title:not(.is-disabled):hover {
+    ::v-deep .el-submenu__title:not(.is-disabled):hover {
       color: $primary-color;
       background-color: $background-color;
     }
@@ -253,7 +258,7 @@ export default {
   }
 }
 
-.el-menu--horizontal > .el-menu-item {
+::v-deep .el-menu--horizontal > .el-menu-item {
   margin-left: 25px;
   margin-right: 25px;
 
@@ -264,14 +269,18 @@ export default {
 }
 
 // style selected tab
-.el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
+::v-deep .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
   outline: none;
   color: $primary-color;
 }
 
-.el-menu--horizontal .el-menu-item:not(.is-disabled):focus {
+::v-deep .el-menu--horizontal .el-menu-item:not(.is-disabled):focus {
   color: $primary-color;
   // background-color: $primary-fill;
+}
+
+::v-deep .el-menu--horizontal .el-menu-item {
+  text-decoration: none;
 }
 
 // styling for minimized nav bar

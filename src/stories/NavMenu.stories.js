@@ -13,7 +13,7 @@ export const topNav = () => ({
         <el-menu-item index="0">Menu Item Before</el-menu-item>
       </template>
       <el-menu-item index="1">Maps</el-menu-item>
-      <el-menu-item index="2">Tables</el-menu-item>
+      <a href="#" class="el-menu-item">Tables</a>
       <el-menu-item index="3" disabled>Reports</el-menu-item>
       <el-submenu index="4">
         <template slot="title">Workspace</template>
