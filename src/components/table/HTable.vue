@@ -254,6 +254,12 @@ export default {
           this.editableTableData = [...val]
         }
       }
+    },
+    ignoredColumns: {
+      deep: true,
+      handler (val) {
+        this.tableColumns = [...this.origTableColumns.filter(col => !val.includes(col))]
+      }
     }
   },
   mounted () {
@@ -266,6 +272,8 @@ export default {
     for (const col of this.shownTableColumns) {
       if (keys.indexOf(col) !== -1) {
         this.$set(this.editColumnComponents, col, this.columnComponents[col])
+      } else if (this.getDataType(col) === 'boolean') {
+        this.$set(this.editColumnComponents, col, { 'editable-component': 'el-checkbox' })
       } else {
         this.$set(this.editColumnComponents, col, { 'editable-component': 'el-input' })
       }
@@ -394,6 +402,12 @@ export default {
     filterHandler (value, row, column) {
       const property = column.property
       return row[property] === value
+    },
+    getDataType (column) {
+      if (this.tableData.length) {
+        return typeof this.tableData[0][column]
+      }
+      return null
     }
   }
 }
