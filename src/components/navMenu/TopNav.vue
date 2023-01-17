@@ -156,6 +156,10 @@ export default {
       }
     }
 
+    ::v-deep .el-menu--horizontal > .el-menu-item:hover {
+      background-color: transparent
+    }
+
     // style selected tab
     ::v-deep .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
       border-radius: 30px;
@@ -170,9 +174,7 @@ export default {
     ::v-deep .el-menu--horizontal > .el-menu-item.is-active {
       border-bottom: transparent;
       color: $primary-color;
-      // background-color: $primary-fill;
       text-align: center;
-      // border-radius: 30px;
       padding: 0px 25px;
       margin-top: 5px;
       height: 50px;
