@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - develop
+    tags:
+      - '*'
   pull_request:
     branches:
       - develop
@@ -23,8 +25,10 @@ jobs:
       - name: Show version number
         run: |
           echo "Version is ${{ steps.package-version.outputs.current-version }}"
-          echo "Version package is  ${{env.PACKAGE}} "
-          echo "{name}={value}" >> $GITHUB_STATE
+      - name: GitHub Tag Name example
+        run: |
+          echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
+          echo "Tag name from github.ref_name: ${{  github.ref_name }}"
 
 
   # lint:
