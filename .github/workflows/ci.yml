@@ -8,6 +8,10 @@ on:
     branches:
       - develop
 
+defaults:
+  run:
+    working-directory: libs/sql-csv-insert-processor
+
 jobs:
   lint:
     name: Lint check
@@ -28,8 +32,28 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '14.x'
-      - run: yarn install
-      - run: yarn build-lib
+      # ----------------------------------------------------
+      - name: Compare a npm package version with your package.json
+        uses: rbatty19/compare-npm-versions-ci@master
+        id: package_version
+        with:
+          path: './libs/sql-csv-insert-processor'
+          npm_package_name: sql-csv-insert-processor
+      # ----------------------------------------------------
+      - name: Get version
+        run: |
+          echo "Version is  ${{ steps.package_version.outputs.version }} "    
+          echo "Version NPM is  ${{ steps.package_version.outputs.pkg_npm_version }} "
+      # ----------------------------------------------------
+      - name: Version Issue
+        if: steps.package_version.outputs.npm_is_greater == 'true'
+        run: |
+          echo "Package will not be deployed due to version number must increase"
+      # ----------------------------------------------------
+      # - name: Run yarn
+      #   run: |
+      #       yarn install
+      #       yarn build-lib
 
   build-publish:
     name: Publish build to NPM registry
