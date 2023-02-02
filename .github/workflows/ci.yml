@@ -29,7 +29,6 @@ jobs:
         id: package_version
         with:
           path: './'
-          npm_package_name: hakawati
       # ----------------------------------------------------
       # - name: Get version
       #   run: |
