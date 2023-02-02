@@ -23,34 +23,7 @@ jobs:
       - name: Show version number
         run: |
           echo "Version is ${{ steps.package-version.outputs.current-version }}"
-          echo "Version NPM is  ${{ steps.package_version.outputs }} "
-      # - name: 
-      #   run: |
-      #     echo "TAG_NUMBER=$echo$((${{env.TAG_VERSION}} - 0 ))" >> $GITHUB_ENV
-      #     echo "PACKAGE_NUMBER=$echo$((${{env.PACKAGE_VERSION}} - 0 ))" >> $GITHUB_ENV
-
-      # # ----------------------------------------------------
-      # - name: Set up Node.js
-      #   uses: actions/setup-node@master
-      #   with:
-      #     node-version: 12.x
-      #     registry-url: 'https://registry.npmjs.org/'
-      # # ----------------------------------------------------
-      # - name: Compare npm with local (versions)
-      #   uses: Rober19/compare-npm-versions-ci@master
-      #   id: package_version
-      #   with:
-      #     path: './'
-      # ----------------------------------------------------
-      # - name: Get version
-      #   run: |
-      #     echo "Version is  ${{ steps.package_version.outputs.version }} "    
-      #     echo "Version NPM is  ${{ steps.package_version.outputs.pkg_npm_version }} "
-      # # ----------------------------------------------------
-      # - name: Version Issue
-      #   if: steps.package_version.outputs.npm_is_greater == 'true'
-      #   run: |
-      #     echo "Package will not be deployed due to version number must increase"
+          echo "Version package is  ${{env.PACKAGE}} "
 
 
   # lint:
