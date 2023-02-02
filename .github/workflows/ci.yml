@@ -8,11 +8,6 @@ on:
     branches:
       - develop
 
-
-defaults:
-  run:
-    working-directory: libs/hakawati
-
 jobs:
   package-version-check: 
     name: version check
@@ -33,7 +28,7 @@ jobs:
         uses: Rober19/compare-npm-versions-ci@master
         id: package_version
         with:
-          path: './libs/hakawati'
+          path: './'
           npm_package_name: hakawati
       # ----------------------------------------------------
       - name: Get version
