@@ -11,7 +11,7 @@ on:
 
 defaults:
   run:
-    working-directory: hakawati
+    working-directory: .
 
 jobs:
   package-version-check: 
@@ -33,8 +33,8 @@ jobs:
         uses: Rober19/compare-npm-versions-ci@master
         id: package_version
         with:
-          path: '.'
-          npm_package_name: hakawati
+          path: './libs/sql-csv-insert-processor'
+          npm_package_name: sql-csv-insert-processor
       # ----------------------------------------------------
       - name: Get version
         run: |
