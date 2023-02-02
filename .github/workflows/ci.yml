@@ -24,27 +24,31 @@ jobs:
         run: |
           echo "Version is ${{ steps.package-version.outputs.current-version }}"
           echo "Version NPM is  ${{ steps.package_version.outputs.pkg_npm_version }} "
-      - name: Clean Versions
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+      # ----------------------------------------------------
+      - name: Set up Node.js
+        uses: actions/setup-node@master
+        with:
+          node-version: 12.x
+          registry-url: 'https://registry.npmjs.org/'
+      # ----------------------------------------------------
+      - name: Compare npm with local (versions)
+        uses: Rober19/compare-npm-versions-ci@master
+        id: package_version
+        with:
+          path: "./"
+      # ----------------------------------------------------
+      - name: Get version
         run: |
-              echo "TAG_VERSION=$(echo ${{env.TAG}} | tr -dc '0-9')" >> $GITHUB_ENV
-              echo "PACKAGE_VERSION=$(echo ${{env.PACKAGE}} | tr -dc '0-9')" >> $GITHUB_ENV
-
-      - name: 
-        run: |
-          echo "TAG_NUMBER=$echo$((${{env.TAG_VERSION}} - 0 ))" >> $GITHUB_ENV
-          echo "PACKAGE_NUMBER=$echo$((${{env.PACKAGE_VERSION}} - 0 ))" >> $GITHUB_ENV
-
-      - name: Compare Versions
-        run: |
-          if (( ${{env.PACKAGE_NUMBER}} > ${{env.TAG_NUMBER}} )); then
-              echo "PUSH=true" >> "$GITHUB_ENV"
-
-          elif (( ${{env.PACKAGE_NUMBER}} = ${{env.TAG_NUMBER}} )); then
-              echo "PUSH=false" >> "$GITHUB_ENV"
-
-          else
-              echo "PUSH=false" >> "$GITHUB_ENV"
-          fi  
+          echo "Version is  ${{ steps.package_version.outputs.version }} "    
+          echo "Version NPM is  ${{ steps.package_version.outputs.pkg_npm_version }} "
       # - name: 
       #   run: |
       #     echo "TAG_NUMBER=$echo$((${{env.TAG_VERSION}} - 0 ))" >> $GITHUB_ENV
