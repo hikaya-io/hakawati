@@ -21,14 +21,14 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@master
         with:
-          node-version: 14.x
+          node-version: 12.x
           registry-url: 'https://registry.npmjs.org/'
       # ----------------------------------------------------
       - name: Compare npm with local (versions)
         uses: Rober19/compare-npm-versions-ci@master
         id: package_version
         with:
-          path: '../'
+          path: './'
           npm_package_name: hakawati
       # ----------------------------------------------------
       # - name: Get version
