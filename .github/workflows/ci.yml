@@ -23,7 +23,7 @@ jobs:
       - name: package version
         run: VERSION=$(node -p "require('./package.json').version")
       - name: output version
-        run: echo ${VERSION}
+        run: echo ${{ VERSION }}
       # # ----------------------------------------------------
       # - name: Set up Node.js
       #   uses: actions/setup-node@master
