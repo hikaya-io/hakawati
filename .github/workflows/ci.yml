@@ -29,17 +29,17 @@ jobs:
         id: package_version
         with:
           path: './'
-          npm_package_name: hakawati
+          npm_package_name: .
       # ----------------------------------------------------
-      - name: Get version
-        run: |
-          echo "Version is  ${{ steps.package_version.outputs.version }} "    
-          echo "Version NPM is  ${{ steps.package_version.outputs.pkg_npm_version }} "
-      # ----------------------------------------------------
-      - name: Version Issue
-        if: steps.package_version.outputs.npm_is_greater == 'true'
-        run: |
-          echo "Package will not be deployed due to version number must increase"
+      # - name: Get version
+      #   run: |
+      #     echo "Version is  ${{ steps.package_version.outputs.version }} "    
+      #     echo "Version NPM is  ${{ steps.package_version.outputs.pkg_npm_version }} "
+      # # ----------------------------------------------------
+      # - name: Version Issue
+      #   if: steps.package_version.outputs.npm_is_greater == 'true'
+      #   run: |
+      #     echo "Package will not be deployed due to version number must increase"
 
 
   # lint:
