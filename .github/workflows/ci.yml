@@ -15,15 +15,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-        with:
-          fetch-depth: '0'
-      - run: git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-      - run: git config user.name "$GITHUB_ACTOR"
-      - run: npm version minor -m "v%s"
-      - name: package version
-        run: VERSION=$(node -p "require('./package.json').version")
-      - name: output version
-        run: echo ${{ VERSION }}
+      - name: Read node from package.json
+        uses: culshaw/read-package-node-version-actions@v1
+        with: 
+          path: "./package.json"
+        id: package-node-version
+      - name: Show version number
+        run: echo "Version is ${{ steps.package-version.outputs.version }}"
+        
       # # ----------------------------------------------------
       # - name: Set up Node.js
       #   uses: actions/setup-node@master
