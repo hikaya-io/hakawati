@@ -28,8 +28,8 @@ jobs:
         uses: Rober19/compare-npm-versions-ci@master
         id: package_version
         with:
-          path: './'
-          npm_package_name: .
+          path: '../'
+          npm_package_name: hakawati
       # ----------------------------------------------------
       # - name: Get version
       #   run: |
