@@ -18,7 +18,7 @@ jobs:
       - name: Read node from package.json
         uses: culshaw/read-package-node-version-actions@v1
         with: 
-          path: "package.json"
+          path: "/home/runner/work/hakawati"
         id: package-node-version
       - name: Show version number
         run: echo "Version is ${{ steps.package-version.outputs.version }}"
