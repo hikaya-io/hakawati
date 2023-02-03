@@ -11,6 +11,28 @@ on:
       - develop
 
 jobs:
+  lint:
+    name: Lint check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - run: yarn install
+      - run: yarn lint
+
+  build-check:
+    name: Build check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - run: yarn install
+      - run: yarn build-lib
+
   package-version-check:
     name: check
     runs-on: ubuntu-latest
@@ -24,37 +46,13 @@ jobs:
           static-checking: localIsNew
       - name: Log when changed
         if: steps.check.outputs.changed == 'true'
-        run: 'echo "Version change found in commit ${{ steps.check.outputs.commit }}! New version: ${{ steps.check.outputs.version }} (${{ steps.check.outputs.type }})"'
+        run: 'echo "New version: ${{ steps.check.outputs.version }} (${{ steps.check.outputs.type }})"'
 
       - name: Log when unchanged
         if: steps.check.outputs.changed == 'false'
         run: |
           'echo "No change to version number in package.json file"'
           'exit 1'
-
-
-
-  # lint:
-  #   name: Lint check
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v1
-  #       with:
-  #         node-version: '14.x'
-  #     - run: yarn install
-  #     - run: yarn lint
-
-  # build-check:
-  #   name: Build check
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v1
-  #       with:
-  #         node-version: '14.x'
-  #     - run: yarn install
-  #     - run: yarn build-lib
 
   # build-publish:
   #   name: Publish build to NPM registry
