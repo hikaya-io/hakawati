@@ -32,7 +32,7 @@ jobs:
       - run: yarn build-lib
 
   package-version-check:
-    name: check
+    name: Package Version Check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
