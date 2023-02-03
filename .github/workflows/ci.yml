@@ -40,6 +40,9 @@ jobs:
         uses: actions/checkout@v2
       - id: check # This will be the reference for getting the outputs.
         uses: EndBug/version-check@v2.1.1 # You can choose the version/branch you prefer.
+        with:
+          diff-search: true
+          assume-same-version: old
       - name: Log when changed
         if: steps.check.outputs.changed == 'true'
         run: 'echo "Version change found in commit ${{ steps.check.outputs.commit }}! New version: ${{ steps.check.outputs.version }} (${{ steps.check.outputs.type }})"'
