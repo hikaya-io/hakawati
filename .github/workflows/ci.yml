@@ -54,22 +54,22 @@ jobs:
           'echo "No change to version number in package.json file"'
           'exit 1'
 
-  # build-publish:
-  #   name: Publish build to NPM registry
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v1
-  #       with:
-  #         node-version: 14
-  #         registry-url: https://registry.npmjs.org/
-  #     - run: |
-  #         if [[ $GITHUB_EVENT_NAME != "pull_request" ]]; then
-  #           yarn install
-  #           yarn build-lib
-  #           yarn publish --access=public
-  #         else
-  #           echo "+++++ No Publish on PR event +++++++++"
-  #         fi
-  #       env:
-  #         NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+  build-publish:
+    name: Publish build to NPM registry
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+      - run: |
+          if [[ $GITHUB_EVENT_NAME != "pull_request" ]]; then
+            yarn install
+            yarn build-lib
+            yarn publish --access=public
+          else
+            echo "+++++ No Publish on PR event +++++++++"
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
