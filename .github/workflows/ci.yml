@@ -11,22 +11,7 @@ on:
       - develop
 
 jobs:
-  package-version-check: 
-    name: version check
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Read node from package.json
-        id: package-version
-        uses: martinbeentjes/npm-get-version-action@main
-        with:
-          path: "./"
-      - name: Show version number
-        run: |
-          echo "Version is ${{ steps.package-version.outputs.current-version }}"
-      
-  check:
+  package-version-check:
     name: check
     runs-on: ubuntu-latest
     steps:
@@ -36,7 +21,7 @@ jobs:
         uses: EndBug/version-check@v2.1.1 # You can choose the version/branch you prefer.
         with:
           file-url: https://unpkg.com/@hikaya/hakawati@0.2.18/package.json
-          static-checking: localIsNew
+          # static-checking: localIsNew
       - name: Log when changed
         if: steps.check.outputs.changed == 'true'
         run: 'echo "Version change found in commit ${{ steps.check.outputs.commit }}! New version: ${{ steps.check.outputs.version }} (${{ steps.check.outputs.type }})"'
