@@ -28,7 +28,9 @@ jobs:
 
       - name: Log when unchanged
         if: steps.check.outputs.changed == 'false'
-        run: 'echo "No version change :/"'
+        run: |
+          'echo "No change to version number in package.json file"'
+          'exit 1'
 
 
 
