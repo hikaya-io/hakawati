@@ -11,27 +11,6 @@ on:
       - develop
 
 jobs:
-  package-version-check:
-    name: check
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - id: check # This will be the reference for getting the outputs.
-        uses: EndBug/version-check@v2.1.1 # You can choose the version/branch you prefer.
-        with:
-          file-url: https://unpkg.com/@hikaya/hakawati@latest/package.json
-          static-checking: localIsNew
-      - name: Log when changed
-        if: steps.check.outputs.changed == 'true'
-        run: 'echo "New version: ${{ steps.check.outputs.version }} (${{ steps.check.outputs.type }})"'
-
-      - name: Log when unchanged
-        if: steps.check.outputs.changed == 'false'
-        run: |
-          'echo "No change to version number in package.json file"'
-          'exit 1'
-
   lint:
     name: Lint check
     runs-on: ubuntu-latest
@@ -53,6 +32,27 @@ jobs:
           node-version: '14.x'
       - run: yarn install
       - run: yarn build-lib
+
+  package-version-check:
+    name: check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - id: check # This will be the reference for getting the outputs.
+        uses: EndBug/version-check@v2.1.1 # You can choose the version/branch you prefer.
+        with:
+          file-url: https://unpkg.com/@hikaya/hakawati@latest/package.json
+          static-checking: localIsNew
+      - name: Log when changed
+        if: steps.check.outputs.changed == 'true'
+        run: 'echo "New version: ${{ steps.check.outputs.version }} (${{ steps.check.outputs.type }})"'
+
+      - name: Log when unchanged
+        if: steps.check.outputs.changed == 'false'
+        run: |
+          'echo "No change to version number in package.json file"'
+          'exit 1'
 
   # build-publish:
   #   name: Publish build to NPM registry
