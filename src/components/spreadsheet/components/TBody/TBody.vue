@@ -53,7 +53,8 @@
             "
             @contextmenu.prevent="handleContextMenuTd($event, row[header], header, rowIndex, colIndex, row[header].type)"
             :class="{
-              active_td: row[header].active,
+              active_td: row[header].active || row[header].highlight,
+              highlight_td: row[header].highlight,
               show: row[header].show,
               selected: row[header].selected,
               copy: row[header].stateCopy,

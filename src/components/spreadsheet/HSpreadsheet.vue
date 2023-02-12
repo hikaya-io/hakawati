@@ -236,6 +236,10 @@ export default {
       type: Boolean,
       required: false,
       default: true
+    },
+    highlightCells: {
+      type: Array,
+      default: () => []
     }
   },
   data () {
@@ -398,8 +402,20 @@ export default {
           ) {
             this.$set(this.data[rowIndex][header], 'duplicate', copy)
           }
+
+          if (this.shouldHighlight(rowIndex, header)) {
+            this.$set(this.data[rowIndex][header], 'highlight', true)
+          }
         })
       })
+    },
+    shouldHighlight (rowIndex, header) {
+      for (const cell of this.highlightCells) {
+        if (cell.rowIndex === rowIndex && cell.header === header) {
+          return true
+        }
+      }
+      return false
     },
     enableSubmenu (target) {
       if (target === 'thead') {
