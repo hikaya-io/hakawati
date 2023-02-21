@@ -210,6 +210,7 @@
                   class=""
                   v-model="row[header].value"
                   :ref="`checkbox-${currentTable}-${colIndex}-${rowIndex}`"
+                  @change="inputHandleChange($event, header, rowIndex, colIndex)"
                 />
               </div>
             </template>

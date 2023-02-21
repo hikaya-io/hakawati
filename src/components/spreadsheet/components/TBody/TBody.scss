@@ -71,6 +71,14 @@
     }
     &.highlight_td:after {
       border: none;
+      .drag_to_fill {
+        display: none;
+      }
+    }
+    &.highlight_td {
+      .drag_to_fill {
+        display: none;
+      }
     }
     &.rectangleSelection:after {
       content: "";
