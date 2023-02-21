@@ -37,6 +37,7 @@ const Template = () => ({
       :custom-options="{}"
       :data="values"
       :headers="headers"
+      :highlight-cells="[{rowIndex: 1, header: 'text'}]"
       @on-new-row="onNewRow"
     />
   `
