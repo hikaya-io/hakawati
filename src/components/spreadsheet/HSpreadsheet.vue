@@ -131,7 +131,7 @@
         @tbody-down-dragtofill="handleDownDragToFill"
         @tbody-handle-search-input-select="handleSearchInputSelect"
         @tbody-handle-set-oldvalue="setOldValueOnInputSelect"
-        @tbody-input-change="handleTbodyInputChange"
+        @tbody-input-change="onInputChange"
         @tbody-input-keydown="handleTbodyInputKeydown"
         @tbody-move-dragtofill="handleMoveDragToFill"
         @tbody-select-change="handleTbodySelectChange"
@@ -157,6 +157,7 @@ import { handleTHead } from './mixins/handleTHead'
 import { moveOnTable } from './mixins/moveOnTable'
 import { scrollOnTable } from './mixins/scrollOnTable'
 import { undo } from './mixins/undo'
+import { handleRequired } from './mixins/handleRequired'
 
 import Fuse from 'fuse.js'
 import VueThead from './components/Thead.vue'
@@ -180,7 +181,8 @@ export default {
     handleTHead,
     moveOnTable,
     scrollOnTable,
-    undo
+    undo,
+    handleRequired
   ],
   props: {
     headers: {
@@ -240,6 +242,10 @@ export default {
     highlightCells: {
       type: Array,
       default: () => []
+    },
+    requiredHeaders: {
+      type: Array,
+      default: () => []
     }
   },
   data () {
@@ -297,15 +303,28 @@ export default {
   watch: {
     data () {
       this.createdCell()
+      this.updateHighlightedCells(this.data)
     },
     visibleHeaders () {
       this.createdCell()
+    },
+    highlightedCells () {
+      this.data.forEach((tbody, rowIndex) => {
+        this.headerKeys.forEach((header) => {
+          if (this.shouldHighlight(rowIndex, header)) {
+            this.$set(this.data[rowIndex][header], 'highlight', true)
+          } else {
+            this.$set(this.data[rowIndex][header], 'highlight', false)
+          }
+        })
+      })
     }
   },
   created () {
     this.customTable = Date.now()
   },
   mounted () {
+    this.setRequiredHeaders(this.requiredHeaders)
     this.createdCell()
     // set property of triangle bg comment
     this.setPropertyStyleOfComment()
@@ -402,15 +421,16 @@ export default {
           ) {
             this.$set(this.data[rowIndex][header], 'duplicate', copy)
           }
-
-          if (this.shouldHighlight(rowIndex, header)) {
-            this.$set(this.data[rowIndex][header], 'highlight', true)
-          }
         })
       })
     },
     shouldHighlight (rowIndex, header) {
       for (const cell of this.highlightCells) {
+        if (cell.rowIndex === rowIndex && cell.header === header) {
+          return true
+        }
+      }
+      for (const cell of this.highlightedCells) {
         if (cell.rowIndex === rowIndex && cell.header === header) {
           return true
         }
@@ -659,6 +679,10 @@ export default {
       } else {
         this.hiddenColumns.push(key)
       }
+    },
+    onInputChange (event, header, rowIndex, colIndex) {
+      this.handleTbodyInputChange(event, header, rowIndex, colIndex)
+      this.updateHighlightedCells(this.data)
     }
   }
 }
