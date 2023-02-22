@@ -409,7 +409,7 @@ export const copyPaste = {
     },
     setRectangleSelection (colMin, colMax, rowMin, rowMax) {
       let width = 100
-      let height = 40
+      let height = 41
 
       // Defined width of rectangle
       if (colMin === 0 && colMax === 0) {
@@ -442,7 +442,7 @@ export const copyPaste = {
       }
 
       this.rectangleSelectedCell.style.setProperty('--rectangleWidth', `${width}%`)
-      this.rectangleSelectedCell.style.setProperty('--rectangleHeight', `${height + (2 * rowMin)}px`)
+      this.rectangleSelectedCell.style.setProperty('--rectangleHeight', `${height}px`)
 
       // Position bottom/top of rectangle if rowStart >= rowEnd
       if (this.selectedCoordCells.rowStart >= this.selectedCoordCells.rowEnd) {

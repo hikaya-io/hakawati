@@ -7,7 +7,7 @@ export function cleanProperty (element) {
   }
 
   style.setProperty('--rectangleWidth', '100%')
-  style.setProperty('--rectangleHeight', '41px')
+  style.setProperty('--rectangleHeight', '100%')
   style.setProperty('--rectangleTop', 0)
   style.setProperty('--rectangleBottom', 0)
 }
