@@ -446,7 +446,7 @@ export const copyPaste = {
 
       // Position bottom/top of rectangle if rowStart >= rowEnd
       if (this.selectedCoordCells.rowStart >= this.selectedCoordCells.rowEnd) {
-        this.rectangleSelectedCell.style.setProperty('--rectangleTop', 'auto')
+        this.rectangleSelectedCell.style.setProperty('--rectangleTop', 0)
         this.rectangleSelectedCell.style.setProperty('--rectangleBottom', 0)
       } else {
         this.rectangleSelectedCell.style.setProperty('--rectangleTop', 0)
