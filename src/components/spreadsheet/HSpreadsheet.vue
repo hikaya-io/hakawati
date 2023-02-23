@@ -705,7 +705,7 @@ export default {
 
   /* rectangle style */
   --rectangleBottom: 0;
-  --rectangleHeight: 41px;
+  --rectangleHeight: 100%;
   --rectangleLeft: 0;
   --rectangleRight: 0;
   --rectangleTop: 0;

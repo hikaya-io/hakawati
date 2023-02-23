@@ -4,18 +4,15 @@
   $rectangleBorder: 2px solid $primary-color-sub;
   $rectangleBg: $primary-color-sub-fill;
 
-  $dragToFillSize: 10px;
+  $dragToFillSize: 16px;
   $dragToFillColor: $primary-color-sub;
 
-  $chedkedColor: #b2d1ff;
+  $chedkedColor: $background-color;
 
   .table_row {
-    min-height: 40px;
-    height: 40px;
+    min-height: 41px;
+    height: 41px;
     transition: background ease 0.3s;
-    &:last-child .td {
-      border-bottom: none;
-    }
     &.checked_row {
       background: $chedkedColor;
       td {
@@ -39,7 +36,6 @@
   .td {
     min-height: 41px;
     height: 41px;
-    line-height: 40px;
     position: relative;
     background-color: white;
     border-right: 1px solid $border-grey;
@@ -213,8 +209,8 @@
     }
     .drag_to_fill {
       position: absolute;
-      right: -4px;
-      bottom: -4px;
+      right: -8px;
+      bottom: -8px;
       width: $dragToFillSize;
       height: $dragToFillSize;
       background: $dragToFillColor;
