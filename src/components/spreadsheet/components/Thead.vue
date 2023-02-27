@@ -393,6 +393,7 @@ export default {
 
   .index {
     min-width: 55px;
+    width: 55px;
     padding: 0;
     text-align: center;
     border-left: 0px;
