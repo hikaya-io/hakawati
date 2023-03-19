@@ -200,6 +200,20 @@
                 @keyup.esc="escKeyup(row[header], rowIndex, header, colIndex, headersAsObj[header].type)"
               />
             </template>
+            <template v-if="headersAsObj[header].type === 'multi-category'">
+              <div class="display-text" :ref="`span-${currentTable}-${colIndex}-${rowIndex}`">
+                <h-tag v-for="val in getLabelFromValue(row[header].value, headersAsObj[header].selectOptions)"
+                       :key="`${val}-${colIndex}-${rowIndex}`">{{ val }}</h-tag>
+              </div>
+              <h-select
+                :ref="`vsSelect-${currentTable}-${colIndex}-${rowIndex}`"
+                v-model="row[header].value"
+                multiple
+                :options="headersAsObj[header].selectOptions"
+                @change="inputHandleChange($event, header, rowIndex, colIndex)"
+                @keyup.esc="escKeyup(row[header], rowIndex, header, colIndex, headersAsObj[header].type)"
+              />
+            </template>
 
             <template v-if="headersAsObj[header].type === 'boolean'">
               <span class="display-text" :ref="`span-${currentTable}-${colIndex}-${rowIndex}`">

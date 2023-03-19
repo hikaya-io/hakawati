@@ -1,13 +1,15 @@
 import VSelect from './VSelect.vue'
 import HSelect from '@/components/select/HSelect'
 import HDatePicker from '@/components/datepicker/HDatePicker'
+import HTag from '@/components/tag/HTag.vue'
 
 export default {
   name: 'vue-tbody',
   components: {
     VSelect,
     HSelect,
-    HDatePicker
+    HDatePicker,
+    HTag
   },
   props: {
     tbodyHighlight: {
