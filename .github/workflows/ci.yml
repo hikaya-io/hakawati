@@ -34,29 +34,29 @@ jobs:
   package-version-check:
     name: Package Version Check
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
+    steps: 
+      - name: Checkout code
         uses: actions/checkout@v2
       - name: Get previous version
-        run: echo "::set-env name=PREV_VERSION::$(git show HEAD~1:package.json | grep -oP '(?<="version": ")[^"]+')"
+        run: 'echo "::set-env name=PREV_VERSION::$(git show HEAD~1:package.json | grep -oP (?<="version": ")[^"]+)'
 
-      - name: Get current version
-        run: echo "::set-env name=CURR_VERSION::$(jq -r '.version' package.json)"
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v2
+  #     - id: check # This will be the reference for getting the outputs.
+  #       uses: EndBug/version-check@v2.1.1 # You can choose the version/branch you prefer.
+  #       with:
+  #         file-url: https://unpkg.com/@hikaya/hakawati@latest/package.json
+  #         static-checking: localIsNew
+  #     - name: Log when changed
+  #       if: steps.check.outputs.changed == 'true'
+  #       run: 'echo "New version: ${{ steps.check.outputs.version }} (${{ steps.check.outputs.type }})"'
 
-      - id: check # This will be the reference for getting the outputs.
-        uses: EndBug/version-check@v2.1.1 # You can choose the version/branch you prefer.
-        with:
-          file-url: https://unpkg.com/@hikaya/hakawati@latest/package.json
-          static-checking: localIsNew
-      - name: Log when changed
-        if: steps.check.outputs.changed == 'true'
-        run: 'echo "New version: ${{ steps.check.outputs.version }} (${{ steps.check.outputs.type }})"'
-
-      - name: Log when unchanged
-        if: steps.check.outputs.changed == 'false'
-        run: |
-          'echo "No change to version number in package.json file"'
-          'exit 1'
+  #     - name: Log when unchanged
+  #       if: steps.check.outputs.changed == 'false'
+  #       run: |
+  #         'echo "No change to version number in package.json file"'
+  #         'exit 1'
 
   build-publish:
     name: Publish build to NPM registry
