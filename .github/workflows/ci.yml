@@ -31,7 +31,7 @@ jobs:
       - run: yarn install
       - run: yarn build-lib
   
-  check_version:
+  check-version:
     runs-on: ubuntu-latest
     outputs:
       previous_version: ${{ steps.get_previous_version.outputs.version }}
@@ -42,7 +42,7 @@ jobs:
     - name: Get previous version
       id: get_previous_version
       run: |
-        echo $(git show HEAD~1:package.json | grep -oP '(?<=\"version\": \")[^\"]+')
+        echo $((npm view @hikaya/hakawati@latest version) | grep -oP '(?<=\"version\": \")[^\"]+')
     - name: Get current version
       id: get_current_version
       run: |
