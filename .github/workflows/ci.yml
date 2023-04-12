@@ -49,7 +49,7 @@ jobs:
           echo "Current version: ${CURRENT_VERSION}"
       - name: Check version
         run: |
-          echo ">${HOSTED_VERSION}" "${CURRENT_VERSION}"
+          echo ${HOSTED_VERSION}
 
 
   #   steps:
