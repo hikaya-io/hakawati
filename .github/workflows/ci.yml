@@ -42,7 +42,7 @@ jobs:
     - name: Get previous version
       id: get_previous_version
       run: |
-        echo $((npm view @hikaya/hakawati@latest version) | grep -oP '(?<=\"version\": \")[^\"]+')
+        echo $(npm view @hikaya/hakawati@latest version)
     - name: Get current version
       id: get_current_version
       run: |
