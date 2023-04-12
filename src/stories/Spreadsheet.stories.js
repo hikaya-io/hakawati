@@ -37,6 +37,7 @@ const Template = () => ({
       :custom-options="{}"
       :data="values"
       :headers="headers"
+      :required-headers="['text', 'percentage', 'category', 'boolean']"
       @on-new-row="onNewRow"
     />
   `
@@ -121,6 +122,29 @@ const headers = [
     }
   },
   {
+    headerName: 'Multi-category',
+    headerKey: 'multi-category',
+    type: 'multi-category',
+    selectOptions: [
+      {
+        value: 'one',
+        label: 'One'
+      },
+      {
+        value: 'two',
+        label: 'Two'
+      },
+      {
+        value: 'three',
+        label: 'Three'
+      }
+    ],
+    style: {
+      width: '200px',
+      minWidth: '200px'
+    }
+  },
+  {
     headerName: 'Boolean',
     headerKey: 'boolean',
     type: 'boolean',
@@ -154,6 +178,9 @@ const values = [
     category: {
       value: 'two'
     },
+    'multi-category': {
+      value: ['two']
+    },
     boolean: {
       value: true
     }
@@ -179,6 +206,9 @@ const values = [
     },
     category: {
       value: 'three'
+    },
+    'multi-category': {
+      value: ['three']
     },
     boolean: {
       value: false

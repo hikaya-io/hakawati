@@ -85,65 +85,68 @@
       </el-dropdown>
     </div>
 
-    <table class="vue_table" :ref="`${customTable}-table`">
-      <vue-thead
-        :ref="`${customTable}-vueThead`"
-        :disable-sort-thead="disableSortThead"
-        :header-top="headerTop"
-        :headers="visibleHeaders"
-        :sort-header="customOptions.sortHeader"
-        :submenu-status-thead="submenuStatusThead"
-        :submenu-thead="submenuThead"
-        :tbody-index="true"
-        :tbody-checkbox="customOptions.tbodyCheckbox"
-        :thead-highlight="highlight.thead"
-        :current-table="customTable"
-        @handle-up-drag-size-header="handleUpDragSizeHeader"
-        @handle-up-drag-to-fill="handleUpDragToFill"
-        @submenu-enable="enableSubmenu"
-        @thead-checked-all-callback="callbackCheckedAll"
-        @thead-submenu-click-callback="callbackSubmenuThead"
-        @thead-td-context-menu="handleTheadContextMenu"
-        @thead-td-sort="callbackSort"
-      >
-      </vue-thead>
+    <div class="table_wrapper">
+      <table class="vue_table" :ref="`${customTable}-table`">
+        <vue-thead
+          :ref="`${customTable}-vueThead`"
+          :disable-sort-thead="disableSortThead"
+          :header-top="headerTop"
+          :headers="visibleHeaders"
+          :sort-header="customOptions.sortHeader"
+          :submenu-status-thead="submenuStatusThead"
+          :submenu-thead="submenuThead"
+          :tbody-index="true"
+          :tbody-checkbox="customOptions.tbodyCheckbox"
+          :thead-highlight="highlight.thead"
+          :current-table="customTable"
+          @handle-up-drag-size-header="handleUpDragSizeHeader"
+          @handle-up-drag-to-fill="handleUpDragToFill"
+          @submenu-enable="enableSubmenu"
+          @thead-checked-all-callback="callbackCheckedAll"
+          @thead-submenu-click-callback="callbackSubmenuThead"
+          @thead-td-context-menu="handleTheadContextMenu"
+          @thead-td-sort="callbackSort"
+        >
+        </vue-thead>
 
-      <slot name="loader" v-if="loading"></slot>
+        <slot name="loader" v-if="loading"></slot>
 
-      <vue-tbody
-        v-if="!loading"
-        :ref="`${customTable}-vueTbody`"
-        :tbody-data="data"
-        :headers="visibleHeaders"
-        :tbody-checkbox="customOptions.tbodyCheckbox"
-        :tbody-index="true"
-        :trad="customOptions.trad || {}"
-        :disable-cells="disableCells"
-        :submenu-tbody="submenuTbody"
-        :filtered-list="filteredList"
-        :submenu-status-tbody="submenuStatusTbody"
-        :tbody-highlight="highlight.tbody"
-        :current-table="customTable"
-        @handle-to-calculate-position="calculatePosition"
-        @handle-to-open-select="enableSelect"
-        @submenu-enable="enableSubmenu"
-        @tbody-checked-row="checkedRow"
-        @tbody-down-dragtofill="handleDownDragToFill"
-        @tbody-handle-search-input-select="handleSearchInputSelect"
-        @tbody-handle-set-oldvalue="setOldValueOnInputSelect"
-        @tbody-input-change="handleTbodyInputChange"
-        @tbody-input-keydown="handleTbodyInputKeydown"
-        @tbody-move-dragtofill="handleMoveDragToFill"
-        @tbody-select-change="handleTbodySelectChange"
-        @tbody-select-multiple-cell="handleSelectMultipleCell"
-        @tbody-submenu-click-callback="callbackSubmenuTbody"
-        @tbody-td-click="handleTbodyTdClick"
-        @tbody-td-context-menu="handleTBodyContextMenu"
-        @tbody-td-double-click="handleTbodyTdDoubleClick"
-        @tbody-up-dragtofill="handleUpDragToFill"
-      >
-      </vue-tbody>
-    </table>
+        <vue-tbody
+          v-if="!loading"
+          :ref="`${customTable}-vueTbody`"
+          :tbody-data="data"
+          :headers="visibleHeaders"
+          :tbody-checkbox="customOptions.tbodyCheckbox"
+          :tbody-index="true"
+          :trad="customOptions.trad || {}"
+          :disable-cells="disableCells"
+          :submenu-tbody="submenuTbody"
+          :filtered-list="filteredList"
+          :submenu-status-tbody="submenuStatusTbody"
+          :tbody-highlight="highlight.tbody"
+          :current-table="customTable"
+          @handle-to-calculate-position="calculatePosition"
+          @handle-to-open-select="enableSelect"
+          @submenu-enable="enableSubmenu"
+          @tbody-checked-row="checkedRow"
+          @tbody-down-dragtofill="handleDownDragToFill"
+          @tbody-handle-search-input-select="handleSearchInputSelect"
+          @tbody-handle-set-oldvalue="setOldValueOnInputSelect"
+          @tbody-input-change="onInputChange"
+          @tbody-input-keydown="handleTbodyInputKeydown"
+          @tbody-move-dragtofill="handleMoveDragToFill"
+          @tbody-select-change="handleTbodySelectChange"
+          @tbody-select-multiple-cell="handleSelectMultipleCell"
+          @tbody-submenu-click-callback="callbackSubmenuTbody"
+          @tbody-td-click="handleTbodyTdClick"
+          @tbody-td-context-menu="handleTBodyContextMenu"
+          @tbody-td-double-click="handleTbodyTdDoubleClick"
+          @tbody-up-dragtofill="handleUpDragToFill"
+        >
+        </vue-tbody>
+      </table>
+    </div>
+
     <button class="add_new_row" @click="addNewRow">+</button>
   </div>
 </template>
@@ -157,6 +160,7 @@ import { handleTHead } from './mixins/handleTHead'
 import { moveOnTable } from './mixins/moveOnTable'
 import { scrollOnTable } from './mixins/scrollOnTable'
 import { undo } from './mixins/undo'
+import { handleRequired } from './mixins/handleRequired'
 
 import Fuse from 'fuse.js'
 import VueThead from './components/Thead.vue'
@@ -180,7 +184,8 @@ export default {
     handleTHead,
     moveOnTable,
     scrollOnTable,
-    undo
+    undo,
+    handleRequired
   ],
   props: {
     headers: {
@@ -236,6 +241,14 @@ export default {
       type: Boolean,
       required: false,
       default: true
+    },
+    highlightCells: {
+      type: Array,
+      default: () => []
+    },
+    requiredHeaders: {
+      type: Array,
+      default: () => []
     }
   },
   data () {
@@ -293,15 +306,28 @@ export default {
   watch: {
     data () {
       this.createdCell()
+      this.updateHighlightedCells(this.data)
     },
     visibleHeaders () {
       this.createdCell()
+    },
+    highlightedCells () {
+      this.data.forEach((tbody, rowIndex) => {
+        this.headerKeys.forEach((header) => {
+          if (this.shouldHighlight(rowIndex, header)) {
+            this.$set(this.data[rowIndex][header], 'highlight', true)
+          } else {
+            this.$set(this.data[rowIndex][header], 'highlight', false)
+          }
+        })
+      })
     }
   },
   created () {
     this.customTable = Date.now()
   },
   mounted () {
+    this.setRequiredHeaders(this.requiredHeaders)
     this.createdCell()
     // set property of triangle bg comment
     this.setPropertyStyleOfComment()
@@ -400,6 +426,19 @@ export default {
           }
         })
       })
+    },
+    shouldHighlight (rowIndex, header) {
+      for (const cell of this.highlightCells) {
+        if (cell.rowIndex === rowIndex && cell.header === header) {
+          return true
+        }
+      }
+      for (const cell of this.highlightedCells) {
+        if (cell.rowIndex === rowIndex && cell.header === header) {
+          return true
+        }
+      }
+      return false
     },
     enableSubmenu (target) {
       if (target === 'thead') {
@@ -643,6 +682,10 @@ export default {
       } else {
         this.hiddenColumns.push(key)
       }
+    },
+    onInputChange (event, header, rowIndex, colIndex) {
+      this.handleTbodyInputChange(event, header, rowIndex, colIndex)
+      this.updateHighlightedCells(this.data)
     }
   }
 }
@@ -665,7 +708,7 @@ export default {
 
   /* rectangle style */
   --rectangleBottom: 0;
-  --rectangleHeight: 41px;
+  --rectangleHeight: 100%;
   --rectangleLeft: 0;
   --rectangleRight: 0;
   --rectangleTop: 0;
@@ -676,7 +719,7 @@ export default {
 }
 .vue-spreadsheet {
   overflow-x: hidden;
-  width: max-content;
+  //width: max-content;
 
   .toolbar{
     height: 45px;
@@ -691,7 +734,6 @@ export default {
     padding-left: 36px;
     padding-right: 36px;
     .el-dropdown {
-      position: sticky;
       right: 36px;
     }
 
@@ -722,7 +764,13 @@ export default {
     }
   }
 
+  .table_wrapper {
+    max-width: 100%;
+    overflow-x: scroll;
+  }
+
   table {
+    width: 100%;
     table-layout: fixed;
     margin: 0;
     border-spacing: 0;
