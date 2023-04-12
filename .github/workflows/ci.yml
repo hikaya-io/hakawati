@@ -38,7 +38,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Get previous version
-        run:  'echo PREVIOUS_VERSION=$(git show HEAD~1:package.json | jq -r ".version")'
+        run: |
+          PREV_SHA=${{ github.event.before }}
+          PREV_VERSION=$(git show ${PREV_SHA}:package.json | jq -r '.version')
+          echo "Previous version: ${PREV_VERSION}"
       - name: Get current version
         run:  'echo CURRENT_VERSION=$(jq -r ".version" package.json)'
 
