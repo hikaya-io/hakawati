@@ -38,7 +38,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Get current version
-        run: echo "::set-env name=CURR_VERSION::$(jq -r '.version' package.json)"
+        run: 'echo CURRENT_VERSION=$(jq -r ".version" package.json)'
 
 
   #   steps:
