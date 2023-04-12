@@ -37,6 +37,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+      - name: Get previous version
+        run: echo "::set-env name=PREV_VERSION::$(git show HEAD~1:package.json | grep -oP '(?<="version": ")[^"]+')"
+
+      - name: Get current version
+        run: echo "::set-env name=CURR_VERSION::$(jq -r '.version' package.json)"
+
       - id: check # This will be the reference for getting the outputs.
         uses: EndBug/version-check@v2.1.1 # You can choose the version/branch you prefer.
         with:
