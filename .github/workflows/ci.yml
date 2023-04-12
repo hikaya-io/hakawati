@@ -46,7 +46,7 @@ jobs:
       - name: Get current version
         run: |
           CURRENT_VERSION=$(jq -r '.version' package.json)
-          echo "Current version: ${CURRENT_VERSION}"
+          echo "Current version: ${CURRENT_VERSION} hosted version ${HOSTED_VERSION}"
       - name: Check version
         run: |
           echo ${HOSTED_VERSION}
