@@ -37,6 +37,8 @@ jobs:
     steps: 
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Get previous version
+        run:  echo PREVIOUS_VERSION=$(git show HEAD~1:package.json | jq -r '.version')
       - name: Get current version
         run: 'echo CURRENT_VERSION=$(jq -r ".version" package.json)'
 
