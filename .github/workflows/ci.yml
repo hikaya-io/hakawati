@@ -37,12 +37,8 @@ jobs:
     steps: 
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Semver Release
-        uses: K-Phoen/semver-release-action@v1.2.0
-        with:
-          release_branch: master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install semver
+        run: npm install --global semver
       - name: Get hosted version
         run: |
           HOSTED_VERSION=$(npm view @hikaya/hakawati@latest version)
