@@ -44,7 +44,13 @@ jobs:
           HOSTED_VERSION=$(npm view @hikaya/hakawati@latest version)
           CURRENT_VERSION=$(jq -r '.version' package.json)
           echo "Current version: ${CURRENT_VERSION} hosted version ${HOSTED_VERSION}"
-          semver -r ">${HOSTED_VERSION}" "${CURRENT_VERSION}"
+          if semver -r ">${HOSTED_VERSION}" "${CURRENT_VERSION}" && semver -p --include-prerelease "rc" "${CURRENT_VERSION}"; then
+            echo "Version has been incremented and is a prerelease with rc prefix"
+          elif semver -r "${CURRENT_VERSION}" "${HOSTED_VERSION}" && semver -p "${CURRENT_VERSION}"; then
+            echo "Version has been downgraded or not incremented and is a valid version"
+          else
+            echo "Invalid version"
+          fi
 
 
   #   steps:
