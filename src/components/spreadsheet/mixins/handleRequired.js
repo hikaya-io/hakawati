@@ -15,7 +15,7 @@ export const handleRequired = {
         data.forEach((row, rowIndex) => {
           Object.keys(row).forEach(column => {
             if (this._requiredHeaders.includes(column)) {
-              if (row[column].value === null || row[column].value === '') {
+              if (row[column].value === null || row[column].value === '' || (Array.isArray(row[column].value) && !row[column].value.length)) {
                 this.highlightedCells.push({ rowIndex, header: column })
               }
             }
