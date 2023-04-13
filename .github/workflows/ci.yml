@@ -49,7 +49,7 @@ jobs:
     - name: Install semver
       run: npm install --global semver
     - name: Compare versions
-      run: 'echo "${{ steps.get_previous_version.outputs.version }}"'
+      run: 'echo "${{ steps.get_previous_version.outputs }}"'
 
 
   # package-version-check:
