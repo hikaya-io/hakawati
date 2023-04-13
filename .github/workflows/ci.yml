@@ -39,7 +39,7 @@ jobs:
     - name: Install semver
       run: npm install --global semver
     - name: Get previous version
-      run: echo $(npm show @hikaya/hakawati@latest version) | grep -o '[0-9.]*'
+      run: echo ::set-output name=version::$(npm show @hikaya/hakawati@latest version)
       id: get_previous_version
     - name: Check version
       run: |
