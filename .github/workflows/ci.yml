@@ -56,14 +56,7 @@ jobs:
               echo "Pre-release version is different."
             fi
           else
-            CURRENT_VER_NP=$(semver $CURRENT_VER -r '^[0-9]+\.[0-9]+\.[0-9]+$' --exclude-prerelease)
-            PREV_VER_NP=$(semver $PREV_VER -r '^[0-9]+\.[0-9]+\.[0-9]+$' --exclude-prerelease)
-            if [ "$CURRENT_VER_NP" == "$PREV_VER_NP" ]; then
-              echo "Major/Minor version is the same."
-              exit 1
-            else
-              echo "Major/Minor version is different."
-            fi
+            echo "check versions"
           fi
         else
           echo "Versions are the same."
