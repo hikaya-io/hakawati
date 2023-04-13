@@ -39,10 +39,12 @@ jobs:
     - name: Install semver
       run: npm install --global semver
     - name: Get previous version
-      run: |
-        PREV_VER=$(curl -s https://unpkg.com/@hikaya/hakawati@latest/package.json)
-        echo "::set-output name=version::$PREV_VER"
+      run: echo ::set-output name=version::$(npm show @hikaya/hakawati@latest version)
       id: get_previous_version
+    - name: Check version
+      run: |
+        PREV_VER=${{ steps.get_previous_version.outputs.version }}
+        echo PREV_VER
 
   # package-version-check:
   #   name: Package Version Check
