@@ -48,7 +48,14 @@ jobs:
           if [[ "${current_version}" == *"-alpha"* ]] || [[ "${current_version}" == *"-beta"* ]]; then
             echo "The version has been incremented to a pre-release version"
           else
-            echo "check major and minor"
+            # Check if the current version is a major or minor version change
+            if semver -i major -r "${hosted_version}" "${current_version}" >/dev/null 2>&1; then
+              echo "The version has been incremented with a major version change"
+            elif semver -i minor -r "${hosted_version}" "${current_version}" >/dev/null 2>&1; then
+              echo "The version has been incremented with a minor version change"
+            else
+              echo "The version has been incremented with a patch version change"
+            fi
           fi
         else
           echo "The version has not been incremented"
