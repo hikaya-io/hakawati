@@ -43,8 +43,13 @@ jobs:
       id: get_previous_version
     - name: Check version
       run: |
+        CURRENT_VER=$(node -p "require('./package.json').version")
         PREV_VER=${{ steps.get_previous_version.outputs.version }}
-        echo PREV_VER
+        if [ "$CURRENT_VER" == "$PREV_VER" ]; then
+          echo "Versions are the same."
+        else
+          echo "Versions are different."
+        fi
 
   # package-version-check:
   #   name: Package Version Check
