@@ -33,25 +33,16 @@ jobs:
   
   check-version:
     runs-on: ubuntu-latest
-    outputs:
-      previous_version: ${{ steps.get_previous_version.outputs.version }}
-      current_version: ${{ steps.get_current_version.outputs.version }}
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Get previous version
-      id: get_previous_version
-      run: |
-        echo $(wget -qO- https://unpkg.com/@hikaya/hakawati@latest/package.json | grep -oP '(?<=\"version\": \")[^\"]+')
-    - name: Get current version
-      id: get_current_version
-      run: |
-        echo $(grep -oP '(?<=\"version\": \")[^\"]+' package.json)
     - name: Install semver
       run: npm install --global semver
-    - name: Compare versions
+    - name: comapre versions
       run: |
-        echo "${{ steps.get_current_version.outputs.version }}"
+        previous_version=$(wget -qO- https://unpkg.com/@hikaya/hakawati@latest/package.json | grep -oP '(?<=\"version\": \")[^\"]+')
+        current_version=$(grep -oP '(?<=\"version\": \")[^\"]+' package.json)
+        echo "${previous_version} and ${current_version}"
 
 
   # package-version-check:
