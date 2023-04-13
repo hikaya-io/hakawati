@@ -48,8 +48,10 @@ jobs:
           echo "The version has been incremented to a pre-release version"
           if semver -i major -r "${hosted_version}" "${current_version}" >/dev/null 2>&1; then
             echo "The version has been incremented with a major version change"
+          elif semver -i minor -r "${hosted_version}" "${current_version}" >/dev/null 2>&1; then
+            echo "The version has been incremented with a minor version change"
           else
-            echo "check minor change"
+            echo "The version has been incremented with a patch version change"
           fi
         else
           echo 'check major release change'
