@@ -48,6 +48,7 @@ jobs:
         if [ "$CURRENT_VER" > "$PREV_VER" ]; then
           if [[ "${CURRENT_VER}" == *"-alpha"* ]] || [[ "${CURRENT_VER}" == *"-beta"* ]]; then
             echo "The version has been incremented to a pre-release version"
+            CURRENT_VER_NP=$(semver $CURRENT_VER -r '^[0-9]+\.[0-9]+\.[0-9]+$' --exclude-prerelease)
           else
             # Check if the current version is a major or minor version change
             if semver -i major -r "${PREV_VER}" "${CURRENT_VER}" >/dev/null 2>&1; then
