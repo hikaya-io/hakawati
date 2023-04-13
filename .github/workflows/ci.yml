@@ -56,7 +56,13 @@ jobs:
               echo "Pre-release version is different."
             fi
           else
-            echo "check versions"
+            if semver -i major -r "${PREV_VER}" "${CURRENT_VER}" >/dev/null 2>&1; then
+              echo "The version has been incremented with a major version change"
+            elif semver -i minor -r "${PREV_VER}" "${CURRENT_VER}" >/dev/null 2>&1; then
+              echo "The version has been incremented with a minor version change"
+            else
+              echo "The version has been incremented with a patch version change"
+            fi
           fi
         else
           echo "Versions are the same."
