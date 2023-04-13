@@ -45,7 +45,12 @@ jobs:
         current_version=$(cat package.json | jq -r .version)
         # Check if the current version is greater thatn the previous version
         if semver -p --include-prerelease "alpha" "${current_version}" || semver -p --include-prerelease "beta" "${current_version}"; then
-          echo "includes alpha"
+          echo "The version has been incremented to a pre-release version"
+          if semver -i major -r "${hosted_version}" "${current_version}" >/dev/null 2>&1; then
+            echo "The version has been incremented with a major version change"
+          else
+            echo "check minor change"
+          fi
         else
           echo 'check major release change'
         fi
