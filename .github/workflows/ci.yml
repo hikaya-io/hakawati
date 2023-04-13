@@ -44,7 +44,7 @@ jobs:
         hosted_version=$(wget -qO- https://unpkg.com/@hikaya/hakawati@latest/package.json | grep -oP '(?<=\"version\": \")[^\"]+')
         current_version=$(cat package.json | jq -r .version)
         # Check if the current version is greater thatn the previous version
-        if semver -gt "${current_version}" "${hosted_version}"; then
+        if semver -r ">${current_version}" "${hosted_version}" && semver -p --include-prerelease "alpha" "${current_version}"; then
           if [[ "${current_version}" == *"-alpha"* ]] || [[ "${current_version}" == *"-beta"* ]]; then
             echo "The version has been incremented to a pre-release version"
           else
