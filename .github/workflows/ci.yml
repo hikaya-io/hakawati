@@ -40,9 +40,15 @@ jobs:
       run: npm install --global semver
     - name: comapre versions
       run: |
+        # Compare the current version to the previous version
         hosted_version=$(wget -qO- https://unpkg.com/@hikaya/hakawati@latest/package.json | grep -oP '(?<=\"version\": \")[^\"]+')
         current_version=$(grep -oP '(?<=\"version\": \")[^\"]+' package.json)
-        echo semver -r ">${hosted_version}" "${current_version}"
+        # Check if the current version is greater thatn the previous version
+        if semver -gt "${current_version}" "${hosted_version}"; then
+          echo "perform a major minor check"
+        else
+          echo "The version has not been incremented"
+        fi
 
 
   # package-version-check:
