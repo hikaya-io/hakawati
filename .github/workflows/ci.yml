@@ -38,18 +38,11 @@ jobs:
       uses: actions/checkout@v2
     - name: Install semver
       run: npm install --global semver
-    - name: comapre versions
+    - name: Get previous version
       run: |
-        # Compare the current version to the previous version
-        hosted_version=$(wget -qO- https://unpkg.com/@hikaya/hakawati@latest/package.json | grep -oP '(?<=\"version\": \")[^\"]+')
-        current_version=$(cat package.json | jq -r .version)
-        # version has changed and is greater than current
-        if semver -gt "${current_version}" "${hosted_version}"; then
-          echo "perform a check"
-        else
-          echo "exit"
-          exit 1
-        fi
+        PREV_VER=$(curl -s https://unpkg.com/@hikaya/hakawati@latest/package.json)
+        echo "::set-output name=version::$PREV_VER"
+      id: get_previous_version
 
   # package-version-check:
   #   name: Package Version Check
