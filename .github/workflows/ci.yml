@@ -44,12 +44,11 @@ jobs:
       run: 'echo $(wget -qO- https://unpkg.com/@hikaya/hakawati@latest/package.json | grep -oP "(?<=\"version\": \")[^\"]+")'
     - name: Get current version
       id: get_current_version
-      run: |
-        echo $(grep -oP '(?<=\"version\": \")[^\"]+' package.json)
+      run: echo $(grep -oP '(?<=\"version\": \")[^\"]+' package.json)
     - name: Install semver
       run: npm install --global semver
     - name: Compare versions
-      run: 'echo "${{ steps.get_previous_version.outputs }}"'
+      run: 'echo "${{ steps.get_current_version.outputs.version }}"'
 
 
   # package-version-check:
