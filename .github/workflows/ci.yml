@@ -44,7 +44,7 @@ jobs:
         hosted_version=$(wget -qO- https://unpkg.com/@hikaya/hakawati@latest/package.json | grep -oP '(?<=\"version\": \")[^\"]+')
         current_version=$(cat package.json | jq -r .version)
         # version has changed and is greater than current
-        if semver -gt "${current_version}" "${previous_version}"; then
+        if semver -gt "${current_version}" "${hosted_version}"; then
           echo "perform a check"
         else
           echo "exit"
