@@ -42,7 +42,7 @@ jobs:
       run: |
         # Compare the current version to the previous version
         hosted_version=$(wget -qO- https://unpkg.com/@hikaya/hakawati@latest/package.json | grep -oP '(?<=\"version\": \")[^\"]+')
-        current_version=$(grep -oP '(?<=\"version\": \")[^\"]+' package.json)
+        current_version=$(cat package.json | jq -r .version)
         # Check if the current version is greater thatn the previous version
         if semver -gt "${current_version}" "${hosted_version}"; then
           if [[ "${current_version}" == *"-alpha"* ]] || [[ "${current_version}" == *"-beta"* ]]; then
@@ -59,6 +59,7 @@ jobs:
           fi
         else
           echo "The version has not been incremented"
+          exit 1
         fi
 
 
