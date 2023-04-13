@@ -40,9 +40,15 @@ jobs:
       run: npm install --global semver
     - name: comapre versions
       run: |
-        previous_version=$(wget -qO- https://unpkg.com/@hikaya/hakawati@latest/package.json | grep -oP '(?<=\"version\": \")[^\"]+')
+        hosted_version=$(wget -qO- https://unpkg.com/@hikaya/hakawati@latest/package.json | grep -oP '(?<=\"version\": \")[^\"]+')
         current_version=$(grep -oP '(?<=\"version\": \")[^\"]+' package.json)
-        echo "${previous_version} and ${current_version}"
+        if semver -r ">${hosted_version}" "${current_version}" && semver -p --include-prerelease "rc" "${current_version}"; then
+          echo "Version has been incremented and is a prerelease with rc prefix"
+        elif semver -r "${current_version}" "${hosted_version}" && semver -p "${current_version}"; then
+          echo "Version has been downgraded or not incremented and is a valid version"
+        else
+          echo "Invalid version"
+        fi
 
 
   # package-version-check:
