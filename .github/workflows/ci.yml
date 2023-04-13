@@ -45,7 +45,11 @@ jobs:
         current_version=$(grep -oP '(?<=\"version\": \")[^\"]+' package.json)
         # Check if the current version is greater thatn the previous version
         if semver -gt "${current_version}" "${hosted_version}"; then
-          echo "perform a major minor check"
+          if [[ "${current_version}" == *"-alpha"* ]] || [[ "${current_version}" == *"-beta"* ]]; then
+            echo "The version has been incremented to a pre-release version"
+          else
+            echo "check major and minor"
+          fi
         else
           echo "The version has not been incremented"
         fi
