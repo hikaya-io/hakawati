@@ -52,6 +52,7 @@ jobs:
             PREV_VER_PR=$(semver $PREV_VER --include-prerelease)
             if [ "$CURRENT_VER_PR" == "$PREV_VER_PR" ]; then
               echo "Pre-release version is the same."
+              exit 1
             else
               echo "Pre-release version is different."
             fi
