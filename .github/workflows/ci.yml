@@ -44,8 +44,10 @@ jobs:
         hosted_version=$(wget -qO- https://unpkg.com/@hikaya/hakawati@latest/package.json | grep -oP '(?<=\"version\": \")[^\"]+')
         current_version=$(cat package.json | jq -r .version)
         # Check if the current version is greater thatn the previous version
-        if semver -p --include-prerelease "alpha" "${current_version}"; then
+        if semver -p --include-prerelease "alpha" "${current_version}" || semver -p --include-prerelease "beta" "${current_version}"; then
           echo "includes alpha"
+        else
+          echo 'check major release change'
         fi
 
   # package-version-check:
