@@ -30,27 +30,66 @@ jobs:
           node-version: '14.x'
       - run: yarn install
       - run: yarn build-lib
-
-  package-version-check:
-    name: Package Version Check
+  
+  check-version:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - id: check # This will be the reference for getting the outputs.
-        uses: EndBug/version-check@v2.1.1 # You can choose the version/branch you prefer.
-        with:
-          file-url: https://unpkg.com/@hikaya/hakawati@latest/package.json
-          static-checking: localIsNew
-      - name: Log when changed
-        if: steps.check.outputs.changed == 'true'
-        run: 'echo "New version: ${{ steps.check.outputs.version }} (${{ steps.check.outputs.type }})"'
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Install semver
+      run: npm install --global semver
+    - name: Get previous version
+      run: echo ::set-output name=version::$(npm show @hikaya/hakawati@latest version)
+      id: get_previous_version
+    - name: Check version
+      run: |
+        CURRENT_VER=$(cat package.json | jq -r .version)
+        PREV_VER=${{ steps.get_previous_version.outputs.version }}
+        if [ "$CURRENT_VER" > "$PREV_VER" ]; then
+          if [[ "${CURRENT_VER}" == *"-alpha"* ]] || [[ "${CURRENT_VER}" == *"-beta"* ]]; then
+            echo "The version has been incremented to a pre-release version"
+            CURRENT_VER_PR=$(semver $CURRENT_VER --include-prerelease)
+            PREV_VER_PR=$(semver $PREV_VER --include-prerelease)
+            if [ "$CURRENT_VER_PR" == "$PREV_VER_PR" ]; then
+              echo "Pre-release version is the same."
+              exit 1
+            else
+              echo "Pre-release version is different."
+            fi
+          else
+            if semver -i major -r "${PREV_VER}" "${CURRENT_VER}" >/dev/null 2>&1; then
+              echo "The version has been incremented with a major version change"
+            elif semver -i minor -r "${PREV_VER}" "${CURRENT_VER}" >/dev/null 2>&1; then
+              echo "The version has been incremented with a minor version change"
+            else
+              echo "The version has been incremented with a patch version change"
+            fi
+          fi
+        else
+          echo "Versions are the same."
+          exit 1
+        fi
 
-      - name: Log when unchanged
-        if: steps.check.outputs.changed == 'false'
-        run: |
-          'echo "No change to version number in package.json file"'
-          'exit 1'
+  # package-version-check:
+  #   name: Package Version Check
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v2
+  #     - id: check # This will be the reference for getting the outputs.
+  #       uses: EndBug/version-check@v2.1.1 # You can choose the version/branch you prefer.
+  #       with:
+  #         file-url: https://unpkg.com/@hikaya/hakawati@latest/package.json
+  #         static-checking: localIsNew
+  #     - name: Log when changed
+  #       if: steps.check.outputs.changed == 'true'
+  #       run: 'echo "New version: ${{ steps.check.outputs.version }} (${{ steps.check.outputs.type }})"'
+
+  #     - name: Log when unchanged
+  #       if: steps.check.outputs.changed == 'false'
+  #       run: |
+  #         'echo "No change to version number in package.json file"'
+  #         'exit 1'
 
   build-publish:
     name: Publish build to NPM registry
