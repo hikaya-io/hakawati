@@ -10,7 +10,7 @@
     <context-menu ref="row-menu">
       <template v-slot="{ contextData }">
         <div class="context-menu-data">
-          <p class='body-reg' v-if="enableAddResult"  @click="addResult($event, contextData.rowIndex)"><i class="el-icon-s-data" />  Add Results</p>
+          <p class='body-reg' v-if="enableAddResult"  @click="addResult($event, contextData.rowIndex)"><i class="el-icon-s-data" />  {{ addResultLabel }}</p>
           <p class="body-reg" @click="addNewRow($event, contextData.rowIndex, true)"><i class="el-icon-top" /> Insert record above</p>
           <p class="body-reg" @click="addNewRow($event, contextData.rowIndex)"> <i class="el-icon-bottom" /> Insert record below</p>
           <el-divider />
@@ -249,6 +249,11 @@ export default {
     requiredHeaders: {
       type: Array,
       default: () => []
+    },
+    addResultLabel: {
+      type: String,
+      required: false,
+      default: 'Add Results'
     }
   },
   data () {
