@@ -436,7 +436,7 @@ export default {
 
 }
 
-.el-dropdown-menu {
+::v-deep .el-dropdown-menu {
   max-height: 300px;
   width: 200px;
   overflow-y: auto;
