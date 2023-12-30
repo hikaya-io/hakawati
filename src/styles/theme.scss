@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 // Color Palette
 $white: #fff;
@@ -54,12 +54,12 @@ $placeholder-color: $background-color;
 $input-value-color: $background-color;
 $help-text-color: $background-color;
 $disables-opacity: 0.25;
-$main-font-family: 'Roboto', sans-serif;
+$main-font-family: 'Inter', sans-serif;
 $primary-background-color: $background-color;
 $light-color: $light-body-grey;
 $dark-color: $dark-body-grey;
 
-/* Title - Lato B48 */
+/* Title - Inter B48 */
 .title {
     font-family: $main-font-family;
     font-style: normal;
@@ -69,7 +69,7 @@ $dark-color: $dark-body-grey;
     color: $dark-body-grey;
 }
 
-/* Heading - Lato B36 */
+/* Heading - Inter B36 */
 .heading {
     font-family: $main-font-family;
     font-style: normal;
@@ -79,7 +79,7 @@ $dark-color: $dark-body-grey;
     color: $dark-body-grey;
 }
 
-/* Heading 2 - Lato B30 */
+/* Heading 2 - Inter B30 */
 .heading-2 {
     font-family: $main-font-family;
     font-style: normal;
@@ -89,7 +89,7 @@ $dark-color: $dark-body-grey;
     color: $dark-body-grey;
 }
 
-/* Body Reg - Lato R14 */
+/* Body Reg - Inter R14 */
 .body-reg {
     font-family: $main-font-family;
     font-style: normal;
@@ -99,7 +99,7 @@ $dark-color: $dark-body-grey;
     color: $dark-body-grey;
 }
 
-/* Body Bold - Lato B14 */
+/* Body Bold - Inter B14 */
 .body-bold {
     font-family: $main-font-family;
     font-style: normal;
@@ -109,7 +109,7 @@ $dark-color: $dark-body-grey;
     color: $dark-body-grey;
 }
 
-/* Body 2 Reg - Lato R18 */
+/* Body 2 Reg - Inter R18 */
 .body-2-reg {
     font-family: $main-font-family;
     font-style: normal;
@@ -119,7 +119,7 @@ $dark-color: $dark-body-grey;
     color: $dark-body-grey;
 }
 
-/* Body 2 Bold - Lato B18 */
+/* Body 2 Bold - Inter B18 */
 .body-2-bold {
     font-family: $main-font-family;
     font-style: normal;
@@ -129,7 +129,7 @@ $dark-color: $dark-body-grey;
     color: $dark-body-grey;
 }
 
-/* Body 3 Reg - Lato R22 */
+/* Body 3 Reg - Inter R22 */
 .body-3-reg {
     font-family: $main-font-family;
     font-style: normal;
@@ -139,7 +139,7 @@ $dark-color: $dark-body-grey;
     color: $dark-body-grey;
 }
 
-/* Body 3 Bold - Lato B22 */
+/* Body 3 Bold - Inter B22 */
 .body-3-bold {
     font-family: $main-font-family;
     font-style: normal;
@@ -158,7 +158,7 @@ $dark-color: $dark-body-grey;
     color: $dark-body-grey;
 }
 
-/* Footer - Lato R15 */
+/* Footer - Inter R15 */
 .footer {
     font-family: $main-font-family;
     font-style: normal;
@@ -168,7 +168,7 @@ $dark-color: $dark-body-grey;
     color: $dark-body-grey;
 }
 
-/* Info - Lato R12 */
+/* Info - Inter R12 */
 .info {
     font-family: $main-font-family;
     font-style: normal;

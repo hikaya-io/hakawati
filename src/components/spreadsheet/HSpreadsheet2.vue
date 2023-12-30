@@ -444,7 +444,7 @@ export default {
 
   .header {
     margin-left: 32px;
-    font-family: 'Lato';
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
     font-size: 12px;
